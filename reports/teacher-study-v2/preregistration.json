@@ -1,0 +1,14 @@
+{
+  "registered_utc": "2026-09-18T11:38:07.333894+00:00",
+  "files": {
+    "configs/teacher-study-v2/teacher.json": "e74c1913c8bb4f8f812c518bc167f47cc34c3881e1a67adf83f0d38b3580f216",
+    "configs/teacher-study-v2/train-20260920.json": "53a0df90b513af54e047e4329c5b32c09d5dc90603593b10641ef5c24f345656",
+    "configs/teacher-study-v2/train-20260919.json": "eeae6930e0c6dc872b99c4d81979720a3baf20eac7b8465c2e282074fd0a35e4",
+    "configs/teacher-study-v2/protocol.json": "b3fea959ea51baa304e04f98ebd0f15e0786382b0c4eb99ea1747fb21f2ef472",
+    "configs/teacher-study-v2/train-20260918.json": "954dd3c37efe6e03d039a7695845c413c492f7e4f4251517a5ac1faf44dfc176",
+    "data/teacher-pilot-v1/manifest.json": "c1a8e74dce4e5bffad032716fbb7ac0225a9c0050d8ec382d2f44bd65cfdbef1",
+    "data/complexity-v1/train.jsonl": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+    "data/complexity-v1/dev.jsonl": "8eb033584f81c1e5763c609fc6259678a550329dd9e72cdf89e4c806084c2a68"
+  },
+  "note": "Frozen before v2 teacher generation, training and dev evaluation. No test file read in this experiment."
+}

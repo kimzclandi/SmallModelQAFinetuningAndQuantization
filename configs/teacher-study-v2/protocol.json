@@ -1,0 +1,27 @@
+{
+  "experiment": "teacher-study-v2",
+  "seeds": [
+    20260918,
+    20260919,
+    20260920
+  ],
+  "arms": [
+    "gold",
+    "original_teacher",
+    "prompted_teacher"
+  ],
+  "teacher_config": "configs/teacher-study-v2/teacher.json",
+  "hypothesis": "A fixed evidence-check prompt with four author-written synthetic examples improves train-label quality over the original teacher and leads to better dev response distillation. Both improvements are hypotheses, not promised results.",
+  "prompt_design_source": "Only prior teacher mistakes on the 24 TRAIN questions; no dev/test examples in the prompt. Synthetic examples authored by AI assistant and fully included in config.",
+  "teacher": "Same local Qwen1.5B revision, FP32, greedy, 24 identical training IDs; new generation exactly once, no prompt retries. No API.",
+  "targets": "Keep all nonempty EOS outputs, including wrong/nonextractive outputs; abort build if capped or empty. No gold filtering or label replacement.",
+  "control": "All arms same original student, LoRA rank/optimizer/48 steps, data ID order before seeded shuffle. Same seed pairs share initial adapter and shuffle. Target token counts and lengths differ; not equal-token comparison.",
+  "evaluation": "9 new full DEV evaluations (3 arms x 3 seeds); no new old-test inference or test-derived decisions. Report every seed, sample standard deviation, slices and paired fixes/regressions. DEV already used in previous study: exploratory, not independent confirmation.",
+  "gate": {
+    "all_seeds_overall_em_strictly_above": 0.25675675675675674,
+    "all_seeds_answerable_em_at_least": 0.5757575757575758,
+    "decision": "A method qualifies for future external validation only if both thresholds hold for every seed. Do not deploy or publish automatically. If multiple qualify use mean overall EM then mean F1, report uncertainty."
+  },
+  "bounded_work": "One teacher prompt, 3 seeds, 9 48-step student runs. No extra hyperparameter search, no test access, no downloads needed, no paid API.",
+  "limits": "24 labels, 74 dev rows, same article, pretraining contamination, three seeds do not establish significance or business readiness."
+}
