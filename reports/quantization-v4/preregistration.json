@@ -1,0 +1,9 @@
+{
+  "registered_utc": "2026-09-18T12:43:05.901304+00:00",
+  "files": {
+    "configs/quantization-v4.json": "9c180020494cf7c0ffda9a7359c5df96c65bbe93ca9dfca267c93eee5868c883",
+    "configs/baseline.json": "7f490913d663f40d5248d59c0c09a899bbdbb6546e05c98fbdf7cdd47866aa13",
+    "data/complexity-v1/dev.jsonl": "8eb033584f81c1e5763c609fc6259678a550329dd9e72cdf89e4c806084c2a68",
+    "data/teacher-pilot-v1/request.json": "3d59efe50fb99cf477bb65603dd957570f5c81822eabd49003228e449cbc61a5"
+  }
+}
