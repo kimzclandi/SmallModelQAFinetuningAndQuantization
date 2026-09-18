@@ -1,0 +1,17 @@
+{
+  "seed": 20260918,
+  "teacher_config": "configs/teacher-local-v1.json",
+  "pilot_selection": "data/teacher-pilot-v1/manifest.json",
+  "train_config": "configs/gold-sft-pilot-v1.json",
+  "teacher_filter": "Keep all nonempty, non-capped responses, including format or gold mismatches; otherwise stop and record failure. No gold-based teacher filtering.",
+  "distillation": "Sequence-level response distillation; answer-only loss, 48 steps, same 24 IDs and initialization as gold-SFT. Target token totals may differ and must be reported.",
+  "repair": "One data-only change: add 24 previously unused answerable training examples, selected by fixed hash, to gold pilot. 48 total examples, 48 steps. Tests/dev examples never become training rows.",
+  "repair_rationale": "Gold-SFT dev has eight over-abstentions and four EM regressions. Increase answerable coverage; diagnose via held-out dev. Composition and diversity change together, not a causal isolation of either.",
+  "selection_gate": "Candidate dev overall EM > 19/74 AND answerable EM >= 19/33. Among passing candidates choose highest overall EM, then F1, then model name; if none pass retain original student.",
+  "dev_evaluations": "Exactly one full dev evaluation for each new trained candidate; no hyperparameter retry.",
+  "final_test": "After all candidate configs and dev selection are frozen, evaluate gold-SFT24, distilled24 and repaired48 exactly once each on the original 102 test questions. Include failed candidates for complete reporting; do not revise selection using test.",
+  "quantization": "Use ORIGINAL 0.5B student for a separate MLX FP16 vs 4-bit affine group64 weight-only comparison. No adapter, no KV-cache quantization. Both variants use same tokenizer, prompt, maximum length, greedy decoding and hardware.",
+  "quantization_quality": "One dev and one test evaluation per MLX variant, no tuning. Do not compare MLX speed directly with PyTorch to infer quantization gain.",
+  "quantization_perf": "Separate fixed-work benchmark on first 8 TRAIN pilot inputs, force 32 generated tokens regardless of EOS; 2 synthetic warmups; process order FP16,Q4,Q4,FP16; report all runs, medians, identical input token counts and lengths.",
+  "limitations": "Small pilot, one seed, one source article, possible pretraining contamination; no production claims. No cloud fees or publication."
+}

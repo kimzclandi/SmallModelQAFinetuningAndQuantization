@@ -1,0 +1,8 @@
+{
+  "registered_utc": "2026-09-18T11:10:13.376682+00:00",
+  "config_sha256": "8c09f1313df84ce1b5bd8652e61631990d7bc967b1490ba50c9e995ecfe939bd",
+  "teacher_config_sha256": "1b7076fdbb7446620d343af4ebb1f43237ba1891179da46bb4dd5e936242775c",
+  "prior_baseline_sha256": "fdaa67b2f78ae24ba01305b0a9c6945fbf463296b7d8782999214ca8f3d3d73c",
+  "prior_gold_sft_sha256": "707e0b03b3bbcb74111f888e4b1ee84b19c474589d5eae6f25808fc8e5b2acee",
+  "note": "Registered before local teacher generation, new training, quantization or additional test inference."
+}

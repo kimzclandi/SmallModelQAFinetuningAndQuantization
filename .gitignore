@@ -9,3 +9,4 @@ work/
 *.safetensors
 *.bin
 .DS_Store
+.venv-*/
