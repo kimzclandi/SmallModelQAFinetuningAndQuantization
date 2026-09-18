@@ -10,7 +10,7 @@
 - 修改：筛选 `Computational_complexity_theory`；保留原问题 ID、文段和答案；去除重复；增加来源、家族和本地 split 字段；重新分为 train/dev/test。未改写问题或答案。
 - 原始文件 SHA-256、处理规则和分组审计见 `data/complexity-v1/manifest.json`。
 
-再分发此数据改编须保留归属、来源、变更说明和相同许可。当前仅本地准备，尚未公开发布。样例文件仅包含训练集内容。
+再分发此数据改编须保留归属、来源、变更说明和相同许可。现已获授权随仓库公开，保留来源与许可。样例文件仅包含训练集内容。
 
 引用：Rajpurkar, Jia, Liang (2018), *Know What You Don't Know: Unanswerable Questions for SQuAD*, https://arxiv.org/abs/1806.03822 。
 
@@ -26,4 +26,4 @@
 
 ## chinese-v5（CMRC2018）
 
-新来源为Yiming Cui等作者的CMRC2018官方仓库，固定revision c0eb1b6ba219847457e6af3180da722bbeb656af。96题子集按CC BY-SA4.0提供；完整作者、论文、原始URL、修改说明和许可证见data/chinese-v5/ATTRIBUTION.md、SOURCE_LICENSE.txt及manifest.json。代码MIT许可不覆盖数据内容。此为官方公开dev的重新抽样，不是官方隐藏test。未上传或公开发布。
+新来源为Yiming Cui等作者的CMRC2018官方仓库，固定revision c0eb1b6ba219847457e6af3180da722bbeb656af。96题子集按CC BY-SA4.0提供；完整作者、论文、原始URL、修改说明和许可证见data/chinese-v5/ATTRIBUTION.md、SOURCE_LICENSE.txt及manifest.json。代码MIT许可不覆盖数据内容。此为官方公开dev的重新抽样，不是官方隐藏test。现已获授权随仓库公开，归属及原许可文件一并保留。

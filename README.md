@@ -2,7 +2,11 @@
 
 一个实际运行过的「问题与基线 → 响应蒸馏负结果 → 数据覆盖对照 → 量化取舍 → 中文新来源验证」实验项目。面向模型训练、推理优化与实验设计的面试讲解。**四阶段最小闭环已运行；已有训练候选未通过采用门槛，不宣称优化成功或生产可用。**
 
-本地仓库，尚未公开发布；没有调用付费API或上传数据。GPT手工候选只作审计，实际蒸馏使用本地开源教师。
+已获授权公开发布于 [GitHub](https://github.com/kimzclandi/domain-qa-lab)。代码、文档及许可实验数据/记录可供审阅；不包含模型权重、缓存或环境目录，没有调用付费API。GPT手工候选只作审计，实际蒸馏使用本地开源教师。
+
+[![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
+
+首次线上验收已通过：[提交1d86c7a的CI记录](https://github.com/kimzclandi/domain-qa-lab/actions/runs/35352738578)。CI执行51项测试、六套离线核验、gold对照与教师审计；不下载模型、不训练、不重新推理，不等于异机模型复现。历史报告中的未发布/未运行CI描述为当轮快照。
 
 ## 任务与资源
 
@@ -50,7 +54,7 @@
 
 新教师总分提高伴随回答能力退化，三种方法都未通过三seed门槛。新方案平均总EM仅比gold高0.45个百分点，不能据此宣称蒸馏优于监督微调。始终拒答的dev EM是55.41%。三seed不是三个独立测试集，±不是置信区间；同48步也不等于监督token预算相同。
 
-[第二轮完整证据](reports/teacher-study-v2/RESULTS.md) · [机制、复现与十道自测题](docs/TEACHER_STUDY_V2.md)。本地31项测试通过，GitHub线上CI尚未运行。
+[第二轮完整证据](reports/teacher-study-v2/RESULTS.md) · [机制、复现与十道自测题](docs/TEACHER_STUDY_V2.md)。该轮本地31项测试通过；当前发布与CI状态见页首。
 
 ## 第三轮：扩大覆盖与跨文章检查
 
@@ -64,7 +68,7 @@
 
 扩展组整体EM在三个seed中均高于24题对照，两篇文章各自的均值也提高，但总EM仍低于始终拒答的50%；开发集预设门槛也未通过。新文章仍属同一公开SQuAD文件，不能声称预训练未见或跨业务泛化。固定步数不控制token、epoch和样本分布。
 
-[第三轮完整结果](reports/coverage-v3/RESULTS.md) · [实验机制、复现与自测](docs/COVERAGE_V3.md)。本地33项测试通过；所有历史证据保留，GitHub线上CI未运行。
+[第三轮完整结果](reports/coverage-v3/RESULTS.md) · [实验机制、复现与自测](docs/COVERAGE_V3.md)。该轮本地33项测试通过；所有历史证据保留，当前CI状态见页首。
 
 ## 第四轮：8-bit压缩筛选（仅dev）
 
@@ -78,7 +82,7 @@
 
 Q8权重减少46.86%、解码速度约提高17.90%，dev少答对1题，通过预先固定的压缩门槛。它是**本地dev压缩候选**，不代表独立测试已验证、无损量化或QA任务可部署；Q4仍因质量损失未通过。没有重跑旧test或跨文章holdout。
 
-[完整证据与回归样例](reports/quantization-v4/RESULTS.md) · [量化机制、复现与自测](docs/QUANTIZATION_V4.md)。本地36项测试通过，线上CI未运行。
+[完整证据与回归样例](reports/quantization-v4/RESULTS.md) · [量化机制、复现与自测](docs/QUANTIZATION_V4.md)。该轮本地36项测试通过；当前CI状态见页首。
 
 ## 第五轮：中文新来源验证
 
@@ -103,7 +107,7 @@ uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
-入口依次执行测试、六套离线核验、gold对照与教师审计；日志只写入新的work子目录，检查前后对reports/data/configs逐文件校验。缺失冻结汇总会失败，不补写；禁止`python -O`。CI使用同一入口，仅验证保存证据，不执行模型、CUDA或Ascend。当前51项本地测试通过；线上CI仍未运行。
+入口依次执行测试、六套离线核验、gold对照与教师审计；日志只写入新的work子目录，检查前后对reports/data/configs逐文件校验。缺失冻结汇总会失败，不补写；禁止`python -O`。CI使用同一入口，仅验证保存证据，不执行模型、CUDA或Ascend。当前51项本地测试及首次线上CI均已通过，具体记录见页首。
 
 下面是**实际模型推理**入口，与离线核验分开：
 
@@ -160,4 +164,4 @@ MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到M
 
 ## 验证范围与未完成事项
 
-已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或在目标业务与硬件上通过验证的质量-效率方案；Q8已通过英文dev压缩筛选和96题中文新来源检查，但未达到业务部署验证。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。
+已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。GitHub线上离线验收已通过，尚无异机模型推理/训练复现。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或在目标业务与硬件上通过验证的质量-效率方案；Q8已通过英文dev压缩筛选和96题中文新来源检查，但未达到业务部署验证。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub已获授权公开发布；业务适用性仍需独立验证。
