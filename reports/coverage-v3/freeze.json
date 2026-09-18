@@ -1,0 +1,7 @@
+{
+  "frozen_utc": "2026-09-18T11:59:07.299388+00:00",
+  "commit": "97942f9695ac352c6c088462aeb828f88344e7c2",
+  "selection_sha256": "3c5615717542372051d20a974c040c3ec1b3d34210e88902fa5abf5c0b7e89a1",
+  "holdout_sha256": "f92a5468392fe403e9badbb53094d03d84a1e7826a1d99230ec2e4cb9c128589",
+  "decision": "No arm passed all dev seeds; evaluate all candidates once for reporting, no subsequent selection/tuning."
+}

@@ -1,0 +1,35 @@
+{
+  "policy": "Workspace absolute prefixes only; raw originals kept outside deliverable; numeric evidence unchanged.",
+  "files": [
+    {
+      "file": "gold24-20260919.train.log",
+      "original_sha256": "f83b492520ec6f30633040fa92f84f0648bb0b07da41b36d24ff7947e100ecdd",
+      "export_sha256": "2b49e7580f2ed414f46b9e36137895be976c9b434ef4eb225deaf1b90c7c9526"
+    },
+    {
+      "file": "gold24-20260918.train.log",
+      "original_sha256": "6ee8f48ec0471395bc2525c1a84d7f710d334a17e2d7e30f2034b2f53eca5ae8",
+      "export_sha256": "b2c82f9dc67ee33fecc588b14ecf9b4577acfc4fbe96bc9adc493396304ee4cc"
+    },
+    {
+      "file": "gold24-20260920.train.log",
+      "original_sha256": "ab5c039ba02926e70c20f7e38e4035f4356b281cacf26977ee841ce102390c31",
+      "export_sha256": "a9b62a1f18a62ccce4096965f3145aec3632f100f85622b3177597a1ed382010"
+    },
+    {
+      "file": "gold242-20260919.train.log",
+      "original_sha256": "a56c0869ba2eaeea8be100bb8b0e61ecafe50aecce9fb9156c2958c4b5cf3c47",
+      "export_sha256": "d6b8f41ea1ab1db3598208199cbef9c6c869a2edf6815553c6221e90a0bf2026"
+    },
+    {
+      "file": "gold242-20260918.train.log",
+      "original_sha256": "4369e0b289521cc866b3050dd3c0c05d3fc2f143072320dad2b270f23d31903c",
+      "export_sha256": "3722300e20ffb7b94935884fe9e7feb89a80dc717cc807af8d91f228bf57fc12"
+    },
+    {
+      "file": "gold242-20260920.train.log",
+      "original_sha256": "dc3626185f5b00f0d3f7ef86ac32c46b5f43459afc95727e64572d77c2ec2314",
+      "export_sha256": "f4db57c7e193af453451141f3f55e062a16f1940cb73bafbbbebc40f314c5012"
+    }
+  ]
+}

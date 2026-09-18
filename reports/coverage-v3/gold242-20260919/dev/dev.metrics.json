@@ -1,0 +1,40 @@
+{
+  "overall": {
+    "n": 74,
+    "em": 0.6486486486486487,
+    "f1": 0.6841649341649342,
+    "format_valid_rate": 0.9594594594594594
+  },
+  "answerable": {
+    "n": 33,
+    "em": 0.36363636363636365,
+    "f1": 0.44327894327894324,
+    "format_valid_rate": 0.9090909090909091
+  },
+  "unanswerable": {
+    "n": 41,
+    "em": 0.8780487804878049,
+    "f1": 0.8780487804878049,
+    "format_valid_rate": 1.0
+  },
+  "unsupported_answer_rate": 0.12195121951219512,
+  "over_abstention_rate": 0.36363636363636365,
+  "categories": {
+    "over_abstention": 12,
+    "correct": 48,
+    "wrong_or_partial_span": 6,
+    "format_or_nonextractive": 3,
+    "unsupported_answer": 5
+  },
+  "family_macro_em": 0.631305114638448,
+  "always_abstain_em": 0.5540540540540541,
+  "performance": {
+    "n": 74,
+    "mean_ttft_seconds": 0.07053442962141826,
+    "median_ttft_seconds": 0.06941010449918394,
+    "mean_generation_seconds": 0.16651215713524858,
+    "decode_tokens_per_second": 32.665236157871774,
+    "total_generated_tokens": 306,
+    "capped_outputs": 0
+  }
+}

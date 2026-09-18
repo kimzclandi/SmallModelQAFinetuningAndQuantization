@@ -1,0 +1,103 @@
+{
+  "aggregate": {
+    "dev": {
+      "gold24": {
+        "overall": {
+          "n": 3,
+          "mean": 0.572072072072072,
+          "sample_std": 0.007802030664724657,
+          "minimum": 0.5675675675675675,
+          "maximum": 0.581081081081081
+        },
+        "answerable": {
+          "n": 3,
+          "mean": 0.36363636363636365,
+          "sample_std": 0.06060606060606061,
+          "minimum": 0.30303030303030304,
+          "maximum": 0.42424242424242425
+        },
+        "unanswerable": {
+          "n": 3,
+          "mean": 0.7398373983739838,
+          "sample_std": 0.037256712967120686,
+          "minimum": 0.7073170731707317,
+          "maximum": 0.7804878048780488
+        }
+      },
+      "gold242": {
+        "overall": {
+          "n": 3,
+          "mean": 0.6486486486486487,
+          "sample_std": 0.013513513513513542,
+          "minimum": 0.6351351351351351,
+          "maximum": 0.6621621621621622
+        },
+        "answerable": {
+          "n": 3,
+          "mean": 0.41414141414141414,
+          "sample_std": 0.08747731351357965,
+          "minimum": 0.36363636363636365,
+          "maximum": 0.5151515151515151
+        },
+        "unanswerable": {
+          "n": 3,
+          "mean": 0.8373983739837398,
+          "sample_std": 0.050772341450393464,
+          "minimum": 0.7804878048780488,
+          "maximum": 0.8780487804878049
+        }
+      }
+    },
+    "external": {
+      "gold24": {
+        "overall": {
+          "n": 3,
+          "mean": 0.3645833333333333,
+          "sample_std": 0.039322054350368486,
+          "minimum": 0.328125,
+          "maximum": 0.40625
+        },
+        "answerable": {
+          "n": 3,
+          "mean": 0.3854166666666667,
+          "sample_std": 0.06505206248331664,
+          "minimum": 0.3125,
+          "maximum": 0.4375
+        },
+        "unanswerable": {
+          "n": 3,
+          "mean": 0.34375,
+          "sample_std": 0.10825317547305482,
+          "minimum": 0.21875,
+          "maximum": 0.40625
+        }
+      },
+      "gold242": {
+        "overall": {
+          "n": 3,
+          "mean": 0.4427083333333333,
+          "sample_std": 0.03252603124165832,
+          "minimum": 0.40625,
+          "maximum": 0.46875
+        },
+        "answerable": {
+          "n": 3,
+          "mean": 0.4791666666666667,
+          "sample_std": 0.047735163489123336,
+          "minimum": 0.4375,
+          "maximum": 0.53125
+        },
+        "unanswerable": {
+          "n": 3,
+          "mean": 0.40625,
+          "sample_std": 0.11267347735824966,
+          "minimum": 0.28125,
+          "maximum": 0.5
+        }
+      }
+    }
+  },
+  "decision": "no_arm_passed_all_seeds"
+}
+Verified: article isolation/near duplicates, gold TRAIN-only coverage, 242-step matched configs, three seeds, pre-holdout freeze, all candidate metrics and adapter hashes, no old-test inference commands.
+Verified: all seven new-article inference commands occurred after the recorded selection freeze.

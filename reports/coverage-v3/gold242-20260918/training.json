@@ -1,0 +1,2244 @@
+{
+  "status": "complete",
+  "method": "gold_sft",
+  "config": {
+    "base_config": "configs/baseline.json",
+    "seed": 20260918,
+    "steps": 242,
+    "learning_rate": 0.0001,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "max_tokens": 2048,
+    "batch_size": 1,
+    "purpose": "Coverage-v3: matched optimizer steps, 24 vs all242 TRAIN gold labels; source manifest distinguishes arms; no equal-token/epoch claim."
+  },
+  "base": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "extract-or-abstain-v1",
+    "system_prompt": "Answer the question using only the supplied passage. If the passage contains the answer, output only the shortest exact span from the passage that answers the question. If the passage does not contain the answer, output exactly NO_ANSWER. Do not explain your answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "source_sha256": {
+    "qa_lab/__init__.py": "4c8e3ec040581f28a80d4fda912052ec8c4139b910e034d4e6a4e7ee52761b23",
+    "qa_lab/closure_data.py": "3227bb8d82dcbd64c91138015e712c31f63738058307ba4df03da348d089a509",
+    "qa_lab/common.py": "1b2bb44e1a59fd07b7b53d6a4581b86ee61ffd297a711843dfd0fbe328d92418",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/inference.py": "a0c439fede3ffb7912b2728b8462f04313b7da9644915b30d6d9b26060afd018",
+    "qa_lab/metrics.py": "65e3c472761fda70a0e90b9f929a5c85508242eec6fe1259464d05738404c005",
+    "qa_lab/mlx_experiment.py": "e5663fc468770c97424d3d551c1252583d03939d65d7505a9930c4a56654f95c",
+    "qa_lab/teacher_audit.py": "c904edf1ab54cc4473babc9779407340edea3567019bd186451de37529ad7e90",
+    "qa_lab/teacher_io.py": "9a0a001d235ad0e4eb71b7186db5547153d4f2b22a38096a63f6aed7ad378323",
+    "qa_lab/train.py": "cb3bb3f15451f087697b9ff5b2c8ae065a8d9ed6f8ee2e3ea519857c4bccdc8f",
+    "qa_lab/train_artifact.py": "8992a8559ab3317cd5a7cdb054e042fc595fee0b08e956732a6187dcc2d4bba9"
+  },
+  "artifact_sha256": "a789319989bbf17fdf370864cc7a37de1e5fd0ce2a74d77ea374825644333c6c",
+  "artifact_path": "data/coverage-v3-gold242",
+  "selected_ids": [
+    "56e17644e3433e1400422f40",
+    "56e17644e3433e1400422f41",
+    "56e17644e3433e1400422f42",
+    "56e17644e3433e1400422f43",
+    "56e17e6ee3433e1400422f7f",
+    "56e17e6ee3433e1400422f80",
+    "56e17e6ee3433e1400422f81",
+    "56e181d9e3433e1400422fa0",
+    "56e181d9e3433e1400422fa1",
+    "56e181d9e3433e1400422fa2",
+    "56e181d9e3433e1400422fa3",
+    "56e181d9e3433e1400422fa4",
+    "56e190bce3433e1400422fc8",
+    "56e190bce3433e1400422fc9",
+    "56e190bce3433e1400422fca",
+    "56e190bce3433e1400422fcb",
+    "56e190bce3433e1400422fcc",
+    "56e19557e3433e1400422fee",
+    "56e19557e3433e1400422ff0",
+    "56e19557e3433e1400422ff1",
+    "56e1a564cd28a01900c67a48",
+    "56e1a564cd28a01900c67a49",
+    "56e1a564cd28a01900c67a4a",
+    "56e1a564cd28a01900c67a4b",
+    "56e1a564cd28a01900c67a4c",
+    "56e1aba0e3433e1400423094",
+    "56e1aba0e3433e1400423095",
+    "56e1aba0e3433e1400423097",
+    "56e1aba0e3433e1400423098",
+    "56e1aff7cd28a01900c67a68",
+    "56e1aff7cd28a01900c67a69",
+    "56e1aff7cd28a01900c67a6a",
+    "56e1aff7cd28a01900c67a6b",
+    "56e1aff7cd28a01900c67a6c",
+    "56e1b00ce3433e140042309e",
+    "56e1b00ce3433e140042309f",
+    "56e1b00ce3433e14004230a1",
+    "56e1b169cd28a01900c67a72",
+    "56e1b169cd28a01900c67a73",
+    "56e1b169cd28a01900c67a74",
+    "56e1b169cd28a01900c67a75",
+    "56e1b355e3433e14004230b0",
+    "56e1b355e3433e14004230b1",
+    "56e1b355e3433e14004230b2",
+    "56e1b355e3433e14004230b3",
+    "56e1b62ecd28a01900c67aa3",
+    "56e1b62ecd28a01900c67aa4",
+    "56e1b62ecd28a01900c67aa5",
+    "56e1b62ecd28a01900c67aa6",
+    "56e1b8f3e3433e14004230e6",
+    "56e1b8f3e3433e14004230e7",
+    "56e1b8f3e3433e14004230e8",
+    "56e1b8f3e3433e14004230e9",
+    "56e1bd4acd28a01900c67afc",
+    "56e1bd4acd28a01900c67afd",
+    "56e1bd4acd28a01900c67afe",
+    "56e1bd4acd28a01900c67aff",
+    "56e1c2eee3433e1400423134",
+    "56e1c2eee3433e1400423135",
+    "56e1c2eee3433e1400423136",
+    "56e1c2eee3433e1400423137",
+    "56e1c2eee3433e1400423138",
+    "56e1c3e1e3433e1400423148",
+    "56e1c3e1e3433e1400423149",
+    "56e1c3e1e3433e140042314a",
+    "56e1c4fce3433e140042314e",
+    "56e1c4fce3433e140042314f",
+    "56e1c4fce3433e1400423150",
+    "56e1c4fce3433e1400423151",
+    "56e1c4fce3433e1400423152",
+    "56e1c720e3433e140042316a",
+    "56e1c720e3433e140042316b",
+    "56e1c720e3433e140042316c",
+    "56e1c720e3433e140042316d",
+    "56e1c720e3433e140042316e",
+    "56e1c7e2cd28a01900c67b74",
+    "56e1c7e2cd28a01900c67b75",
+    "56e1c7e2cd28a01900c67b76",
+    "56e1c9bfe3433e1400423192",
+    "56e1c9bfe3433e1400423193",
+    "56e1c9bfe3433e1400423194",
+    "56e1c9bfe3433e1400423195",
+    "56e1c9bfe3433e1400423196",
+    "56e1ce08e3433e14004231a4",
+    "56e1ce08e3433e14004231a5",
+    "56e1ce08e3433e14004231a6",
+    "56e1ce08e3433e14004231a8",
+    "56e1d9fee3433e14004231cb",
+    "56e1d9fee3433e14004231cc",
+    "56e1d9fee3433e14004231cd",
+    "56e1d9fee3433e14004231ce",
+    "56e1e9dfe3433e14004231fc",
+    "56e1e9dfe3433e14004231fd",
+    "56e1e9dfe3433e14004231fe",
+    "56e1e9dfe3433e14004231ff",
+    "56e1e9dfe3433e1400423200",
+    "56e1efa0e3433e140042321a",
+    "56e1efa0e3433e140042321b",
+    "56e1efa0e3433e140042321c",
+    "56e1efa0e3433e140042321d",
+    "56e1febfe3433e1400423236",
+    "56e1febfe3433e1400423237",
+    "56e1febfe3433e1400423238",
+    "56e1febfe3433e1400423239",
+    "56e1febfe3433e140042323a",
+    "56e200e4cd28a01900c67c14",
+    "56e200e4cd28a01900c67c15",
+    "56e200e4cd28a01900c67c16",
+    "56e200e4cd28a01900c67c17",
+    "56e200e4cd28a01900c67c18",
+    "56e20a27cd28a01900c67c24",
+    "56e20a27cd28a01900c67c25",
+    "56e20a3ae3433e140042324a",
+    "56e20a3ae3433e140042324b",
+    "56e20a3ae3433e140042324d",
+    "56e20a3ae3433e140042324e",
+    "5ad5344b5b96ef001a10ab86",
+    "5ad5344b5b96ef001a10ab87",
+    "5ad5344b5b96ef001a10ab88",
+    "5ad5344b5b96ef001a10ab89",
+    "5ad5344b5b96ef001a10ab8a",
+    "5ad537a15b96ef001a10ab9a",
+    "5ad537a15b96ef001a10ab9b",
+    "5ad537a15b96ef001a10ab9c",
+    "5ad537a15b96ef001a10ab9d",
+    "5ad5391e5b96ef001a10aba2",
+    "5ad5391e5b96ef001a10aba3",
+    "5ad5391e5b96ef001a10aba4",
+    "5ad5391e5b96ef001a10aba5",
+    "5ad5391e5b96ef001a10aba6",
+    "5ad53ac65b96ef001a10abac",
+    "5ad53ac65b96ef001a10abad",
+    "5ad53ac65b96ef001a10abae",
+    "5ad53ac65b96ef001a10abaf",
+    "5ad53b9d5b96ef001a10abc8",
+    "5ad53b9d5b96ef001a10abc9",
+    "5ad53b9d5b96ef001a10abca",
+    "5ad53b9d5b96ef001a10abcb",
+    "5ad53b9d5b96ef001a10abcc",
+    "5ad53d705b96ef001a10abd2",
+    "5ad53d705b96ef001a10abd3",
+    "5ad53d705b96ef001a10abd4",
+    "5ad53d705b96ef001a10abd5",
+    "5ad542db5b96ef001a10abf4",
+    "5ad542db5b96ef001a10abf5",
+    "5ad542db5b96ef001a10abf6",
+    "5ad542db5b96ef001a10abf7",
+    "5ad542db5b96ef001a10abf8",
+    "5ad543c05b96ef001a10abfe",
+    "5ad543c05b96ef001a10abff",
+    "5ad543c05b96ef001a10ac00",
+    "5ad543c05b96ef001a10ac01",
+    "5ad545545b96ef001a10ac06",
+    "5ad545545b96ef001a10ac07",
+    "5ad545545b96ef001a10ac08",
+    "5ad545545b96ef001a10ac09",
+    "5ad546c75b96ef001a10ac0e",
+    "5ad546c75b96ef001a10ac0f",
+    "5ad546c75b96ef001a10ac10",
+    "5ad546c75b96ef001a10ac11",
+    "5ad546c75b96ef001a10ac12",
+    "5ad547945b96ef001a10ac18",
+    "5ad547945b96ef001a10ac19",
+    "5ad547945b96ef001a10ac1a",
+    "5ad547945b96ef001a10ac1b",
+    "5ad5489b5b96ef001a10ac2a",
+    "5ad5489b5b96ef001a10ac2b",
+    "5ad5489b5b96ef001a10ac2c",
+    "5ad5489b5b96ef001a10ac2d",
+    "5ad5489b5b96ef001a10ac2e",
+    "5ad54a375b96ef001a10ac48",
+    "5ad54a375b96ef001a10ac49",
+    "5ad54a375b96ef001a10ac4a",
+    "5ad54a375b96ef001a10ac4b",
+    "5ad54a375b96ef001a10ac4c",
+    "5ad54c2f5b96ef001a10ac5c",
+    "5ad54c2f5b96ef001a10ac5d",
+    "5ad54c2f5b96ef001a10ac5e",
+    "5ad54c2f5b96ef001a10ac5f",
+    "5ad54f775b96ef001a10ac88",
+    "5ad54f775b96ef001a10ac89",
+    "5ad54f775b96ef001a10ac8a",
+    "5ad54f775b96ef001a10ac8b",
+    "5ad55ee35b96ef001a10ace4",
+    "5ad55ee35b96ef001a10ace5",
+    "5ad55ee35b96ef001a10ace6",
+    "5ad55ee35b96ef001a10ace7",
+    "5ad55ee35b96ef001a10ace8",
+    "5ad55fe75b96ef001a10ad0c",
+    "5ad55fe75b96ef001a10ad0d",
+    "5ad55fe75b96ef001a10ad0e",
+    "5ad55fe75b96ef001a10ad0f",
+    "5ad560b85b96ef001a10ad1e",
+    "5ad560b85b96ef001a10ad1f",
+    "5ad560b85b96ef001a10ad20",
+    "5ad560b85b96ef001a10ad21",
+    "5ad560b85b96ef001a10ad22",
+    "5ad561c85b96ef001a10ad3c",
+    "5ad561c85b96ef001a10ad3d",
+    "5ad561c85b96ef001a10ad3e",
+    "5ad561c85b96ef001a10ad3f",
+    "5ad561c85b96ef001a10ad40",
+    "5ad562525b96ef001a10ad50",
+    "5ad562525b96ef001a10ad51",
+    "5ad562525b96ef001a10ad52",
+    "5ad562525b96ef001a10ad53",
+    "5ad5632f5b96ef001a10ad6c",
+    "5ad5632f5b96ef001a10ad6d",
+    "5ad5632f5b96ef001a10ad6e",
+    "5ad5632f5b96ef001a10ad6f",
+    "5ad5632f5b96ef001a10ad70",
+    "5ad565575b96ef001a10adb2",
+    "5ad565575b96ef001a10adb3",
+    "5ad565575b96ef001a10adb4",
+    "5ad565575b96ef001a10adb5",
+    "5ad566375b96ef001a10adce",
+    "5ad566375b96ef001a10adcf",
+    "5ad566375b96ef001a10add0",
+    "5ad566375b96ef001a10add1",
+    "5ad569c05b96ef001a10ae36",
+    "5ad569c05b96ef001a10ae37",
+    "5ad569c05b96ef001a10ae38",
+    "5ad569c05b96ef001a10ae39",
+    "5ad569c05b96ef001a10ae3a",
+    "5ad56c6b5b96ef001a10ae6c",
+    "5ad56c6b5b96ef001a10ae6d",
+    "5ad56c6b5b96ef001a10ae6e",
+    "5ad56c6b5b96ef001a10ae6f",
+    "5ad56ef05b96ef001a10aea8",
+    "5ad56ef05b96ef001a10aea9",
+    "5ad56ef05b96ef001a10aeaa",
+    "5ad56ef05b96ef001a10aeab",
+    "5ad56fe65b96ef001a10aec2",
+    "5ad56fe65b96ef001a10aec3",
+    "5ad56fe65b96ef001a10aec4",
+    "5ad56fe65b96ef001a10aec5",
+    "5ad56fe65b96ef001a10aec6",
+    "5ad572b15b96ef001a10af06",
+    "5ad572b15b96ef001a10af07",
+    "5ad572b15b96ef001a10af08",
+    "5ad572b15b96ef001a10af09",
+    "5ad572b15b96ef001a10af0a"
+  ],
+  "hardware": "Apple M4 Max",
+  "started_utc": "2026-09-18T11:54:09.500299+00:00",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.56.2",
+    "peft": "0.17.1"
+  },
+  "note": "Hyperparameters and seed are recorded in config; target token count can differ across artifacts. Answer-only response-level CE, no logits matching.",
+  "trainable_parameters": 540672,
+  "steps": [
+    {
+      "step": 1,
+      "id": "5ad572b15b96ef001a10af09",
+      "loss": 1.941955327987671,
+      "grad_norm": 20.810592651367188,
+      "input_tokens": 233,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 2,
+      "id": "56e1c3e1e3433e1400423149",
+      "loss": 2.562345504760742,
+      "grad_norm": 56.76041030883789,
+      "input_tokens": 119,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 3,
+      "id": "5ad542db5b96ef001a10abf7",
+      "loss": 2.105098009109497,
+      "grad_norm": 20.915719985961914,
+      "input_tokens": 189,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 4,
+      "id": "56e1b8f3e3433e14004230e6",
+      "loss": 1.5526384115219116,
+      "grad_norm": 18.642114639282227,
+      "input_tokens": 141,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 5,
+      "id": "56e1efa0e3433e140042321d",
+      "loss": 0.984677791595459,
+      "grad_norm": 13.67442512512207,
+      "input_tokens": 172,
+      "supervised_tokens": 8
+    },
+    {
+      "step": 6,
+      "id": "5ad537a15b96ef001a10ab9c",
+      "loss": 3.0764694213867188,
+      "grad_norm": 9.830842971801758,
+      "input_tokens": 202,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 7,
+      "id": "56e1b355e3433e14004230b0",
+      "loss": 2.0773422718048096,
+      "grad_norm": 36.60542678833008,
+      "input_tokens": 189,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 8,
+      "id": "5ad54c2f5b96ef001a10ac5e",
+      "loss": 0.5138376355171204,
+      "grad_norm": 27.60732078552246,
+      "input_tokens": 139,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 9,
+      "id": "5ad565575b96ef001a10adb5",
+      "loss": 1.2957838773727417,
+      "grad_norm": 15.727523803710938,
+      "input_tokens": 201,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 10,
+      "id": "5ad5489b5b96ef001a10ac2c",
+      "loss": 2.5637118816375732,
+      "grad_norm": 11.94310474395752,
+      "input_tokens": 186,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 11,
+      "id": "56e1c9bfe3433e1400423196",
+      "loss": 1.3030366897583008,
+      "grad_norm": 8.254243850708008,
+      "input_tokens": 207,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 12,
+      "id": "5ad546c75b96ef001a10ac0f",
+      "loss": 1.6681163311004639,
+      "grad_norm": 33.720794677734375,
+      "input_tokens": 280,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 13,
+      "id": "56e1ce08e3433e14004231a6",
+      "loss": 0.4619651138782501,
+      "grad_norm": 10.055968284606934,
+      "input_tokens": 202,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 14,
+      "id": "5ad54a375b96ef001a10ac49",
+      "loss": 0.10199443995952606,
+      "grad_norm": 17.898494720458984,
+      "input_tokens": 272,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 15,
+      "id": "5ad562525b96ef001a10ad51",
+      "loss": 2.23140287399292,
+      "grad_norm": 41.860511779785156,
+      "input_tokens": 144,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 16,
+      "id": "56e19557e3433e1400422ff1",
+      "loss": 0.9486106038093567,
+      "grad_norm": 7.425076007843018,
+      "input_tokens": 170,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 17,
+      "id": "56e1c9bfe3433e1400423193",
+      "loss": 1.3597588539123535,
+      "grad_norm": 29.34236717224121,
+      "input_tokens": 203,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 18,
+      "id": "5ad56ef05b96ef001a10aeab",
+      "loss": 0.029145454987883568,
+      "grad_norm": 3.4280800819396973,
+      "input_tokens": 200,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 19,
+      "id": "56e17644e3433e1400422f41",
+      "loss": 0.06662213802337646,
+      "grad_norm": 3.2832932472229004,
+      "input_tokens": 225,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 20,
+      "id": "56e20a3ae3433e140042324a",
+      "loss": 0.04654045030474663,
+      "grad_norm": 7.066450595855713,
+      "input_tokens": 223,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 21,
+      "id": "5ad53d705b96ef001a10abd4",
+      "loss": 0.009769261814653873,
+      "grad_norm": 0.38765275478363037,
+      "input_tokens": 167,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 22,
+      "id": "5ad537a15b96ef001a10ab9a",
+      "loss": 0.01988319121301174,
+      "grad_norm": 1.1638368368148804,
+      "input_tokens": 206,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 23,
+      "id": "5ad56fe65b96ef001a10aec3",
+      "loss": 0.0062898872420191765,
+      "grad_norm": 0.24995116889476776,
+      "input_tokens": 155,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 24,
+      "id": "56e200e4cd28a01900c67c17",
+      "loss": 0.11144015938043594,
+      "grad_norm": 15.856498718261719,
+      "input_tokens": 153,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 25,
+      "id": "56e1b62ecd28a01900c67aa5",
+      "loss": 1.0997247695922852,
+      "grad_norm": 40.54279327392578,
+      "input_tokens": 288,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 26,
+      "id": "56e190bce3433e1400422fc9",
+      "loss": 4.866562843322754,
+      "grad_norm": 44.97427749633789,
+      "input_tokens": 223,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 27,
+      "id": "5ad542db5b96ef001a10abf5",
+      "loss": 0.0033023953437805176,
+      "grad_norm": 0.11556370556354523,
+      "input_tokens": 204,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 28,
+      "id": "5ad547945b96ef001a10ac19",
+      "loss": 0.008258816786110401,
+      "grad_norm": 0.5083261132240295,
+      "input_tokens": 155,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 29,
+      "id": "5ad5344b5b96ef001a10ab8a",
+      "loss": 0.016510795801877975,
+      "grad_norm": 1.5505834817886353,
+      "input_tokens": 220,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 30,
+      "id": "56e1b00ce3433e14004230a1",
+      "loss": 0.9081153869628906,
+      "grad_norm": 18.676288604736328,
+      "input_tokens": 173,
+      "supervised_tokens": 14
+    },
+    {
+      "step": 31,
+      "id": "5ad55ee35b96ef001a10ace5",
+      "loss": 0.0028839397709816694,
+      "grad_norm": 0.13259990513324738,
+      "input_tokens": 244,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 32,
+      "id": "5ad569c05b96ef001a10ae3a",
+      "loss": 0.004646691028028727,
+      "grad_norm": 0.15999609231948853,
+      "input_tokens": 244,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 33,
+      "id": "5ad569c05b96ef001a10ae37",
+      "loss": 0.846900463104248,
+      "grad_norm": 60.56045150756836,
+      "input_tokens": 243,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 34,
+      "id": "56e1febfe3433e1400423237",
+      "loss": 2.2404394149780273,
+      "grad_norm": 43.22444534301758,
+      "input_tokens": 218,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 35,
+      "id": "5ad54a375b96ef001a10ac4b",
+      "loss": 0.0031722052954137325,
+      "grad_norm": 0.17085306346416473,
+      "input_tokens": 287,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 36,
+      "id": "5ad537a15b96ef001a10ab9b",
+      "loss": 0.006985390093177557,
+      "grad_norm": 0.23128873109817505,
+      "input_tokens": 194,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 37,
+      "id": "56e1ce08e3433e14004231a5",
+      "loss": 1.6366413831710815,
+      "grad_norm": 14.137334823608398,
+      "input_tokens": 212,
+      "supervised_tokens": 12
+    },
+    {
+      "step": 38,
+      "id": "56e1d9fee3433e14004231cb",
+      "loss": 1.1015619039535522,
+      "grad_norm": 29.924015045166016,
+      "input_tokens": 277,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 39,
+      "id": "5ad542db5b96ef001a10abf8",
+      "loss": 0.0029101897962391376,
+      "grad_norm": 0.09471781551837921,
+      "input_tokens": 199,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 40,
+      "id": "56e1d9fee3433e14004231cd",
+      "loss": 1.7961771488189697,
+      "grad_norm": 21.737390518188477,
+      "input_tokens": 306,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 41,
+      "id": "5ad56fe65b96ef001a10aec6",
+      "loss": 0.9069049954414368,
+      "grad_norm": 76.62130737304688,
+      "input_tokens": 148,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 42,
+      "id": "5ad54a375b96ef001a10ac4a",
+      "loss": 0.011701693758368492,
+      "grad_norm": 1.0042122602462769,
+      "input_tokens": 286,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 43,
+      "id": "56e200e4cd28a01900c67c18",
+      "loss": 2.7940361499786377,
+      "grad_norm": 62.089881896972656,
+      "input_tokens": 146,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 44,
+      "id": "56e1c4fce3433e140042314e",
+      "loss": 0.4829213321208954,
+      "grad_norm": 13.23974609375,
+      "input_tokens": 179,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 45,
+      "id": "5ad54f775b96ef001a10ac88",
+      "loss": 0.0013876922894269228,
+      "grad_norm": 0.06620940566062927,
+      "input_tokens": 158,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 46,
+      "id": "56e1c7e2cd28a01900c67b74",
+      "loss": 0.5281345844268799,
+      "grad_norm": 12.509769439697266,
+      "input_tokens": 143,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 47,
+      "id": "56e1a564cd28a01900c67a4b",
+      "loss": 0.8055109977722168,
+      "grad_norm": 27.38050651550293,
+      "input_tokens": 189,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 48,
+      "id": "5ad53b9d5b96ef001a10abcc",
+      "loss": 0.4437254071235657,
+      "grad_norm": 31.442811965942383,
+      "input_tokens": 223,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 49,
+      "id": "56e20a3ae3433e140042324b",
+      "loss": 0.03867943957448006,
+      "grad_norm": 5.166158676147461,
+      "input_tokens": 224,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 50,
+      "id": "5ad537a15b96ef001a10ab9d",
+      "loss": 0.013268964365124702,
+      "grad_norm": 1.6770594120025635,
+      "input_tokens": 194,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 51,
+      "id": "56e1b169cd28a01900c67a72",
+      "loss": 0.20571856200695038,
+      "grad_norm": 12.463282585144043,
+      "input_tokens": 166,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 52,
+      "id": "56e1bd4acd28a01900c67afd",
+      "loss": 0.14091159403324127,
+      "grad_norm": 5.390605926513672,
+      "input_tokens": 157,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 53,
+      "id": "5ad55ee35b96ef001a10ace6",
+      "loss": 0.04440411925315857,
+      "grad_norm": 9.389626502990723,
+      "input_tokens": 244,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 54,
+      "id": "5ad543c05b96ef001a10abfe",
+      "loss": 1.2527793645858765,
+      "grad_norm": 54.070640563964844,
+      "input_tokens": 275,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 55,
+      "id": "5ad55fe75b96ef001a10ad0f",
+      "loss": 0.018648333847522736,
+      "grad_norm": 2.5557661056518555,
+      "input_tokens": 122,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 56,
+      "id": "56e1c720e3433e140042316d",
+      "loss": 1.3958525657653809,
+      "grad_norm": 23.553312301635742,
+      "input_tokens": 254,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 57,
+      "id": "5ad561c85b96ef001a10ad3f",
+      "loss": 0.005020708777010441,
+      "grad_norm": 0.7268304824829102,
+      "input_tokens": 256,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 58,
+      "id": "56e1a564cd28a01900c67a48",
+      "loss": 0.5846181511878967,
+      "grad_norm": 21.853439331054688,
+      "input_tokens": 205,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 59,
+      "id": "5ad53b9d5b96ef001a10abca",
+      "loss": 0.25095483660697937,
+      "grad_norm": 19.646697998046875,
+      "input_tokens": 228,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 60,
+      "id": "56e1c4fce3433e1400423152",
+      "loss": 5.792823791503906,
+      "grad_norm": 76.89842224121094,
+      "input_tokens": 170,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 61,
+      "id": "56e17644e3433e1400422f43",
+      "loss": 0.6799376606941223,
+      "grad_norm": 27.510339736938477,
+      "input_tokens": 229,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 62,
+      "id": "5ad5632f5b96ef001a10ad6e",
+      "loss": 0.026431724429130554,
+      "grad_norm": 2.2399909496307373,
+      "input_tokens": 206,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 63,
+      "id": "56e1c4fce3433e1400423151",
+      "loss": 1.0909974575042725,
+      "grad_norm": 26.894519805908203,
+      "input_tokens": 171,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 64,
+      "id": "5ad566375b96ef001a10add1",
+      "loss": 0.008509455248713493,
+      "grad_norm": 0.4188029170036316,
+      "input_tokens": 278,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 65,
+      "id": "56e19557e3433e1400422ff0",
+      "loss": 2.167840003967285,
+      "grad_norm": 22.640331268310547,
+      "input_tokens": 164,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 66,
+      "id": "56e1aba0e3433e1400423097",
+      "loss": 1.1539676189422607,
+      "grad_norm": 19.20806312561035,
+      "input_tokens": 276,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 67,
+      "id": "56e1aba0e3433e1400423095",
+      "loss": 0.7864999175071716,
+      "grad_norm": 14.979440689086914,
+      "input_tokens": 283,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 68,
+      "id": "5ad54c2f5b96ef001a10ac5f",
+      "loss": 0.0013819743180647492,
+      "grad_norm": 0.05023154988884926,
+      "input_tokens": 144,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 69,
+      "id": "5ad5489b5b96ef001a10ac2e",
+      "loss": 0.005662961397320032,
+      "grad_norm": 0.5689428448677063,
+      "input_tokens": 192,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 70,
+      "id": "5ad562525b96ef001a10ad50",
+      "loss": 0.0008664134657010436,
+      "grad_norm": 0.025622066110372543,
+      "input_tokens": 142,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 71,
+      "id": "56e17e6ee3433e1400422f81",
+      "loss": 1.4611585140228271,
+      "grad_norm": 64.9279556274414,
+      "input_tokens": 195,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 72,
+      "id": "56e1febfe3433e140042323a",
+      "loss": 0.893484890460968,
+      "grad_norm": 15.82532024383545,
+      "input_tokens": 214,
+      "supervised_tokens": 8
+    },
+    {
+      "step": 73,
+      "id": "56e1c2eee3433e1400423136",
+      "loss": 0.2926640510559082,
+      "grad_norm": 21.327436447143555,
+      "input_tokens": 247,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 74,
+      "id": "56e1c3e1e3433e140042314a",
+      "loss": 0.2144901007413864,
+      "grad_norm": 6.253183841705322,
+      "input_tokens": 125,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 75,
+      "id": "5ad545545b96ef001a10ac06",
+      "loss": 0.0014806443359702826,
+      "grad_norm": 0.08793497830629349,
+      "input_tokens": 158,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 76,
+      "id": "5ad54f775b96ef001a10ac89",
+      "loss": 0.1409463733434677,
+      "grad_norm": 25.541889190673828,
+      "input_tokens": 157,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 77,
+      "id": "56e1aff7cd28a01900c67a6b",
+      "loss": 0.460573673248291,
+      "grad_norm": 10.917823791503906,
+      "input_tokens": 288,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 78,
+      "id": "56e17e6ee3433e1400422f80",
+      "loss": 0.8596053719520569,
+      "grad_norm": 24.919649124145508,
+      "input_tokens": 207,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 79,
+      "id": "5ad53ac65b96ef001a10abad",
+      "loss": 0.8521483540534973,
+      "grad_norm": 59.57560348510742,
+      "input_tokens": 146,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 80,
+      "id": "56e181d9e3433e1400422fa1",
+      "loss": 1.0371413230895996,
+      "grad_norm": 31.57473373413086,
+      "input_tokens": 184,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 81,
+      "id": "5ad5344b5b96ef001a10ab87",
+      "loss": 0.0026279266458004713,
+      "grad_norm": 0.17559273540973663,
+      "input_tokens": 219,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 82,
+      "id": "5ad560b85b96ef001a10ad1e",
+      "loss": 0.4617355465888977,
+      "grad_norm": 22.418167114257812,
+      "input_tokens": 167,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 83,
+      "id": "5ad565575b96ef001a10adb4",
+      "loss": 0.018683141097426414,
+      "grad_norm": 2.331547975540161,
+      "input_tokens": 195,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 84,
+      "id": "56e1bd4acd28a01900c67aff",
+      "loss": 1.0635654926300049,
+      "grad_norm": 10.213211059570312,
+      "input_tokens": 163,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 85,
+      "id": "5ad547945b96ef001a10ac18",
+      "loss": 0.001596272923052311,
+      "grad_norm": 0.07646146416664124,
+      "input_tokens": 167,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 86,
+      "id": "56e1b8f3e3433e14004230e7",
+      "loss": 3.266374111175537,
+      "grad_norm": 59.175724029541016,
+      "input_tokens": 140,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 87,
+      "id": "5ad542db5b96ef001a10abf6",
+      "loss": 0.001338779111392796,
+      "grad_norm": 0.045354269444942474,
+      "input_tokens": 194,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 88,
+      "id": "5ad547945b96ef001a10ac1a",
+      "loss": 0.00200927653349936,
+      "grad_norm": 0.1279493123292923,
+      "input_tokens": 162,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 89,
+      "id": "5ad5344b5b96ef001a10ab88",
+      "loss": 0.0098757678642869,
+      "grad_norm": 0.6753093600273132,
+      "input_tokens": 224,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 90,
+      "id": "56e1efa0e3433e140042321c",
+      "loss": 2.138343095779419,
+      "grad_norm": 72.31525421142578,
+      "input_tokens": 162,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 91,
+      "id": "5ad56c6b5b96ef001a10ae6f",
+      "loss": 0.0015306659042835236,
+      "grad_norm": 0.059042807668447495,
+      "input_tokens": 170,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 92,
+      "id": "5ad56fe65b96ef001a10aec2",
+      "loss": 0.0029501107055693865,
+      "grad_norm": 0.1710795760154724,
+      "input_tokens": 143,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 93,
+      "id": "56e200e4cd28a01900c67c14",
+      "loss": 1.4993469715118408,
+      "grad_norm": 29.94127655029297,
+      "input_tokens": 157,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 94,
+      "id": "5ad543c05b96ef001a10abff",
+      "loss": 0.9354220628738403,
+      "grad_norm": 37.16822052001953,
+      "input_tokens": 281,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 95,
+      "id": "56e1b169cd28a01900c67a73",
+      "loss": 3.530766010284424,
+      "grad_norm": 43.15911102294922,
+      "input_tokens": 164,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 96,
+      "id": "56e1a564cd28a01900c67a49",
+      "loss": 1.0464346408843994,
+      "grad_norm": 18.571006774902344,
+      "input_tokens": 198,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 97,
+      "id": "5ad55ee35b96ef001a10ace7",
+      "loss": 0.0010090244468301535,
+      "grad_norm": 0.03979378193616867,
+      "input_tokens": 236,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 98,
+      "id": "5ad565575b96ef001a10adb3",
+      "loss": 0.0034221033565700054,
+      "grad_norm": 0.26380330324172974,
+      "input_tokens": 205,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 99,
+      "id": "56e1b62ecd28a01900c67aa3",
+      "loss": 1.598412275314331,
+      "grad_norm": 24.657094955444336,
+      "input_tokens": 278,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 100,
+      "id": "5ad55ee35b96ef001a10ace8",
+      "loss": 0.4895034432411194,
+      "grad_norm": 50.660709381103516,
+      "input_tokens": 247,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 101,
+      "id": "56e1b355e3433e14004230b2",
+      "loss": 0.10036388039588928,
+      "grad_norm": 3.7558367252349854,
+      "input_tokens": 190,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 102,
+      "id": "56e1e9dfe3433e14004231fd",
+      "loss": 1.5459263324737549,
+      "grad_norm": 48.222862243652344,
+      "input_tokens": 248,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 103,
+      "id": "5ad562525b96ef001a10ad52",
+      "loss": 0.0017821385990828276,
+      "grad_norm": 0.26230019330978394,
+      "input_tokens": 138,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 104,
+      "id": "56e1a564cd28a01900c67a4a",
+      "loss": 1.1365145444869995,
+      "grad_norm": 20.59922981262207,
+      "input_tokens": 196,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 105,
+      "id": "56e1d9fee3433e14004231cc",
+      "loss": 1.8951934576034546,
+      "grad_norm": 45.37795639038086,
+      "input_tokens": 275,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 106,
+      "id": "5ad572b15b96ef001a10af0a",
+      "loss": 0.006267976947128773,
+      "grad_norm": 0.4390838146209717,
+      "input_tokens": 236,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 107,
+      "id": "5ad547945b96ef001a10ac1b",
+      "loss": 0.002045250963419676,
+      "grad_norm": 0.1521614044904709,
+      "input_tokens": 155,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 108,
+      "id": "56e1b355e3433e14004230b3",
+      "loss": 1.7774182558059692,
+      "grad_norm": 27.54960823059082,
+      "input_tokens": 190,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 109,
+      "id": "56e1febfe3433e1400423236",
+      "loss": 0.02133677527308464,
+      "grad_norm": 0.8817003965377808,
+      "input_tokens": 205,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 110,
+      "id": "5ad5391e5b96ef001a10aba2",
+      "loss": 0.006563820876181126,
+      "grad_norm": 0.5350066423416138,
+      "input_tokens": 183,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 111,
+      "id": "5ad53b9d5b96ef001a10abc8",
+      "loss": 2.1068477630615234,
+      "grad_norm": 35.728118896484375,
+      "input_tokens": 228,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 112,
+      "id": "5ad560b85b96ef001a10ad21",
+      "loss": 0.007133328355848789,
+      "grad_norm": 0.8449823260307312,
+      "input_tokens": 168,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 113,
+      "id": "56e1b00ce3433e140042309e",
+      "loss": 0.008748874999582767,
+      "grad_norm": 0.2617166340351105,
+      "input_tokens": 157,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 114,
+      "id": "56e1febfe3433e1400423238",
+      "loss": 0.19081701338291168,
+      "grad_norm": 5.319884777069092,
+      "input_tokens": 221,
+      "supervised_tokens": 8
+    },
+    {
+      "step": 115,
+      "id": "5ad5632f5b96ef001a10ad6f",
+      "loss": 0.07567518949508667,
+      "grad_norm": 10.014180183410645,
+      "input_tokens": 211,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 116,
+      "id": "5ad572b15b96ef001a10af07",
+      "loss": 0.010223775170743465,
+      "grad_norm": 0.7299018502235413,
+      "input_tokens": 230,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 117,
+      "id": "5ad53b9d5b96ef001a10abc9",
+      "loss": 0.6577726602554321,
+      "grad_norm": 41.29710006713867,
+      "input_tokens": 227,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 118,
+      "id": "56e1c7e2cd28a01900c67b76",
+      "loss": 0.15373659133911133,
+      "grad_norm": 13.561118125915527,
+      "input_tokens": 140,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 119,
+      "id": "5ad5632f5b96ef001a10ad6c",
+      "loss": 0.005980408284813166,
+      "grad_norm": 0.837729811668396,
+      "input_tokens": 203,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 120,
+      "id": "56e1c720e3433e140042316c",
+      "loss": 0.011847981251776218,
+      "grad_norm": 0.5367763638496399,
+      "input_tokens": 257,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 121,
+      "id": "5ad566375b96ef001a10adce",
+      "loss": 0.002547032665461302,
+      "grad_norm": 0.1546635925769806,
+      "input_tokens": 277,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 122,
+      "id": "56e1efa0e3433e140042321b",
+      "loss": 1.156499981880188,
+      "grad_norm": 31.534706115722656,
+      "input_tokens": 161,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 123,
+      "id": "5ad543c05b96ef001a10ac01",
+      "loss": 0.002255478175356984,
+      "grad_norm": 0.08373353630304337,
+      "input_tokens": 278,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 124,
+      "id": "56e1a564cd28a01900c67a4c",
+      "loss": 0.3183841407299042,
+      "grad_norm": 20.177953720092773,
+      "input_tokens": 199,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 125,
+      "id": "5ad566375b96ef001a10adcf",
+      "loss": 0.0007197458180598915,
+      "grad_norm": 0.022180665284395218,
+      "input_tokens": 271,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 126,
+      "id": "56e1c2eee3433e1400423135",
+      "loss": 0.25212302803993225,
+      "grad_norm": 9.770638465881348,
+      "input_tokens": 243,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 127,
+      "id": "5ad53ac65b96ef001a10abaf",
+      "loss": 0.5768054723739624,
+      "grad_norm": 47.846405029296875,
+      "input_tokens": 145,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 128,
+      "id": "5ad56ef05b96ef001a10aea8",
+      "loss": 1.3028196096420288,
+      "grad_norm": 45.714744567871094,
+      "input_tokens": 203,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 129,
+      "id": "5ad546c75b96ef001a10ac0e",
+      "loss": 0.321198046207428,
+      "grad_norm": 27.4879093170166,
+      "input_tokens": 278,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 130,
+      "id": "5ad5344b5b96ef001a10ab89",
+      "loss": 0.0021783518604934216,
+      "grad_norm": 0.09877510368824005,
+      "input_tokens": 229,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 131,
+      "id": "56e1e9dfe3433e1400423200",
+      "loss": 0.42306339740753174,
+      "grad_norm": 11.495906829833984,
+      "input_tokens": 258,
+      "supervised_tokens": 11
+    },
+    {
+      "step": 132,
+      "id": "56e17644e3433e1400422f42",
+      "loss": 0.8457003235816956,
+      "grad_norm": 23.175037384033203,
+      "input_tokens": 230,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 133,
+      "id": "56e19557e3433e1400422fee",
+      "loss": 0.04296787083148956,
+      "grad_norm": 4.510430335998535,
+      "input_tokens": 163,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 134,
+      "id": "5ad566375b96ef001a10add0",
+      "loss": 0.0007886022212915123,
+      "grad_norm": 0.04070494323968887,
+      "input_tokens": 274,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 135,
+      "id": "5ad561c85b96ef001a10ad3c",
+      "loss": 0.0005571875954046845,
+      "grad_norm": 0.015926159918308258,
+      "input_tokens": 264,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 136,
+      "id": "5ad5391e5b96ef001a10aba5",
+      "loss": 0.3232024908065796,
+      "grad_norm": 33.634674072265625,
+      "input_tokens": 183,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 137,
+      "id": "5ad53ac65b96ef001a10abae",
+      "loss": 0.0006997686577960849,
+      "grad_norm": 0.033075280487537384,
+      "input_tokens": 141,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 138,
+      "id": "5ad561c85b96ef001a10ad3d",
+      "loss": 0.0004236886743456125,
+      "grad_norm": 0.012789160013198853,
+      "input_tokens": 248,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 139,
+      "id": "5ad569c05b96ef001a10ae36",
+      "loss": 0.000802739174105227,
+      "grad_norm": 0.026490792632102966,
+      "input_tokens": 236,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 140,
+      "id": "5ad542db5b96ef001a10abf4",
+      "loss": 0.017224958166480064,
+      "grad_norm": 1.5820271968841553,
+      "input_tokens": 189,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 141,
+      "id": "5ad55ee35b96ef001a10ace4",
+      "loss": 0.00048247785889543593,
+      "grad_norm": 0.01766933500766754,
+      "input_tokens": 244,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 142,
+      "id": "56e17644e3433e1400422f40",
+      "loss": 0.43581125140190125,
+      "grad_norm": 14.516111373901367,
+      "input_tokens": 221,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 143,
+      "id": "56e1bd4acd28a01900c67afc",
+      "loss": 0.20651504397392273,
+      "grad_norm": 14.920561790466309,
+      "input_tokens": 159,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 144,
+      "id": "56e1e9dfe3433e14004231fe",
+      "loss": 0.4712100923061371,
+      "grad_norm": 26.161182403564453,
+      "input_tokens": 245,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 145,
+      "id": "56e1b8f3e3433e14004230e9",
+      "loss": 2.68877911567688,
+      "grad_norm": 46.062259674072266,
+      "input_tokens": 142,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 146,
+      "id": "5ad54a375b96ef001a10ac4c",
+      "loss": 0.02155180647969246,
+      "grad_norm": 2.045294761657715,
+      "input_tokens": 274,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 147,
+      "id": "56e1febfe3433e1400423239",
+      "loss": 0.8912278413772583,
+      "grad_norm": 20.393569946289062,
+      "input_tokens": 205,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 148,
+      "id": "5ad5344b5b96ef001a10ab86",
+      "loss": 0.1450318545103073,
+      "grad_norm": 17.840078353881836,
+      "input_tokens": 219,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 149,
+      "id": "5ad55fe75b96ef001a10ad0c",
+      "loss": 0.00040818992420099676,
+      "grad_norm": 0.013714008033275604,
+      "input_tokens": 122,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 150,
+      "id": "5ad5632f5b96ef001a10ad6d",
+      "loss": 0.018377292901277542,
+      "grad_norm": 2.76564359664917,
+      "input_tokens": 204,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 151,
+      "id": "56e181d9e3433e1400422fa3",
+      "loss": 0.41126155853271484,
+      "grad_norm": 15.775459289550781,
+      "input_tokens": 186,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 152,
+      "id": "56e20a3ae3433e140042324e",
+      "loss": 0.26164549589157104,
+      "grad_norm": 12.54854679107666,
+      "input_tokens": 237,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 153,
+      "id": "56e1c9bfe3433e1400423194",
+      "loss": 1.2621395587921143,
+      "grad_norm": 26.509057998657227,
+      "input_tokens": 219,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 154,
+      "id": "56e20a27cd28a01900c67c25",
+      "loss": 2.3117926120758057,
+      "grad_norm": 59.30986022949219,
+      "input_tokens": 144,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 155,
+      "id": "56e1aff7cd28a01900c67a69",
+      "loss": 1.0756314992904663,
+      "grad_norm": 42.25075149536133,
+      "input_tokens": 276,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 156,
+      "id": "5ad55fe75b96ef001a10ad0e",
+      "loss": 0.015492012724280357,
+      "grad_norm": 1.5214824676513672,
+      "input_tokens": 121,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 157,
+      "id": "56e20a3ae3433e140042324d",
+      "loss": 0.10029137879610062,
+      "grad_norm": 6.308922290802002,
+      "input_tokens": 251,
+      "supervised_tokens": 11
+    },
+    {
+      "step": 158,
+      "id": "56e1c7e2cd28a01900c67b75",
+      "loss": 0.8417184948921204,
+      "grad_norm": 23.45332908630371,
+      "input_tokens": 142,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 159,
+      "id": "56e1c9bfe3433e1400423195",
+      "loss": 0.4144812524318695,
+      "grad_norm": 8.714221000671387,
+      "input_tokens": 207,
+      "supervised_tokens": 8
+    },
+    {
+      "step": 160,
+      "id": "5ad572b15b96ef001a10af06",
+      "loss": 0.0029973455239087343,
+      "grad_norm": 0.15397123992443085,
+      "input_tokens": 232,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 161,
+      "id": "5ad572b15b96ef001a10af08",
+      "loss": 0.016854535788297653,
+      "grad_norm": 1.683510661125183,
+      "input_tokens": 231,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 162,
+      "id": "56e200e4cd28a01900c67c15",
+      "loss": 0.046873047947883606,
+      "grad_norm": 6.654016017913818,
+      "input_tokens": 157,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 163,
+      "id": "5ad5489b5b96ef001a10ac2b",
+      "loss": 0.22017624974250793,
+      "grad_norm": 39.80044174194336,
+      "input_tokens": 194,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 164,
+      "id": "56e190bce3433e1400422fca",
+      "loss": 0.6579070687294006,
+      "grad_norm": 26.12578773498535,
+      "input_tokens": 223,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 165,
+      "id": "5ad560b85b96ef001a10ad22",
+      "loss": 0.035166580229997635,
+      "grad_norm": 3.899000883102417,
+      "input_tokens": 169,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 166,
+      "id": "5ad561c85b96ef001a10ad3e",
+      "loss": 0.0004983121762052178,
+      "grad_norm": 0.018112484365701675,
+      "input_tokens": 248,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 167,
+      "id": "56e181d9e3433e1400422fa0",
+      "loss": 1.9779818058013916,
+      "grad_norm": 31.618309020996094,
+      "input_tokens": 184,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 168,
+      "id": "5ad54f775b96ef001a10ac8a",
+      "loss": 0.015630047768354416,
+      "grad_norm": 3.6063292026519775,
+      "input_tokens": 161,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 169,
+      "id": "56e1b00ce3433e140042309f",
+      "loss": 0.4244672656059265,
+      "grad_norm": 8.488349914550781,
+      "input_tokens": 165,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 170,
+      "id": "56e17e6ee3433e1400422f7f",
+      "loss": 0.5027044415473938,
+      "grad_norm": 23.720651626586914,
+      "input_tokens": 208,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 171,
+      "id": "5ad54c2f5b96ef001a10ac5d",
+      "loss": 0.0006112444098107517,
+      "grad_norm": 0.021152321249246597,
+      "input_tokens": 138,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 172,
+      "id": "5ad53b9d5b96ef001a10abcb",
+      "loss": 0.016483481973409653,
+      "grad_norm": 1.6544352769851685,
+      "input_tokens": 222,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 173,
+      "id": "5ad546c75b96ef001a10ac11",
+      "loss": 0.6553683876991272,
+      "grad_norm": 39.17472839355469,
+      "input_tokens": 281,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 174,
+      "id": "5ad56ef05b96ef001a10aeaa",
+      "loss": 0.0006117078009992838,
+      "grad_norm": 0.057508327066898346,
+      "input_tokens": 212,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 175,
+      "id": "56e181d9e3433e1400422fa2",
+      "loss": 1.4110467433929443,
+      "grad_norm": 29.997447967529297,
+      "input_tokens": 180,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 176,
+      "id": "5ad54f775b96ef001a10ac8b",
+      "loss": 0.05345979332923889,
+      "grad_norm": 6.071865081787109,
+      "input_tokens": 174,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 177,
+      "id": "56e1b355e3433e14004230b1",
+      "loss": 0.7104460000991821,
+      "grad_norm": 31.263174057006836,
+      "input_tokens": 183,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 178,
+      "id": "56e1c2eee3433e1400423138",
+      "loss": 0.540758490562439,
+      "grad_norm": 20.124269485473633,
+      "input_tokens": 252,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 179,
+      "id": "5ad569c05b96ef001a10ae38",
+      "loss": 0.0058709559962153435,
+      "grad_norm": 0.8456869721412659,
+      "input_tokens": 238,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 180,
+      "id": "5ad53ac65b96ef001a10abac",
+      "loss": 0.0002938132092822343,
+      "grad_norm": 0.008448828011751175,
+      "input_tokens": 145,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 181,
+      "id": "56e1c720e3433e140042316a",
+      "loss": 2.0871517658233643,
+      "grad_norm": 29.898609161376953,
+      "input_tokens": 263,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 182,
+      "id": "56e190bce3433e1400422fcb",
+      "loss": 0.16597960889339447,
+      "grad_norm": 9.24022388458252,
+      "input_tokens": 225,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 183,
+      "id": "56e1c4fce3433e140042314f",
+      "loss": 2.0124142169952393,
+      "grad_norm": 143.72816467285156,
+      "input_tokens": 170,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 184,
+      "id": "56e200e4cd28a01900c67c16",
+      "loss": 0.33424797654151917,
+      "grad_norm": 12.076203346252441,
+      "input_tokens": 144,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 185,
+      "id": "56e1c4fce3433e1400423150",
+      "loss": 2.0143535137176514,
+      "grad_norm": 52.90643310546875,
+      "input_tokens": 177,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 186,
+      "id": "56e1efa0e3433e140042321a",
+      "loss": 0.31085506081581116,
+      "grad_norm": 17.50011444091797,
+      "input_tokens": 160,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 187,
+      "id": "56e1aff7cd28a01900c67a68",
+      "loss": 0.7706335186958313,
+      "grad_norm": 38.89809799194336,
+      "input_tokens": 281,
+      "supervised_tokens": 6
+    },
+    {
+      "step": 188,
+      "id": "5ad560b85b96ef001a10ad1f",
+      "loss": 0.0003229941939935088,
+      "grad_norm": 0.00944021437317133,
+      "input_tokens": 172,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 189,
+      "id": "5ad545545b96ef001a10ac07",
+      "loss": 1.2729984521865845,
+      "grad_norm": 52.41505813598633,
+      "input_tokens": 165,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 190,
+      "id": "5ad5489b5b96ef001a10ac2a",
+      "loss": 0.00031273014610633254,
+      "grad_norm": 0.011357435025274754,
+      "input_tokens": 183,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 191,
+      "id": "56e1c3e1e3433e1400423148",
+      "loss": 0.24063439667224884,
+      "grad_norm": 8.268857955932617,
+      "input_tokens": 122,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 192,
+      "id": "56e1aff7cd28a01900c67a6c",
+      "loss": 0.10204897820949554,
+      "grad_norm": 6.083597183227539,
+      "input_tokens": 277,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 193,
+      "id": "56e1b8f3e3433e14004230e8",
+      "loss": 2.8424103260040283,
+      "grad_norm": 58.935157775878906,
+      "input_tokens": 136,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 194,
+      "id": "5ad56c6b5b96ef001a10ae6e",
+      "loss": 0.0007560811936855316,
+      "grad_norm": 0.059355247765779495,
+      "input_tokens": 165,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 195,
+      "id": "5ad561c85b96ef001a10ad40",
+      "loss": 0.0005525037413462996,
+      "grad_norm": 0.023822590708732605,
+      "input_tokens": 265,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 196,
+      "id": "56e190bce3433e1400422fcc",
+      "loss": 0.01631801575422287,
+      "grad_norm": 1.1558620929718018,
+      "input_tokens": 221,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 197,
+      "id": "5ad5391e5b96ef001a10aba6",
+      "loss": 3.254042148590088,
+      "grad_norm": 37.05380630493164,
+      "input_tokens": 176,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 198,
+      "id": "5ad5391e5b96ef001a10aba3",
+      "loss": 0.0017776635941118002,
+      "grad_norm": 0.2111191600561142,
+      "input_tokens": 185,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 199,
+      "id": "5ad53d705b96ef001a10abd2",
+      "loss": 2.050445795059204,
+      "grad_norm": 46.51294708251953,
+      "input_tokens": 163,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 200,
+      "id": "5ad56c6b5b96ef001a10ae6c",
+      "loss": 0.19634786248207092,
+      "grad_norm": 17.45261573791504,
+      "input_tokens": 159,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 201,
+      "id": "56e1c2eee3433e1400423134",
+      "loss": 0.7801411151885986,
+      "grad_norm": 14.533820152282715,
+      "input_tokens": 242,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 202,
+      "id": "5ad53d705b96ef001a10abd5",
+      "loss": 0.15016020834445953,
+      "grad_norm": 32.53044509887695,
+      "input_tokens": 158,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 203,
+      "id": "56e1c720e3433e140042316b",
+      "loss": 1.2951706647872925,
+      "grad_norm": 27.80044174194336,
+      "input_tokens": 252,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 204,
+      "id": "5ad54c2f5b96ef001a10ac5c",
+      "loss": 0.042942482978105545,
+      "grad_norm": 8.397972106933594,
+      "input_tokens": 140,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 205,
+      "id": "5ad5391e5b96ef001a10aba4",
+      "loss": 0.0029064009431749582,
+      "grad_norm": 0.5828426480293274,
+      "input_tokens": 182,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 206,
+      "id": "5ad560b85b96ef001a10ad20",
+      "loss": 0.00038412868161685765,
+      "grad_norm": 0.02726326510310173,
+      "input_tokens": 169,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 207,
+      "id": "5ad56ef05b96ef001a10aea9",
+      "loss": 0.001099688932299614,
+      "grad_norm": 0.10206491500139236,
+      "input_tokens": 203,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 208,
+      "id": "5ad56fe65b96ef001a10aec5",
+      "loss": 0.0005492831696756184,
+      "grad_norm": 0.024349477142095566,
+      "input_tokens": 148,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 209,
+      "id": "56e1c2eee3433e1400423137",
+      "loss": 0.005370764061808586,
+      "grad_norm": 0.30382493138313293,
+      "input_tokens": 250,
+      "supervised_tokens": 9
+    },
+    {
+      "step": 210,
+      "id": "56e1c720e3433e140042316e",
+      "loss": 0.7050741314888,
+      "grad_norm": 46.94501495361328,
+      "input_tokens": 264,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 211,
+      "id": "5ad545545b96ef001a10ac08",
+      "loss": 0.0002725559752434492,
+      "grad_norm": 0.009581469930708408,
+      "input_tokens": 156,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 212,
+      "id": "5ad54a375b96ef001a10ac48",
+      "loss": 0.0004423316568136215,
+      "grad_norm": 0.01747843436896801,
+      "input_tokens": 287,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 213,
+      "id": "56e1b62ecd28a01900c67aa4",
+      "loss": 0.1824706643819809,
+      "grad_norm": 13.431539535522461,
+      "input_tokens": 271,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 214,
+      "id": "56e1ce08e3433e14004231a8",
+      "loss": 0.5966689586639404,
+      "grad_norm": 25.310176849365234,
+      "input_tokens": 202,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 215,
+      "id": "56e181d9e3433e1400422fa4",
+      "loss": 0.212877556681633,
+      "grad_norm": 7.442653179168701,
+      "input_tokens": 181,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 216,
+      "id": "56e1b62ecd28a01900c67aa6",
+      "loss": 1.1211631298065186,
+      "grad_norm": 77.9134292602539,
+      "input_tokens": 286,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 217,
+      "id": "56e1bd4acd28a01900c67afe",
+      "loss": 0.7569970488548279,
+      "grad_norm": 19.958086013793945,
+      "input_tokens": 179,
+      "supervised_tokens": 10
+    },
+    {
+      "step": 218,
+      "id": "56e1aba0e3433e1400423094",
+      "loss": 0.6802152991294861,
+      "grad_norm": 13.625323295593262,
+      "input_tokens": 281,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 219,
+      "id": "56e1aff7cd28a01900c67a6a",
+      "loss": 1.257975697517395,
+      "grad_norm": 32.50210189819336,
+      "input_tokens": 284,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 220,
+      "id": "56e1e9dfe3433e14004231ff",
+      "loss": 0.06702006608247757,
+      "grad_norm": 3.2825546264648438,
+      "input_tokens": 245,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 221,
+      "id": "5ad543c05b96ef001a10ac00",
+      "loss": 0.007574339397251606,
+      "grad_norm": 1.7416359186172485,
+      "input_tokens": 274,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 222,
+      "id": "5ad53d705b96ef001a10abd3",
+      "loss": 0.00034326923196204007,
+      "grad_norm": 0.01048812735825777,
+      "input_tokens": 165,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 223,
+      "id": "56e1aba0e3433e1400423098",
+      "loss": 0.7351911067962646,
+      "grad_norm": 54.673526763916016,
+      "input_tokens": 275,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 224,
+      "id": "5ad55fe75b96ef001a10ad0d",
+      "loss": 0.13678771257400513,
+      "grad_norm": 26.500259399414062,
+      "input_tokens": 123,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 225,
+      "id": "5ad565575b96ef001a10adb2",
+      "loss": 0.0009234113385900855,
+      "grad_norm": 0.09700760245323181,
+      "input_tokens": 197,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 226,
+      "id": "56e1e9dfe3433e14004231fc",
+      "loss": 0.13379143178462982,
+      "grad_norm": 6.321395397186279,
+      "input_tokens": 246,
+      "supervised_tokens": 8
+    },
+    {
+      "step": 227,
+      "id": "56e1b169cd28a01900c67a75",
+      "loss": 0.28166523575782776,
+      "grad_norm": 9.821683883666992,
+      "input_tokens": 166,
+      "supervised_tokens": 7
+    },
+    {
+      "step": 228,
+      "id": "5ad5489b5b96ef001a10ac2d",
+      "loss": 0.0004194373614154756,
+      "grad_norm": 0.01790441758930683,
+      "input_tokens": 189,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 229,
+      "id": "56e1ce08e3433e14004231a4",
+      "loss": 0.124724380671978,
+      "grad_norm": 5.132461071014404,
+      "input_tokens": 198,
+      "supervised_tokens": 8
+    },
+    {
+      "step": 230,
+      "id": "5ad546c75b96ef001a10ac12",
+      "loss": 0.00034203025279566646,
+      "grad_norm": 0.01269560493528843,
+      "input_tokens": 279,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 231,
+      "id": "5ad562525b96ef001a10ad53",
+      "loss": 0.0004763132892549038,
+      "grad_norm": 0.04264723137021065,
+      "input_tokens": 137,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 232,
+      "id": "5ad5632f5b96ef001a10ad70",
+      "loss": 0.001447357819415629,
+      "grad_norm": 0.1711268573999405,
+      "input_tokens": 202,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 233,
+      "id": "56e1d9fee3433e14004231ce",
+      "loss": 0.9805966019630432,
+      "grad_norm": 63.522396087646484,
+      "input_tokens": 281,
+      "supervised_tokens": 3
+    },
+    {
+      "step": 234,
+      "id": "56e20a27cd28a01900c67c24",
+      "loss": 1.8405823707580566,
+      "grad_norm": 69.58502960205078,
+      "input_tokens": 145,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 235,
+      "id": "5ad56fe65b96ef001a10aec4",
+      "loss": 0.0003197377664037049,
+      "grad_norm": 0.009713632985949516,
+      "input_tokens": 151,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 236,
+      "id": "5ad545545b96ef001a10ac09",
+      "loss": 0.007427173666656017,
+      "grad_norm": 1.7762010097503662,
+      "input_tokens": 165,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 237,
+      "id": "56e190bce3433e1400422fc8",
+      "loss": 0.5096815824508667,
+      "grad_norm": 21.520185470581055,
+      "input_tokens": 226,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 238,
+      "id": "5ad546c75b96ef001a10ac10",
+      "loss": 0.0002835371415130794,
+      "grad_norm": 0.00861577782779932,
+      "input_tokens": 276,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 239,
+      "id": "56e1b169cd28a01900c67a74",
+      "loss": 0.4563577175140381,
+      "grad_norm": 37.814144134521484,
+      "input_tokens": 159,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 240,
+      "id": "5ad569c05b96ef001a10ae39",
+      "loss": 0.010137169621884823,
+      "grad_norm": 1.2104722261428833,
+      "input_tokens": 244,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 241,
+      "id": "56e1c9bfe3433e1400423192",
+      "loss": 0.35025495290756226,
+      "grad_norm": 22.281110763549805,
+      "input_tokens": 203,
+      "supervised_tokens": 4
+    },
+    {
+      "step": 242,
+      "id": "5ad56c6b5b96ef001a10ae6d",
+      "loss": 0.0009245739202015102,
+      "grad_norm": 0.07953599095344543,
+      "input_tokens": 163,
+      "supervised_tokens": 5
+    }
+  ],
+  "total_supervised_tokens": 1289,
+  "elapsed_seconds": 39.78584999999657,
+  "finished_utc": "2026-09-18T11:54:49.288664+00:00"
+}

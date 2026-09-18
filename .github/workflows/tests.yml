@@ -16,3 +16,4 @@ jobs:
       - run: python -m qa_lab.teacher_audit --raw data/teacher-received-v1/user-message.txt --output work/ci-teacher-audit
       - run: PYTHONPATH=. python scripts/verify_closure.py
       - run: PYTHONPATH=. python scripts/verify_teacher_study.py
+      - run: PYTHONPATH=. python scripts/verify_coverage.py

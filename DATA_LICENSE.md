@@ -19,3 +19,7 @@
 ## teacher-study-v2
 
 `data/teacher-study-v2-gold`与`data/teacher-study-v2-prompted`复用同一24条许可训练样本。前者使用SQuAD gold，后者使用本地Apache-2.0 Qwen教师的新提示回答；来源hash、模型revision、完整提示和采样条件见manifest与reports。文段和问题继续遵守上文CC BY-SA4.0及归属要求。提示中的Luma/Rivo四个示例是AI辅助人工创作的虚构文本，不来源于dev/test或第三方业务数据。
+
+## coverage-v3 / cross-article-v3
+
+`data/coverage-v3-gold242`使用已有Computational_complexity_theory训练集的全部242条gold。`data/cross-article-v3`从同一官方SQuAD2.0 dev文件的Packet_switching、Prime_number各取32条。文段、问题及标注按原数据CC BY-SA4.0与归属要求提供；来源URL、原文件SHA256、文章名、确定性抽样、去重和本地改动在manifest、configs/coverage-v3中记录。本项目重新抽样后的64题不是SQuAD官方隐藏测试。未添加用户业务数据或付费教师回答。

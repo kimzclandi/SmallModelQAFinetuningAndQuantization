@@ -52,6 +52,20 @@
 
 [第二轮完整证据](reports/teacher-study-v2/RESULTS.md) · [机制、复现与十道自测题](docs/TEACHER_STUDY_V2.md)。本地31项测试通过，GitHub线上CI尚未运行。
 
+## 第三轮：扩大覆盖与跨文章检查
+
+使用标准答案，固定242步，比较24题重复训练与全部242题训练，各3个seed。开发集决定先提交冻结，再对两篇未参与项目训练的文章（Packet_switching、Prime_number）共64题评估；未重跑旧test。
+
+| 方法 | 新文章整体EM | 新文章有答案EM |
+|---|---:|---:|
+| 原始学生 | 23.44% | 46.88% |
+| 24题重复训练，3seed均值 | 36.46% | 38.54% |
+| 242题训练，3seed均值 | 44.27% | 47.92% |
+
+扩展组整体EM在三个seed中均高于24题对照，两篇文章各自的均值也提高，但总EM仍低于始终拒答的50%；开发集预设门槛也未通过。新文章仍属同一公开SQuAD文件，不能声称预训练未见或跨业务泛化。固定步数不控制token、epoch和样本分布。
+
+[第三轮完整结果](reports/coverage-v3/RESULTS.md) · [实验机制、复现与自测](docs/COVERAGE_V3.md)。本地33项测试通过；所有历史证据保留，GitHub线上CI未运行。
+
 ## 快速开始：小规模验证
 
 从仓库根目录运行，Python3.12。首次下载免费学生约1GB。推荐至少8GiB可用内存、5GB磁盘做学生验证（最低配置未实测）；完整本地教师/训练/量化在48GiB Mac实测，建议预留10GB磁盘。CPU可用于少量推理；本仓未提供CUDA/Ascend验证。
@@ -66,6 +80,7 @@ export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
 PYTHONPATH=. .venv/bin/python scripts/verify_artifacts.py
 PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
 PYTHONPATH=. .venv/bin/python scripts/verify_teacher_study.py
+PYTHONPATH=. .venv/bin/python scripts/verify_coverage.py
 HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
   --device cpu --splits dev --limit 2 --output work/smoke-01
 ```
@@ -101,4 +116,4 @@ MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到M
 
 ## 验证范围与未完成事项
 
-已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮已补三seed但仍仅24条训练样本、重复使用dev；尚无跨文章/中文业务评测、充分的教师质量验证或可接受的质量-效率候选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。
+已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或可接受的质量-效率候选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。
