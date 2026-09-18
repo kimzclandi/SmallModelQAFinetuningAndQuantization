@@ -1,0 +1,12 @@
+{
+  "registered_utc": "2026-09-18T11:50:44.474063+00:00",
+  "files": {
+    "configs/coverage-v3/train-20260920.json": "f46f7f2801206090fcbf148ba5b8b2cfab3e989f063a818fa0043d27c19ab615",
+    "configs/coverage-v3/train-20260919.json": "f0e098f6166462985fb0eda35b6436c1932e52fa851c7550a79cd362ae347981",
+    "configs/coverage-v3/protocol.json": "42e46cff96ff3fe01664d91af6f657b126a1c7562135c99294d4251bc6014439",
+    "configs/coverage-v3/train-20260918.json": "b04648821ab4546fec025ac269e4e31fc8867a9f06264f742dd9377881f6306d",
+    "configs/data.json": "594e0620da01e24665cece038d131e969b0af090ff13c47f8d6a03430daf7950",
+    "data/complexity-v1/train.jsonl": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+    "data/complexity-v1/dev.jsonl": "8eb033584f81c1e5763c609fc6259678a550329dd9e72cdf89e4c806084c2a68"
+  }
+}

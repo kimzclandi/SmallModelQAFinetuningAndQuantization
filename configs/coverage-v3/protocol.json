@@ -1,0 +1,28 @@
+{
+  "seeds": [
+    20260918,
+    20260919,
+    20260920
+  ],
+  "arms": [
+    "gold24",
+    "gold242"
+  ],
+  "steps": 242,
+  "data_source": "configs/data.json",
+  "holdout_titles": [
+    "Packet_switching",
+    "Prime_number"
+  ],
+  "per_article_per_class": 16,
+  "holdout_policy": "Select deterministic hash order, max one question per answerability class per exact normalized context. Exclude exact and near duplicates against all previous complexity rows using original thresholds; exclude near question duplicates within holdout. Abort if fewer than 16 per class/title. Selection is independent of model predictions.",
+  "train_policy": "Gold24 is the unchanged balanced pilot. Gold242 is ALL frozen original TRAIN rows, first gold answer or NO_ANSWER; no external/dev/test training. Same hyperparameters and 242 optimizer steps, not same epochs or target tokens. Each full-train row once, pilot repeats 10 or 11 times.",
+  "dev_gate": {
+    "overall_gt": 0.25675675675675674,
+    "answerable_ge": 0.5757575757575758,
+    "all_seeds_required": true
+  },
+  "evaluation": "First 6 train and full dev runs. Freeze dev-only decision and adapters before any new holdout inference. Then evaluate original student and all 6 candidates once each on new 64-row cross-article holdout, even failed candidates. No old-test inference. No tuning or seed selection after holdout.",
+  "limits": "2 additional articles from same public SQuAD dev release, not official hidden test nor new dataset or pretraining-clean. Balanced 64-row sample not natural prevalence. 3 seeds descriptive, no significance claim.",
+  "budget": "Local cached student only, no paid API, no downloads or publication. Stop after these fixed runs; preserve failures."
+}
