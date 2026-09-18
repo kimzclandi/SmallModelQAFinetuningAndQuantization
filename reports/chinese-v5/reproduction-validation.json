@@ -1,0 +1,5 @@
+{
+  "command": "PYTHONPATH=. HF_HUB_OFFLINE=1 .venv-mlx/bin/python scripts/chinese_study.py reproduce --variant q8 --model .cache/mlx/student-q8 --output work/chinese-v5-reproduction-smoke --limit 2",
+  "script_sha256": "18135d1da79d1b83bc0d64422d1aefab742ecbc6c9e53b45ee4712dea3c1949b",
+  "note": "Two-row entry-point smoke only; excluded from primary96-row comparison. No changes to model, prompt or selection."
+}

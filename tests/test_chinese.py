@@ -34,3 +34,9 @@ def test_selector_excludes_prior_content_and_overlength():
  selected,_=select(raw,[],lambda r:10,n=1);assert selected[0]['id']=='a'
  with pytest.raises(ValueError):select(raw,[row()],lambda r:10,n=1)
  with pytest.raises(ValueError):select(raw,[],lambda r:2049,n=1)
+
+
+def test_normalized_decimal_collision_does_not_receive_strict_credit():
+ r={'id':'n','context':'数值为3.14。','answers':['3.14'],'is_impossible':False}
+ m,_=evaluate_zh([r],[{'id':'n','prediction':'314'}])
+ assert m['strict_em']==0 and m['format_valid']==0 and m['normalized_em']==1

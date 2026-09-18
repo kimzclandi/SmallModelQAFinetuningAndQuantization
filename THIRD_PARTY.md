@@ -16,3 +16,7 @@
 下载的模型附带的 LICENSE/模型卡保留在被 Git 忽略的本地缓存中；仓库不包含模型权重。
 
 新增本地教师：[Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)，Apache-2.0，固定revision `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`。输出为本地生成响应，不使用GPT候选训练。新增Apple MLX/MLX-LM（MIT）仅用于同框架FP16/4-bit实验，精确版本见 requirements-mlx.lock.txt；保留本地源模型许可证与转换血缘。
+
+### CMRC2018 中文数据
+
+Yiming Cui, Ting Liu, Wanxiang Che, Li Xiao, Zhipeng Chen, Wentao Ma, Shijin Wang, Guoping Hu, EMNLP-IJCNLP2019. [官方数据仓库](https://github.com/ymcui/cmrc2018) / [论文](https://aclanthology.org/D19-1600/)。CC BY-SA4.0；96题子集与修改说明见data/chinese-v5。中文指标由本项目独立实现并明确命名，不是复制的官方评测脚本，不宣称官方榜单分数。

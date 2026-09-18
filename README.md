@@ -80,6 +80,19 @@ Q8权重减少46.86%、解码速度约提高17.90%，dev少答对1题，通过�
 
 [完整证据与回归样例](reports/quantization-v4/RESULTS.md) · [量化机制、复现与自测](docs/QUANTIZATION_V4.md)。本地36项测试通过，线上CI未运行。
 
+## 第五轮：中文新来源验证
+
+冻结第四轮已选Q8及FP16参考后，在CMRC2018公开dev抽取96篇文章各一题；预先固定中文提示和指标，未训练或按结果重采样。
+
+| 指标（96题） | FP16 | Q8 |
+|---|---:|---:|
+| 严格EM | 45.83%（44/96） | 45.83%（44/96） |
+| 自定义字符LCS F1 | 72.68% | 72.12% |
+
+Q8通过本轮预登记的质量保持门槛，严格正确集合相同。这支持此中文样本上的压缩保真，**不表示逐条输出无损、CMRC官方成绩或企业业务达标**。全部题目有答案，拒答能力未验证；公开数据仍可能有预训练污染。没有把第四轮英文测速当成中文加速证据。
+
+[完整结果与数据审计](reports/chinese-v5/RESULTS.md) · [指标、隔离复现与面试题](docs/CHINESE_V5.md)。本地44项测试通过；两题隔离复现入口已实际运行，异机验证尚未完成。
+
 ## 快速开始：小规模验证
 
 从仓库根目录运行，Python3.12。首次下载免费学生约1GB。推荐至少8GiB可用内存、5GB磁盘做学生验证（最低配置未实测）；完整本地教师/训练/量化在48GiB Mac实测，建议预留10GB磁盘。CPU可用于少量推理；本仓未提供CUDA/Ascend验证。
@@ -96,6 +109,7 @@ PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
 PYTHONPATH=. .venv/bin/python scripts/verify_teacher_study.py
 PYTHONPATH=. .venv/bin/python scripts/verify_coverage.py
 PYTHONPATH=. .venv/bin/python scripts/verify_quantization.py
+PYTHONPATH=. .venv/bin/python scripts/verify_chinese.py
 HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
   --device cpu --splits dev --limit 2 --output work/smoke-01
 ```
@@ -131,4 +145,4 @@ MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到M
 
 ## 验证范围与未完成事项
 
-已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或已通过独立测试的质量-效率候选；Q8目前仅通过dev压缩筛选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。
+已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或在目标业务与硬件上通过验证的质量-效率方案；Q8已通过英文dev压缩筛选和96题中文新来源检查，但未达到业务部署验证。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。

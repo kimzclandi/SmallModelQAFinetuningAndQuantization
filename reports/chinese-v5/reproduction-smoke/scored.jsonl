@@ -1,0 +1,2 @@
+{"id": "DEV_369_QUERY_3", "strict_em": 1.0, "normalized_em": 1.0, "char_lcs_f1": 1.0, "format_valid": true, "abstain": false, "category": "correct", "root_cause": null}
+{"id": "DEV_620_QUERY_0", "strict_em": 0.0, "normalized_em": 0.0, "char_lcs_f1": 0.5416666666666666, "format_valid": true, "abstain": false, "category": "wrong_or_partial_span", "root_cause": "unverified"}

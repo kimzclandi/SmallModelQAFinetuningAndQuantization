@@ -23,3 +23,7 @@
 ## coverage-v3 / cross-article-v3
 
 `data/coverage-v3-gold242`使用已有Computational_complexity_theory训练集的全部242条gold。`data/cross-article-v3`从同一官方SQuAD2.0 dev文件的Packet_switching、Prime_number各取32条。文段、问题及标注按原数据CC BY-SA4.0与归属要求提供；来源URL、原文件SHA256、文章名、确定性抽样、去重和本地改动在manifest、configs/coverage-v3中记录。本项目重新抽样后的64题不是SQuAD官方隐藏测试。未添加用户业务数据或付费教师回答。
+
+## chinese-v5（CMRC2018）
+
+新来源为Yiming Cui等作者的CMRC2018官方仓库，固定revision c0eb1b6ba219847457e6af3180da722bbeb656af。96题子集按CC BY-SA4.0提供；完整作者、论文、原始URL、修改说明和许可证见data/chinese-v5/ATTRIBUTION.md、SOURCE_LICENSE.txt及manifest.json。代码MIT许可不覆盖数据内容。此为官方公开dev的重新抽样，不是官方隐藏test。未上传或公开发布。

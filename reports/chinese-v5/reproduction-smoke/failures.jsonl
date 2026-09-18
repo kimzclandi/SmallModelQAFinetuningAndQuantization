@@ -1,0 +1,1 @@
+{"id": "DEV_620_QUERY_0", "strict_em": 0.0, "normalized_em": 0.0, "char_lcs_f1": 0.5416666666666666, "format_valid": true, "abstain": false, "category": "wrong_or_partial_span", "root_cause": "unverified", "question": "棕榈蝮主要分布在什么地方？", "answers": ["墨西哥、中美洲以至哥伦比亚、秘鲁等地区", "分布于墨西哥、中美洲以至哥伦比亚、秘鲁等地区"], "prediction": "墨西哥、中美洲至南美洲北部（包括哥伦比亚、委内瑞拉、危地马拉及秘鲁北部）。"}

@@ -70,3 +70,5 @@ PYTHONPATH=. .venv/bin/python scripts/verify_quantization.py
 8. RSS与MLX active/cache内存为什么不能简单相加？
 9. 容许少答对1题应在实验前还是实验后决定？业务依据是什么？
 10. Q8通过本轮门槛后，还缺什么证据才能部署到另一种硬件和业务场景？
+
+后续状态：第五轮已完成冻结Q8的中文新来源检查，见[第五轮手册](CHINESE_V5.md)。这不改写本轮的原始结果与dev-only范围。

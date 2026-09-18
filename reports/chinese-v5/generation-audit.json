@@ -1,0 +1,10 @@
+{
+  "n": 96,
+  "max_new_tokens": 48,
+  "capped_outputs": {
+    "fp16": 3,
+    "q8": 4
+  },
+  "different_output_text_count": 2,
+  "note": "All capped outputs included in primary denominator. Equal strict correctness is not identical outputs."
+}

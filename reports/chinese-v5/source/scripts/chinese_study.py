@@ -31,28 +31,16 @@ def prepare(rawdir):
     print('Frozen',len(rows),'rows from',audit['selected_articles'],'articles; raw rows',audit['raw_n'])
 
 
-def infer(variant,output=None,model_path=None,limit=None):
+def infer(variant):
     import mlx.core as mx
     from mlx_lm import load
     p=check();cfg=json.loads((C/'inference.json').read_text());rows=read_jsonl(D/'external.jsonl')
     freeze=json.loads((R/'freeze.json').read_text());assert freeze['data_sha256']==sha(D/'external.jsonl') and freeze['model_freeze_sha256']==sha(R/'model-freeze.json')
-    assert variant in p['variants']
-    if limit is not None:
-        if output is None or limit<1:raise ValueError('A positive limit requires isolated reproduction output')
-        rows=rows[:limit]
-    folder=output if output is not None else R/variant;folder.mkdir(parents=True,exist_ok=False)
-    modelpath=model_path or Path('.cache/mlx')/f'student-{variant}';files=model_files(modelpath)
-    frozen=json.loads((R/'model-freeze.json').read_text())[variant]
-    if output is None:assert files==frozen
-    else:
-        # Fresh conversion timestamps/cards may differ; numerical weights and tokenizer must not.
-        for name,meta in frozen.items():
-            if name not in ('conversion-provenance.json','README.md','LICENSE'):
-                if files.get(name)!=meta:raise ValueError('Reproduction numerical/tokenizer file differs: '+name)
+    assert variant in p['variants'];folder=R/variant;folder.mkdir(exist_ok=False)
+    modelpath=Path('.cache/mlx')/f'student-{variant}';files=model_files(modelpath);assert files==json.loads((R/'model-freeze.json').read_text())[variant]
     monitor=MemoryMonitor('mlx');monitor.thread.start();t0=time.perf_counter()
     meta=dict(status='running',variant=variant,config=cfg,source_sha256=source_hashes(),hardware=hardware_chip(),data_sha256=sha(D/'external.jsonl'),model_files=files,freeze_sha256=sha(R/'freeze.json'),started_utc=datetime.now(timezone.utc).isoformat(),packages={n:importlib.metadata.version(n) for n in ['mlx','mlx-lm','transformers','psutil']},kv_quantized=False)
     write_json(folder/'run.json',meta)
-    meta.update(reproduction=output is not None,limit=limit,n=len(rows),model_path=str(modelpath),original_file_set_match=files==frozen)
     try:
         mx.random.seed(cfg['seed']);model,tok=load(str(modelpath));mx.eval(model.parameters());mx.synchronize()
         for _ in range(2):generate(QAInput('队列采用先进先出顺序。','队列采用什么顺序？'),cfg,tok,model)
@@ -96,11 +84,8 @@ def summarize():
 
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('mode',choices=['prepare','run','infer','summarize','reproduce']);ap.add_argument('--variant',choices=['fp16','q8']);ap.add_argument('--raw-dir',type=Path,default=Path('work/cmrc2018-source'));ap.add_argument('--model',type=Path);ap.add_argument('--output',type=Path);ap.add_argument('--limit',type=int);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('mode',choices=['prepare','run','infer','summarize']);ap.add_argument('--variant',choices=['fp16','q8']);ap.add_argument('--raw-dir',type=Path,default=Path('work/cmrc2018-source'));a=ap.parse_args()
     if a.mode=='prepare':prepare(a.raw_dir)
     elif a.mode=='run':run()
     elif a.mode=='infer':infer(a.variant)
-    elif a.mode=='reproduce':
-        if a.output is None or a.variant is None:ap.error('reproduce requires --output and --variant')
-        infer(a.variant,a.output,a.model,a.limit)
     else:summarize()
