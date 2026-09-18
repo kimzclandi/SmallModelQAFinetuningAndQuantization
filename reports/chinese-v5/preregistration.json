@@ -1,0 +1,8 @@
+{
+  "registered_utc": "2026-09-18T13:04:36.871852+00:00",
+  "files": {
+    "configs/chinese-v5/inference.json": "84880d0d658463f6b1b987b2e702d3020d38d74f7adfc0835b626d9da311a335",
+    "configs/chinese-v5/protocol.json": "864ec91f7d09570c3be92fcab3bbfb8161022b4f6c620d32af9bae75beaa4388"
+  },
+  "selected_candidate_evidence_sha256": "f0ff28462bdadd7db1aab20f750367f004ff83cda156739355dec02e7600ad1f"
+}

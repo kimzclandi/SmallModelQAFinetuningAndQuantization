@@ -1,0 +1,15 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "seed": 20260918,
+  "device": "mlx-metal",
+  "dtype": "float16",
+  "max_input_tokens": 2048,
+  "max_new_tokens": 48,
+  "do_sample": false,
+  "batch_size": 1,
+  "attention_implementation": "mlx native",
+  "prompt_version": "zh-extract-or-abstain-v1",
+  "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+  "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+}
