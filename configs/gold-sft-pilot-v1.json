@@ -1,0 +1,13 @@
+{
+  "base_config": "configs/baseline.json",
+  "seed": 20260918,
+  "steps": 48,
+  "learning_rate": 0.0001,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.0,
+  "target_modules": ["q_proj", "v_proj"],
+  "max_tokens": 2048,
+  "batch_size": 1,
+  "purpose": "Two passes over the fixed 24 pilot IDs, GOLD labels only; one-seed SFT control. No teacher targets. Judge quality on dev, not training loss."
+}

@@ -27,6 +27,7 @@ def main():
     p.add_argument('--data',default='data/complexity-v1/train.jsonl',type=Path)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--device',choices=['mps','cpu'])
+    p.add_argument('--selection',type=Path,help='Frozen request-pack manifest selecting training IDs; still trains only on GOLD labels')
     a=p.parse_args()
     cfg=json.loads(Path(a.config).read_text())
     base=json.loads(Path(cfg['base_config']).read_text())
@@ -37,6 +38,19 @@ def main():
     manifest=json.loads(manifest_path.read_text())
     if a.data.name!='train.jsonl' or sha(a.data)!=manifest['files']['train.jsonl'] or any(r['split']!='train' for r in rows):
         raise ValueError('Training requires the frozen train file; dev/test input forbidden.')
+    selection_hash=None
+    if a.selection:
+        selection=json.loads(a.selection.read_text())
+        if selection['source_sha256']!=sha(a.data):
+            raise ValueError('Selection references different training source')
+        ids=selection['ids']
+        by_id={r['id']:r for r in rows}
+        if not ids or len(ids)!=len(set(ids)) or not set(ids)<=set(by_id):
+            raise ValueError('Selection must contain unique frozen training IDs only')
+        rows=[by_id[i] for i in ids]
+        selection_hash=sha(a.selection)
+    if cfg['steps']<1:
+        raise ValueError('steps must be positive')
     a.output.mkdir(parents=True,exist_ok=False)
     import torch
     from peft import LoraConfig,get_peft_model
@@ -73,9 +87,11 @@ def main():
     model.save_pretrained(a.output)
     write_json(a.output/'training.json',dict(status='complete',method='gold-label supervised LoRA',
         config=cfg,base=base,source_sha256=source_hashes(),data_sha256=sha(a.data),steps=log,
+        selection_sha256=selection_hash,selected_ids=sorted(r['id'] for r in rows),
+        total_supervised_tokens=sum(s['supervised_tokens'] for s in log),
         elapsed_seconds=time.perf_counter()-t0,finished_utc=datetime.now(timezone.utc).isoformat(),
         trainable_parameters=sum(p.numel() for p in model.parameters() if p.requires_grad),
-        warning='Execution smoke only. No teacher data, no quality improvement claimed.'))
+        warning=cfg.get('purpose','No teacher data. Training loss alone does not establish quality improvement.')))
 
 if __name__=='__main__':
     main()

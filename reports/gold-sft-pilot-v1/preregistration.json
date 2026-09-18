@@ -1,0 +1,11 @@
+{
+  "registered_utc": "2026-09-18T11:01:07.798996+00:00",
+  "config_sha256": "14810bd1249ff3613b31df8a0b5c8fdee7de3318c24394f56ace6081065f5361",
+  "selection_sha256": "c1a8e74dce4e5bffad032716fbb7ac0225a9c0050d8ec382d2f44bd65cfdbef1",
+  "purpose": "Complete gold-SFT control independently of permission to train on third-party model output.",
+  "training": "48 steps, one fixed seed, identical 24 pilot IDs, gold targets; no teacher-derived filtering or labels.",
+  "evaluation": "One full 74-example dev evaluation after training; compare frozen baseline dev predictions.",
+  "gate": "overall EM strictly improves over 19/74 AND answerable EM at least 19/33; report all regressions.",
+  "test_access": "No new test inference in this pilot; freeze protocol for larger matched teacher comparison first.",
+  "no_tuning": "Do not revise config based on this dev result within this pilot."
+}

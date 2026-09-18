@@ -39,3 +39,23 @@ def test_import_preserves_raw_and_does_not_claim_teacher_run(tmp_path):
     assert json.loads((dest/'provenance.json').read_text())['teacher_snapshot'] is None
     with pytest.raises(FileExistsError):
         import_candidates(folder,out,raw,dest,'SYNTHETIC UNIT TEST ONLY','2026-09-18')
+
+
+def test_transport_repair_is_narrow():
+    from qa_lab.teacher_audit import parse_received
+    parsed,n=parse_received(r'{"answers":[{"id":"a","answer":"NO\_ANSWER"}]}')
+    assert n==1 and parsed['answers'][0]['answer']=='NO_ANSWER'
+    parsed,n=parse_received('{"answers":[]}')
+    assert n==0
+    with pytest.raises(json.JSONDecodeError):
+        parse_received(r'{"answers":[{"id":"a","answer":"bad\_text"}]}')
+
+
+def test_received_teacher_audit_reproduces():
+    from qa_lab.teacher_audit import parse_received,audit
+    raw=Path('data/teacher-received-v1/user-message.txt').read_text().split('\n',1)[1]
+    response,n=parse_received(raw)
+    metrics,scored,preds=audit(Path('data/complexity-v1'),Path('data/teacher-pilot-v1'),response)
+    assert n==13
+    assert metrics==json.loads(Path('reports/teacher-audit-v1/metrics.json').read_text())
+    assert sum(s['em'] for s in scored)==17

@@ -1,0 +1,23 @@
+{
+  "status": "received_audit_only",
+  "teacher_label_user_reported": "GPT-5（Codex）",
+  "teacher_snapshot": null,
+  "collection_interface": "unverified_user_supplied_label_mentions_Codex",
+  "received_utc": "2026-09-18T10:59:29.034131+00:00",
+  "generated_date": null,
+  "temperature": null,
+  "top_p": null,
+  "seed": null,
+  "original_message_sha256": "636a3268a298bcb7723e03795c9a3f45e99b0b7e0c7400fd95a5a3bce478597a",
+  "parsed_response_sha256": "6babb146171d95ae0278c86c37504c14a52a340774f54b37d4e4ef70372477bb",
+  "json_parse_error_before_repair": "Invalid \\escape: line 1 column 261 (char 260)",
+  "transport_repair": {
+    "literal_from": "NO\\_ANSWER",
+    "literal_to": "NO_ANSWER",
+    "count": 13,
+    "claim": "Mechanical repair of received text; no assertion that transport or teacher introduced the escaping."
+  },
+  "request_pack_sha256": "c1a8e74dce4e5bffad032716fbb7ac0225a9c0050d8ec382d2f44bd65cfdbef1",
+  "strict_format_error": null,
+  "identity_note": "Display label only, not an independently verified provider snapshot."
+}
