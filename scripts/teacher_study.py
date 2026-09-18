@@ -85,7 +85,7 @@ def aggregate(values):
                 minimum=min(values),maximum=max(values))
 
 
-def analyze():
+def analyze(*, read_only=False):
     protocol=check_registration();rows=read_jsonl(DATA/'dev.jsonl')
     result=dict(experiment=protocol['experiment'],evaluation_split='dev',n=len(rows),test_evaluated=False,
                 teacher={},runs={},aggregate={},paired={},passing_arms=[],limitations=protocol['limits'])
@@ -112,6 +112,7 @@ def analyze():
     result['decision']='eligible_for_external_validation' if result['passing_arms'] else 'no_method_passed_all_seeds'
     path=ROOT/'summary.json'
     if path.exists():assert json.loads(path.read_text())==result,'Stored summary differs'
+    elif read_only:raise FileNotFoundError('Missing frozen summary: '+str(path))
     else:write_json(path,result)
     print(json.dumps({k:result[k] for k in ['teacher','aggregate','passing_arms','decision']},indent=2))
     return result

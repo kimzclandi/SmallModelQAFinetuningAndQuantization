@@ -83,7 +83,7 @@ def run():
     summarize()
 
 
-def summarize():
+def summarize(*, read_only=False):
     p=check();rows=read_jsonl(D/'external.jsonl');out={};scores={}
     for v in p['variants']:out[v],scores[v]=evaluate_zh(rows,read_jsonl(R/v/'predictions.jsonl'))
     a,b=out['fp16'],out['q8'];checks={k:b[k]+tol+1e-12>=a[k] for k,tol in [('strict_em',p['gate']['max_strict_em_drop']),('char_lcs_f1',p['gate']['max_char_lcs_f1_drop']),('format_valid',p['gate']['max_format_drop'])]}
@@ -91,6 +91,7 @@ def summarize():
     s=dict(metrics=out,checks=checks,pass_all=all(checks.values()),fixes=[i for i in aa if aa[i]==0 and bb[i]==1],regressions=[i for i in aa if aa[i]==1 and bb[i]==0],scope=p['scope'])
     path=R/'summary.json'
     if path.exists():assert json.loads(path.read_text())==s
+    elif read_only:raise FileNotFoundError('Missing frozen summary: '+str(path))
     else:write_json(path,s)
     print(json.dumps(s,ensure_ascii=False,indent=2));return s
 

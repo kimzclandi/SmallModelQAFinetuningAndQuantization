@@ -1,0 +1,45 @@
+{
+  "metrics": {
+    "fp16": {
+      "strict_em": 0.4583333333333333,
+      "normalized_em": 0.5,
+      "char_lcs_f1": 0.7267548323401329,
+      "format_valid": 0.9166666666666666,
+      "abstain": 0.0,
+      "n": 96,
+      "categories": {
+        "correct": 44,
+        "wrong_or_partial_span": 44,
+        "format_or_nonextractive": 8
+      },
+      "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+      "unanswerable_n": 0
+    },
+    "q8": {
+      "strict_em": 0.4583333333333333,
+      "normalized_em": 0.5,
+      "char_lcs_f1": 0.7211862938768577,
+      "format_valid": 0.9270833333333334,
+      "abstain": 0.0,
+      "n": 96,
+      "categories": {
+        "correct": 44,
+        "wrong_or_partial_span": 45,
+        "format_or_nonextractive": 7
+      },
+      "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+      "unanswerable_n": 0
+    }
+  },
+  "checks": {
+    "strict_em": true,
+    "char_lcs_f1": true,
+    "format_valid": true
+  },
+  "pass_all": true,
+  "fixes": [],
+  "regressions": [],
+  "scope": "Zero-shot Chinese answerable reading comprehension portability check. Official public CMRC dev subset, not official hidden test, not enterprise data, and potential pretraining contamination. No unanswerable rows, so hallucination/abstention under missing evidence untested."
+}
+Verified: source license/data freeze, 96 article-disjoint rows, old/new near-duplicate isolation, unchanged v4 candidate weights, matched Chinese inputs, source/prediction/metric hashes, two post-freeze runs and non-official metric labels.
+Verified isolated two-row reproduction smoke; excluded from primary96-row comparison.

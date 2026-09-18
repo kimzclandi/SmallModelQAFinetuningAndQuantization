@@ -44,7 +44,7 @@ def run():
  summarize()
 
 
-def summarize():
+def summarize(*, read_only=False):
  p=check();rows=read_jsonl('data/complexity-v1/dev.jsonl');result={'split':'dev','n':len(rows),'test_evaluated':False,'variants':{},'gate':{},'paired':{}};scored={}
  for v in p['variants']:
   q,scored[v]=evaluate(rows,read_jsonl(R/f'{v}-quality/dev.predictions.jsonl'))
@@ -61,6 +61,7 @@ def summarize():
  result['qualifying_local_candidates']=[v for v,g in result['gate'].items() if g['pass_all']]
  out=R/'summary.json'
  if out.exists():assert json.loads(out.read_text())==result
+ elif read_only:raise FileNotFoundError('Missing frozen summary: '+str(out))
  else:write_json(out,result)
  print(json.dumps({'gate':result['gate'],'qualifying_local_candidates':result['qualifying_local_candidates']},indent=2))
  return result

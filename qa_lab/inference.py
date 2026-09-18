@@ -130,7 +130,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--config',default='configs/baseline.json')
     parser.add_argument('--data-dir',default='data/complexity-v1',type=Path)
-    parser.add_argument('--splits',nargs='+',choices=['dev','test'],default=['dev','test'])
+    parser.add_argument('--splits',nargs='+',choices=['dev','test'],default=['dev'])
     parser.add_argument('--output',required=True,type=Path)
     parser.add_argument('--device',choices=['cpu','mps'])
     parser.add_argument('--limit',type=int)

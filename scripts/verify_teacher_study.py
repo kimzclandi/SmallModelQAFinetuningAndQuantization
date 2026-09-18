@@ -7,7 +7,7 @@ from qa_lab.train_artifact import verified_rows
 from scripts.teacher_study import ROOT,CONFIG,DATA,SELECTION,check_registration,analyze
 
 protocol=check_registration()
-summary=analyze()
+summary=analyze(read_only=True)
 expected=json.loads(SELECTION.read_text())['ids']
 artifacts={'gold':Path('data/teacher-study-v2-gold'),'original_teacher':Path('data/distilled-local-v1'),
            'prompted_teacher':Path('data/teacher-study-v2-prompted')}

@@ -6,7 +6,7 @@ from qa_lab.common import read_jsonl,sha
 from qa_lab.data import related,jaccard
 from qa_lab.train_artifact import verified_rows
 from scripts.coverage_study import R,C,D,H,protocol,question_related,summarize
-p=protocol();summary=summarize()
+p=protocol();summary=summarize(read_only=True)
 m=json.loads((H/'manifest.json').read_text());rows=read_jsonl(H/'test.jsonl')
 assert sha(H/'test.jsonl')==m['files']['test.jsonl'] and len(rows)==64
 old=[]

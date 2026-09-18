@@ -1,0 +1,107 @@
+{
+  "readme_numeric_claims": [
+    {
+      "claim": "v1 baseline",
+      "dev_em": "25.68%",
+      "test_em": "24.51%",
+      "test_f1": "31.56%"
+    },
+    {
+      "claim": "v1 gold24",
+      "dev_em": "55.41%",
+      "test_em": "51.96%",
+      "test_f1": "54.33%"
+    },
+    {
+      "claim": "v1 distilled24",
+      "dev_em": "32.43%",
+      "test_em": "36.27%",
+      "test_f1": "41.14%"
+    },
+    {
+      "claim": "v1 repaired48",
+      "dev_em": "50.00%",
+      "test_em": "48.04%",
+      "test_f1": "50.25%"
+    },
+    {
+      "claim": "v1 MLX fp16",
+      "test_em": "24.51%",
+      "decode_tps": 255.7
+    },
+    {
+      "claim": "v1 MLX q4",
+      "test_em": "14.71%",
+      "decode_tps": 370.17
+    },
+    {
+      "claim": "v2 gold",
+      "mean_em": "55.41%",
+      "sample_std_pp": 2.7,
+      "answerable_em": "42.42%"
+    },
+    {
+      "claim": "v2 original_teacher",
+      "mean_em": "33.78%",
+      "sample_std_pp": 2.34,
+      "answerable_em": "51.52%"
+    },
+    {
+      "claim": "v2 prompted_teacher",
+      "mean_em": "55.86%",
+      "sample_std_pp": 2.06,
+      "answerable_em": "38.38%"
+    },
+    {
+      "claim": "v3 gold24",
+      "mean_em": "36.46%",
+      "answerable_em": "38.54%"
+    },
+    {
+      "claim": "v3 gold242",
+      "mean_em": "44.27%",
+      "answerable_em": "47.92%"
+    },
+    {
+      "claim": "v4 fp16",
+      "dev_em": "25.68%",
+      "weight_MB": 988.1,
+      "decode_tps": 266.21
+    },
+    {
+      "claim": "v4 q4",
+      "dev_em": "21.62%",
+      "weight_MB": 278.06,
+      "decode_tps": 390.87
+    },
+    {
+      "claim": "v4 q8",
+      "dev_em": "24.32%",
+      "weight_MB": 525.05,
+      "decode_tps": 313.86
+    },
+    {
+      "claim": "v5 fp16",
+      "strict_em": "45.83%",
+      "char_lcs_f1": "72.68%"
+    },
+    {
+      "claim": "v5 q8",
+      "strict_em": "45.83%",
+      "char_lcs_f1": "72.12%"
+    }
+  ],
+  "student_cache_hashes": {
+    "model.safetensors": true,
+    "LICENSE": true,
+    "tokenizer_config.json": true,
+    "config.json": true,
+    "tokenizer.json": true,
+    "generation_config.json": true,
+    "README.md": true,
+    "merges.txt": true,
+    "vocab.json": true
+  },
+  "frozen_files_unchanged": 681,
+  "old_zip_sha256": "c63a26f2051c04670856ba69c0834d0e5689e5cad6bafc093b27e56def802a28"
+}

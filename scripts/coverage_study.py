@@ -101,7 +101,7 @@ def external():
     summarize()
 
 
-def summarize():
+def summarize(*, read_only=False):
     p=protocol();selection=json.loads((R/'selection.json').read_text());rows=read_jsonl(H/'test.jsonl')
     names=['baseline']+[f'{a}-{s}' for s in p['seeds'] for a in p['arms']]
     metrics={};scored={};article={}
@@ -117,6 +117,7 @@ def summarize():
     for seed in p['seeds']:result['paired'][str(seed)]=paired(scored[f'gold24-{seed}'],scored[f'gold242-{seed}'])
     out=R/'summary.json'
     if out.exists():assert json.loads(out.read_text())==result
+    elif read_only:raise FileNotFoundError('Missing frozen summary: '+str(out))
     else:write_json(out,result)
     print(json.dumps({'aggregate':result['aggregate'],'decision':selection['decision']},indent=2))
     return result

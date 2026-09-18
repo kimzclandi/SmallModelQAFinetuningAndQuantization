@@ -1,0 +1,92 @@
+{
+  "started_utc": "2026-09-18T13:45:20.881884+00:00",
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "executable": "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+  "scope": "Saved evidence recomputation and tests only; no model inference.",
+  "checks": [
+    {
+      "name": "tests",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "artifacts",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/verify_artifacts.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "closure",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/verify_closure.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "teacher_study",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/verify_teacher_study.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/verify_coverage.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "quantization",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/verify_quantization.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "chinese",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/verify_chinese.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "gold_pilot",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "scripts/compare_gold_pilot.py",
+        "--output",
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/work/acceptance-final/gold.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "teacher_audit",
+      "command": [
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/../acceptance-venv/bin/python",
+        "-m",
+        "qa_lab.teacher_audit",
+        "--raw",
+        "data/teacher-received-v1/user-message.txt",
+        "--output",
+        "/Users/yukaiyan/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-yukaiyan/work/acceptance-checkout/work/acceptance-final/teacher-audit"
+      ],
+      "returncode": 0
+    }
+  ],
+  "frozen_unchanged": true,
+  "passed": true,
+  "finished_utc": "2026-09-18T13:45:30.593078+00:00"
+}

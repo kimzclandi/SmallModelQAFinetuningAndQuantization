@@ -1,0 +1,17 @@
+{
+  "train": {
+    "n": 242,
+    "unanswerable": 126,
+    "families": 28
+  },
+  "dev": {
+    "n": 74,
+    "unanswerable": 41,
+    "families": 9
+  },
+  "test": {
+    "n": 102,
+    "unanswerable": 54,
+    "families": 11
+  }
+}

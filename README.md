@@ -1,6 +1,6 @@
 # Domain QA Lab · 小模型领域问答优化实验室
 
-一个实际运行过的「原始基线 → 教师响应蒸馏 → 权重量化 → 失败分析与一次数据改进」实验项目。面向模型训练、推理优化与实验设计的面试讲解。**四阶段最小闭环已运行；已有训练候选未通过采用门槛，不宣称优化成功或生产可用。**
+一个实际运行过的「问题与基线 → 响应蒸馏负结果 → 数据覆盖对照 → 量化取舍 → 中文新来源验证」实验项目。面向模型训练、推理优化与实验设计的面试讲解。**四阶段最小闭环已运行；已有训练候选未通过采用门槛，不宣称优化成功或生产可用。**
 
 本地仓库，尚未公开发布；没有调用付费API或上传数据。GPT手工候选只作审计，实际蒸馏使用本地开源教师。
 
@@ -93,12 +93,24 @@ Q8通过本轮预登记的质量保持门槛，严格正确集合相同。这支
 
 [完整结果与数据审计](reports/chinese-v5/RESULTS.md) · [指标、隔离复现与面试题](docs/CHINESE_V5.md)。本地44项测试通过；两题隔离复现入口已实际运行，异机验证尚未完成。
 
-## 快速开始：小规模验证
+## 快速开始：先离线验收，再按需推理
+
+从源码包解压后的仓库根目录运行，Python3.12。先用轻量环境检查保存的证据，无需模型、GPU、API key；首次安装pytest需要网络，安装后验收不需要联网。
+
+```bash
+uv venv .venv-ci --python 3.12
+uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
+.venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
+```
+
+入口依次执行测试、六套离线核验、gold对照与教师审计；日志只写入新的work子目录，检查前后对reports/data/configs逐文件校验。缺失冻结汇总会失败，不补写；禁止`python -O`。CI使用同一入口，仅验证保存证据，不执行模型、CUDA或Ascend。当前51项本地测试通过；线上CI仍未运行。
+
+下面是**实际模型推理**入口，与离线核验分开：
 
 从仓库根目录运行，Python3.12。首次下载免费学生约1GB。推荐至少8GiB可用内存、5GB磁盘做学生验证（最低配置未实测）；完整本地教师/训练/量化在48GiB Mac实测，建议预留10GB磁盘。CPU可用于少量推理；本仓未提供CUDA/Ascend验证。
 
 ```bash
-uv venv --python 3.12
+uv venv .venv --python 3.12
 uv pip install --python .venv/bin/python -r requirements.lock.txt
 export HF_HOME="$PWD/.cache/huggingface"
 export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
@@ -115,6 +127,8 @@ HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
 ```
 
 MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到Metal；GPU不可用会报错，不静默回退。日常验证仅跑dev。已有输出拒绝覆盖，换新目录保留历史证据。
+
+依赖锁是精确版本列表，不是带wheel哈希的供应链锁；PyTorch和MLX锁本轮已在同机新环境安装并通过依赖检查。MLX锁面向macOS arm64，不能当作Linux/CUDA通用锁。完整验收记录见 [交付审计](docs/RELEASE_AUDIT.md)。
 
 **完整训练/蒸馏/量化复现见 [复现手册](docs/REPRODUCE_CLOSURE.md)**，先隔离输出、再安装运行。两套依赖锁分别为 requirements.lock.txt 和 requirements-mlx.lock.txt。教师不需要API key。
 
@@ -139,7 +153,8 @@ MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到M
 
 - [阶段一协议](docs/PROTOCOL.md)：指标、泄漏、性能口径、测试集使用。
 - [原知识手册](docs/INTERVIEW.md)：领域地图、五个思维模型、三个争议及主动回忆。
-- [闭环面试讲解](docs/CLOSURE_INTERVIEW.md)：最新版30秒/3分钟回答、故障与技术追问。
+- [当前面试交付](docs/INTERVIEW_DELIVERY.md)：贯通五轮的30秒/3分钟讲解、简历、深挖问答与不附答案的自测。
+- [早期闭环讲解](docs/CLOSURE_INTERVIEW.md)：四阶段历史主稿与后续补充。
 - [完整结果](reports/closure-v1/RESULTS.md)：教师失败、蒸馏对照、量化取舍和修复回归。
 - [贡献边界](CONTRIBUTIONS.md)、[数据许可](DATA_LICENSE.md)、[组件归属](THIRD_PARTY.md)、[状态与缺口](docs/ROADMAP.md)。
 

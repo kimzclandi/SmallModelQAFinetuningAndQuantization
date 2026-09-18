@@ -4,7 +4,7 @@ from pathlib import Path
 from qa_lab.common import sha,read_jsonl
 from qa_lab.chinese import evaluate_zh,near,normalize_zh
 from scripts.chinese_study import R,C,D,check,summarize
-p=check();summary=summarize();rows=read_jsonl(D/'external.jsonl');manifest=json.loads((D/'manifest.json').read_text())
+p=check();summary=summarize(read_only=True);rows=read_jsonl(D/'external.jsonl');manifest=json.loads((D/'manifest.json').read_text())
 freeze=json.loads((R/'freeze.json').read_text());models=json.loads((R/'model-freeze.json').read_text())
 assert len(rows)==p['n']==96 and len({normalize_zh(r['source_title']) for r in rows})==96
 assert sha(D/'external.jsonl')==manifest['data_sha256']==freeze['data_sha256']

@@ -1,0 +1,203 @@
+{
+  "teacher": {
+    "original": {
+      "overall": {
+        "n": 24,
+        "em": 0.375,
+        "f1": 0.46688034188034183,
+        "format_valid_rate": 0.9166666666666666
+      },
+      "answerable": {
+        "n": 12,
+        "em": 0.5,
+        "f1": 0.6837606837606837,
+        "format_valid_rate": 1.0
+      },
+      "unanswerable": {
+        "n": 12,
+        "em": 0.25,
+        "f1": 0.25,
+        "format_valid_rate": 0.8333333333333334
+      },
+      "unsupported_answer_rate": 0.75,
+      "over_abstention_rate": 0.16666666666666666,
+      "categories": {
+        "correct": 9,
+        "format_or_nonextractive": 2,
+        "unsupported_answer": 7,
+        "over_abstention": 2,
+        "wrong_or_partial_span": 4
+      },
+      "family_macro_em": 0.37254901960784315,
+      "always_abstain_em": 0.5
+    },
+    "prompted": {
+      "overall": {
+        "n": 24,
+        "em": 0.4166666666666667,
+        "f1": 0.47008547008547014,
+        "format_valid_rate": 0.8333333333333334
+      },
+      "answerable": {
+        "n": 12,
+        "em": 0.3333333333333333,
+        "f1": 0.44017094017094016,
+        "format_valid_rate": 0.8333333333333334
+      },
+      "unanswerable": {
+        "n": 12,
+        "em": 0.5,
+        "f1": 0.5,
+        "format_valid_rate": 0.8333333333333334
+      },
+      "unsupported_answer_rate": 0.5,
+      "over_abstention_rate": 0.3333333333333333,
+      "categories": {
+        "over_abstention": 4,
+        "correct": 8,
+        "unsupported_answer": 4,
+        "format_or_nonextractive": 4,
+        "wrong_or_partial_span": 4
+      },
+      "family_macro_em": 0.39215686274509803,
+      "always_abstain_em": 0.5
+    }
+  },
+  "aggregate": {
+    "gold": {
+      "overall_em": {
+        "n": 3,
+        "mean": 0.5540540540540541,
+        "sample_std": 0.02702702702702703,
+        "minimum": 0.527027027027027,
+        "maximum": 0.581081081081081
+      },
+      "overall_f1": {
+        "n": 3,
+        "mean": 0.5835643335643336,
+        "sample_std": 0.016293194004662653,
+        "minimum": 0.5647955647955648,
+        "maximum": 0.594074844074844
+      },
+      "answerable_em": {
+        "n": 3,
+        "mean": 0.42424242424242425,
+        "sample_std": 0.030303030303030304,
+        "minimum": 0.3939393939393939,
+        "maximum": 0.45454545454545453
+      },
+      "answerable_f1": {
+        "n": 3,
+        "mean": 0.49041699041699044,
+        "sample_std": 0.044125732060879316,
+        "minimum": 0.4533799533799534,
+        "maximum": 0.5392385392385393
+      },
+      "unanswerable_em": {
+        "n": 3,
+        "mean": 0.6585365853658537,
+        "sample_std": 0.04224514164802137,
+        "minimum": 0.6341463414634146,
+        "maximum": 0.7073170731707317
+      },
+      "unanswerable_f1": {
+        "n": 3,
+        "mean": 0.6585365853658537,
+        "sample_std": 0.04224514164802137,
+        "minimum": 0.6341463414634146,
+        "maximum": 0.7073170731707317
+      }
+    },
+    "original_teacher": {
+      "overall_em": {
+        "n": 3,
+        "mean": 0.33783783783783783,
+        "sample_std": 0.023406091994174004,
+        "minimum": 0.32432432432432434,
+        "maximum": 0.36486486486486486
+      },
+      "overall_f1": {
+        "n": 3,
+        "mean": 0.39483014483014484,
+        "sample_std": 0.02258915735014365,
+        "minimum": 0.3803156303156303,
+        "maximum": 0.42085617085617083
+      },
+      "answerable_em": {
+        "n": 3,
+        "mean": 0.5151515151515151,
+        "sample_std": 0.0,
+        "minimum": 0.5151515151515151,
+        "maximum": 0.5151515151515151
+      },
+      "answerable_f1": {
+        "n": 3,
+        "mean": 0.642952445982749,
+        "sample_std": 0.003887880600603523,
+        "minimum": 0.6407077770714135,
+        "maximum": 0.6474417838054202
+      },
+      "unanswerable_em": {
+        "n": 3,
+        "mean": 0.1951219512195122,
+        "sample_std": 0.042245141648021386,
+        "minimum": 0.17073170731707318,
+        "maximum": 0.24390243902439024
+      },
+      "unanswerable_f1": {
+        "n": 3,
+        "mean": 0.1951219512195122,
+        "sample_std": 0.042245141648021386,
+        "minimum": 0.17073170731707318,
+        "maximum": 0.24390243902439024
+      }
+    },
+    "prompted_teacher": {
+      "overall_em": {
+        "n": 3,
+        "mean": 0.5585585585585585,
+        "sample_std": 0.0206422328601614,
+        "minimum": 0.5405405405405406,
+        "maximum": 0.581081081081081
+      },
+      "overall_f1": {
+        "n": 3,
+        "mean": 0.5904943404943405,
+        "sample_std": 0.006880744286720519,
+        "minimum": 0.582986832986833,
+        "maximum": 0.5965003465003466
+      },
+      "answerable_em": {
+        "n": 3,
+        "mean": 0.3838383838383838,
+        "sample_std": 0.046288643383392336,
+        "minimum": 0.3333333333333333,
+        "maximum": 0.42424242424242425
+      },
+      "answerable_f1": {
+        "n": 3,
+        "mean": 0.4554519554519555,
+        "sample_std": 0.08590808634459984,
+        "minimum": 0.35780885780885785,
+        "maximum": 0.5194250194250195
+      },
+      "unanswerable_em": {
+        "n": 3,
+        "mean": 0.6991869918699187,
+        "sample_std": 0.070408569413369,
+        "minimum": 0.6585365853658537,
+        "maximum": 0.7804878048780488
+      },
+      "unanswerable_f1": {
+        "n": 3,
+        "mean": 0.6991869918699187,
+        "sample_std": 0.070408569413369,
+        "minimum": 0.6585365853658537,
+        "maximum": 0.7804878048780488
+      }
+    }
+  },
+  "passing_arms": [],
+  "decision": "no_method_passed_all_seeds"
+}
+Verified: fixed teacher-only prompt change, identical 24 TRAIN IDs, paired shuffle/48 steps, 3 seeds, 9 full DEV runs, target/source/adapter lineage, no new test commands.

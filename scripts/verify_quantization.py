@@ -3,7 +3,7 @@ import json,statistics
 from pathlib import Path
 from qa_lab.common import sha,read_jsonl
 from scripts.quantization_study import R,C,check,summarize
-p=check();summary=summarize();base=json.loads((R/'fp16-quality/run.json').read_text())
+p=check();summary=summarize(read_only=True);base=json.loads((R/'fp16-quality/run.json').read_text())
 conversions={v:json.loads((R/f'{v}-conversion.json').read_text()) for v in p['variants']}
 for v in ['q4','q8']:
  c=conversions[v];assert c['weight_bits']==int(v[1:]) and c['group_size']==64 and c['kv_cache_quantization'] is False

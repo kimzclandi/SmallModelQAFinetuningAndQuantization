@@ -1,0 +1,31 @@
+{
+  "data_rebuild": {
+    "train.jsonl": true,
+    "test.jsonl": true,
+    "dev.jsonl": true,
+    "manifest.json": true,
+    "samples.jsonl": true
+  },
+  "environments": {
+    "inference": {
+      "lock_matches_installed": true,
+      "missing": [],
+      "extra": [],
+      "packages": 32
+    },
+    "mlx": {
+      "lock_matches_installed": true,
+      "missing": [],
+      "extra": [],
+      "packages": 40
+    }
+  },
+  "cpu_smoke": {
+    "status": "complete",
+    "device": "cpu",
+    "n": 2,
+    "split": "dev",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "new_model_download": false
+  }
+}

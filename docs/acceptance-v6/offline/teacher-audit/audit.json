@@ -1,0 +1,7 @@
+{
+  "raw_sha256": "636a3268a298bcb7723e03795c9a3f45e99b0b7e0c7400fd95a5a3bce478597a",
+  "repaired_exact_strings": 13,
+  "teacher_identity": "User-reported; not independently verified",
+  "meaning": "Agreement with gold on selected TRAINING examples; not teacher test performance or student improvement",
+  "training_admission": false
+}
