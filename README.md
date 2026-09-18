@@ -93,3 +93,7 @@ HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
 ## 本地验收
 
 已在独立源码目录和全新 Python 3.12 虚拟环境按锁定依赖验证：11 项测试通过、数据重建逐字节一致、176 条已有预测离线重算一致、CPU 两条 dev 真正生成成功、LoRA adapter 重新加载成功。详见 [复现记录](reports/REPRODUCIBILITY.md)。这是同机新环境验证；异机和 GitHub CI 尚未验证。基线所用代码位于 `reports/baseline-v1/source/`，当前代码另含硬件查询权限容错修复。
+
+## 已有 ChatGPT Pro 的下一步
+
+已准备 [24 题教师任务包](data/teacher-pilot-v1/CHATGPT_REQUEST.md) 与 [手工操作说明](docs/CHATGPT_PRO_WORKFLOW.md)。仅含训练集输入，不含 gold/dev/test。导入工具校验来源、ID 完整覆盖及回答格式，保存原始响应。当前尚无真实教师输出；这只是阶段二准备，不是已完成蒸馏。

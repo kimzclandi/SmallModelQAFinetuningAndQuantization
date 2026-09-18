@@ -1,0 +1,36 @@
+{
+  "status": "requests_only_no_teacher_outputs",
+  "source_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "n": 24,
+  "ids": [
+    "56e1aba0e3433e1400423095",
+    "56e1c4fce3433e1400423151",
+    "56e19557e3433e1400422fee",
+    "5ad54a375b96ef001a10ac49",
+    "5ad572b15b96ef001a10af0a",
+    "5ad54f775b96ef001a10ac88",
+    "5ad560b85b96ef001a10ad1e",
+    "56e17644e3433e1400422f41",
+    "56e1ce08e3433e14004231a5",
+    "5ad569c05b96ef001a10ae3a",
+    "56e19557e3433e1400422ff1",
+    "56e1c9bfe3433e1400423196",
+    "5ad542db5b96ef001a10abf5",
+    "56e1c720e3433e140042316a",
+    "5ad546c75b96ef001a10ac12",
+    "56e1c2eee3433e1400423136",
+    "56e1e9dfe3433e14004231fe",
+    "5ad537a15b96ef001a10ab9c",
+    "56e1aff7cd28a01900c67a69",
+    "5ad5391e5b96ef001a10aba2",
+    "5ad56fe65b96ef001a10aec3",
+    "5ad537a15b96ef001a10ab9d",
+    "5ad54a375b96ef001a10ac4a",
+    "56e1b62ecd28a01900c67aa6"
+  ],
+  "selection": "Deterministic hash order; 12 answerable + 12 unanswerable at default n=24. Gold used only for stratification; labels not exposed in request. This balanced pilot is not population-representative.",
+  "files": {
+    "request.json": "3d59efe50fb99cf477bb65603dd957570f5c81822eabd49003228e449cbc61a5",
+    "CHATGPT_REQUEST.md": "e0e6286bb624b8f0d7b814fa8c37fc48b160ad088b63011094608f62e91c903b"
+  }
+}

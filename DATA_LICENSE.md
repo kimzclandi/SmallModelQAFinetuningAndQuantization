@@ -1,6 +1,6 @@
 # 数据许可与归属
 
-`data/complexity-v1/*.jsonl` 中的文段、问题、答案，以及报告中再现的这些内容，来自 **SQuAD 2.0**，遵循 **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**，不适用仓库代码的 MIT 许可。
+`data/complexity-v1/*.jsonl` 与 `data/teacher-pilot-v1/` 中的文段、问题、答案，以及报告中再现的这些内容，来自 **SQuAD 2.0**，遵循 **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**，不适用仓库代码的 MIT 许可。
 
 - 创作者/归属：SQuAD 团队，Pranav Rajpurkar、Robin Jia、Percy Liang；基础文段来自 Wikipedia 贡献者。
 - 官方项目与许可声明：https://rajpurkar.github.io/SQuAD-explorer/
