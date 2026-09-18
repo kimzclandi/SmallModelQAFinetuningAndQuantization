@@ -1,0 +1,202 @@
+{
+  "phase": "dev_only_before_cross_article_inference",
+  "metrics": {
+    "gold24-20260918": {
+      "overall": {
+        "n": 74,
+        "em": 0.5675675675675675,
+        "f1": 0.6027027027027028,
+        "format_valid_rate": 0.9324324324324325
+      },
+      "answerable": {
+        "n": 33,
+        "em": 0.30303030303030304,
+        "f1": 0.38181818181818183,
+        "format_valid_rate": 0.9090909090909091
+      },
+      "unanswerable": {
+        "n": 41,
+        "em": 0.7804878048780488,
+        "f1": 0.7804878048780488,
+        "format_valid_rate": 0.9512195121951219
+      },
+      "unsupported_answer_rate": 0.21951219512195122,
+      "over_abstention_rate": 0.42424242424242425,
+      "categories": {
+        "correct": 42,
+        "over_abstention": 14,
+        "wrong_or_partial_span": 6,
+        "format_or_nonextractive": 5,
+        "unsupported_answer": 7
+      },
+      "family_macro_em": 0.5515432098765432,
+      "always_abstain_em": 0.5540540540540541
+    },
+    "gold242-20260918": {
+      "overall": {
+        "n": 74,
+        "em": 0.6351351351351351,
+        "f1": 0.6693000693000694,
+        "format_valid_rate": 0.9864864864864865
+      },
+      "answerable": {
+        "n": 33,
+        "em": 0.36363636363636365,
+        "f1": 0.44024864024864024,
+        "format_valid_rate": 0.9696969696969697
+      },
+      "unanswerable": {
+        "n": 41,
+        "em": 0.8536585365853658,
+        "f1": 0.8536585365853658,
+        "format_valid_rate": 1.0
+      },
+      "unsupported_answer_rate": 0.14634146341463414,
+      "over_abstention_rate": 0.36363636363636365,
+      "categories": {
+        "correct": 47,
+        "over_abstention": 12,
+        "wrong_or_partial_span": 8,
+        "format_or_nonextractive": 1,
+        "unsupported_answer": 6
+      },
+      "family_macro_em": 0.619400352733686,
+      "always_abstain_em": 0.5540540540540541
+    },
+    "gold24-20260919": {
+      "overall": {
+        "n": 74,
+        "em": 0.5675675675675675,
+        "f1": 0.5882473382473382,
+        "format_valid_rate": 0.9459459459459459
+      },
+      "answerable": {
+        "n": 33,
+        "em": 0.36363636363636365,
+        "f1": 0.4100091827364555,
+        "format_valid_rate": 0.9393939393939394
+      },
+      "unanswerable": {
+        "n": 41,
+        "em": 0.7317073170731707,
+        "f1": 0.7317073170731707,
+        "format_valid_rate": 0.9512195121951219
+      },
+      "unsupported_answer_rate": 0.2682926829268293,
+      "over_abstention_rate": 0.3939393939393939,
+      "categories": {
+        "correct": 41,
+        "over_abstention": 13,
+        "wrong_or_partial_span": 7,
+        "format_or_nonextractive": 4,
+        "unsupported_answer": 9
+      },
+      "family_macro_em": 0.5439594356261023,
+      "always_abstain_em": 0.5540540540540541
+    },
+    "gold242-20260919": {
+      "overall": {
+        "n": 74,
+        "em": 0.6486486486486487,
+        "f1": 0.6841649341649342,
+        "format_valid_rate": 0.9594594594594594
+      },
+      "answerable": {
+        "n": 33,
+        "em": 0.36363636363636365,
+        "f1": 0.44327894327894324,
+        "format_valid_rate": 0.9090909090909091
+      },
+      "unanswerable": {
+        "n": 41,
+        "em": 0.8780487804878049,
+        "f1": 0.8780487804878049,
+        "format_valid_rate": 1.0
+      },
+      "unsupported_answer_rate": 0.12195121951219512,
+      "over_abstention_rate": 0.36363636363636365,
+      "categories": {
+        "over_abstention": 12,
+        "correct": 48,
+        "wrong_or_partial_span": 6,
+        "format_or_nonextractive": 3,
+        "unsupported_answer": 5
+      },
+      "family_macro_em": 0.631305114638448,
+      "always_abstain_em": 0.5540540540540541
+    },
+    "gold24-20260920": {
+      "overall": {
+        "n": 74,
+        "em": 0.581081081081081,
+        "f1": 0.6314622314622315,
+        "format_valid_rate": 0.9054054054054054
+      },
+      "answerable": {
+        "n": 33,
+        "em": 0.42424242424242425,
+        "f1": 0.5372183372183372,
+        "format_valid_rate": 0.8484848484848485
+      },
+      "unanswerable": {
+        "n": 41,
+        "em": 0.7073170731707317,
+        "f1": 0.7073170731707317,
+        "format_valid_rate": 0.9512195121951219
+      },
+      "unsupported_answer_rate": 0.2926829268292683,
+      "over_abstention_rate": 0.2727272727272727,
+      "categories": {
+        "correct": 42,
+        "wrong_or_partial_span": 6,
+        "over_abstention": 9,
+        "format_or_nonextractive": 7,
+        "unsupported_answer": 10
+      },
+      "family_macro_em": 0.5614197530864198,
+      "always_abstain_em": 0.5540540540540541
+    },
+    "gold242-20260920": {
+      "overall": {
+        "n": 74,
+        "em": 0.6621621621621622,
+        "f1": 0.7017325017325018,
+        "format_valid_rate": 0.9594594594594594
+      },
+      "answerable": {
+        "n": 33,
+        "em": 0.5151515151515151,
+        "f1": 0.6038850038850039,
+        "format_valid_rate": 0.9393939393939394
+      },
+      "unanswerable": {
+        "n": 41,
+        "em": 0.7804878048780488,
+        "f1": 0.7804878048780488,
+        "format_valid_rate": 0.975609756097561
+      },
+      "unsupported_answer_rate": 0.21951219512195122,
+      "over_abstention_rate": 0.24242424242424243,
+      "categories": {
+        "correct": 49,
+        "over_abstention": 8,
+        "wrong_or_partial_span": 6,
+        "format_or_nonextractive": 3,
+        "unsupported_answer": 8
+      },
+      "family_macro_em": 0.6388447971781306,
+      "always_abstain_em": 0.5540540540540541
+    }
+  },
+  "passing_arms": [],
+  "decision": "no_arm_passed_all_seeds",
+  "holdout_sha256": "f92a5468392fe403e9badbb53094d03d84a1e7826a1d99230ec2e4cb9c128589",
+  "adapter_manifests": {
+    "gold24-20260918": "577db6962af36fa29577a1ecfe4e717022dc69c85de24aa7cd8e155b1d2bcbbc",
+    "gold242-20260918": "ff3eb611cd53113fc6eaae4268af43626d60cc1c74436b116076eed8bacc2006",
+    "gold24-20260919": "af5343691bb8a4945140d85d0c1683f42e15fba3431cb82d22e0f1801e28586c",
+    "gold242-20260919": "bd2fa856e52ed8f36c145a3697f9e81a6cd0b520826daa7bd25df3f8af1d0250",
+    "gold24-20260920": "0b50d41a59e6eefe16b48c5f7b8828023c92b2837f41e24611399bada68112af",
+    "gold242-20260920": "c4c89ec994bef573e3c007580769aed8cd96383040a2c726fbc9451f7a26f978"
+  }
+}
