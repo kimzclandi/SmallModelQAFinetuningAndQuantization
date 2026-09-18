@@ -1,0 +1,37 @@
+{
+  "source_url": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json",
+  "source_sha256": "80a5225e94905956a6446d296ca1093975c4d3b3260f1d6c8f68bc2ab77182d8",
+  "license": "CC BY-SA 4.0",
+  "policy": "Select deterministic hash order, max one question per answerability class per exact normalized context. Exclude exact and near duplicates against all previous complexity rows using original thresholds; exclude near question duplicates within holdout. Abort if fewer than 16 per class/title. Selection is independent of model predictions.",
+  "titles": [
+    "Packet_switching",
+    "Prime_number"
+  ],
+  "n": 64,
+  "excluded": [
+    {
+      "id": "5a8943753b2508001a72a574",
+      "reason": "related_within_holdout",
+      "other_id": "572998673f37b319004784d9"
+    }
+  ],
+  "near_duplicate_thresholds": {
+    "url": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json",
+    "sha256": "80a5225e94905956a6446d296ca1093975c4d3b3260f1d6c8f68bc2ab77182d8",
+    "title": "Computational_complexity_theory",
+    "seed": 20260918,
+    "context_jaccard": 0.7,
+    "question_jaccard": 0.8,
+    "question_sequence_ratio": 0.9,
+    "train_fraction": 0.6,
+    "dev_fraction": 0.2
+  },
+  "old_split_hashes": {
+    "train": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+    "dev": "8eb033584f81c1e5763c609fc6259678a550329dd9e72cdf89e4c806084c2a68",
+    "test": "26f1871ab38d22ccbb36a810a7b456aa09c6b615e63f5b64f0818ab8d024ad69"
+  },
+  "files": {
+    "test.jsonl": "f92a5468392fe403e9badbb53094d03d84a1e7826a1d99230ec2e4cb9c128589"
+  }
+}
