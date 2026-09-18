@@ -1,6 +1,6 @@
 # Domain QA Lab · 小模型领域问答优化实验室
 
-在普通个人硬件上建立可复现的「基线 → 教师响应蒸馏 → 量化 → 失败驱动数据改进」实验。**当前完成阶段一：真实基线。** 有可运行的 gold-label LoRA 训练入口与两步冒烟记录；教师蒸馏、量化对比和改进闭环尚未完成。没有公开发布、调用付费 API 或上传数据。
+在普通个人硬件上建立可复现的「基线 → 教师响应蒸馏 → 量化 → 失败驱动数据改进」实验。**当前完成阶段一：真实基线。** 另已完成24题 gold-SFT pilot：开发集总EM提高但有答案题回归，按预登记gate拒绝采用；教师蒸馏、量化对比和改进闭环尚未完成。没有公开发布、调用付费 API 或上传数据。
 
 ## 任务与当前证据
 
@@ -96,4 +96,11 @@ HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
 
 ## 已有 ChatGPT Pro 的下一步
 
-已准备 [24 题教师任务包](data/teacher-pilot-v1/CHATGPT_REQUEST.md) 与 [手工操作说明](docs/CHATGPT_PRO_WORKFLOW.md)。仅含训练集输入，不含 gold/dev/test。导入工具校验来源、ID 完整覆盖及回答格式，保存原始响应。当前尚无真实教师输出；这只是阶段二准备，不是已完成蒸馏。
+已准备 [24 题教师任务包](data/teacher-pilot-v1/CHATGPT_REQUEST.md) 与 [手工操作说明](docs/CHATGPT_PRO_WORKFLOW.md)。仅含训练集输入，不含 gold/dev/test。导入工具校验来源、ID 完整覆盖及回答格式，保存原始响应。已收到用户报告为 GPT-5（Codex）的24条回答，已完成审计；它们尚未进入训练，不是已完成蒸馏。
+
+## 最新进展：教师审计与 gold-SFT pilot
+
+- [教师回答审计](reports/teacher-audit-v1/REVIEW.md)：24条训练样本，归一化EM 17/24（70.83%）、F1 73.40%；仅是与gold一致率，不能与学生test分数直接比较。保留7条分歧及原始文本，修复13处JSON非法转义。模型身份仅用户报告，实际snapshot/参数未核验。
+- [gold-SFT实验](reports/gold-sft-pilot-v1/RESULTS.md)：相同24个ID的公开gold标签、48步LoRA、单seed。74条dev上总体EM 25.68%→55.41%，有答案EM 57.58%→45.45%；修复26题、退化4题，预登记gate为REJECT，不替换原始默认模型。
+- 没有新增test推理，没有GPT回答训练，没有API费用或公开发布。Pro订阅不等同于训练用途获准；当前GPT回答只作审计。正式蒸馏可改用许可明确的本地教师，或取得明确适用许可后推进。
+- 新增审计/训练输入保护后，本地24项测试通过；最初11项基线测试记录仍保留。

@@ -1,0 +1,104 @@
+{
+  "baseline": {
+    "overall": {
+      "n": 74,
+      "em": 0.25675675675675674,
+      "f1": 0.30128205128205127,
+      "format_valid_rate": 0.9594594594594594
+    },
+    "answerable": {
+      "n": 33,
+      "em": 0.5757575757575758,
+      "f1": 0.6756021756021756,
+      "format_valid_rate": 1.0
+    },
+    "unanswerable": {
+      "n": 41,
+      "em": 0.0,
+      "f1": 0.0,
+      "format_valid_rate": 0.926829268292683
+    },
+    "unsupported_answer_rate": 1.0,
+    "over_abstention_rate": 0.0,
+    "categories": {
+      "correct": 19,
+      "wrong_or_partial_span": 14,
+      "unsupported_answer": 38,
+      "format_or_nonextractive": 3
+    },
+    "family_macro_em": 0.23668430335097002,
+    "always_abstain_em": 0.5540540540540541
+  },
+  "gold_sft": {
+    "overall": {
+      "n": 74,
+      "em": 0.5540540540540541,
+      "f1": 0.5918225918225918,
+      "format_valid_rate": 0.9594594594594594
+    },
+    "answerable": {
+      "n": 33,
+      "em": 0.45454545454545453,
+      "f1": 0.5392385392385393,
+      "format_valid_rate": 0.9696969696969697
+    },
+    "unanswerable": {
+      "n": 41,
+      "em": 0.6341463414634146,
+      "f1": 0.6341463414634146,
+      "format_valid_rate": 0.9512195121951219
+    },
+    "unsupported_answer_rate": 0.36585365853658536,
+    "over_abstention_rate": 0.24242424242424243,
+    "categories": {
+      "correct": 41,
+      "over_abstention": 8,
+      "wrong_or_partial_span": 9,
+      "format_or_nonextractive": 3,
+      "unsupported_answer": 13
+    },
+    "family_macro_em": 0.5253086419753087,
+    "always_abstain_em": 0.5540540540540541
+  },
+  "fixed_ids": [
+    "5ad5364c5b96ef001a10ab91",
+    "5ad5364c5b96ef001a10ab93",
+    "5ad5364c5b96ef001a10ab94",
+    "5ad53f815b96ef001a10abe4",
+    "5ad54b035b96ef001a10ac52",
+    "5ad54b035b96ef001a10ac53",
+    "5ad54b035b96ef001a10ac54",
+    "5ad54b035b96ef001a10ac55",
+    "5ad54b035b96ef001a10ac56",
+    "5ad5501f5b96ef001a10ac91",
+    "5ad5501f5b96ef001a10ac92",
+    "5ad5501f5b96ef001a10ac93",
+    "5ad5648b5b96ef001a10ad94",
+    "5ad5648b5b96ef001a10ad95",
+    "5ad5648b5b96ef001a10ad96",
+    "5ad5648b5b96ef001a10ad97",
+    "5ad568d35b96ef001a10ae1a",
+    "5ad568d35b96ef001a10ae1d",
+    "5ad56aea5b96ef001a10ae49",
+    "5ad56aea5b96ef001a10ae4a",
+    "5ad56aea5b96ef001a10ae4b",
+    "5ad56aea5b96ef001a10ae4c",
+    "5ad56e5c5b96ef001a10ae9e",
+    "5ad56e5c5b96ef001a10aea0",
+    "5ad56e5c5b96ef001a10aea2",
+    "5ad5719f5b96ef001a10aeef"
+  ],
+  "regressed_ids": [
+    "56e17a7ccd28a01900c679a5",
+    "56e1ec83cd28a01900c67c0c",
+    "56e1fc57e3433e140042322c",
+    "56e1fc57e3433e140042322f"
+  ],
+  "fixed_count": 26,
+  "regressed_count": 4,
+  "gate": "REJECT",
+  "gate_reason": "Requires higher overall EM AND no answerable EM regression versus baseline",
+  "teacher_training_performed": false,
+  "new_test_inference_performed": false,
+  "preregistration_sha256": "a9f5a99f7986e6a7c88045f517d65fd52131a488bc2ddadf3a38a4cce0055b93"
+}

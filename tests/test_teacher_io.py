@@ -59,3 +59,17 @@ def test_received_teacher_audit_reproduces():
     assert n==13
     assert metrics==json.loads(Path('reports/teacher-audit-v1/metrics.json').read_text())
     assert sum(s['em'] for s in scored)==17
+
+
+@pytest.mark.parametrize('case',['wrong_hash','test_id','duplicate_id'])
+def test_gold_selection_rejects_invalid_source_before_model_loading(tmp_path,monkeypatch,case):
+    from qa_lab.train import main
+    import sys
+    manifest=json.loads(Path('data/teacher-pilot-v1/manifest.json').read_text())
+    if case=='wrong_hash':manifest['source_sha256']='invalid'
+    elif case=='test_id':manifest['ids']=['not-a-training-id']
+    else:manifest['ids']=[manifest['ids'][0]]*2
+    selection=tmp_path/'selection.json';selection.write_text(json.dumps(manifest))
+    monkeypatch.setattr(sys,'argv',['train','--selection',str(selection),'--output',str(tmp_path/'out')])
+    with pytest.raises(ValueError):main()
+    assert not (tmp_path/'out').exists()

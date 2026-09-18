@@ -11,3 +11,6 @@ jobs:
       - run: python -m pip install pytest==8.4.2
       - run: python -m pytest -q
       - run: PYTHONPATH=. python scripts/verify_artifacts.py
+      - run: mkdir -p work
+      - run: PYTHONPATH=. python scripts/compare_gold_pilot.py --output work/ci-gold-comparison.json
+      - run: python -m qa_lab.teacher_audit --raw data/teacher-received-v1/user-message.txt --output work/ci-teacher-audit

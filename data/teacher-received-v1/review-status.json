@@ -1,0 +1,11 @@
+{
+  "status": "audited_not_admitted_to_training",
+  "gold_em": 0.7083333333333334,
+  "human_adjudication_completed": false,
+  "teacher_identity_verified": false,
+  "generation_date_verified": false,
+  "training_permission_confirmed": false,
+  "terms_url": "https://openai.com/policies/terms-of-use/",
+  "scope": "Record and evaluate user-supplied responses only; do not use as student training targets.",
+  "review_sha256": "e5e7e009d7ef788b036bedf6cce9fc3d23d555a391ecda93135760e5a90549c7"
+}
