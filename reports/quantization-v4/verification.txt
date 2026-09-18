@@ -1,0 +1,32 @@
+{
+  "gate": {
+    "q4": {
+      "checks": {
+        "overall_em": false,
+        "answerable_em": false,
+        "f1": false,
+        "weight_bytes": true,
+        "rss": true,
+        "decode": true,
+        "ttft": true
+      },
+      "pass_all": false
+    },
+    "q8": {
+      "checks": {
+        "overall_em": true,
+        "answerable_em": true,
+        "f1": true,
+        "weight_bytes": true,
+        "rss": true,
+        "decode": true,
+        "ttft": true
+      },
+      "pass_all": true
+    }
+  },
+  "qualifying_local_candidates": [
+    "q8"
+  ]
+}
+Verified: same FP16 source, affine Q4/Q8 weight-only, identical quality inputs, nine matched-work benchmarks, timing arithmetic, source/model hashes, gates, DEV-only commands and two-row upstream decoder parity.

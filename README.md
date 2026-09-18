@@ -1,6 +1,6 @@
 # Domain QA Lab · 小模型领域问答优化实验室
 
-一个实际运行过的「原始基线 → 教师响应蒸馏 → 权重量化 → 失败分析与一次数据改进」实验项目。面向模型训练、推理优化与实验设计的面试讲解。**四阶段最小闭环已运行；本轮训练候选未通过采用门槛，不宣称优化成功或生产可用。**
+一个实际运行过的「原始基线 → 教师响应蒸馏 → 权重量化 → 失败分析与一次数据改进」实验项目。面向模型训练、推理优化与实验设计的面试讲解。**四阶段最小闭环已运行；已有训练候选未通过采用门槛，不宣称优化成功或生产可用。**
 
 本地仓库，尚未公开发布；没有调用付费API或上传数据。GPT手工候选只作审计，实际蒸馏使用本地开源教师。
 
@@ -66,6 +66,20 @@
 
 [第三轮完整结果](reports/coverage-v3/RESULTS.md) · [实验机制、复现与自测](docs/COVERAGE_V3.md)。本地33项测试通过；所有历史证据保留，GitHub线上CI未运行。
 
+## 第四轮：8-bit压缩筛选（仅dev）
+
+同一FP16原始学生导出、同MLX实现，三种精度重新运行；测速按轮换顺序各3次，固定同8个输入与32输出token。
+
+| 指标 | FP16 | affine Q4 | affine Q8 |
+|---|---:|---:|---:|
+| dev EM（74题） | 25.68% | 21.62% | 24.32% |
+| 权重 / MB | 988.10 | 278.06 | 525.05 |
+| decode tokens/s（本轮中位数） | 266.21 | 390.87 | 313.86 |
+
+Q8权重减少46.86%、解码速度约提高17.90%，dev少答对1题，通过预先固定的压缩门槛。它是**本地dev压缩候选**，不代表独立测试已验证、无损量化或QA任务可部署；Q4仍因质量损失未通过。没有重跑旧test或跨文章holdout。
+
+[完整证据与回归样例](reports/quantization-v4/RESULTS.md) · [量化机制、复现与自测](docs/QUANTIZATION_V4.md)。本地36项测试通过，线上CI未运行。
+
 ## 快速开始：小规模验证
 
 从仓库根目录运行，Python3.12。首次下载免费学生约1GB。推荐至少8GiB可用内存、5GB磁盘做学生验证（最低配置未实测）；完整本地教师/训练/量化在48GiB Mac实测，建议预留10GB磁盘。CPU可用于少量推理；本仓未提供CUDA/Ascend验证。
@@ -81,6 +95,7 @@ PYTHONPATH=. .venv/bin/python scripts/verify_artifacts.py
 PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
 PYTHONPATH=. .venv/bin/python scripts/verify_teacher_study.py
 PYTHONPATH=. .venv/bin/python scripts/verify_coverage.py
+PYTHONPATH=. .venv/bin/python scripts/verify_quantization.py
 HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
   --device cpu --splits dev --limit 2 --output work/smoke-01
 ```
@@ -116,4 +131,4 @@ MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到M
 
 ## 验证范围与未完成事项
 
-已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或可接受的质量-效率候选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。
+已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或已通过独立测试的质量-效率候选；Q8目前仅通过dev压缩筛选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。

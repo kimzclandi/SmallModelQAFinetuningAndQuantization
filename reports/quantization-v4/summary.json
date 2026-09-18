@@ -1,0 +1,259 @@
+{
+  "split": "dev",
+  "n": 74,
+  "test_evaluated": false,
+  "variants": {
+    "fp16": {
+      "quality": {
+        "overall": {
+          "n": 74,
+          "em": 0.25675675675675674,
+          "f1": 0.30128205128205127,
+          "format_valid_rate": 0.9594594594594594
+        },
+        "answerable": {
+          "n": 33,
+          "em": 0.5757575757575758,
+          "f1": 0.6756021756021756,
+          "format_valid_rate": 1.0
+        },
+        "unanswerable": {
+          "n": 41,
+          "em": 0.0,
+          "f1": 0.0,
+          "format_valid_rate": 0.926829268292683
+        },
+        "unsupported_answer_rate": 1.0,
+        "over_abstention_rate": 0.0,
+        "categories": {
+          "correct": 19,
+          "wrong_or_partial_span": 14,
+          "unsupported_answer": 38,
+          "format_or_nonextractive": 3
+        },
+        "family_macro_em": 0.23668430335097002,
+        "always_abstain_em": 0.5540540540540541
+      },
+      "weight_bytes": 988097440,
+      "performance": {
+        "runs": [
+          {
+            "run": 1,
+            "decode_tps": 265.91986332701134,
+            "ttft_ms": 26.273072874971604,
+            "rss_bytes": 2177712128,
+            "mlx_peak_active_bytes": 1372993324,
+            "mlx_cache_bytes": 2078435748
+          },
+          {
+            "run": 6,
+            "decode_tps": 266.21243554415383,
+            "ttft_ms": 26.305973874997335,
+            "rss_bytes": 2177712128,
+            "mlx_peak_active_bytes": 1372993324,
+            "mlx_cache_bytes": 2072229284
+          },
+          {
+            "run": 8,
+            "decode_tps": 266.2658363752362,
+            "ttft_ms": 26.38383337497885,
+            "rss_bytes": 2177646592,
+            "mlx_peak_active_bytes": 1372993324,
+            "mlx_cache_bytes": 2078422436
+          }
+        ],
+        "median_decode_tps": 266.21243554415383,
+        "median_ttft_ms": 26.305973874997335,
+        "median_rss_bytes": 2177712128,
+        "median_mlx_peak_active_bytes": 1372993324,
+        "median_mlx_cache_bytes": 2078422436
+      }
+    },
+    "q4": {
+      "quality": {
+        "overall": {
+          "n": 74,
+          "em": 0.21621621621621623,
+          "f1": 0.24441358853123557,
+          "format_valid_rate": 0.5405405405405406
+        },
+        "answerable": {
+          "n": 33,
+          "em": 0.48484848484848486,
+          "f1": 0.5480789561003464,
+          "format_valid_rate": 0.6060606060606061
+        },
+        "unanswerable": {
+          "n": 41,
+          "em": 0.0,
+          "f1": 0.0,
+          "format_valid_rate": 0.4878048780487805
+        },
+        "unsupported_answer_rate": 1.0,
+        "over_abstention_rate": 0.0,
+        "categories": {
+          "wrong_or_partial_span": 6,
+          "format_or_nonextractive": 34,
+          "correct": 14,
+          "unsupported_answer": 20
+        },
+        "family_macro_em": 0.21124338624338623,
+        "always_abstain_em": 0.5540540540540541
+      },
+      "weight_bytes": 278064766,
+      "performance": {
+        "runs": [
+          {
+            "run": 2,
+            "decode_tps": 392.48382957925463,
+            "ttft_ms": 21.758223999995607,
+            "rss_bytes": 762429440,
+            "mlx_peak_active_bytes": 672613160,
+            "mlx_cache_bytes": 2050264788
+          },
+          {
+            "run": 4,
+            "decode_tps": 390.8667472167496,
+            "ttft_ms": 21.77764587497677,
+            "rss_bytes": 762314752,
+            "mlx_peak_active_bytes": 672056104,
+            "mlx_cache_bytes": 2051816660
+          },
+          {
+            "run": 9,
+            "decode_tps": 388.6108812432944,
+            "ttft_ms": 21.83266150004215,
+            "rss_bytes": 762396672,
+            "mlx_peak_active_bytes": 672039720,
+            "mlx_cache_bytes": 2044514004
+          }
+        ],
+        "median_decode_tps": 390.8667472167496,
+        "median_ttft_ms": 21.77764587497677,
+        "median_rss_bytes": 762396672,
+        "median_mlx_peak_active_bytes": 672056104,
+        "median_mlx_cache_bytes": 2050264788
+      }
+    },
+    "q8": {
+      "quality": {
+        "overall": {
+          "n": 74,
+          "em": 0.24324324324324326,
+          "f1": 0.29677754677754675,
+          "format_valid_rate": 0.9459459459459459
+        },
+        "answerable": {
+          "n": 33,
+          "em": 0.5454545454545454,
+          "f1": 0.6655011655011654,
+          "format_valid_rate": 1.0
+        },
+        "unanswerable": {
+          "n": 41,
+          "em": 0.0,
+          "f1": 0.0,
+          "format_valid_rate": 0.9024390243902439
+        },
+        "unsupported_answer_rate": 1.0,
+        "over_abstention_rate": 0.0,
+        "categories": {
+          "correct": 18,
+          "wrong_or_partial_span": 15,
+          "unsupported_answer": 37,
+          "format_or_nonextractive": 4
+        },
+        "family_macro_em": 0.22279541446208112,
+        "always_abstain_em": 0.5540540540540541
+      },
+      "weight_bytes": 525045782,
+      "performance": {
+        "runs": [
+          {
+            "run": 3,
+            "decode_tps": 313.85720699372314,
+            "ttft_ms": 21.861369750013182,
+            "rss_bytes": 1256013824,
+            "mlx_peak_active_bytes": 900593424,
+            "mlx_cache_bytes": 2023979400
+          },
+          {
+            "run": 5,
+            "decode_tps": 315.46120804495325,
+            "ttft_ms": 21.776546749975978,
+            "rss_bytes": 1255440384,
+            "mlx_peak_active_bytes": 901674768,
+            "mlx_cache_bytes": 2032269704
+          },
+          {
+            "run": 7,
+            "decode_tps": 313.8459367629278,
+            "ttft_ms": 21.8692238750009,
+            "rss_bytes": 1255407616,
+            "mlx_peak_active_bytes": 901117712,
+            "mlx_cache_bytes": 2024257928
+          }
+        ],
+        "median_decode_tps": 313.85720699372314,
+        "median_ttft_ms": 21.861369750013182,
+        "median_rss_bytes": 1255440384,
+        "median_mlx_peak_active_bytes": 901117712,
+        "median_mlx_cache_bytes": 2024257928
+      }
+    }
+  },
+  "gate": {
+    "q4": {
+      "checks": {
+        "overall_em": false,
+        "answerable_em": false,
+        "f1": false,
+        "weight_bytes": true,
+        "rss": true,
+        "decode": true,
+        "ttft": true
+      },
+      "pass_all": false
+    },
+    "q8": {
+      "checks": {
+        "overall_em": true,
+        "answerable_em": true,
+        "f1": true,
+        "weight_bytes": true,
+        "rss": true,
+        "decode": true,
+        "ttft": true
+      },
+      "pass_all": true
+    }
+  },
+  "paired": {
+    "q4": {
+      "fixes": [
+        "56e17a7ccd28a01900c679a4",
+        "56e1a0dccd28a01900c67a2f",
+        "56e2042ecd28a01900c67c20"
+      ],
+      "regressions": [
+        "56e17a7ccd28a01900c679a1",
+        "56e17a7ccd28a01900c679a5",
+        "56e1b754cd28a01900c67abc",
+        "56e1c0f6cd28a01900c67b2c",
+        "56e1cbe2cd28a01900c67bad",
+        "56e1ec83cd28a01900c67c0e"
+      ],
+      "delta_em": -0.04054054054054054
+    },
+    "q8": {
+      "fixes": [],
+      "regressions": [
+        "56e1fc57e3433e140042322f"
+      ],
+      "delta_em": -0.013513513513513514
+    }
+  },
+  "qualifying_local_candidates": [
+    "q8"
+  ]
+}

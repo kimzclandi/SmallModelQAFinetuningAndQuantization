@@ -1,0 +1,12 @@
+[
+  {
+    "id": "56e1fc57e3433e140042322f",
+    "question": "Intractable problems lacking polynomial time solutions necessarily negate the practical efficacy of what type of algorithm?",
+    "answers": [
+      "exponential-time algorithms",
+      "exponential-time"
+    ],
+    "fp16": "exponential-time algorithms",
+    "q8": "intractable problems"
+  }
+]

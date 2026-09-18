@@ -17,3 +17,4 @@ jobs:
       - run: PYTHONPATH=. python scripts/verify_closure.py
       - run: PYTHONPATH=. python scripts/verify_teacher_study.py
       - run: PYTHONPATH=. python scripts/verify_coverage.py
+      - run: PYTHONPATH=. python scripts/verify_quantization.py
