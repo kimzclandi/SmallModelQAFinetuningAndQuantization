@@ -1,0 +1,10 @@
+{
+  "registered_utc": "2026-09-18T11:16:46.911137+00:00",
+  "reason": "Synthetic-input diagnostic: FP16 final logits finite fraction 0.0, FP32 1.0 on this MPS/eager setup. Switch teacher precision only; no prompt/model/sample changes.",
+  "original_config_sha256": "1b7076fdbb7446620d343af4ebb1f43237ba1891179da46bb4dd5e936242775c",
+  "replacement_config_sha256": "39a893e37f6fbe12c8426e589d400e414577a013df5000caf3647e72ce4c718b",
+  "diagnostic_sha256": "0d1569b917b7fb6ac7d83840ff1aeffd38c8171fee21e627ef44f628325062ac",
+  "original_outputs_preserved": "reports/closure-v1/teacher",
+  "new_outputs": "reports/closure-v1/teacher-fp32",
+  "quality_selection": "No dev/test used for this numeric compatibility correction."
+}
