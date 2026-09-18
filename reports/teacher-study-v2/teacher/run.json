@@ -1,0 +1,52 @@
+{
+  "status": "complete",
+  "method": "local_public_teacher",
+  "config": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "evidence-check-four-synthetic-examples-v2",
+    "system_prompt": "Answer using ONLY the supplied passage. Output the shortest exact contiguous span that answers the complete question, or exactly NO_ANSWER. Do not explain.\nBefore answering, check that the passage supports the requested entity, relation, quantity and polarity. A related phrase is not enough. Do not silently repair the question or import outside knowledge. If a required fact is missing, or the question has a false premise, output NO_ANSWER. When supported, copy the answer exactly; do not paraphrase or change singular/plural.\nThe following examples are fictional instructions, not facts about the actual passage:\nExample 1. Passage: The Luma procedure requires seven passes. Question: How many passes does the Luma procedure require? Answer: seven\nExample 2. Passage: The Luma procedure requires seven passes. Question: Who invented the Luma procedure? Answer: NO_ANSWER\nExample 3. Passage: The Rivo machine stores its state on magnetic ribbons. Question: Where does the Rivo machine store its state? Answer: magnetic ribbons\nExample 4. Passage: The only two modes are amber and violet. Question: What are the three modes? Answer: NO_ANSWER\nApply these rules to the user's passage and question. Return only the answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "source_sha256": {
+    "qa_lab/__init__.py": "4c8e3ec040581f28a80d4fda912052ec8c4139b910e034d4e6a4e7ee52761b23",
+    "qa_lab/closure_data.py": "3227bb8d82dcbd64c91138015e712c31f63738058307ba4df03da348d089a509",
+    "qa_lab/common.py": "1b2bb44e1a59fd07b7b53d6a4581b86ee61ffd297a711843dfd0fbe328d92418",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/inference.py": "a0c439fede3ffb7912b2728b8462f04313b7da9644915b30d6d9b26060afd018",
+    "qa_lab/metrics.py": "65e3c472761fda70a0e90b9f929a5c85508242eec6fe1259464d05738404c005",
+    "qa_lab/mlx_experiment.py": "e5663fc468770c97424d3d551c1252583d03939d65d7505a9930c4a56654f95c",
+    "qa_lab/teacher_audit.py": "c904edf1ab54cc4473babc9779407340edea3567019bd186451de37529ad7e90",
+    "qa_lab/teacher_io.py": "9a0a001d235ad0e4eb71b7186db5547153d4f2b22a38096a63f6aed7ad378323",
+    "qa_lab/train.py": "cb3bb3f15451f087697b9ff5b2c8ae065a8d9ed6f8ee2e3ea519857c4bccdc8f",
+    "qa_lab/train_artifact.py": "8992a8559ab3317cd5a7cdb054e042fc595fee0b08e956732a6187dcc2d4bba9"
+  },
+  "train_source_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "selection_sha256": "c1a8e74dce4e5bffad032716fbb7ac0225a9c0050d8ec382d2f44bd65cfdbef1",
+  "started_utc": "2026-09-18T11:40:05.379825+00:00",
+  "hardware": "Apple M4 Max",
+  "total_memory_bytes": 51539607552,
+  "python": "3.12.11",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.56.2"
+  },
+  "filtering": "No gold-based filtering; nonempty/noncapped required at artifact build.",
+  "teacher_license": "Apache-2.0, official Qwen2.5-1.5B-Instruct model card",
+  "elapsed_seconds": 13.275721958001668,
+  "memory": {
+    "rss_peak_sampled_bytes": 9295396864,
+    "mps_alloc_peak_sampled_bytes": 6500274688,
+    "mps_driver_peak_sampled_bytes": 9150038016,
+    "note": "Process RSS and MPS memory overlap in unified memory; DO NOT add them. Sampled maxima, not exact hardware peaks."
+  },
+  "finished_utc": "2026-09-18T11:40:18.662807+00:00"
+}

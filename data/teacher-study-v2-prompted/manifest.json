@@ -1,0 +1,26 @@
+{
+  "method": "response_distillation",
+  "source_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "pilot_selection_sha256": "c1a8e74dce4e5bffad032716fbb7ac0225a9c0050d8ec382d2f44bd65cfdbef1",
+  "teacher_report": "reports/teacher-study-v2/teacher",
+  "teacher_manifest_sha256": "9763f9b2c40cf6c343fbefa6a3840a8351492d56339ae2d63a7f6070695c5634",
+  "teacher_config": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "evidence-check-four-synthetic-examples-v2",
+    "system_prompt": "Answer using ONLY the supplied passage. Output the shortest exact contiguous span that answers the complete question, or exactly NO_ANSWER. Do not explain.\nBefore answering, check that the passage supports the requested entity, relation, quantity and polarity. A related phrase is not enough. Do not silently repair the question or import outside knowledge. If a required fact is missing, or the question has a false premise, output NO_ANSWER. When supported, copy the answer exactly; do not paraphrase or change singular/plural.\nThe following examples are fictional instructions, not facts about the actual passage:\nExample 1. Passage: The Luma procedure requires seven passes. Question: How many passes does the Luma procedure require? Answer: seven\nExample 2. Passage: The Luma procedure requires seven passes. Question: Who invented the Luma procedure? Answer: NO_ANSWER\nExample 3. Passage: The Rivo machine stores its state on magnetic ribbons. Question: Where does the Rivo machine store its state? Answer: magnetic ribbons\nExample 4. Passage: The only two modes are amber and violet. Question: What are the three modes? Answer: NO_ANSWER\nApply these rules to the user's passage and question. Return only the answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "filtering": "All 24 responses retained, including gold/format mismatches. Strip boundary whitespace only. No logits or features.",
+  "n": 24,
+  "train_sha256": "eafdca263c9c42615a78ceeb177c5a456ebe51823ddaa8cd46be6adeb73eeadb",
+  "created_utc": "2026-09-18T11:40:18.968538+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "adapter_model.safetensors": {
+    "sha256": "689199141bc9065f4c43989ab0528c88e6a30413e91431142aac2e52317ea93b",
+    "bytes": 2175168
+  },
+  "training.json": {
+    "sha256": "cfcb2911e3486fbaa7816134b0d6b0d881ca4fc7ebdcf08ce3ab1dc3bceb7858",
+    "bytes": 13422
+  },
+  "steps.json": {
+    "sha256": "7772fba4ce613c501d15af4d62358821cecc105f00d44b182dccec2db3e3ba75",
+    "bytes": 8821
+  },
+  "adapter_config.json": {
+    "sha256": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d",
+    "bytes": 859
+  }
+}

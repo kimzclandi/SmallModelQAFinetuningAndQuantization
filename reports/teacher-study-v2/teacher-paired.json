@@ -1,0 +1,163 @@
+{
+  "paired": {
+    "fixes": [
+      "5ad537a15b96ef001a10ab9c",
+      "5ad54a375b96ef001a10ac49",
+      "5ad572b15b96ef001a10af0a"
+    ],
+    "regressions": [
+      "56e1aba0e3433e1400423095",
+      "56e1e9dfe3433e14004231fe"
+    ],
+    "delta_em": 0.041666666666666664
+  },
+  "changed_responses": [
+    {
+      "id": "56e1aba0e3433e1400423095",
+      "question": "It is generally assumed that a Turing machine can solve anything capable of also being solved using what?",
+      "gold": [
+        "an algorithm"
+      ],
+      "is_impossible": false,
+      "old": "algorithm",
+      "new": "NO_ANSWER",
+      "old_em": 1.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "56e19557e3433e1400422fee",
+      "question": "What kind of graph is an example of an input used in a decision problem?",
+      "gold": [
+        "arbitrary graph",
+        "arbitrary"
+      ],
+      "is_impossible": false,
+      "old": "arbitrary graph",
+      "new": "arbitrary",
+      "old_em": 1.0,
+      "new_em": 1.0
+    },
+    {
+      "id": "5ad54a375b96ef001a10ac49",
+      "question": "How is Turing machine M said not to operate?",
+      "gold": [],
+      "is_impossible": true,
+      "old": "not to operate",
+      "new": "NO_ANSWER",
+      "old_em": 0.0,
+      "new_em": 1.0
+    },
+    {
+      "id": "5ad572b15b96ef001a10af0a",
+      "question": "What book featured 25 diverse comninatorial and graph theoretical problems each famous for its computational intractability?",
+      "gold": [],
+      "is_impossible": true,
+      "old": "Reducibility Among Combinatorial Problems",
+      "new": "NO_ANSWER",
+      "old_em": 0.0,
+      "new_em": 1.0
+    },
+    {
+      "id": "56e17644e3433e1400422f41",
+      "question": "What field of computer science analyzes the resource requirements of a specific algorithm isolated unto itself within a given problem?",
+      "gold": [
+        "analysis of algorithms"
+      ],
+      "is_impossible": false,
+      "old": "analysis of algorithms",
+      "new": "Analysis of algorithms",
+      "old_em": 1.0,
+      "new_em": 1.0
+    },
+    {
+      "id": "56e19557e3433e1400422ff1",
+      "question": "What encoding decision needs to be made in order to determine an exact definition of the formal language?",
+      "gold": [
+        "how graphs are encoded as binary strings"
+      ],
+      "is_impossible": false,
+      "old": "graphs are encoded as binary strings",
+      "new": "NO_ANSWER",
+      "old_em": 0.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "56e1c9bfe3433e1400423196",
+      "question": "Polynomial time reductions are an example of what?",
+      "gold": [
+        "the bound on the complexity of reductions",
+        "types of reductions"
+      ],
+      "is_impossible": false,
+      "old": "NO_ANSWER",
+      "new": "reduction",
+      "old_em": 0.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "5ad542db5b96ef001a10abf5",
+      "question": "Whose hypothesis states the the solution to a problem is solvable with reasonable resources assuming it allows for monoinomial time algorithm?",
+      "gold": [],
+      "is_impossible": true,
+      "old": "Cobham's",
+      "new": "Cobham's thesis",
+      "old_em": 0.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "5ad546c75b96ef001a10ac12",
+      "question": "How is one way that one should not view non-determinism?",
+      "gold": [],
+      "is_impossible": true,
+      "old": "physically realizable",
+      "new": "The Turing machine branches into many possible computational paths at each step, and if it solves the problem in any of these branches, it is said to have solved the problem.",
+      "old_em": 0.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "56e1e9dfe3433e14004231fe",
+      "question": "What finite hierarchy implies that the graph isomorphism problem is NP-complete? ",
+      "gold": [
+        "polynomial time hierarchy",
+        "polynomial time"
+      ],
+      "is_impossible": false,
+      "old": "polynomial time hierarchy",
+      "new": "NO_ANSWER",
+      "old_em": 1.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "5ad537a15b96ef001a10ab9c",
+      "question": "What is one example of an instance that the qualitative answer to the traveling salesman fails to answer?",
+      "gold": [],
+      "is_impossible": true,
+      "old": "Milan",
+      "new": "NO_ANSWER",
+      "old_em": 0.0,
+      "new_em": 1.0
+    },
+    {
+      "id": "5ad537a15b96ef001a10ab9d",
+      "question": "What does computational simplicity theory most specifically seek to answer?",
+      "gold": [],
+      "is_impossible": true,
+      "old": "complexity theory addresses computational problems and not particular problem instances.",
+      "new": "computational problems",
+      "old_em": 0.0,
+      "new_em": 0.0
+    },
+    {
+      "id": "56e1b62ecd28a01900c67aa6",
+      "question": "What is the most critical resource measured to in assessing the determination of a Turing machine's ability to solve any given set of problems?",
+      "gold": [
+        "time"
+      ],
+      "is_impossible": false,
+      "old": "time",
+      "new": "Time",
+      "old_em": 1.0,
+      "new_em": 1.0
+    }
+  ]
+}

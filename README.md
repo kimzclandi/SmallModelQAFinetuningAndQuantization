@@ -38,6 +38,20 @@
 
 测速固定8个train输入、每个强制生成32tokens，按FP16/Q4/Q4/FP16串行运行，表内为每精度两次运行的中位数。约1.45×的此处解码加速伴随9.80个百分点EM损失；没有宣称低比特普遍加速。TTFT、RSS、MLX内存和逐题时延见报告，统一内存口径不能相加。不用PyTorch与MLX跨框架速度差证明量化收益。
 
+## 第二轮：教师提示与三seed对照（仅dev）
+
+追加了同24题、同48步的三组×三个seed真实训练，只改变教师提示方案，未新增test推理。
+
+| 标签来源 | dev EM均值 ± 样本标准差 | dev有答案EM均值 |
+|---|---:|---:|
+| 标准答案SFT | 55.41% ± 2.70个百分点 | 42.42% |
+| 原教师蒸馏 | 33.78% ± 2.34个百分点 | 51.52% |
+| 新提示词教师蒸馏 | 55.86% ± 2.06个百分点 | 38.38% |
+
+新教师总分提高伴随回答能力退化，三种方法都未通过三seed门槛。新方案平均总EM仅比gold高0.45个百分点，不能据此宣称蒸馏优于监督微调。始终拒答的dev EM是55.41%。三seed不是三个独立测试集，±不是置信区间；同48步也不等于监督token预算相同。
+
+[第二轮完整证据](reports/teacher-study-v2/RESULTS.md) · [机制、复现与十道自测题](docs/TEACHER_STUDY_V2.md)。本地31项测试通过，GitHub线上CI尚未运行。
+
 ## 快速开始：小规模验证
 
 从仓库根目录运行，Python3.12。首次下载免费学生约1GB。推荐至少8GiB可用内存、5GB磁盘做学生验证（最低配置未实测）；完整本地教师/训练/量化在48GiB Mac实测，建议预留10GB磁盘。CPU可用于少量推理；本仓未提供CUDA/Ascend验证。
@@ -51,6 +65,7 @@ export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
 .venv/bin/python -m pytest -q
 PYTHONPATH=. .venv/bin/python scripts/verify_artifacts.py
 PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
+PYTHONPATH=. .venv/bin/python scripts/verify_teacher_study.py
 HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
   --device cpu --splits dev --limit 2 --output work/smoke-01
 ```
@@ -86,4 +101,4 @@ MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到M
 
 ## 验证范围与未完成事项
 
-已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed和小样本，尚无跨文章/中文业务评测、充分的教师质量验证或可接受的质量-效率候选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。
+已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。CI定义已准备，尚未在GitHub运行。第一轮只有单seed，第二轮已补三seed但仍仅24条训练样本、重复使用dev；尚无跨文章/中文业务评测、充分的教师质量验证或可接受的质量-效率候选。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub公开发布仍需用户明确授权。

@@ -1,0 +1,50 @@
+{
+  "policy": "Local absolute workspace prefixes only; original logs retained outside deliverable. Numeric results unchanged.",
+  "files": [
+    {
+      "file": "prompted_teacher-20260919.train.log",
+      "original_sha256": "7b984a901ceee3c4c847d7f00c409847d7a55d374b63831f58b2751f9e9c2fb8",
+      "export_sha256": "25f1e91a8f9f6cc7a0618aafaa2fd02f620353eeb7e58cded8c0e348148ff07d"
+    },
+    {
+      "file": "gold-20260919.train.log",
+      "original_sha256": "3bcb99614075a3c454ce282af1b5e5450e739a093ac6477bdd3bfd076e29ecf9",
+      "export_sha256": "092e56d2d3aa90d0be2b7e39b490a7ae5234e459f6348bd0f081ee96e35c199c"
+    },
+    {
+      "file": "original_teacher-20260918.train.log",
+      "original_sha256": "91b19c70038508862a0bae98ce38067767d8586eb1fbf026c4bdc7df1d26d8e2",
+      "export_sha256": "3830c268748313e481062b80b634c42c02828c8919f1e0c9736c5642c5d0b9f8"
+    },
+    {
+      "file": "original_teacher-20260920.train.log",
+      "original_sha256": "7076a9021a26e291215d63aff0382f63507e98152d877089949d58a6cdce7b5d",
+      "export_sha256": "582c24593e075c9a6efaeed6777f7096528961cdebc2663c9ec00274f1bca0f1"
+    },
+    {
+      "file": "prompted_teacher-20260918.train.log",
+      "original_sha256": "9882c67aa97d3d615bc5913188e5bef084f2991e2870119236ebb9a93e45e41d",
+      "export_sha256": "4ac355a126b9b144d7b3740b38e0b6cd0ac1e13b923ce4dbc38630c1a6441a6d"
+    },
+    {
+      "file": "gold-20260920.train.log",
+      "original_sha256": "b6c4d251d146fc1b9862fe747175d7d8b8d37ff3f18bf1a3dc8145dd375a9b95",
+      "export_sha256": "932782cdce1a05d7f54e0f99660dafcf470f618f8efdc1473ed609d67f9a80aa"
+    },
+    {
+      "file": "gold-20260918.train.log",
+      "original_sha256": "8ffcc2cfe31f6214365a175ef863bf04891863219409fae449b94884e1712d1f",
+      "export_sha256": "c08078e1bc03dad6ec9951bca45dcb2e1cd23e5e37e8e5df9a7b4382e5d7e2d5"
+    },
+    {
+      "file": "prompted_teacher-20260920.train.log",
+      "original_sha256": "f5e8ce97622f02c4d4af425343b652432c21d99fb871ff038020aa6ff8f7000e",
+      "export_sha256": "51c87fbf40ccbaa7f6a0891344e397dd4f8f4223fc48942c6d6de06fa667b962"
+    },
+    {
+      "file": "original_teacher-20260919.train.log",
+      "original_sha256": "d63cc54d695a5271e6c5eacf8c2df4b6b045ef05e3f3b4d1cbad75ffbf14f6ac",
+      "export_sha256": "3258a83a15422e000d8f19d0e00c9279eb7bb09eb863e490bc56acd2ea2ff448"
+    }
+  ]
+}

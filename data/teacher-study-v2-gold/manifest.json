@@ -1,0 +1,9 @@
+{
+  "method": "gold_sft",
+  "source_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "pilot_selection_sha256": "c1a8e74dce4e5bffad032716fbb7ac0225a9c0050d8ec382d2f44bd65cfdbef1",
+  "policy": "Identical 24 pilot IDs; first reference answer or exact NO_ANSWER. No sample addition.",
+  "n": 24,
+  "train_sha256": "3710aab095c88dcd9b209dc594b40fc9bb7174d51bdef1a564dbc94d98f9b759",
+  "created_utc": "2026-09-18T11:40:18.966728+00:00"
+}
