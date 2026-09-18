@@ -1,0 +1,5 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+{'step': 1, 'id': '5ad572b15b96ef001a10af09', 'loss': 1.941955327987671, 'grad_norm': 20.810592651367188, 'input_tokens': 233, 'supervised_tokens': 5}
+{'step': 2, 'id': '56e1c3e1e3433e1400423149', 'loss': 2.562345504760742, 'grad_norm': 56.76041030883789, 'input_tokens': 119, 'supervised_tokens': 3}
+<PROJECT>/.venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:286: UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(

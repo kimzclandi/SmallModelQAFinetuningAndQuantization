@@ -1,0 +1,66 @@
+{
+  "status": "complete",
+  "method": "gold-label supervised LoRA",
+  "config": {
+    "base_config": "configs/baseline.json",
+    "seed": 20260918,
+    "steps": 2,
+    "learning_rate": 0.0001,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "max_tokens": 2048,
+    "batch_size": 1,
+    "purpose": "Execution smoke only; NOT an optimization or distillation result"
+  },
+  "base": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "extract-or-abstain-v1",
+    "system_prompt": "Answer the question using only the supplied passage. If the passage contains the answer, output only the shortest exact span from the passage that answers the question. If the passage does not contain the answer, output exactly NO_ANSWER. Do not explain your answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "source_sha256": {
+    "qa_lab/__init__.py": "4c8e3ec040581f28a80d4fda912052ec8c4139b910e034d4e6a4e7ee52761b23",
+    "qa_lab/common.py": "1b2bb44e1a59fd07b7b53d6a4581b86ee61ffd297a711843dfd0fbe328d92418",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/inference.py": "3e897ecfe443cb00566fee203effa7fa43f32e267ffc1bd2bfa7a8b8d86901cb",
+    "qa_lab/metrics.py": "65e3c472761fda70a0e90b9f929a5c85508242eec6fe1259464d05738404c005",
+    "qa_lab/train.py": "2482004c5725c2603e6822dc56c71ea0c346774507c9f446c6c54ff2bbf01f2c"
+  },
+  "data_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "steps": [
+    {
+      "step": 1,
+      "id": "5ad572b15b96ef001a10af09",
+      "loss": 1.941955327987671,
+      "grad_norm": 20.810592651367188,
+      "input_tokens": 233,
+      "supervised_tokens": 5
+    },
+    {
+      "step": 2,
+      "id": "56e1c3e1e3433e1400423149",
+      "loss": 2.562345504760742,
+      "grad_norm": 56.76041030883789,
+      "input_tokens": 119,
+      "supervised_tokens": 3
+    }
+  ],
+  "elapsed_seconds": 2.5764009580016136,
+  "finished_utc": "2026-09-18T10:28:15.626761+00:00",
+  "trainable_parameters": 540672,
+  "warning": "Execution smoke only. No teacher data, no quality improvement claimed."
+}

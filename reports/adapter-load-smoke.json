@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "limit": 2,
+  "adapter": {
+    "adapter_model.safetensors": "ea4af0573be77dbda34c83ee94f1b74712cbd3969c21d8a093d67563a041c805",
+    "training.json": "636f7f3145d901703831ef559578568bf13e8aec706740f50668b2ae53cad18d",
+    "README.md": "42d0e4793306462ecc78650475691804993198c54c89f51becd388224322453f",
+    "steps.json": "1ed9df5a7f1a6fc6293ef531b0c07891b3c8b1cb6162b4b116c1c8ad1e99dd1e",
+    "adapter_config.json": "18ff232c59168d6de7327e030e825ababcc6ef89e922b8541d5e38a8bf70cd32"
+  },
+  "config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "extract-or-abstain-v1",
+    "system_prompt": "Answer the question using only the supplied passage. If the passage contains the answer, output only the shortest exact span from the passage that answers the question. If the passage does not contain the answer, output exactly NO_ANSWER. Do not explain your answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "note": "Two dev examples only; loading/execution verification, not a quality comparison."
+}

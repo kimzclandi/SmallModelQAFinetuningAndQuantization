@@ -1,0 +1,11 @@
+{
+  "url": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json",
+  "sha256": "80a5225e94905956a6446d296ca1093975c4d3b3260f1d6c8f68bc2ab77182d8",
+  "title": "Computational_complexity_theory",
+  "seed": 20260918,
+  "context_jaccard": 0.7,
+  "question_jaccard": 0.8,
+  "question_sequence_ratio": 0.9,
+  "train_fraction": 0.6,
+  "dev_fraction": 0.2
+}

@@ -1,0 +1,11 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.env*
+checkpoints/
+work/
+*.safetensors
+*.bin
+.DS_Store

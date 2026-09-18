@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "domain-qa-lab"
+version = "0.1.0"
+description = "Auditable small-model domain QA baseline on Apple Silicon or CPU"
+requires-python = ">=3.12,<3.13"
+dependencies = ["torch==2.8.0", "transformers==4.56.2", "peft==0.17.1", "psutil==7.0.0"]
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+[tool.setuptools.packages.find]
+include = ["qa_lab*"]
+[tool.pytest.ini_options]
+pythonpath = ["."]

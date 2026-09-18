@@ -1,0 +1,37 @@
+{
+  "overall": {
+    "n": 2,
+    "em": 0.5,
+    "f1": 0.8333333333333333,
+    "format_valid_rate": 1.0
+  },
+  "answerable": {
+    "n": 2,
+    "em": 0.5,
+    "f1": 0.8333333333333333,
+    "format_valid_rate": 1.0
+  },
+  "unanswerable": {
+    "n": 0,
+    "em": null,
+    "f1": null,
+    "format_valid_rate": null
+  },
+  "unsupported_answer_rate": null,
+  "over_abstention_rate": 0.0,
+  "categories": {
+    "correct": 1,
+    "wrong_or_partial_span": 1
+  },
+  "family_macro_em": 0.5,
+  "always_abstain_em": 0.0,
+  "performance": {
+    "n": 2,
+    "mean_ttft_seconds": 0.14149860400175385,
+    "median_ttft_seconds": 0.14149860400175385,
+    "mean_generation_seconds": 0.18643874950066675,
+    "decode_tokens_per_second": 55.62954841925189,
+    "total_generated_tokens": 7,
+    "capped_outputs": 0
+  }
+}
