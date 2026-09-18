@@ -1,0 +1,30 @@
+{
+  "overall": {
+    "n": 102,
+    "em": 0.14705882352941177,
+    "f1": 0.22519899630771442,
+    "format_valid_rate": 0.39215686274509803
+  },
+  "answerable": {
+    "n": 48,
+    "em": 0.3125,
+    "f1": 0.47854786715389314,
+    "format_valid_rate": 0.4583333333333333
+  },
+  "unanswerable": {
+    "n": 54,
+    "em": 0.0,
+    "f1": 0.0,
+    "format_valid_rate": 0.3333333333333333
+  },
+  "unsupported_answer_rate": 1.0,
+  "over_abstention_rate": 0.0,
+  "categories": {
+    "format_or_nonextractive": 62,
+    "wrong_or_partial_span": 9,
+    "correct": 13,
+    "unsupported_answer": 18
+  },
+  "family_macro_em": 0.14595959595959596,
+  "always_abstain_em": 0.5294117647058824
+}

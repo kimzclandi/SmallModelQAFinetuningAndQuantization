@@ -1,0 +1,26 @@
+[
+  {
+    "path": "reports/closure-v1/distilled.train-success.log",
+    "original_sha256": "91b19c70038508862a0bae98ce38067767d8586eb1fbf026c4bdc7df1d26d8e2",
+    "export_sha256": "3830c268748313e481062b80b634c42c02828c8919f1e0c9736c5642c5d0b9f8",
+    "change": "Local filesystem prefixes only; raw logs preserved outside deliverables."
+  },
+  {
+    "path": "reports/closure-v1/mlx-conversion.log",
+    "original_sha256": "7b74fcbc45da64b96d6af187f2581a3f823d024dfc56463729f1d00031fff450",
+    "export_sha256": "b19b0aba48393c8c49d5af5998a35ef31f07f6d38bcd0597a07a7d13d24b6ad2",
+    "change": "Local filesystem prefixes only; raw logs preserved outside deliverables."
+  },
+  {
+    "path": "reports/closure-v1/distilled.train.log",
+    "original_sha256": "4d9a9da83611c015b3905b345b74269d0ffb7a11a8ac9a842520eff2fe54db66",
+    "export_sha256": "e2b83bc6d29825c496e42295684236757668c367ffc1a085bba951738a2f85f5",
+    "change": "Local filesystem prefixes only; raw logs preserved outside deliverables."
+  },
+  {
+    "path": "reports/closure-v1/repaired.train-success.log",
+    "original_sha256": "a2f0935437afa32cc71e0f450891b9782c3a46b6fdacfe3af4fa1ea5f214a59b",
+    "export_sha256": "f182687e8fb2d0d7c4724a486833d4820f54ab7c07fcd22f333433c102373b32",
+    "change": "Local filesystem prefixes only; raw logs preserved outside deliverables."
+  }
+]

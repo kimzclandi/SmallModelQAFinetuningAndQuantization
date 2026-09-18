@@ -1,0 +1,7 @@
+{
+  "n": 8,
+  "mean_ttft_seconds": 0.02218654174976109,
+  "decode_tokens_per_second": 368.3470563832592,
+  "mean_generation_seconds": 0.1063463021246207,
+  "generated_tokens": 256
+}

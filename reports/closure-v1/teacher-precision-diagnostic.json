@@ -1,0 +1,12 @@
+[
+  {
+    "dtype": "float16",
+    "finite_fraction": 0.0,
+    "argmax_token": 0
+  },
+  {
+    "dtype": "float32",
+    "finite_fraction": 1.0,
+    "argmax_token": 3896
+  }
+]

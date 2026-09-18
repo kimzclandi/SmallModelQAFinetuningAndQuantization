@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 306, in _request_wrapper
+    response = http_backoff(method=method, url=url, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 307, in http_backoff
+    response = session.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 107, in send
+    raise OfflineModeIsEnabled(
+huggingface_hub.errors.OfflineModeIsEnabled: Cannot reach https://huggingface.co/Qwen/Qwen2.5-0.5B/resolve/main/README.md: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<PROJECT>/qa_lab/mlx_experiment.py", line 123, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "<PROJECT>/qa_lab/mlx_experiment.py", line 61, in main
+    if a.mode=='convert':return convert_models(a.model,a.output,a.quantize)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/qa_lab/mlx_experiment.py", line 48, in convert_models
+    convert(str(source),mlx_path=str(out),quantize=quantize,q_group_size=64,q_bits=4,dtype='float16')
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/mlx_lm/convert.py", line 148, in convert
+    save(
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/mlx_lm/utils.py", line 552, in save
+    create_model_card(dst_path, hf_repo)
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/mlx_lm/utils.py", line 311, in create_model_card
+    card = ModelCard.load(hf_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/repocard.py", line 176, in load
+    hf_hub_download(
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "<PROJECT>/.venv-mlx/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1665, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+[INFO] Loading
+[INFO] Using dtype: float16

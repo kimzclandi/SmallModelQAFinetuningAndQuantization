@@ -13,3 +13,5 @@
 再分发此数据改编须保留归属、来源、变更说明和相同许可。当前仅本地准备，尚未公开发布。样例文件仅包含训练集内容。
 
 引用：Rajpurkar, Jia, Liang (2018), *Know What You Don't Know: Unanswerable Questions for SQuAD*, https://arxiv.org/abs/1806.03822 。
+
+新增 `data/repair-v1/` 是原SQuAD训练材料的再次选样；`data/distilled-local-v1/` 保留SQuAD输入，target由Apache-2.0 Qwen本地教师生成，可能复制源文段。源数据及其再现继续保留CC BY-SA归属；生成过程与模型版本见manifest。`data/teacher-received-v1/` 为用户提交的GPT回答审计记录，未用于训练；这里不以数据许可说明替代该服务适用条款或声称已取得蒸馏许可。

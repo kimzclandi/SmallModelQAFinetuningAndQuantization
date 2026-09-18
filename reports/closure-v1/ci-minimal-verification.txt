@@ -1,0 +1,2 @@
+Closure verified: teacher lineage, training-only boundaries, 48-step runs, frozen selection, quality metrics, identical-work quantization and source snapshots.
+Quantization lineage verified: same FP16 source weights, same framework/config/hardware, weight-only Q4.

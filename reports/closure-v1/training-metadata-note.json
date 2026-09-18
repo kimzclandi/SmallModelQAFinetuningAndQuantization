@@ -1,0 +1,4 @@
+{
+  "note": "Executed distilled/repaired runs reuse configs/gold-sft-pilot-v1.json for exact numerical hyperparameters. Its config.purpose text is inherited from the gold control and does not describe their target source. Actual method and artifact_path/artifact_sha256 in each training.json identify the targets. Records preserved unchanged.",
+  "next_reproduction": "Use configs/distilled-response-v1.json or configs/data-repair-v1.json; only purpose text differs, all numerical settings identical."
+}

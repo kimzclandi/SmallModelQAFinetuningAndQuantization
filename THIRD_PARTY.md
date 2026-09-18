@@ -14,3 +14,5 @@
 后续量化候选为 Apple MLX/MLX-LM 权重量化，官方支持文档：https://github.com/ml-explore/mlx-lm 。尚未实现、未运行，也未承诺加速。必须在 MLX 内另建浮点基线，再与同框架量化模型比较；不能用本仓 PyTorch 时延直接证明 MLX 量化收益。
 
 下载的模型附带的 LICENSE/模型卡保留在被 Git 忽略的本地缓存中；仓库不包含模型权重。
+
+新增本地教师：[Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)，Apache-2.0，固定revision `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`。输出为本地生成响应，不使用GPT候选训练。新增Apple MLX/MLX-LM（MIT）仅用于同框架FP16/4-bit实验，精确版本见 requirements-mlx.lock.txt；保留本地源模型许可证与转换血缘。

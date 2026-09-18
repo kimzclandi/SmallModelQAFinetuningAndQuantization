@@ -1,0 +1,6 @@
+{
+  "status": "rejected_for_training",
+  "reason": "All24 capped at48tokens; numeric diagnosis on synthetic input found nonfinite FP16 logits. run.status=complete denotes only completed generation, NOT usable teacher labels.",
+  "replacement": "teacher-fp32",
+  "original_predictions_unchanged": true
+}

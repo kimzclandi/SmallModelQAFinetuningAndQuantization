@@ -1,0 +1,27 @@
+{
+  "overall": {
+    "n": 24,
+    "em": 0.0,
+    "f1": 0.0,
+    "format_valid_rate": 0.0
+  },
+  "answerable": {
+    "n": 12,
+    "em": 0.0,
+    "f1": 0.0,
+    "format_valid_rate": 0.0
+  },
+  "unanswerable": {
+    "n": 12,
+    "em": 0.0,
+    "f1": 0.0,
+    "format_valid_rate": 0.0
+  },
+  "unsupported_answer_rate": 1.0,
+  "over_abstention_rate": 0.0,
+  "categories": {
+    "format_or_nonextractive": 24
+  },
+  "family_macro_em": 0.0,
+  "always_abstain_em": 0.5
+}

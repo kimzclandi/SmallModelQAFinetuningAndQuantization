@@ -52,7 +52,11 @@ def main():
         for name,h in json.loads((folder/'manifest.json').read_text()).items():assert sha(folder/name)==h
         timing[f'{i}-{v}']={'performance':perf,'memory':run['memory'],'weight_bytes':run['weight_bytes']}
     assert all(x==token_signatures[0] for x in token_signatures)
-    write_json(ROOT/'summary.json',{'selected_before_test':selection['selected'],'dev':selection['dev_metrics'],'test':results,'paired':changes,'quantization_quality':quant,'quantization_fixed_work':timing})
+    summary={'selected_before_test':selection['selected'],'dev':selection['dev_metrics'],'test':results,'paired':changes,'quantization_quality':quant,'quantization_fixed_work':timing}
+    if (ROOT/'summary.json').exists():
+        assert json.loads((ROOT/'summary.json').read_text())==summary, 'Existing report differs; create a new version'
+    else:
+        write_json(ROOT/'summary.json',summary)
     print(json.dumps({'selected_before_test':selection['selected'],'test':{k:v['overall'] for k,v in results.items()},'quantization':{k:v['test']['overall'] for k,v in quant.items()}},indent=2))
 
 if __name__=='__main__':main()

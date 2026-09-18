@@ -1,0 +1,80 @@
+{
+  "status": "complete",
+  "started_utc": "2026-09-18T11:21:22.575869+00:00",
+  "config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "extract-or-abstain-v1",
+    "system_prompt": "Answer the question using only the supplied passage. If the passage contains the answer, output only the shortest exact span from the passage that answers the question. If the passage does not contain the answer, output exactly NO_ANSWER. Do not explain your answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "command": [
+    "python",
+    "-m",
+    "qa_lab.inference",
+    "--adapter",
+    "checkpoints/closure-repaired-v1",
+    "--splits",
+    "test",
+    "--output",
+    "reports/closure-v1/repaired48-test"
+  ],
+  "python": "3.12.11",
+  "os": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.56.2",
+    "peft": "0.17.1",
+    "psutil": "7.0.0"
+  },
+  "source_sha256": {
+    "qa_lab/__init__.py": "4c8e3ec040581f28a80d4fda912052ec8c4139b910e034d4e6a4e7ee52761b23",
+    "qa_lab/closure_data.py": "3227bb8d82dcbd64c91138015e712c31f63738058307ba4df03da348d089a509",
+    "qa_lab/common.py": "1b2bb44e1a59fd07b7b53d6a4581b86ee61ffd297a711843dfd0fbe328d92418",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/inference.py": "a0c439fede3ffb7912b2728b8462f04313b7da9644915b30d6d9b26060afd018",
+    "qa_lab/metrics.py": "65e3c472761fda70a0e90b9f929a5c85508242eec6fe1259464d05738404c005",
+    "qa_lab/mlx_experiment.py": "e5663fc468770c97424d3d551c1252583d03939d65d7505a9930c4a56654f95c",
+    "qa_lab/teacher_audit.py": "c904edf1ab54cc4473babc9779407340edea3567019bd186451de37529ad7e90",
+    "qa_lab/teacher_io.py": "9a0a001d235ad0e4eb71b7186db5547153d4f2b22a38096a63f6aed7ad378323",
+    "qa_lab/train.py": "cb3bb3f15451f087697b9ff5b2c8ae065a8d9ed6f8ee2e3ea519857c4bccdc8f",
+    "qa_lab/train_artifact.py": "9299f8184afb22a2d9a335f5cf2f705c2482119b1d254b752b03640c3c2cfa7e"
+  },
+  "data_sha256": {
+    "test": "26f1871ab38d22ccbb36a810a7b456aa09c6b615e63f5b64f0818ab8d024ad69"
+  },
+  "limit": null,
+  "adapter": {
+    "adapter_model.safetensors": "8ba69c7ceea950e3df8ca7542251730b1c0fed8f9c3a96d2d964bb481e8a8f49",
+    "training.json": "2498cc0f39f93ee3e6f7b62ba88c44d06e0ae960245799d208378047fea6ab66",
+    "README.md": "42d0e4793306462ecc78650475691804993198c54c89f51becd388224322453f",
+    "steps.json": "250f39f1bab0174c557678f26286f1b78061bdd1e38c9e68e08272f57b6f6761",
+    "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+  },
+  "hardware": {
+    "chip": "Apple M4 Max",
+    "unified_memory_bytes": 51539607552,
+    "cpu_count": 16
+  },
+  "timing": "Warm batch=1, greedy, KV cache on, eager attention. TTFT starts after tokenization/device transfer and includes synchronized prefill. Decode rate excludes first token, includes EOS; no network/queue time.",
+  "load_seconds": 1.3603734169992094,
+  "parameter_count": 494573440,
+  "parameter_bytes": 1978293760,
+  "memory": {
+    "rss_peak_sampled_bytes": 3192389632,
+    "mps_alloc_peak_sampled_bytes": 2162598144,
+    "mps_driver_peak_sampled_bytes": 4012933120,
+    "note": "Process RSS and MPS memory overlap in unified memory; DO NOT add them. Sampled maxima, not exact hardware peaks."
+  },
+  "wall_seconds": 17.426175249998778,
+  "finished_utc": "2026-09-18T11:21:40.002019+00:00"
+}
