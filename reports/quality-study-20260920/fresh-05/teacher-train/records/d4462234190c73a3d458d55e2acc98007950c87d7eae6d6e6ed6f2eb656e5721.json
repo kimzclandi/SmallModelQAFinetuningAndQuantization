@@ -1,0 +1,24 @@
+{
+  "input_sha256": "27bf0920b7be7b881e45f448090f547991738b5a76060822b8a4b85660b5d86e",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_222_QUERY_2",
+    "prediction": "忽图剌",
+    "input_tokens": 388,
+    "generated_tokens": 4,
+    "token_ids": [
+      100310,
+      28029,
+      120073,
+      151645
+    ],
+    "prompt_sha256": "7952c6099d73cbe7f2c1e8af66e1b419450697aaab720471196aa7c789a1a3a1",
+    "ttft_seconds": 0.1712679579941323,
+    "generation_seconds": 0.2955238329959684,
+    "decode_seconds": 0.1242558750018361,
+    "decode_tokens_per_second": 24.143727610108332,
+    "end_to_end_seconds": 0.2965836660005152,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "fb6c4b0d5fb718347f2f0144e6ff1b42db6f05be186dd8ffaa811d2cd9d91814"
+}

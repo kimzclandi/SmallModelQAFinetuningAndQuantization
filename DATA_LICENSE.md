@@ -27,3 +27,7 @@
 ## chinese-v5（CMRC2018）
 
 新来源为Yiming Cui等作者的CMRC2018官方仓库，固定revision c0eb1b6ba219847457e6af3180da722bbeb656af。96题子集按CC BY-SA4.0提供；完整作者、论文、原始URL、修改说明和许可证见data/chinese-v5/ATTRIBUTION.md、SOURCE_LICENSE.txt及manifest.json。代码MIT许可不覆盖数据内容。此为官方公开dev的重新抽样，不是官方隐藏test。随仓库公开，归属及原许可文件一并保留。
+
+## quality-study-20260920
+
+`reports/quality-study-20260920/fresh-05`、`supervised-07`、`holdout-08`中的文段、问题、参考答案及再现的预测片段来自同一固定版本CMRC2018的公开train。按文章和近重复规则重新划分192/64/96，保留原ID、文本、参考和来源哈希；新增分组、生成输出及评分。继续适用CMRC2018数据的CC BY-SA4.0及作者归属，详见该目录ATTRIBUTION.md与SOURCE_LICENSE.txt。合成核验挑战为AI辅助构造，不是人工标注的自然问答。Qwen模型和适配器权重不包含在本次发布；3B模型使用记录中保留其qwen-research许可归属，不将其权重归入代码MIT许可。

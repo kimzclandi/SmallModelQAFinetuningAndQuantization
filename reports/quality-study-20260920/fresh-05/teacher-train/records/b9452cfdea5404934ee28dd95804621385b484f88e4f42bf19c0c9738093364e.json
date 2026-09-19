@@ -1,0 +1,25 @@
+{
+  "input_sha256": "6ef0523da60901b067c75d7ea45d2d927f0c7befabc1225b824d8d00a8127c1b",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2103_QUERY_1",
+    "prediction": "非小说类书籍",
+    "input_tokens": 555,
+    "generated_tokens": 5,
+    "token_ids": [
+      65676,
+      104032,
+      21515,
+      107041,
+      151645
+    ],
+    "prompt_sha256": "4abd2e1c3c2c97833975acdee07ccbe97eb5ab310f36f3df8adb64458f36a382",
+    "ttft_seconds": 0.22758750000502914,
+    "generation_seconds": 0.3845674170006532,
+    "decode_seconds": 0.15697991699562408,
+    "decode_tokens_per_second": 25.480966460897687,
+    "end_to_end_seconds": 0.3864644999994198,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "34468ece281a2c66e9d703893056a0f2f6d5b4edc3e95d1b0076874655f28428"
+}

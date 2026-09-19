@@ -1,0 +1,24 @@
+{
+  "input_sha256": "d0e08e3b03fb009ef1a04797400c4a558d0f25c57c3245557eff941ea2e18dc1",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_218_QUERY_0",
+    "prediction": "苏州府昆山",
+    "input_tokens": 362,
+    "generated_tokens": 4,
+    "token_ids": [
+      104730,
+      99468,
+      112694,
+      151645
+    ],
+    "prompt_sha256": "34bf137da29f923ba09ad293c5d56972c11cf17bd66b6e49a5e5c52cc553cc81",
+    "ttft_seconds": 0.1505968749988824,
+    "generation_seconds": 0.2615304589999141,
+    "decode_seconds": 0.1109335840010317,
+    "decode_tokens_per_second": 27.0432081232686,
+    "end_to_end_seconds": 0.2626160829968285,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "43976497e81a2a55d7f269ec940db562d928aa127fbce8468d72ce5f9e7bb6c8"
+}

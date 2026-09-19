@@ -1,0 +1,24 @@
+{
+  "input_sha256": "5ee9b7d3581baf9d933ad19e46464dff55bc6d011308ec6ced3e380e19c8655f",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_640_QUERY_3",
+    "prediction": "牛及鹿",
+    "input_tokens": 351,
+    "generated_tokens": 4,
+    "token_ids": [
+      100664,
+      81217,
+      104818,
+      151645
+    ],
+    "prompt_sha256": "b3e3bec466ac5be22019f366bc68775978b17ea48dc7888ef6538140718b6b9b",
+    "ttft_seconds": 0.16061870900011854,
+    "generation_seconds": 0.2723679170012474,
+    "decode_seconds": 0.11174920800112886,
+    "decode_tokens_per_second": 26.845827846669792,
+    "end_to_end_seconds": 0.27345741700264625,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "481bd531f8e7d1202bb15cccbcf100e939e164069f2cb0fc44387a3346823907"
+}

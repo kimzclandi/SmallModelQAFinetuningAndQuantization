@@ -1,0 +1,30 @@
+{
+  "input_sha256": "91350d8cc872a3f9c340ad2427dd324cc629c593e816d00ca8c78f0bd3df0f8e",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2568_QUERY_0",
+    "prediction": "约翰娜·西于尔扎多蒂",
+    "input_tokens": 569,
+    "generated_tokens": 10,
+    "token_ids": [
+      111028,
+      102227,
+      13935,
+      60686,
+      34204,
+      99079,
+      100506,
+      42140,
+      104680,
+      151645
+    ],
+    "prompt_sha256": "72a63089c0896e6d34d4e613318ca022143e70bc27bd830822bcd4d73c2bf366",
+    "ttft_seconds": 0.22274725000170292,
+    "generation_seconds": 0.6163030000025174,
+    "decode_seconds": 0.39355575000081444,
+    "decode_tokens_per_second": 22.868424613238087,
+    "end_to_end_seconds": 0.6176601250044769,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "a3920c12c912889b234cf82141462b9775a9c053bd74007e99873c97dfc289ae"
+}

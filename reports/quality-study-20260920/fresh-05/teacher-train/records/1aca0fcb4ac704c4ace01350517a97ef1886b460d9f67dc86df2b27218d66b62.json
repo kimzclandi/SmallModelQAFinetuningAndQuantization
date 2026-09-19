@@ -1,0 +1,30 @@
+{
+  "input_sha256": "2591708567ddea67a18bbbbfd1d2a3a1dac728f8ab881169f104cba36fe091eb",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1674_QUERY_2",
+    "prediction": "后港3巷大牌251",
+    "input_tokens": 547,
+    "generated_tokens": 10,
+    "token_ids": [
+      33447,
+      99734,
+      18,
+      105486,
+      26288,
+      99327,
+      17,
+      20,
+      16,
+      151645
+    ],
+    "prompt_sha256": "158914dc7e355c8c4533630cbd87c4f5b6ef2645d40295459c59f759410df975",
+    "ttft_seconds": 0.2247146250010701,
+    "generation_seconds": 0.5688236670030165,
+    "decode_seconds": 0.34410904200194636,
+    "decode_tokens_per_second": 26.15450017715342,
+    "end_to_end_seconds": 0.5701311250013532,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ff9d4b2b29459037cd1daec2c9d17d447f7f33f685a2b447c4a7136a22a6b33a"
+}

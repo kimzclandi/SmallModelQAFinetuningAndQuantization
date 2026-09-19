@@ -1,0 +1,33 @@
+{
+  "student": {
+    "strict_em": 0.265625,
+    "normalized_em": 0.328125,
+    "char_lcs_f1": 0.6668535061286535,
+    "format_valid": 0.875,
+    "abstain": 0.0,
+    "n": 64,
+    "categories": {
+      "correct": 17,
+      "wrong_or_partial_span": 39,
+      "format_or_nonextractive": 8
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "teacher": {
+    "strict_em": 0.375,
+    "normalized_em": 0.453125,
+    "char_lcs_f1": 0.708195752464856,
+    "format_valid": 0.90625,
+    "abstain": 0.078125,
+    "n": 64,
+    "categories": {
+      "correct": 24,
+      "wrong_or_partial_span": 29,
+      "over_abstention": 5,
+      "format_or_nonextractive": 6
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  }
+}

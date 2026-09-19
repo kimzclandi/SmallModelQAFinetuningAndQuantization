@@ -1,0 +1,28 @@
+{
+  "input_sha256": "76adb849968b4a7dd8ceee8c8e66aaa50dd7a7705b66e584eb22b0e5c9069c83",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3776_QUERY_0",
+    "prediction": "剥皮仔、打铁婆",
+    "input_tokens": 522,
+    "generated_tokens": 8,
+    "token_ids": [
+      101819,
+      99888,
+      102437,
+      5373,
+      75437,
+      100164,
+      100562,
+      151645
+    ],
+    "prompt_sha256": "72c5ea9171e37c49cd959bd29b6ac430a746ecfb141dd9b26de5dddcf1a71cee",
+    "ttft_seconds": 0.2135950829979265,
+    "generation_seconds": 0.476472249996732,
+    "decode_seconds": 0.2628771669988055,
+    "decode_tokens_per_second": 26.628406262578935,
+    "end_to_end_seconds": 0.4777235829969868,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "935f5776e5051694ff027198da8ddb3b894e8bd724b8f98a436b8021f1e79dd6"
+}

@@ -1,0 +1,12 @@
+{
+  "proceed": false,
+  "prompt": "chinese_short_span",
+  "threshold": 4.263771896250546,
+  "validation": {
+    "tpr": 0.75,
+    "tnr": 1.0,
+    "balanced_accuracy": 0.875,
+    "threshold": 4.263771896250546
+  },
+  "elapsed_seconds": 33.11900958300248
+}

@@ -1,0 +1,14 @@
+{
+  "oracle_selected": {
+    "n": 59,
+    "reference_match": 59
+  },
+  "random_teacher": {
+    "n": 59,
+    "reference_match": 22
+  },
+  "random_gold": {
+    "n": 59,
+    "reference_match": 59
+  }
+}

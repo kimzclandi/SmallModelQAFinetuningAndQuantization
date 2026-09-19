@@ -1,0 +1,23 @@
+{
+  "input_sha256": "1c645d75fe6088c1975911a50c8cac77e52cc96aaacc53032111b122486c22f3",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_289_QUERY_4",
+    "prediction": "卜蜂",
+    "input_tokens": 408,
+    "generated_tokens": 3,
+    "token_ids": [
+      101755,
+      101594,
+      151645
+    ],
+    "prompt_sha256": "7106ef0fc73287ff5a0400a57a3a71b835bce37b5c686a97d05631b2c8e0f6ec",
+    "ttft_seconds": 0.17519987499690615,
+    "generation_seconds": 0.25602087500010384,
+    "decode_seconds": 0.0808210000031977,
+    "decode_tokens_per_second": 24.746043725280185,
+    "end_to_end_seconds": 0.2571371669982909,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "75b1bd0c6bd5f51373d6be6fdcc181decb6b392e44c057ba4c53ada247214e48"
+}

@@ -1,0 +1,25 @@
+{
+  "input_sha256": "68647276a2fb482e8fd3a9986fba0c03d67b54e2665b5d484afd8d17cc9d999e",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_584_QUERY_1",
+    "prediction": "424米",
+    "input_tokens": 383,
+    "generated_tokens": 5,
+    "token_ids": [
+      19,
+      17,
+      19,
+      72261,
+      151645
+    ],
+    "prompt_sha256": "b1ed364640766481c90a5d21e52e922c8005b622f584f09c70e4d783581f783c",
+    "ttft_seconds": 0.14973862499755342,
+    "generation_seconds": 0.29975145899516065,
+    "decode_seconds": 0.15001283399760723,
+    "decode_tokens_per_second": 26.66438526228897,
+    "end_to_end_seconds": 0.30089104199578287,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "f8678796f05a1b4078a837542e8809b1e0f2ed9b16a543983d399094f8a33beb"
+}

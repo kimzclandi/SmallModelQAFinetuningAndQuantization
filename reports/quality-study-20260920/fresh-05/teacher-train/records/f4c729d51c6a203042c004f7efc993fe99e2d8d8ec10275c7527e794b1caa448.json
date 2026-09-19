@@ -1,0 +1,29 @@
+{
+  "input_sha256": "1cb63f53163b8f35614f107c586f860b669d7ffef5657a2c5913a337dfcea43a",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2430_QUERY_0",
+    "prediction": "岸田派（宏池会）",
+    "input_tokens": 548,
+    "generated_tokens": 9,
+    "token_ids": [
+      100490,
+      99810,
+      99890,
+      9909,
+      100481,
+      100230,
+      36993,
+      7552,
+      151645
+    ],
+    "prompt_sha256": "14d42ec50c36c1ce2d4dae7fefaa860c0be1aff2d977c08c9f1f66f272fd5dc3",
+    "ttft_seconds": 0.21285350000107428,
+    "generation_seconds": 0.532367207997595,
+    "decode_seconds": 0.3195137079965207,
+    "decode_tokens_per_second": 25.038049384995762,
+    "end_to_end_seconds": 0.5335805839931709,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "0d42116e1565af7272552a6ebc544353c75f766cc4bd722a9675197eb63ff16a"
+}

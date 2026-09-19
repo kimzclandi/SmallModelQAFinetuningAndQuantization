@@ -1,0 +1,5 @@
+{
+  "primary_positive": true,
+  "scope": "Fixed models on one same-source holdout; not deployment approval",
+  "holdout_consumed": true
+}

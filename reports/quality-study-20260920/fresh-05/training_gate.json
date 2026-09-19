@@ -1,0 +1,5 @@
+{
+  "created_utc": "2026-09-19T17:03:28.595959+00:00",
+  "gate": "Proceed only if the selected forced-label judge passes TPR/TNR >=0.875 on sealed synthetic templates AND teacher dev strict EM > student dev strict EM AND teacher dev character F1 >= student dev character F1. This is a resource-allocation screen, not a statistical superiority claim.",
+  "if_failed": "Keep new 96-question holdout sealed. Do not increase training on this teacher/filter. Deliver diagnosis and requirements for a stronger teacher or independent annotation."
+}

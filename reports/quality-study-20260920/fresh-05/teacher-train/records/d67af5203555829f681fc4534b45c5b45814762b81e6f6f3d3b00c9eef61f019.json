@@ -1,0 +1,24 @@
+{
+  "input_sha256": "d5ac117673d26008afa27ae7cc8bb5461d9af121e30c86fe0c23b11bb436fa93",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3798_QUERY_0",
+    "prediction": "30公里",
+    "input_tokens": 439,
+    "generated_tokens": 4,
+    "token_ids": [
+      18,
+      15,
+      101126,
+      151645
+    ],
+    "prompt_sha256": "def2ccb0becbb4d3599660f7235abff620f772ff925d343b9d4a581f188e5d10",
+    "ttft_seconds": 0.18037991700111888,
+    "generation_seconds": 0.3008761249948293,
+    "decode_seconds": 0.12049620799371041,
+    "decode_tokens_per_second": 24.89704904370594,
+    "end_to_end_seconds": 0.30201683299674187,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "6df005a7dade1063429bb834031962133915e09fd194f9a90414c5af84433848"
+}

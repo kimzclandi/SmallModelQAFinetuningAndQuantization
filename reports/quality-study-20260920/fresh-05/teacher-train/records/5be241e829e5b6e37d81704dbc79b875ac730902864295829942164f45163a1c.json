@@ -1,0 +1,22 @@
+{
+  "input_sha256": "28612a84377c8ac0b2f03fbd072965e61dc19b4bd9c4e7ada09b68f2cafc733c",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3728_QUERY_1",
+    "prediction": "武汉市",
+    "input_tokens": 326,
+    "generated_tokens": 2,
+    "token_ids": [
+      111002,
+      151645
+    ],
+    "prompt_sha256": "b9e4f9dd6505a493c75ec57a82d4360080cd201f1da211578b78f2d46f29a561",
+    "ttft_seconds": 0.15907966699887766,
+    "generation_seconds": 0.20015812500059837,
+    "decode_seconds": 0.04107845800172072,
+    "decode_tokens_per_second": 24.34365963683718,
+    "end_to_end_seconds": 0.20120133300224552,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "28305f77a2cc280d7d8c416d466802deb8a10844fc3244694cde74fa1f3eecf3"
+}

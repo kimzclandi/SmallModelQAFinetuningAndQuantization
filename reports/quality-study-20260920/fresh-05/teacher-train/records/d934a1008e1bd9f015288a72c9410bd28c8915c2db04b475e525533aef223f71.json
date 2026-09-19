@@ -1,0 +1,25 @@
+{
+  "input_sha256": "407b3153dcd7e15c31f732ebf7e443dcbfcc742539007cf2d824c7d96ee7c26b",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3536_QUERY_0",
+    "prediction": "毛里求斯",
+    "input_tokens": 566,
+    "generated_tokens": 5,
+    "token_ids": [
+      99676,
+      69249,
+      30918,
+      99295,
+      151645
+    ],
+    "prompt_sha256": "3cbd02fa62a190396c22e136814c8418831244896e43d9ab1b1bbe9966151b08",
+    "ttft_seconds": 0.22802520800178172,
+    "generation_seconds": 0.3805108329979703,
+    "decode_seconds": 0.15248562499618856,
+    "decode_tokens_per_second": 26.23198088409961,
+    "end_to_end_seconds": 0.38178187500307104,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "f85496534ce7a3f4cf65ad0779c004862b253271364979ae76c82a31694b6e64"
+}

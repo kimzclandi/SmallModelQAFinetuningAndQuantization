@@ -1,0 +1,23 @@
+{
+  "input_sha256": "eaf0df4c63dfe1605d9dd014cf1a76d5b1704d58a07f39fc27a305d75108736d",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3092_QUERY_1",
+    "prediction": "概率论",
+    "input_tokens": 290,
+    "generated_tokens": 3,
+    "token_ids": [
+      103112,
+      67831,
+      151645
+    ],
+    "prompt_sha256": "b9c37b92c17b448d82dcb196471d79b1dcf2df983a322a573bc5631db51cb388",
+    "ttft_seconds": 0.14557383300416404,
+    "generation_seconds": 0.22407004100386985,
+    "decode_seconds": 0.0784962079997058,
+    "decode_tokens_per_second": 25.478937785217546,
+    "end_to_end_seconds": 0.22508275000291178,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "d7f3f8601ecf485dc3f069dd86e6c6f0a84d897c49181f2c17917e45a5153e09"
+}

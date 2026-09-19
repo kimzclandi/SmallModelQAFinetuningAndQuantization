@@ -1,0 +1,5 @@
+{
+  "training_allowed": false,
+  "reason": "Registered judge validation failed; no semantic approval assigned.",
+  "reference_audit": "Diagnostic only, not a deployable gold-free selector; all records retained."
+}

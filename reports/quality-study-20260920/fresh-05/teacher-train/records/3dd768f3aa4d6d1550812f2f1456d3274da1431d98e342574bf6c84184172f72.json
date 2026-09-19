@@ -1,0 +1,24 @@
+{
+  "input_sha256": "70f7ddb190aa57bb0ff8baa6bf50617c65350dd8d39581af636f7f05f1e45d72",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3592_QUERY_1",
+    "prediction": "Sean Yazbeck",
+    "input_tokens": 426,
+    "generated_tokens": 4,
+    "token_ids": [
+      59816,
+      88570,
+      54077,
+      151645
+    ],
+    "prompt_sha256": "e064038a3c1482b236a38645db940fe1b84c9ae70ff2b92747081b70725b72ef",
+    "ttft_seconds": 0.17945641700498527,
+    "generation_seconds": 0.2964972090048832,
+    "decode_seconds": 0.11704079199989792,
+    "decode_tokens_per_second": 25.632089024163616,
+    "end_to_end_seconds": 0.2976520000011078,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "1c5875e0c0ae2ada7fa958bebe41546966558b21fa878218fd676f85763b33b5"
+}

@@ -1,0 +1,29 @@
+{
+  "input_sha256": "70d7a559c24b1cd696d86c47e68f28eccdbd72aedef3ac20771a58b9295d6074",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2098_QUERY_3",
+    "prediction": "太平天国的石达开军队。",
+    "input_tokens": 412,
+    "generated_tokens": 9,
+    "token_ids": [
+      103192,
+      115962,
+      9370,
+      99385,
+      93488,
+      29767,
+      105591,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "f6f7f163e7febe962a5ee581737aebca0c80f12f7d6f74dd161a80b0230fad7a",
+    "ttft_seconds": 0.18169308300275588,
+    "generation_seconds": 0.4809431250032503,
+    "decode_seconds": 0.29925004200049443,
+    "decode_tokens_per_second": 26.733496665597066,
+    "end_to_end_seconds": 0.48218658300174866,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ce441e783005760f2974678d93a8d95b80927a14b448985025ca4ce9138e5958"
+}

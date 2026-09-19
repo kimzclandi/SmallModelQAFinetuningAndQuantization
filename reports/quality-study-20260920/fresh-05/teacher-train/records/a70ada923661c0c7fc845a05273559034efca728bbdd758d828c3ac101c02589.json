@@ -1,0 +1,23 @@
+{
+  "input_sha256": "57ae93d08b4e1f88b57d47073dfe47a657c88d9ca6e84c4d493afc488b262161",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1149_QUERY_2",
+    "prediction": "秽人",
+    "input_tokens": 590,
+    "generated_tokens": 3,
+    "token_ids": [
+      118313,
+      17340,
+      151645
+    ],
+    "prompt_sha256": "71b84b3c6b295000e6244cd3129a9abd23dd0a92dc08bb74fbcbb3e5b3e7e8bc",
+    "ttft_seconds": 0.23728412500349805,
+    "generation_seconds": 0.32836500000121305,
+    "decode_seconds": 0.091080874997715,
+    "decode_tokens_per_second": 21.95850665740942,
+    "end_to_end_seconds": 0.3297188750002533,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "88ed83042b02a5cc79ad25b2527e52e2bce298a006ebacc74cd7e418d77cb6f0"
+}

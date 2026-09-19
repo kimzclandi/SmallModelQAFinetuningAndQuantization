@@ -1,0 +1,52 @@
+{
+  "calibration": {
+    "tpr": 1.0,
+    "tnr": 1.0,
+    "balanced_accuracy": 1.0,
+    "threshold": 3.679762720328654
+  },
+  "validation": {
+    "tpr": 1.0,
+    "tnr": 0.7708333333333334,
+    "balanced_accuracy": 0.8854166666666667,
+    "threshold": 3.679762720328654
+  },
+  "families": {
+    "comparison": {
+      "tpr": 1.0,
+      "tnr": 0.625,
+      "balanced_accuracy": 0.8125,
+      "threshold": 3.679762720328654
+    },
+    "conditional": {
+      "tpr": 1.0,
+      "tnr": 1.0,
+      "balanced_accuracy": 1.0,
+      "threshold": 3.679762720328654
+    },
+    "correction": {
+      "tpr": 1.0,
+      "tnr": 1.0,
+      "balanced_accuracy": 1.0,
+      "threshold": 3.679762720328654
+    },
+    "exception": {
+      "tpr": 1.0,
+      "tnr": 0.0,
+      "balanced_accuracy": 0.5,
+      "threshold": 3.679762720328654
+    },
+    "role": {
+      "tpr": 1.0,
+      "tnr": 1.0,
+      "balanced_accuracy": 1.0,
+      "threshold": 3.679762720328654
+    },
+    "transfer": {
+      "tpr": 1.0,
+      "tnr": 1.0,
+      "balanced_accuracy": 1.0,
+      "threshold": 3.679762720328654
+    }
+  }
+}

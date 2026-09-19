@@ -1,0 +1,152 @@
+{
+  "baseline": {
+    "strict_em": 0.1875,
+    "normalized_em": 0.1875,
+    "char_lcs_f1": 0.5687856445157239,
+    "format_valid": 0.8854166666666666,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "wrong_or_partial_span": 67,
+      "format_or_nonextractive": 11,
+      "correct": 18
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "oracle_selected-20260920": {
+    "strict_em": 0.22916666666666666,
+    "normalized_em": 0.22916666666666666,
+    "char_lcs_f1": 0.6132437550000933,
+    "format_valid": 0.9375,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 22,
+      "wrong_or_partial_span": 68,
+      "format_or_nonextractive": 6
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "oracle_selected-20260921": {
+    "strict_em": 0.22916666666666666,
+    "normalized_em": 0.22916666666666666,
+    "char_lcs_f1": 0.6065148823172876,
+    "format_valid": 0.9166666666666666,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 22,
+      "wrong_or_partial_span": 66,
+      "format_or_nonextractive": 8
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "oracle_selected-20260922": {
+    "strict_em": 0.21875,
+    "normalized_em": 0.21875,
+    "char_lcs_f1": 0.5920794396905473,
+    "format_valid": 0.9375,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 21,
+      "wrong_or_partial_span": 69,
+      "format_or_nonextractive": 6
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "random_teacher-20260920": {
+    "strict_em": 0.16666666666666666,
+    "normalized_em": 0.17708333333333334,
+    "char_lcs_f1": 0.601222903720241,
+    "format_valid": 0.9375,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "wrong_or_partial_span": 74,
+      "correct": 16,
+      "format_or_nonextractive": 6
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "random_teacher-20260921": {
+    "strict_em": 0.16666666666666666,
+    "normalized_em": 0.16666666666666666,
+    "char_lcs_f1": 0.5784995004505281,
+    "format_valid": 0.9270833333333334,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "wrong_or_partial_span": 73,
+      "correct": 16,
+      "format_or_nonextractive": 7
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "random_teacher-20260922": {
+    "strict_em": 0.1875,
+    "normalized_em": 0.19791666666666666,
+    "char_lcs_f1": 0.6036530798835862,
+    "format_valid": 0.9375,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 18,
+      "wrong_or_partial_span": 72,
+      "format_or_nonextractive": 6
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "random_gold-20260920": {
+    "strict_em": 0.25,
+    "normalized_em": 0.28125,
+    "char_lcs_f1": 0.6388500059002858,
+    "format_valid": 0.9166666666666666,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 24,
+      "wrong_or_partial_span": 64,
+      "format_or_nonextractive": 8
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "random_gold-20260921": {
+    "strict_em": 0.21875,
+    "normalized_em": 0.23958333333333334,
+    "char_lcs_f1": 0.6067867518479032,
+    "format_valid": 0.9270833333333334,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 21,
+      "wrong_or_partial_span": 68,
+      "format_or_nonextractive": 7
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "random_gold-20260922": {
+    "strict_em": 0.2604166666666667,
+    "normalized_em": 0.28125,
+    "char_lcs_f1": 0.6306027401751798,
+    "format_valid": 0.90625,
+    "abstain": 0.0,
+    "n": 96,
+    "categories": {
+      "correct": 25,
+      "wrong_or_partial_span": 62,
+      "format_or_nonextractive": 9
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  }
+}

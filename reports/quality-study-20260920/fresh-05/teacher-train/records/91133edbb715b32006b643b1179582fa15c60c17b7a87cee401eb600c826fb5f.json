@@ -1,0 +1,23 @@
+{
+  "input_sha256": "def6853b2c2fed5f275e603069910eb762bee986d0bc632ddd03a36b12122b41",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_361_QUERY_1",
+    "prediction": "蓝绿色",
+    "input_tokens": 733,
+    "generated_tokens": 3,
+    "token_ids": [
+      100400,
+      100706,
+      151645
+    ],
+    "prompt_sha256": "bc17c048cdf13c7e9f499e17e97852eafe763afe9985b1e8c517a327a9e134a3",
+    "ttft_seconds": 0.28682362499966985,
+    "generation_seconds": 0.37656004099699203,
+    "decode_seconds": 0.08973641599732218,
+    "decode_tokens_per_second": 22.28749585964835,
+    "end_to_end_seconds": 0.37849245800316567,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "aa4b3d00bf4d54e6241c722e18f927c90bff68f221504c1e6621eb7ebd69d2fa"
+}

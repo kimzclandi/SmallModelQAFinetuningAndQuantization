@@ -1,0 +1,25 @@
+{
+  "input_sha256": "d8ad8937775147d3569cbb3516d68cae8b1df3ba8a266678767ab315bbdb0eac",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1299_QUERY_1",
+    "prediction": "2.3平方公里",
+    "input_tokens": 291,
+    "generated_tokens": 5,
+    "token_ids": [
+      17,
+      13,
+      18,
+      107231,
+      151645
+    ],
+    "prompt_sha256": "efaeabe5f01ffda01f9a5e585c17a99afb91a6427b3ae97be525494396f05fe1",
+    "ttft_seconds": 0.14069854099943768,
+    "generation_seconds": 0.2965135830017971,
+    "decode_seconds": 0.1558150420023594,
+    "decode_tokens_per_second": 25.67146245058568,
+    "end_to_end_seconds": 0.2975357090035686,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "b215e11dedd414552d2a13bd275500e193c052790b322cbfb7b069b236584f02"
+}

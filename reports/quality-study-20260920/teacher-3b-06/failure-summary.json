@@ -1,0 +1,9 @@
+{
+  "stop_reasons": {
+    "eos": 54,
+    "max_new_tokens": 10
+  },
+  "truncated_correct": 0.0,
+  "teacher_3b_only_correct": 5,
+  "teacher_1_5b_only_correct": 13
+}

@@ -1,0 +1,23 @@
+{
+  "input_sha256": "1589f3dc7ec78056b4884763e68f2d5269dd972a0aab46b673e7d1729fa84f43",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1283_QUERY_0",
+    "prediction": "美国陆军",
+    "input_tokens": 382,
+    "generated_tokens": 3,
+    "token_ids": [
+      100625,
+      115089,
+      151645
+    ],
+    "prompt_sha256": "40c154db657ef5b55726e5a4dea40b7868ce1a3a14e78ee1eca393f5a7ea3515",
+    "ttft_seconds": 0.1710201669993694,
+    "generation_seconds": 0.24734970899589825,
+    "decode_seconds": 0.07632954199652886,
+    "decode_tokens_per_second": 26.202174776457476,
+    "end_to_end_seconds": 0.2484636659937678,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "3b46d3ee481a1a6c159371c54550f2c1c2ceef3be621bbd0eb096216ea15681d"
+}

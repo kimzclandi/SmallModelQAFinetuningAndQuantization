@@ -1,0 +1,24 @@
+{
+  "input_sha256": "8c8eed51b9dfab82ceabdc65715d3f4b81c1544b9ff863c122dd4c092c8ac4a3",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2291_QUERY_1",
+    "prediction": "萨摩亚",
+    "input_tokens": 389,
+    "generated_tokens": 4,
+    "token_ids": [
+      100841,
+      100487,
+      99449,
+      151645
+    ],
+    "prompt_sha256": "3e9cc86256ec849fd957ea7f96a67bb9cf10032c07c6fb6f23ab505733644486",
+    "ttft_seconds": 0.17555304100096691,
+    "generation_seconds": 0.2875222080037929,
+    "decode_seconds": 0.111969167002826,
+    "decode_tokens_per_second": 26.793090279257708,
+    "end_to_end_seconds": 0.2886188749980647,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "1ef647eba42d354b1f933ba4da880ccad7eb6fd9214f77f0423353818cb68c31"
+}

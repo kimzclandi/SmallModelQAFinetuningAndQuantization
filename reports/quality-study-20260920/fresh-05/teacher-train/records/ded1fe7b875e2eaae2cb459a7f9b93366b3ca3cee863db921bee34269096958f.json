@@ -1,0 +1,22 @@
+{
+  "input_sha256": "0cbdc21759f35eb2ed772bdc20c6f18e192bc99f7828cbace40e48212dcbd4f2",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_301_QUERY_3",
+    "prediction": "五年",
+    "input_tokens": 531,
+    "generated_tokens": 2,
+    "token_ids": [
+      104540,
+      151645
+    ],
+    "prompt_sha256": "b5ab4004c60f0bb6e59de9c72fb9f0b3171e5c57576b2d6478d4fc496b5d17a3",
+    "ttft_seconds": 0.21586145799665246,
+    "generation_seconds": 0.2561174169968581,
+    "decode_seconds": 0.04025595900020562,
+    "decode_tokens_per_second": 24.84104278809734,
+    "end_to_end_seconds": 0.25735812499624444,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "5393960f0fab78c784e4bddf3aa9643fac0d06c4bc5b24cb638d33e9fa1d788c"
+}

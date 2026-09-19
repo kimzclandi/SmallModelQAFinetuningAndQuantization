@@ -1,0 +1,34 @@
+{
+  "input_sha256": "d4fc767729653d9bd43211cf73b4e5ea6c1e97578fc4b19ec5cf0ffc0583b841",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_565_QUERY_0",
+    "prediction": "耐寒性一年生或二年生草本叶菜",
+    "input_tokens": 308,
+    "generated_tokens": 14,
+    "token_ids": [
+      100796,
+      100718,
+      33071,
+      100695,
+      21287,
+      57191,
+      40820,
+      7948,
+      21287,
+      99808,
+      21894,
+      100027,
+      99800,
+      151645
+    ],
+    "prompt_sha256": "af929de4653ae7eb0fdd1d0171e12611d7287ed7e944b6d97820422d1cdeaac4",
+    "ttft_seconds": 0.14726791700377362,
+    "generation_seconds": 0.6346248750051018,
+    "decode_seconds": 0.48735695800132817,
+    "decode_tokens_per_second": 26.67449348279249,
+    "end_to_end_seconds": 0.6356807499978459,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c2678d334f457c75c646c529d6059e272c63c6d01e5e6efcba0565bbb9a53ed1"
+}

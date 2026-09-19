@@ -1,0 +1,31 @@
+{
+  "input_sha256": "390ae9ac9206a85129cabc7975fdab55211f26b7ddc46daf1ed0016a80a7cd10",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3127_QUERY_2",
+    "prediction": "路况较好、能够承受更高轴重的线路",
+    "input_tokens": 432,
+    "generated_tokens": 11,
+    "token_ids": [
+      118624,
+      108062,
+      5373,
+      100006,
+      105581,
+      105377,
+      102390,
+      29258,
+      9370,
+      104634,
+      151645
+    ],
+    "prompt_sha256": "e24fa2db2b9df34bfb4b50b660f12fee1bcd433410d27ac3ec26fe300e272e62",
+    "ttft_seconds": 0.19072462499752874,
+    "generation_seconds": 0.5700752080010716,
+    "decode_seconds": 0.37935058300354285,
+    "decode_tokens_per_second": 26.360839940785347,
+    "end_to_end_seconds": 0.5712485829935758,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "275fb9ffd10f7d72670cf4207c62ffefbe4ead477e3736343038bb829c57c7c1"
+}

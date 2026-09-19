@@ -1,0 +1,26 @@
+{
+  "input_sha256": "8b505a675998e1e94b92e5c1025313719f8c85a196feb4a5474b316a7415fa98",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1558_QUERY_2",
+    "prediction": "佩尔狄卡斯",
+    "input_tokens": 697,
+    "generated_tokens": 6,
+    "token_ids": [
+      101453,
+      99079,
+      110698,
+      99603,
+      99295,
+      151645
+    ],
+    "prompt_sha256": "8f2cfe88e979519fed24b0a48db49bcb0c00cf8d40ff95d00a44ed54a4df60d2",
+    "ttft_seconds": 0.2686516249959823,
+    "generation_seconds": 0.4915928749978775,
+    "decode_seconds": 0.22294125000189524,
+    "decode_tokens_per_second": 22.427433236144026,
+    "end_to_end_seconds": 0.49294495900539914,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "aae71da7554978ee5b58e155edc3ed8bc4a483ca14735b2a06b182ffbc83f9e9"
+}

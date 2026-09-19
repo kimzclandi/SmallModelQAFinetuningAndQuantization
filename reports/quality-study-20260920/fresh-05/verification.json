@@ -1,0 +1,115 @@
+{
+  "status": "pass",
+  "greedy": {
+    "original": {
+      "n": 64,
+      "tpr": 0.75,
+      "tnr": 0.9375,
+      "balanced_accuracy": 0.84375,
+      "invalid": 0
+    },
+    "english_short_span": {
+      "n": 64,
+      "tpr": 1.0,
+      "tnr": 0.15625,
+      "balanced_accuracy": 0.578125,
+      "invalid": 0
+    },
+    "chinese_short_span": {
+      "n": 64,
+      "tpr": 1.0,
+      "tnr": 0.28125,
+      "balanced_accuracy": 0.640625,
+      "invalid": 0
+    }
+  },
+  "forced_label_calibration": {
+    "original": {
+      "tpr": 0.78125,
+      "tnr": 0.8125,
+      "balanced_accuracy": 0.796875,
+      "threshold": -0.44312000274658203
+    },
+    "english_short_span": {
+      "tpr": 1.0,
+      "tnr": 1.0,
+      "balanced_accuracy": 1.0,
+      "threshold": 7.494487724470673
+    },
+    "chinese_short_span": {
+      "tpr": 1.0,
+      "tnr": 1.0,
+      "balanced_accuracy": 1.0,
+      "threshold": 4.263771896250546
+    }
+  },
+  "forced_label_validation": {
+    "tpr": 0.75,
+    "tnr": 1.0,
+    "balanced_accuracy": 0.875,
+    "threshold": 4.263771896250546
+  },
+  "suitability": {
+    "student": {
+      "strict_em": 0.265625,
+      "normalized_em": 0.328125,
+      "char_lcs_f1": 0.6668535061286535,
+      "format_valid": 0.875,
+      "abstain": 0.0,
+      "n": 64,
+      "categories": {
+        "correct": 17,
+        "wrong_or_partial_span": 39,
+        "format_or_nonextractive": 8
+      },
+      "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+      "unanswerable_n": 0
+    },
+    "teacher": {
+      "strict_em": 0.375,
+      "normalized_em": 0.453125,
+      "char_lcs_f1": 0.708195752464856,
+      "format_valid": 0.90625,
+      "abstain": 0.078125,
+      "n": 64,
+      "categories": {
+        "correct": 24,
+        "wrong_or_partial_span": 29,
+        "over_abstention": 5,
+        "format_or_nonextractive": 6
+      },
+      "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+      "unanswerable_n": 0
+    }
+  },
+  "teacher_student_em_difference": {
+    "delta": 0.109375,
+    "percentile_95": [
+      0.015625,
+      0.21875
+    ],
+    "teacher_only_correct": 9,
+    "student_only_correct": 2
+  },
+  "teacher_train": {
+    "strict_em": 0.3072916666666667,
+    "normalized_em": 0.3385416666666667,
+    "char_lcs_f1": 0.6727223950072262,
+    "format_valid": 0.9427083333333334,
+    "abstain": 0.11458333333333333,
+    "n": 192,
+    "categories": {
+      "wrong_or_partial_span": 100,
+      "correct": 59,
+      "over_abstention": 22,
+      "format_or_nonextractive": 11
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  },
+  "training_gate_passed": false,
+  "holdout_n": 96,
+  "holdout_inference": false,
+  "recovered_records": 8,
+  "total_teacher_records": 192
+}

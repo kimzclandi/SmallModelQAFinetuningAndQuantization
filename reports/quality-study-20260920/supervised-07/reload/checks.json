@@ -1,0 +1,92 @@
+[
+  {
+    "model": "oracle_selected-20260920",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "oracle_selected-20260920",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "random_teacher-20260920",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "random_teacher-20260920",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "random_gold-20260920",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "random_gold-20260920",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "oracle_selected-20260921",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "oracle_selected-20260921",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "random_teacher-20260921",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "random_teacher-20260921",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "random_gold-20260921",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "random_gold-20260921",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "oracle_selected-20260922",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "oracle_selected-20260922",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "random_teacher-20260922",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "random_teacher-20260922",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  },
+  {
+    "model": "random_gold-20260922",
+    "id": "TRAIN_3692_QUERY_2",
+    "equal": true
+  },
+  {
+    "model": "random_gold-20260922",
+    "id": "TRAIN_2714_QUERY_1",
+    "equal": true
+  }
+]

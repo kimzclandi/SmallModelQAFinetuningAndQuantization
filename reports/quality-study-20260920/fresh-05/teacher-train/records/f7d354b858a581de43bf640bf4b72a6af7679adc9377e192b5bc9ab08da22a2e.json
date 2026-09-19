@@ -1,0 +1,33 @@
+{
+  "input_sha256": "7a3035dd62773b90cfb3676df22f06aaca6e00fbe39f935ac3786be1f744a452",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2565_QUERY_2",
+    "prediction": "《北美一矿物分析含有的一种至今未知的金属》",
+    "input_tokens": 278,
+    "generated_tokens": 13,
+    "token_ids": [
+      26940,
+      110217,
+      14777,
+      118549,
+      101042,
+      102704,
+      104491,
+      104411,
+      109259,
+      9370,
+      100843,
+      25067,
+      151645
+    ],
+    "prompt_sha256": "5c0edfdc1d961a5fefa1d3c9bd6dcbff9f1c1e98e4ea8956e5d455a5247d7712",
+    "ttft_seconds": 0.1367736669999431,
+    "generation_seconds": 0.5986702090012841,
+    "decode_seconds": 0.461896542001341,
+    "decode_tokens_per_second": 25.97984377195264,
+    "end_to_end_seconds": 0.5997223750018748,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "6db71f789152af7333bd56eb6aecc02412435bc64ac5628eb7c82003bc8a8b11"
+}

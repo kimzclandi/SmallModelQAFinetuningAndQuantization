@@ -1,0 +1,27 @@
+{
+  "input_sha256": "a01df0283568004182b7f231d9e8b1011494a7d5400c9ecfb733d00a716f9e14",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2713_QUERY_0",
+    "prediction": "挪威剧作家易卜生",
+    "input_tokens": 392,
+    "generated_tokens": 7,
+    "token_ids": [
+      117451,
+      99418,
+      105022,
+      86744,
+      101755,
+      21287,
+      151645
+    ],
+    "prompt_sha256": "cbf50893672a63027a9aba282ab9adc5148d1926c89e6f7c2feb8fa2651b3cb8",
+    "ttft_seconds": 0.1618053330021212,
+    "generation_seconds": 0.3890344579995144,
+    "decode_seconds": 0.22722912499739323,
+    "decode_tokens_per_second": 26.40506581217893,
+    "end_to_end_seconds": 0.39016895800159546,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "74a28c45f547c1809984af44836dfe4ef625947d0fe39e8b1a43b22c0c5428cd"
+}
