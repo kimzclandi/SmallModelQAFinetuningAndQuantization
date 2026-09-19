@@ -1,4 +1,6 @@
 """Render coverage-v3 tables from saved metrics; no model execution."""
+from scripts.report_output import report_output
+OUTPUT = report_output()
 import json,statistics
 from pathlib import Path
 from scripts.coverage_study import R,C,H
@@ -36,9 +38,8 @@ lines+=['','具体题ID保存在summary.json的paired字段；每个模型都有
 '- 新64题按文章和类别固定hash抽样，去重阈值沿用第一轮；对旧train/dev/test文本做近重复排除，但不做旧test模型推理。不是自然类别占比，不是官方隐藏测试。',
 '- 文章未用于本项目训练，但同属公开SQuAD dev，可能出现在模型预训练中；英文数学/网络问答不等于中文企业业务。',
 '- 所有候选包括dev门槛失败者都按预登记统一评估；不依据新文章结果挑seed、追加训练或改阈值。',
-'- 本轮同机M4 Max本地免费运行；模型、配置、数据hash、源码、adapter加载hash和每次命令均保存。未上传或发布。',
-'', '复现与主动回忆见docs/COVERAGE_V3.md；原阶段一/闭环/第二轮证据保持不变。']
-out=R/'RESULTS.md';text='\n'.join(lines)+'\n'
-if out.exists():assert out.read_text()==text
-else:out.write_text(text)
+'- 本轮同机M4 Max本地免费运行；模型、配置、数据hash、源码、adapter加载hash和每次命令均保存。历史运行记录保留，发布状态见README。',
+'', '复现与实验方法见docs/COVERAGE_V3.md；原阶段一/闭环/第二轮证据保持不变。']
+out=OUTPUT/'RESULTS.md';text='\n'.join(lines)+'\n'
+out.write_text(text)
 print(out)

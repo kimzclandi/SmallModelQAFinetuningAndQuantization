@@ -10,11 +10,11 @@
 - 修改：筛选 `Computational_complexity_theory`；保留原问题 ID、文段和答案；去除重复；增加来源、家族和本地 split 字段；重新分为 train/dev/test。未改写问题或答案。
 - 原始文件 SHA-256、处理规则和分组审计见 `data/complexity-v1/manifest.json`。
 
-再分发此数据改编须保留归属、来源、变更说明和相同许可。现已获授权随仓库公开，保留来源与许可。样例文件仅包含训练集内容。
+再分发此数据改编须保留归属、来源、变更说明和相同许可。随仓库公开，保留来源与许可。样例文件仅包含训练集内容。
 
 引用：Rajpurkar, Jia, Liang (2018), *Know What You Don't Know: Unanswerable Questions for SQuAD*, https://arxiv.org/abs/1806.03822 。
 
-新增 `data/repair-v1/` 是原SQuAD训练材料的再次选样；`data/distilled-local-v1/` 保留SQuAD输入，target由Apache-2.0 Qwen本地教师生成，可能复制源文段。源数据及其再现继续保留CC BY-SA归属；生成过程与模型版本见manifest。`data/teacher-received-v1/` 为用户提交的GPT回答审计记录，未用于训练；这里不以数据许可说明替代该服务适用条款或声称已取得蒸馏许可。
+新增 `data/repair-v1/` 是原SQuAD训练材料的再次选样；`data/distilled-local-v1/` 保留SQuAD输入，target由Apache-2.0 Qwen本地教师生成，可能复制源文段。源数据及其再现继续保留CC BY-SA归属；生成过程与模型版本见manifest。`data/teacher-received-v1/` 为手工采集的GPT回答审计记录，未用于训练；这里不以数据许可说明替代该服务适用条款或声称已取得蒸馏许可。
 
 ## teacher-study-v2
 
@@ -22,8 +22,8 @@
 
 ## coverage-v3 / cross-article-v3
 
-`data/coverage-v3-gold242`使用已有Computational_complexity_theory训练集的全部242条gold。`data/cross-article-v3`从同一官方SQuAD2.0 dev文件的Packet_switching、Prime_number各取32条。文段、问题及标注按原数据CC BY-SA4.0与归属要求提供；来源URL、原文件SHA256、文章名、确定性抽样、去重和本地改动在manifest、configs/coverage-v3中记录。本项目重新抽样后的64题不是SQuAD官方隐藏测试。未添加用户业务数据或付费教师回答。
+`data/coverage-v3-gold242`使用已有Computational_complexity_theory训练集的全部242条gold。`data/cross-article-v3`从同一官方SQuAD2.0 dev文件的Packet_switching、Prime_number各取32条。文段、问题及标注按原数据CC BY-SA4.0与归属要求提供；来源URL、原文件SHA256、文章名、确定性抽样、去重和本地改动在manifest、configs/coverage-v3中记录。本项目重新抽样后的64题不是SQuAD官方隐藏测试。未添加私人业务数据或付费教师回答。
 
 ## chinese-v5（CMRC2018）
 
-新来源为Yiming Cui等作者的CMRC2018官方仓库，固定revision c0eb1b6ba219847457e6af3180da722bbeb656af。96题子集按CC BY-SA4.0提供；完整作者、论文、原始URL、修改说明和许可证见data/chinese-v5/ATTRIBUTION.md、SOURCE_LICENSE.txt及manifest.json。代码MIT许可不覆盖数据内容。此为官方公开dev的重新抽样，不是官方隐藏test。现已获授权随仓库公开，归属及原许可文件一并保留。
+新来源为Yiming Cui等作者的CMRC2018官方仓库，固定revision c0eb1b6ba219847457e6af3180da722bbeb656af。96题子集按CC BY-SA4.0提供；完整作者、论文、原始URL、修改说明和许可证见data/chinese-v5/ATTRIBUTION.md、SOURCE_LICENSE.txt及manifest.json。代码MIT许可不覆盖数据内容。此为官方公开dev的重新抽样，不是官方隐藏test。随仓库公开，归属及原许可文件一并保留。

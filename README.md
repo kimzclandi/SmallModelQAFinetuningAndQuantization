@@ -1,105 +1,34 @@
-# Domain QA Lab · 小模型领域问答优化实验室
+# Domain QA Lab
 
-一个实际运行过的「问题与基线 → 响应蒸馏负结果 → 数据覆盖对照 → 量化取舍 → 中文新来源验证」实验项目。面向模型训练、推理优化与实验设计的面试讲解。**四阶段最小闭环已运行；已有训练候选未通过采用门槛，不宣称优化成功或生产可用。**
-
-已获授权公开发布于 [GitHub](https://github.com/kimzclandi/domain-qa-lab)。代码、文档及许可实验数据/记录可供审阅；不包含模型权重、缓存或环境目录，没有调用付费API。GPT手工候选只作审计，实际蒸馏使用本地开源教师。
+可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
 
 [![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
 
-首次线上验收已通过：[提交1d86c7a的CI记录](https://github.com/kimzclandi/domain-qa-lab/actions/runs/35352738578)。CI执行51项测试、六套离线核验、gold对照与教师审计；不下载模型、不训练、不重新推理，不等于异机模型复现。历史报告中的未发布/未运行CI描述为当轮快照。
+**当前结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
-## 任务与资源
+## 五轮实验与证据
 
-输入英文计算复杂性文段和问题，输出最短原文答案或严格 `NO_ANSWER`。不含检索、不做闭卷知识问答。
+| 实验 | 主要结果 | 结论与证据 |
+|---|---|---|
+| 1. 基线、gold-SFT、响应蒸馏与一次数据修订 | 原始学生test EM24.51%；gold-SFT51.96%；蒸馏36.27%；增补数据48.04% | 三个候选dev有答案EM均退化，未过门槛。test始终拒答基线52.94%。[完整结果](reports/closure-v1/RESULTS.md) |
+| 2. 教师提示 × 三seed | gold / 原教师 / 新提示教师dev EM均值55.41% / 33.78% / 55.86% | 新提示改善总分但降低有答案能力；均未通过三seed门槛，未新增test推理。[结果](reports/teacher-study-v2/RESULTS.md) · [方法](docs/TEACHER_STUDY_V2.md) |
+| 3. 24题重复与242题覆盖对照 | 两篇新文章64题，三seed整体EM均值36.46% → 44.27% | 同242步，未控制token/epoch/类别分布；仍低于始终拒答50%，dev门槛未过。[结果](reports/coverage-v3/RESULTS.md) · [方法](docs/COVERAGE_V3.md) |
+| 4. 同MLX FP16 / Q4 / Q8 | Q8权重988.10 → 525.05MB；dev少答对1/74；固定工作量decode266.21 → 313.86tokens/s | Q8通过预设dev压缩门槛，Q4未通过；单机速度不是通用加速承诺。[结果与回归](reports/quantization-v4/RESULTS.md) · [方法](docs/QUANTIZATION_V4.md) |
+| 5. 冻结Q8的中文新来源检查 | FP16和Q8严格EM均为44/96；字符LCS F1为72.68% / 72.12% | 正确ID集合相同，输出并非逐条无损。全部有答案，未验证中文拒答。[结果](reports/chinese-v5/RESULTS.md) · [方法](docs/CHINESE_V5.md) |
 
-- 数据：[SQuAD2.0](https://rajpurkar.github.io/SQuAD-explorer/) 的 Computational_complexity_theory，CC BY-SA4.0。418题、48文段/家族，train/dev/test=242/74/102。先近重复家族合并再切分。
-- 学生：[Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)，Apache-2.0，固定revision；baseline指未接受本项目训练。
-- 教师：[Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)，Apache-2.0，固定revision，本地FP32生成。
-- 实测设备：Apple M4 Max、48GiB统一内存、40核GPU；macOS27.0。PyTorch/MPS用于训练，独立MLX环境用于公平量化对照。
+第一轮4-bit量化在同MLX框架下将test EM从24.51%降至14.71%，因此不能只凭文件缩小与解码变快采用。第四轮重新同时测量三种精度；不跨轮次或跨框架拼接速度比。
 
-本项目的test是公开SQuAD dev内部重新切出的holdout，**不是官方隐藏测试**。同文章语义相关性、公开benchmark预训练污染仍是限制。
+## 数据、模型与适用范围
 
-## 实际结果
+- 英文主数据来自SQuAD2.0公开dev中的Computational_complexity_theory：418题、48个文段家族，train/dev/test为242/74/102；近重复家族合并后切分。项目test不是官方隐藏测试。
+- 第三轮新增Packet_switching和Prime_number共64题；仍来自同一公开SQuAD文件。第五轮CMRC2018公开dev每篇文章最多一题，共96题。新来源不等于模型预训练未见。
+- 学生为固定revision的Qwen2.5-0.5B-Instruct；教师为Qwen2.5-1.5B-Instruct，本地FP32生成。baseline指未接受本项目训练。模型版本、数据hash、代码快照与配置随运行记录保存。
+- 历史实测为Apple M4 Max、48GiB统一内存、40核GPU、macOS27.0。PyTorch/MPS用于训练，独立MLX环境用于量化。未验证CUDA/Ascend训练、生产负载或外部业务泛化。
+- 三seed描述训练波动，不是三个独立测试集；dev已多轮使用。中文指标含明确命名的自定义指标，不能称CMRC官方成绩。后续选择新方法需要新协议与独立数据。
 
-所有数字均来自保存的逐条预测。[完整报告](reports/closure-v1/RESULTS.md)解释口径、对照与负结果。
+## 快速开始：离线证据验收
 
-| 方法 | 训练题/步数 | dev EM | test EM | test token F1 |
-|---|---:|---:|---:|---:|
-| 原始学生 | 0/0 | 25.68% | 24.51% | 31.56% |
-| gold-SFT | 24/48 | 55.41% | 51.96% | 54.33% |
-| 本地教师响应蒸馏 | 24/48 | 32.43% | 36.27% | 41.14% |
-| 增补有答案训练题 | 48/48 | 50.00% | 48.04% | 50.25% |
-
-**总分提高不等于达到目标。** 三个候选都使dev有答案EM低于原学生，未通过提前固定的门槛。始终拒答的test EM为52.94%；不能隐藏这一简单对照。蒸馏教师只有9/24条与gold完全匹配；格式/内容错误未被事后筛除。一轮数据修订相对gold-SFT在dev/test均只修复1题、退化5题。
-
-量化比较使用**同一原始学生、同一MLX框架**，FP16与4-bit权重量化（group64，KV保持浮点）：
-
-| 指标 | MLX FP16 | MLX 4-bit |
-|---|---:|---:|
-| test EM | 24.51% | 14.71% |
-| 权重文件，decimal MB | 988.10 | 278.06 |
-| 固定工作量decode tokens/s | 255.70 | 370.17 |
-
-测速固定8个train输入、每个强制生成32tokens，按FP16/Q4/Q4/FP16串行运行，表内为每精度两次运行的中位数。约1.45×的此处解码加速伴随9.80个百分点EM损失；没有宣称低比特普遍加速。TTFT、RSS、MLX内存和逐题时延见报告，统一内存口径不能相加。不用PyTorch与MLX跨框架速度差证明量化收益。
-
-## 第二轮：教师提示与三seed对照（仅dev）
-
-追加了同24题、同48步的三组×三个seed真实训练，只改变教师提示方案，未新增test推理。
-
-| 标签来源 | dev EM均值 ± 样本标准差 | dev有答案EM均值 |
-|---|---:|---:|
-| 标准答案SFT | 55.41% ± 2.70个百分点 | 42.42% |
-| 原教师蒸馏 | 33.78% ± 2.34个百分点 | 51.52% |
-| 新提示词教师蒸馏 | 55.86% ± 2.06个百分点 | 38.38% |
-
-新教师总分提高伴随回答能力退化，三种方法都未通过三seed门槛。新方案平均总EM仅比gold高0.45个百分点，不能据此宣称蒸馏优于监督微调。始终拒答的dev EM是55.41%。三seed不是三个独立测试集，±不是置信区间；同48步也不等于监督token预算相同。
-
-[第二轮完整证据](reports/teacher-study-v2/RESULTS.md) · [机制、复现与十道自测题](docs/TEACHER_STUDY_V2.md)。该轮本地31项测试通过；当前发布与CI状态见页首。
-
-## 第三轮：扩大覆盖与跨文章检查
-
-使用标准答案，固定242步，比较24题重复训练与全部242题训练，各3个seed。开发集决定先提交冻结，再对两篇未参与项目训练的文章（Packet_switching、Prime_number）共64题评估；未重跑旧test。
-
-| 方法 | 新文章整体EM | 新文章有答案EM |
-|---|---:|---:|
-| 原始学生 | 23.44% | 46.88% |
-| 24题重复训练，3seed均值 | 36.46% | 38.54% |
-| 242题训练，3seed均值 | 44.27% | 47.92% |
-
-扩展组整体EM在三个seed中均高于24题对照，两篇文章各自的均值也提高，但总EM仍低于始终拒答的50%；开发集预设门槛也未通过。新文章仍属同一公开SQuAD文件，不能声称预训练未见或跨业务泛化。固定步数不控制token、epoch和样本分布。
-
-[第三轮完整结果](reports/coverage-v3/RESULTS.md) · [实验机制、复现与自测](docs/COVERAGE_V3.md)。该轮本地33项测试通过；所有历史证据保留，当前CI状态见页首。
-
-## 第四轮：8-bit压缩筛选（仅dev）
-
-同一FP16原始学生导出、同MLX实现，三种精度重新运行；测速按轮换顺序各3次，固定同8个输入与32输出token。
-
-| 指标 | FP16 | affine Q4 | affine Q8 |
-|---|---:|---:|---:|
-| dev EM（74题） | 25.68% | 21.62% | 24.32% |
-| 权重 / MB | 988.10 | 278.06 | 525.05 |
-| decode tokens/s（本轮中位数） | 266.21 | 390.87 | 313.86 |
-
-Q8权重减少46.86%、解码速度约提高17.90%，dev少答对1题，通过预先固定的压缩门槛。它是**本地dev压缩候选**，不代表独立测试已验证、无损量化或QA任务可部署；Q4仍因质量损失未通过。没有重跑旧test或跨文章holdout。
-
-[完整证据与回归样例](reports/quantization-v4/RESULTS.md) · [量化机制、复现与自测](docs/QUANTIZATION_V4.md)。该轮本地36项测试通过；当前CI状态见页首。
-
-## 第五轮：中文新来源验证
-
-冻结第四轮已选Q8及FP16参考后，在CMRC2018公开dev抽取96篇文章各一题；预先固定中文提示和指标，未训练或按结果重采样。
-
-| 指标（96题） | FP16 | Q8 |
-|---|---:|---:|
-| 严格EM | 45.83%（44/96） | 45.83%（44/96） |
-| 自定义字符LCS F1 | 72.68% | 72.12% |
-
-Q8通过本轮预登记的质量保持门槛，严格正确集合相同。这支持此中文样本上的压缩保真，**不表示逐条输出无损、CMRC官方成绩或企业业务达标**。全部题目有答案，拒答能力未验证；公开数据仍可能有预训练污染。没有把第四轮英文测速当成中文加速证据。
-
-[完整结果与数据审计](reports/chinese-v5/RESULTS.md) · [指标、隔离复现与面试题](docs/CHINESE_V5.md)。本地44项测试通过；两题隔离复现入口已实际运行，异机验证尚未完成。
-
-## 快速开始：先离线验收，再按需推理
-
-从源码包解压后的仓库根目录运行，Python3.12。先用轻量环境检查保存的证据，无需模型、GPU、API key；首次安装pytest需要网络，安装后验收不需要联网。
+从仓库根目录运行，Python3.12。此入口无需模型、GPU或API key；首次安装依赖需要网络，之后验收离线运行。
 
 ```bash
 uv venv .venv-ci --python 3.12
@@ -107,11 +36,11 @@ uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
-入口依次执行测试、六套离线核验、gold对照与教师审计；日志只写入新的work子目录，检查前后对reports/data/configs逐文件校验。缺失冻结汇总会失败，不补写；禁止`python -O`。CI使用同一入口，仅验证保存证据，不执行模型、CUDA或Ascend。当前51项本地测试及首次线上CI均已通过，具体记录见页首。
+入口执行测试、六套离线核验、gold对照与教师审计；日志只写新的`work/`子目录，前后校验`reports/data/configs`。缺失冻结汇总直接失败，不补写；禁止`python -O`。Linux CI使用同一入口，**不下载模型、不训练、不重新推理**。历史工程验收含51项测试；最新执行以Actions记录为准。
 
-下面是**实际模型推理**入口，与离线核验分开：
+## 实际模型推理与训练复现
 
-从仓库根目录运行，Python3.12。首次下载免费学生约1GB。推荐至少8GiB可用内存、5GB磁盘做学生验证（最低配置未实测）；完整本地教师/训练/量化在48GiB Mac实测，建议预留10GB磁盘。CPU可用于少量推理；本仓未提供CUDA/Ascend验证。
+以下入口实际加载学生并执行两题dev推理。首次下载约1GB；建议至少8GiB可用内存、5GB磁盘用于少量学生推理，最低配置未实测。完整训练/量化历史实测使用48GiB Mac。
 
 ```bash
 uv venv .venv --python 3.12
@@ -119,49 +48,24 @@ uv pip install --python .venv/bin/python -r requirements.lock.txt
 export HF_HOME="$PWD/.cache/huggingface"
 export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
 .venv/bin/python scripts/download_model.py
-.venv/bin/python -m pytest -q
-PYTHONPATH=. .venv/bin/python scripts/verify_artifacts.py
-PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
-PYTHONPATH=. .venv/bin/python scripts/verify_teacher_study.py
-PYTHONPATH=. .venv/bin/python scripts/verify_coverage.py
-PYTHONPATH=. .venv/bin/python scripts/verify_quantization.py
-PYTHONPATH=. .venv/bin/python scripts/verify_chinese.py
 HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.inference \
   --device cpu --splits dev --limit 2 --output work/smoke-01
 ```
 
-MPS推理把 `--device cpu` 换为 `--device mps`。受限沙箱可能看不到Metal；GPU不可用会报错，不静默回退。日常验证仅跑dev。已有输出拒绝覆盖，换新目录保留历史证据。
+MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默回退。已有输出拒绝覆盖。实际训练、教师生成和MLX量化见[完整复现手册](docs/REPRODUCE_CLOSURE.md)。PyTorch与MLX使用独立锁与环境；MLX锁面向macOS arm64。锁文件固定版本但不含wheel哈希，不是跨平台供应链锁。
 
-依赖锁是精确版本列表，不是带wheel哈希的供应链锁；PyTorch和MLX锁本轮已在同机新环境安装并通过依赖检查。MLX锁面向macOS arm64，不能当作Linux/CUDA通用锁。完整验收记录见 [交付审计](docs/RELEASE_AUDIT.md)。
+同机新环境CPU冒烟曾实际运行，尚无异机模型推理/训练复现。冻结的`reports/`、`data/`、`configs/`及源码快照不可覆写；新实验使用隔离目录。
 
-**完整训练/蒸馏/量化复现见 [复现手册](docs/REPRODUCE_CLOSURE.md)**，先隔离输出、再安装运行。两套依赖锁分别为 requirements.lock.txt 和 requirements-mlx.lock.txt。教师不需要API key。
+## 实现与导航
 
-## 代码与证据链
-
-| 文件/目录 | 作用 |
+| 入口 | 作用 |
 |---|---|
-| qa_lab/data.py | 来源hash、精确去重、近似家族、固定切分 |
-| qa_lab/inference.py / metrics.py | 输入白名单、真实推理、完整ID覆盖、EM/F1/拒答/格式 |
-| qa_lab/train.py | gold-SFT与训练入口冒烟 |
-| qa_lab/closure_data.py / train_artifact.py | 本地教师采集、响应蒸馏数据、训练边界、数据修订 |
-| qa_lab/mlx_experiment.py | 本地转换、同框架量化、质量与固定工作量测速 |
-| qa_lab/teacher_io.py / teacher_audit.py | 用户手工回答采集与审计，不参与实际蒸馏 |
-| configs/、data/ | 固定配置、许可数据、来源与样例 |
-| reports/baseline-v1/、gold-sft-pilot-v1/ | 冻结的早期基线/对照证据 |
-| reports/closure-v1/ | 教师原始失败、FP32修复、训练、dev选择、test、量化、源码快照 |
-| tests/、scripts/verify_*.py | 必要逻辑测试与离线证据重算 |
+| `qa_lab/data.py` | 来源hash、去重、近重复家族与固定切分 |
+| `qa_lab/inference.py`、`metrics.py` | 输入白名单、真实推理、ID完整覆盖、EM/F1/拒答/格式 |
+| `qa_lab/train.py`、`train_artifact.py`、`closure_data.py` | LoRA、answer-only loss、本地教师数据与训练边界 |
+| `qa_lab/mlx_experiment.py` | 同框架转换、质量比较与固定工作量测速 |
+| `scripts/acceptance.py`、`scripts/verify_*.py` | 测试与保存证据的只读重算 |
 
-证据链：模型revision/文件hash＋数据hash＋代码hash＋配置 → 逐条预测 → 逐条评分 → 汇总。训练adapter和模型权重仅在本地被忽略的目录；不提交缓存、密钥或大权重。
+[实验协议](docs/PROTOCOL.md) · [研究范围](docs/ROADMAP.md) · [历史工程验收](docs/RELEASE_AUDIT.md) · [手工候选审计流程](docs/TEACHER_CANDIDATE_AUDIT.md) · [AI辅助与贡献](CONTRIBUTIONS.md) · [数据许可](DATA_LICENSE.md) · [组件归属](THIRD_PARTY.md)
 
-## 学习与面试
-
-- [阶段一协议](docs/PROTOCOL.md)：指标、泄漏、性能口径、测试集使用。
-- [原知识手册](docs/INTERVIEW.md)：领域地图、五个思维模型、三个争议及主动回忆。
-- [当前面试交付](docs/INTERVIEW_DELIVERY.md)：贯通五轮的30秒/3分钟讲解、简历、深挖问答与不附答案的自测。
-- [早期闭环讲解](docs/CLOSURE_INTERVIEW.md)：四阶段历史主稿与后续补充。
-- [完整结果](reports/closure-v1/RESULTS.md)：教师失败、蒸馏对照、量化取舍和修复回归。
-- [贡献边界](CONTRIBUTIONS.md)、[数据许可](DATA_LICENSE.md)、[组件归属](THIRD_PARTY.md)、[状态与缺口](docs/ROADMAP.md)。
-
-## 验证范围与未完成事项
-
-已完成同机独立环境CPU冒烟、数据重建、训练/adapter加载、真实模型评估与证据核验。GitHub线上离线验收已通过，尚无异机模型推理/训练复现。第一轮只有单seed，第二轮补了三seed；第三轮扩展至242题并完成两篇新文章评测，但仍是小规模公开数据且dev被重复使用。尚无中文业务评测、更多独立来源验证、充分的教师质量验证或在目标业务与硬件上通过验证的质量-效率方案；Q8已通过英文dev压缩筛选和96题中文新来源检查，但未达到业务部署验证。未做生产部署、RLHF、KV量化或自动数据飞轮；GitHub已获授权公开发布；业务适用性仍需独立验证。
+`reports/`保留各轮原始报告及其当时状态；其中“未公开”“尚无线上CI”等是发布前历史快照。当前代码、许可数据与记录已公开，当前CI见页首。模型权重、缓存与环境目录不随仓库分发。

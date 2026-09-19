@@ -87,6 +87,18 @@ PYTHONPATH=. .venv/bin/python scripts/verify_artifacts.py
 PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
 ```
 
-这些检查重算保存的预测、比较输入与源码hash，不会重新访问模型或追加测试集推理。CI定义只能说明工作流已准备，GitHub线上执行需发布后另行核验。
+这些检查重算保存的预测、比较输入与源码hash，不会重新访问模型或追加测试集推理。GitHub已运行离线CI；当前提交的执行状态见[Actions](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)，不代表重新推理或训练。
 
 元数据说明：实际首轮蒸馏/修订复用了gold配置以匹配数值超参数，其中purpose文字是控制组历史说明；真实标签来源以training.json的method和artifact_path/hash为准。新增两份复现配置只修正purpose说明，数值参数完全相同，历史run.json未改写。
+
+## 从保存指标重新生成可读报告
+
+下列命令不加载模型；从冻结记录计算表格，将报告和派生明细写入新的`work/`子目录。`--output`必需，拒绝已有目录和`work/`之外的路径，不改写原始报告。
+
+```bash
+PYTHONPATH=. .venv-ci/bin/python scripts/render_teacher_study_report.py --output work/render-teacher-01
+PYTHONPATH=. .venv-ci/bin/python scripts/render_coverage_report.py --output work/render-coverage-01
+PYTHONPATH=. .venv-ci/bin/python scripts/render_quantization_report.py --output work/render-quantization-01
+```
+
+原始`reports/`文档保留历史用语及当时状态；重新生成版本采用当前文档表述，指标仍来自相同冻结记录。

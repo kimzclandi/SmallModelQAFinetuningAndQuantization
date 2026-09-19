@@ -1,10 +1,12 @@
 """Generate the Q8 report from frozen actual metrics."""
+from scripts.report_output import report_output
+OUTPUT = report_output()
 import json
 from pathlib import Path
 from qa_lab.common import read_jsonl,write_json
 from scripts.quantization_study import R,C
 s=json.loads((R/'summary.json').read_text());p=json.loads(C.read_text())
-lines=['# 第四轮：FP16 / Q4 / Q8 同框架量化对照','','已运行验证。通过本地dev压缩筛选的候选：'+str(s['qualifying_local_candidates'])+'。没有新test推理，没有模型训练，也没有公开发布。','','## 实测结果','','质量样本为同一74题dev；性能为同一8个train输入、每题强制32tokens，每精度3个独立进程运行的中位数。','',
+lines=['# 第四轮：FP16 / Q4 / Q8 同框架量化对照','','已运行验证。通过本地dev压缩筛选的候选：'+str(s['qualifying_local_candidates'])+'。没有新test推理，没有模型训练，发布状态见README。','','## 实测结果','','质量样本为同一74题dev；性能为同一8个train输入、每题强制32tokens，每精度3个独立进程运行的中位数。','',
 '| 指标 | FP16 | affine Q4 | affine Q8 |','|---|---:|---:|---:|']
 vs=[s['variants'][v] for v in p['variants']]
 for label,fn in [('dev EM',lambda x:f"{100*x['quality']['overall']['em']:.2f}%"),('dev token F1',lambda x:f"{100*x['quality']['overall']['f1']:.2f}%"),('有答案 EM',lambda x:f"{100*x['quality']['answerable']['em']:.2f}%"),('权重文件 / decimal MB',lambda x:f"{x['weight_bytes']/1e6:.2f}"),('decode tokens/s',lambda x:f"{x['performance']['median_decode_tps']:.2f}"),('平均TTFT的跨run中位数 / ms',lambda x:f"{x['performance']['median_ttft_ms']:.2f}"),('采样RSS峰值的中位数 / GiB',lambda x:f"{x['performance']['median_rss_bytes']/2**30:.3f}"),('MLX active峰值的中位数 / GiB',lambda x:f"{x['performance']['median_mlx_peak_active_bytes']/2**30:.3f}")]:
@@ -21,9 +23,8 @@ for v,d in s['paired'].items():lines.append(f"| {v} | {len(d['fixes'])} | {len(d
 rows={r['id']:r for r in read_jsonl('data/complexity-v1/dev.jsonl')}
 pm={v:{r['id']:r for r in read_jsonl(R/f'{v}-quality/dev.predictions.jsonl')} for v in p['variants']}
 details=[{'id':i,'question':rows[i]['question'],'answers':rows[i]['answers'],'fp16':pm['fp16'][i]['prediction'],'q8':pm['q8'][i]['prediction']} for i in s['paired']['q8']['regressions']]
-out=R/'q8-regressions.json'
-if out.exists():assert json.loads(out.read_text())==details
-else:write_json(out,details)
+out=OUTPUT/'q8-regressions.json'
+write_json(out,details)
 for d in details:lines+=['',f"Q8回归样例 `{d['id']}`：",'',d['question'],'',f"FP16：`{d['fp16']}`；Q8：`{d['q8']}`；参考答案：{d['answers']}。"]
 lines+=['','## 每次性能测量（不挑最好的一次）','','| 顺序 | 精度 | decode tokens/s | TTFT ms |','|---:|---|---:|---:|']
 for n,v in enumerate(p['benchmark_order'],1):
@@ -37,8 +38,7 @@ lines+=['','顺序为三轮轮换：FP16/Q4/Q8，Q4/Q8/FP16，Q8/FP16/Q4。每�
 '- 基础模型自身仍缺乏可靠拒答能力；dev始终拒答基线为55.41%，本轮各模型总体EM均更低。压缩候选通过不表示QA业务达标。',
 '- Q4仍保留更小更快但质量差的结果。不同轮次测速受系统状态影响，不把旧速度与本轮混在一起计算增益。',
 '- 模型权重只存本地.cache，不入Git/源码包；转换命令、来源hash、预测、时延、内存、配置与源码快照均可追溯。',
-'', '复现与面试自测见docs/QUANTIZATION_V4.md。']
-out=R/'RESULTS.md';txt='\n'.join(lines)+'\n'
-if out.exists():assert out.read_text()==txt
-else:out.write_text(txt)
+'', '复现与实验方法见docs/QUANTIZATION_V4.md。']
+out=OUTPUT/'RESULTS.md';txt='\n'.join(lines)+'\n'
+out.write_text(txt)
 print(out)

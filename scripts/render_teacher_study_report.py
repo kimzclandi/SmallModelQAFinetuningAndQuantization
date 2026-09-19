@@ -1,4 +1,6 @@
 """Render a reviewable report from frozen teacher-study-v2 metrics (no inference)."""
+from scripts.report_output import report_output
+OUTPUT = report_output()
 import json
 from pathlib import Path
 from qa_lab.common import read_jsonl,write_json
@@ -7,7 +9,7 @@ from qa_lab.metrics import evaluate
 s=json.loads((ROOT/'summary.json').read_text())
 labels={'gold':'标准答案 SFT','original_teacher':'原提示词教师蒸馏','prompted_teacher':'新提示词教师蒸馏'}
 lines=['# 第二轮真实结果：教师提示与三随机种子对照','',
-'状态：本地训练和评测已完成；未公开发布。3组×3seed，共9次48步LoRA训练和666条dev预测（重复评估同一74题，不是666道独立问题）。没有新增test推理。',
+'状态：本地训练和评测已完成；发布状态见README。3组×3seed，共9次48步LoRA训练和666条dev预测（重复评估同一74题，不是666道独立问题）。没有新增test推理。',
 '', '## 主要结论','',
 '新提示提高了教师拒答倾向；必须同时看总EM与有答案EM。三个seed用于描述本轮训练波动，不是统计显著性证明。最终门槛结果：`'+s['decision']+'`，通过的方法：'+str(s['passing_arms'])+'。',
 '', '## 三seed均值与样本标准差','',
@@ -32,8 +34,7 @@ op={r['id']:r for r in old};np={r['id']:r for r in new};om={r['id']:r for r in o
 changes=[{'id':r['id'],'question':r['question'],'gold':r['answers'],'is_impossible':r['is_impossible'],
           'old':op[r['id']]['prediction'],'new':np[r['id']]['prediction'],'old_em':om[r['id']]['em'],'new_em':nm[r['id']]['em']} for r in train if op[r['id']]['prediction']!=np[r['id']]['prediction']]
 teacher_delta={'paired':paired(os,ns),'changed_responses':changes}
-if (ROOT/'teacher-paired.json').exists():assert json.loads((ROOT/'teacher-paired.json').read_text())==teacher_delta
-else:write_json(ROOT/'teacher-paired.json',teacher_delta)
+write_json(OUTPUT/'teacher-paired.json',teacher_delta)
 lines+=['','逐条ID见summary.json的paired字段；教师具体变更见teacher-paired.json；学生错误题见各run/dev/dev.failures.jsonl。保留全部错误，不只挑选成功案例。','','## 为什么没有采用','','预登记要求每个seed都满足整体EM>25.68%且有答案EM>=57.58%。不能用总EM上升抵消有答案能力的退化。保留基准只是保留对照，不代表基准已合格。',
 '', '## 证据与局限','',
 '- 协议在运行前提交：1bacfca；完整提示、3个seed与数值超参数见configs/teacher-study-v2。',
@@ -41,10 +42,9 @@ lines+=['','逐条ID见summary.json的paired字段；教师具体变更见teache
 '- 同一seed内三组相同初始化种子、同样本顺序、同48步；adapter文件hash与评测加载hash匹配。固定seed并不保证跨平台逐位复现。',
 '- 新提示词含4个人工虚构示例，只根据旧训练题上的教师失误设计；没有把dev/test题写入prompt。提示长短及多个指令一起改变，不能做单句因果归因。',
 '- 本轮所有标签只来自24题，且新提示教师仍错得多。dev被多轮使用；3个seed不是3个独立数据集。需要新来源评测、更多样本及受控token预算才能进一步判断泛化。',
-'- 无付费API、无新模型下载、无公开上传。本轮不声称取得可采用的模型优化，不刷新旧test分数。',
-'', '复现、输入输出和学习题见docs/TEACHER_STUDY_V2.md。']
-p=ROOT/'RESULTS.md'
+'- 无付费API、无新模型下载、发布状态见README。本轮不声称取得可采用的模型优化，不刷新旧test分数。',
+'', '复现、输入输出和实验方法见docs/TEACHER_STUDY_V2.md。']
+p=OUTPUT/'RESULTS.md'
 text='\n'.join(lines)+'\n'
-if p.exists():assert p.read_text()==text
-else:p.write_text(text)
+p.write_text(text)
 print(p)
