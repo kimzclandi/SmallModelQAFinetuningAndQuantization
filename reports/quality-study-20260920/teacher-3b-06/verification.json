@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "n_validation": 96,
+  "n_dev": 64,
+  "judge_passed": false,
+  "teacher_passed": false,
+  "proceed": false,
+  "metrics": {
+    "strict_em": 0.25,
+    "normalized_em": 0.3125,
+    "char_lcs_f1": 0.6748787810983237,
+    "format_valid": 0.921875,
+    "abstain": 0.0,
+    "n": 64,
+    "categories": {
+      "correct": 16,
+      "wrong_or_partial_span": 43,
+      "format_or_nonextractive": 5
+    },
+    "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+    "unanswerable_n": 0
+  }
+}

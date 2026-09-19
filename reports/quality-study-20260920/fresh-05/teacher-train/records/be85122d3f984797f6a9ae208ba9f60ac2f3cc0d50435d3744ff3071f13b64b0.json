@@ -1,0 +1,34 @@
+{
+  "input_sha256": "18aefd6e5f2439d70e5c46b587264d05792d80351795bf809a6549f8485ed7e1",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1540_QUERY_1",
+    "prediction": "交流一流研究型大学建设的经验，推动校际合作。",
+    "input_tokens": 530,
+    "generated_tokens": 14,
+    "token_ids": [
+      101069,
+      101563,
+      99556,
+      24300,
+      99562,
+      99403,
+      106187,
+      3837,
+      101890,
+      99307,
+      99326,
+      99721,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "be7a9b84aae312e22c1fc001b2a9318dff06e57ec4f7817f8ff90f087dc5dfab",
+    "ttft_seconds": 0.2121763750037644,
+    "generation_seconds": 0.7297148750003544,
+    "decode_seconds": 0.51753849999659,
+    "decode_tokens_per_second": 25.11890419763101,
+    "end_to_end_seconds": 0.7310373750005965,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "cedfba12ab142beb6418c7c2edfb6d8dc51ceab6b38ddcad8211690bbd03bbef"
+}

@@ -1,0 +1,35 @@
+{
+  "input_sha256": "6704002797bed56baa5f57e2ba53b693ee6825ab7f9be7a5fdb25dada42960df",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_272_QUERY_0",
+    "prediction": "C#，Visual Basic .NET（VB.NET）与BOO",
+    "input_tokens": 408,
+    "generated_tokens": 15,
+    "token_ids": [
+      34,
+      2,
+      3837,
+      9594,
+      14625,
+      659,
+      15373,
+      9909,
+      36874,
+      36515,
+      7552,
+      57218,
+      4677,
+      46,
+      151645
+    ],
+    "prompt_sha256": "388308d3487c26b544a687d5a1bacfc42412a6e9252c407825314bd33d98fa1a",
+    "ttft_seconds": 0.16156279199640267,
+    "generation_seconds": 0.727069542001118,
+    "decode_seconds": 0.5655067500047153,
+    "decode_tokens_per_second": 24.75655684018496,
+    "end_to_end_seconds": 0.7282583749984042,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "f3a9166dc6b7d3551b54becee1ecaaf600f270988fe59b1d618d68f19ad7b18f"
+}

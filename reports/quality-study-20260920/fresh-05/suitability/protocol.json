@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-09-19T17:02:54.620283+00:00",
+  "dev_sha256": "e5663b7cbb3b131cb62af987040718e2b66f2c83a2b6ee3d4249e329f266b116",
+  "student": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260920,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 768,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "zh-extract-or-abstain-v1",
+    "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+    "warmup": "none"
+  },
+  "teacher": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "seed": 20260920,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 768,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "zh-extract-or-abstain-v1",
+    "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+    "warmup": "none"
+  },
+  "scope": "New dev only; 96 holdout remains sealed; paired teacher screening, no method selection on test"
+}

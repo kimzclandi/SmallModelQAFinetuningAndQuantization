@@ -1,0 +1,29 @@
+{
+  "input_sha256": "bd92e6fd57b32d7e51bdade437385e1a8d282cb7148f257710ab067344bde7be",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3737_QUERY_3",
+    "prediction": "金鸡纳树和肉桂树",
+    "input_tokens": 656,
+    "generated_tokens": 9,
+    "token_ids": [
+      34230,
+      100417,
+      99458,
+      99613,
+      33108,
+      99894,
+      100877,
+      99613,
+      151645
+    ],
+    "prompt_sha256": "d47bcb48e8c9e74a02506685fa66c9ea30a57f0b43a2ac663a753b6e05f037c9",
+    "ttft_seconds": 0.26426379199983785,
+    "generation_seconds": 0.5703425840038108,
+    "decode_seconds": 0.3060787920039729,
+    "decode_tokens_per_second": 26.13706081242035,
+    "end_to_end_seconds": 0.5722092079959111,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "529633a2d6adbab8bcd409e1a2b67c778d95c3bf873962aa9e702f220d9bf6ef"
+}

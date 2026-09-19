@@ -1,0 +1,22 @@
+{
+  "input_sha256": "0b447893c4f8341cdaf9ba13fb7c5c0522da110a1105fb1841e4a5251934005d",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1127_QUERY_0",
+    "prediction": "芬兰",
+    "input_tokens": 600,
+    "generated_tokens": 2,
+    "token_ids": [
+      118846,
+      151645
+    ],
+    "prompt_sha256": "9621e7da84654f8fc1fefffaaacad6b2be528809d2114a7d1b5736dbd3190b8f",
+    "ttft_seconds": 0.2256387090019416,
+    "generation_seconds": 0.2645938749992638,
+    "decode_seconds": 0.03895516599732218,
+    "decode_tokens_per_second": 25.67053622794833,
+    "end_to_end_seconds": 0.2658940000037546,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "d530d2afa69c001be5a1c03d0b911a088ed665a28e7cb6c4eafe18f7039ad03b"
+}

@@ -1,0 +1,36 @@
+{
+  "input_sha256": "121418cb4d9e111b2fdbe4945b09c8aeed1bf34888f170fefa4b1effcc1f6793",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1108_QUERY_4",
+    "prediction": "细小的哺乳动物、鸟类、蛋、蜥蜴及树蛙",
+    "input_tokens": 433,
+    "generated_tokens": 16,
+    "token_ids": [
+      99338,
+      30709,
+      9370,
+      115357,
+      101239,
+      5373,
+      118203,
+      5373,
+      100464,
+      5373,
+      121415,
+      121418,
+      81217,
+      99613,
+      103797,
+      151645
+    ],
+    "prompt_sha256": "1431654e91a24cc90c42be2aa15b8bf92dbbee51075ea207c4cfee71186f1804",
+    "ttft_seconds": 0.17995095800142735,
+    "generation_seconds": 0.7236507910056389,
+    "decode_seconds": 0.5436998330042115,
+    "decode_tokens_per_second": 27.58875226633334,
+    "end_to_end_seconds": 0.7247560420000809,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "d0c6e4aa6d3355f42ad8ee915c035a4691b0f673c60ea5c6735732d0279ce362"
+}

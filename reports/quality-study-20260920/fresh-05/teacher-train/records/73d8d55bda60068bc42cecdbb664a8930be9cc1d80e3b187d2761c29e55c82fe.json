@@ -1,0 +1,39 @@
+{
+  "input_sha256": "8bced99fdd67c5674c18dfa1f70d5b090e3a9207b01aff0a3ab93e030a221550",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2627_QUERY_0",
+    "prediction": "浮桥镇位于太仓东部，靠近长江，东临上海崇明岛。",
+    "input_tokens": 383,
+    "generated_tokens": 19,
+    "token_ids": [
+      100825,
+      100391,
+      99523,
+      103987,
+      99222,
+      100488,
+      106565,
+      3837,
+      106963,
+      104924,
+      3837,
+      67364,
+      99635,
+      100633,
+      100558,
+      30858,
+      99825,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "2b9a43153fdde9f190995a1c6360542963d3f2e5a778cf116c3c32b1e36b464b",
+    "ttft_seconds": 0.1725990830018418,
+    "generation_seconds": 0.8473927919985726,
+    "decode_seconds": 0.6747937089967309,
+    "decode_tokens_per_second": 26.674818926160444,
+    "end_to_end_seconds": 0.8485638339989237,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "b76414162012742cd9f5f070ffb8895f08e7e61195926ed0ee1780e773dbadd1"
+}

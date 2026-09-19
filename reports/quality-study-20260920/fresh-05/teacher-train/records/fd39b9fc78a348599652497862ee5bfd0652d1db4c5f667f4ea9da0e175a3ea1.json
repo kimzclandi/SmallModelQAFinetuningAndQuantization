@@ -1,0 +1,25 @@
+{
+  "input_sha256": "b6535d64bcd6a5988a0a36ce5b27d83861c1e698a84df7e63f3d21108acb8981",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3115_QUERY_2",
+    "prediction": "国际管理学硕士学位",
+    "input_tokens": 283,
+    "generated_tokens": 5,
+    "token_ids": [
+      99876,
+      39352,
+      47764,
+      117753,
+      151645
+    ],
+    "prompt_sha256": "e641970d3628b9abb4d7cd4085a070bba6308b362719d932f6e1bea43823927d",
+    "ttft_seconds": 0.14236079199326923,
+    "generation_seconds": 0.2902719999983674,
+    "decode_seconds": 0.14791120800509816,
+    "decode_tokens_per_second": 27.043251515207213,
+    "end_to_end_seconds": 0.2913088749992312,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "95677f8e14ec8c480c3a8dbc5c7b24f1b0e15234eff4b775ae75ef7be31f3ff8"
+}

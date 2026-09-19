@@ -1,0 +1,37 @@
+{
+  "input_sha256": "ca78489d5c7ae6a5c752cfcb97812ba317b1393eeb657e2c9e315f5477053479",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1117_QUERY_3",
+    "prediction": "安装诸如两脚架、夜视仪和光学瞄准镜等配件。",
+    "input_tokens": 591,
+    "generated_tokens": 17,
+    "token_ids": [
+      103999,
+      109668,
+      77540,
+      100037,
+      99630,
+      5373,
+      99530,
+      57452,
+      99966,
+      33108,
+      112802,
+      110131,
+      100811,
+      49567,
+      106306,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "9bd60354daf6e3628e9507b18c96974df80ba13551ba90cb09088fe2133e30f1",
+    "ttft_seconds": 0.2334510830041836,
+    "generation_seconds": 0.8840661249996629,
+    "decode_seconds": 0.6506150419954793,
+    "decode_tokens_per_second": 24.59211510223764,
+    "end_to_end_seconds": 0.8853367499978049,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "daa078aa4129dfd218432b133556555e221fcc7d3ca38c98f5a2218714804bb9"
+}

@@ -1,0 +1,39 @@
+{
+  "input_sha256": "129addf28786f6fca295ea1ccbc3e91de9c3325ed0f49429d73bf6d152d1a29f",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3553_QUERY_1",
+    "prediction": "安尔乐、心相印、安乐、安儿乐、安而康",
+    "input_tokens": 308,
+    "generated_tokens": 19,
+    "token_ids": [
+      50285,
+      99079,
+      99350,
+      5373,
+      63109,
+      48921,
+      99540,
+      5373,
+      50285,
+      99350,
+      5373,
+      50285,
+      99261,
+      99350,
+      5373,
+      50285,
+      68536,
+      99446,
+      151645
+    ],
+    "prompt_sha256": "39a5aa6e6f192442d105267b2e86c706383da516f5325fd32c21084bb87e4b22",
+    "ttft_seconds": 0.13446462499996414,
+    "generation_seconds": 0.7959354170016013,
+    "decode_seconds": 0.6614707920016372,
+    "decode_tokens_per_second": 27.212085881420823,
+    "end_to_end_seconds": 0.7969673749976209,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "e843ad5c5773377cac5f1ab7a855eeb89402c0cd1a064c68c89293cb0a629bee"
+}

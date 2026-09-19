@@ -1,0 +1,35 @@
+{
+  "input_sha256": "58c5f8999bbb9df10a5785402487e9c552ba6579cf852aca638e62ff4ec91b54",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1245_QUERY_2",
+    "prediction": "王行瑜、韩建、王行约、李茂庄",
+    "input_tokens": 520,
+    "generated_tokens": 15,
+    "token_ids": [
+      99445,
+      22243,
+      103487,
+      5373,
+      101129,
+      25807,
+      5373,
+      99445,
+      22243,
+      94237,
+      5373,
+      100339,
+      102551,
+      99939,
+      151645
+    ],
+    "prompt_sha256": "ffac8c8cb35b44e32ef763ffaf58f7d4820579a02d424b542427c3f4afa35ad5",
+    "ttft_seconds": 0.2204068749997532,
+    "generation_seconds": 0.7469878330011852,
+    "decode_seconds": 0.526580958001432,
+    "decode_tokens_per_second": 26.586605131213133,
+    "end_to_end_seconds": 0.7481774170009885,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "f00f70f9a1c927c05f875ad661a432f6f75a2b47645d981e28e114b8dea8d196"
+}

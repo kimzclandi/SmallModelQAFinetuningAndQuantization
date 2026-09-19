@@ -1,0 +1,42 @@
+{
+  "input_sha256": "3138c54257677946b27be45879e9c77f9d913ba5816c47d2d47f9b1f20951b72",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2281_QUERY_4",
+    "prediction": "胖女人赢得了胜利，解放了那些被关押的妇女，又枪决了这对夫妇。",
+    "input_tokens": 252,
+    "generated_tokens": 22,
+    "token_ids": [
+      101484,
+      101989,
+      108774,
+      104629,
+      3837,
+      101533,
+      34187,
+      103928,
+      99250,
+      29256,
+      100971,
+      9370,
+      104956,
+      3837,
+      99518,
+      104068,
+      99351,
+      34187,
+      107609,
+      107813,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "a0934d03829a4afedc723dba23393d2c719043e50f5813f5d4b73e8f7eb20947",
+    "ttft_seconds": 0.12673787499807077,
+    "generation_seconds": 1.0087326249995385,
+    "decode_seconds": 0.8819947500014678,
+    "decode_tokens_per_second": 23.80966553368379,
+    "end_to_end_seconds": 1.00974041599693,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "42674e07000d1be7db9a1c8d6e212d1c2a360889261ad57ed45fcdb7d35aafc2"
+}

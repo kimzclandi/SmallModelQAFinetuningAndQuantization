@@ -1,0 +1,26 @@
+{
+  "input_sha256": "5464863100d86786a1eba74418fc309fc9ff4e923501e45e95f4a9fe443260ab",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2750_QUERY_2",
+    "prediction": "Ember和Sear",
+    "input_tokens": 426,
+    "generated_tokens": 6,
+    "token_ids": [
+      2269,
+      652,
+      33108,
+      50,
+      682,
+      151645
+    ],
+    "prompt_sha256": "7426207512a14339c0457cd18ee1884627318c0b59538390254a90c046095fc5",
+    "ttft_seconds": 0.16612291600176832,
+    "generation_seconds": 0.35266162500192877,
+    "decode_seconds": 0.18653870900016045,
+    "decode_tokens_per_second": 26.804088153069074,
+    "end_to_end_seconds": 0.35393379099696176,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "8edb83e13342d032025c30289d10bc0578f79f7e67d11dfdcee02bdd645ce648"
+}

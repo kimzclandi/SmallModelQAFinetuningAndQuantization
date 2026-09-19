@@ -1,0 +1,22 @@
+{
+  "input_sha256": "f19d2fa62c4017fc49734d804c77765fe91a456f1ad0aa6f1ed5f9221f6de750",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_947_QUERY_1",
+    "prediction": "湖北",
+    "input_tokens": 286,
+    "generated_tokens": 2,
+    "token_ids": [
+      102251,
+      151645
+    ],
+    "prompt_sha256": "88917efdf2fee93fcaa8d490c45473d36c833da982cfc2eb38efe2886dd6ffa1",
+    "ttft_seconds": 0.14993770800356288,
+    "generation_seconds": 0.18830175000039162,
+    "decode_seconds": 0.038364041996828746,
+    "decode_tokens_per_second": 26.06607510446011,
+    "end_to_end_seconds": 0.18930591700336663,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "2d36c1caaecf4c721e9f57306f8dc33a9f6397ec499aff1215f92c0d95a4827f"
+}

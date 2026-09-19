@@ -1,0 +1,24 @@
+{
+  "input_sha256": "1a8cf9c1b76637688224d99dc3c556af348302d4f2b02f3080f6ff4d270d0bd0",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3687_QUERY_0",
+    "prediction": "安徽桐城",
+    "input_tokens": 419,
+    "generated_tokens": 4,
+    "token_ids": [
+      102397,
+      106553,
+      59074,
+      151645
+    ],
+    "prompt_sha256": "c65556e6b44c4e0abd9e7abdb0b7c1989283b99d188276e4083164ae3d29bfd2",
+    "ttft_seconds": 0.1861353330023121,
+    "generation_seconds": 0.30071779100399,
+    "decode_seconds": 0.11458245800167788,
+    "decode_tokens_per_second": 26.18201819301232,
+    "end_to_end_seconds": 0.30182425000384683,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "cf917d368ab46bec52615a3fa7a72276cc20311f93cb797826393781e9e36619"
+}

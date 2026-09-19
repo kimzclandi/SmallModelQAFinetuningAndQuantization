@@ -1,0 +1,24 @@
+{
+  "input_sha256": "213813a8b73760cb86a8dad73da47fc0f0c8a30493a037bdf992cff00131a578",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2137_QUERY_1",
+    "prediction": "擅长断狱",
+    "input_tokens": 418,
+    "generated_tokens": 4,
+    "token_ids": [
+      107618,
+      63789,
+      101713,
+      151645
+    ],
+    "prompt_sha256": "d6f1fa4709ed1c495cca5f357bd67ed833c93d5d17a4f275ce4ccd468ba0e006",
+    "ttft_seconds": 0.17618645900074625,
+    "generation_seconds": 0.2855749590016785,
+    "decode_seconds": 0.10938850000093225,
+    "decode_tokens_per_second": 27.425186376762024,
+    "end_to_end_seconds": 0.2866568340032245,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "25d4e869e9f3eb3535babe1de8e70b3a35d8b21cd19d1fceafb3629d379367fb"
+}

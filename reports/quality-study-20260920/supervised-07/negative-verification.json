@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "injection": "Changed copied metrics strict_em to 1.0",
+  "rejected": "Metrics mismatch",
+  "original_evidence_modified": false
+}

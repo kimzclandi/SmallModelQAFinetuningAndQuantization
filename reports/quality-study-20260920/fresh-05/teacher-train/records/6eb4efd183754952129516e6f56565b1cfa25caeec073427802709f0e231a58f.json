@@ -1,0 +1,29 @@
+{
+  "input_sha256": "ff970286628cdcdcf198363b0bf3e20b3949b7d25663bb318225d042e5e830da",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2583_QUERY_0",
+    "prediction": "高分子聚合物正系数温度元件",
+    "input_tokens": 462,
+    "generated_tokens": 9,
+    "token_ids": [
+      44636,
+      102388,
+      110480,
+      52853,
+      36556,
+      110589,
+      104273,
+      115088,
+      151645
+    ],
+    "prompt_sha256": "949312cff1385156ee0b146ba234f1d7f84bbd2e3004346c9527f460de0ecc22",
+    "ttft_seconds": 0.2025123750063358,
+    "generation_seconds": 0.5049953750058194,
+    "decode_seconds": 0.3024829999994836,
+    "decode_tokens_per_second": 26.447767312588336,
+    "end_to_end_seconds": 0.5062575839983765,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c0daedee1382c3fbf834a27e1c95724dbb21841c67ff6f57a6038e224a422ff4"
+}

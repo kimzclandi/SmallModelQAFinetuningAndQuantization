@@ -1,0 +1,25 @@
+{
+  "input_sha256": "e6978ae3d51137f178d57810e57083bdb842aff7309134f3ecdecbef938165ba",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2371_QUERY_1",
+    "prediction": "为了追求更好的生活",
+    "input_tokens": 327,
+    "generated_tokens": 5,
+    "token_ids": [
+      100012,
+      104045,
+      102287,
+      99424,
+      151645
+    ],
+    "prompt_sha256": "911ae1487167d9df4311180790996045f09346cb3025d90bf64a8d1fb60bacc3",
+    "ttft_seconds": 0.15404975000274135,
+    "generation_seconds": 0.31736479100072756,
+    "decode_seconds": 0.16331504099798622,
+    "decode_tokens_per_second": 24.492538933075508,
+    "end_to_end_seconds": 0.31844316600472666,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "cc1b7ba657c00e0175eb1288810e577dcf866adec40dd67ff61b70f4242d1a3c"
+}

@@ -1,6 +1,7 @@
 # 中文教师筛查与可恢复数据生成（2026-09-20）
 
-这是投递后新增的本地研究，不属于历史业务或实习成果。延续[中文蒸馏](QUALITY_PILOT.md)、[语义筛选](SEMANTIC_QUALITY_PILOT.md)和[一次留出评估](HOLDOUT_QUALITY.md)。本轮完成真实模型推理与进程中断恢复；由于预登记门槛失败，没有新增学生训练，不能声称蒸馏收益。
+当前公开入口见[数据质量实验发布说明](QUALITY_STUDY_RELEASE.md)。本文描述各阶段执行时的状态；其中“未使用holdout”仅限该阶段，最终holdout-08已按冻结协议评估一次。
+这是2026-09-20新增研究，不回填历史结果。延续[中文蒸馏](QUALITY_PILOT.md)、[语义筛选](SEMANTIC_QUALITY_PILOT.md)和[一次留出评估](HOLDOUT_QUALITY.md)。本轮完成真实模型推理与进程中断恢复；由于预登记门槛失败，没有新增学生训练，不能声称蒸馏收益。
 
 ## 数据和实验顺序
 
@@ -31,7 +32,7 @@
 
 ## 使用入口
 
-以下从仓库根目录运行；`RUN_ROOT` 指外部证据目录，包含 `calibration-04`、`score-calibration-04`、`fresh-05`。这些本地运行证据尚未随本分支发布，脚本不是自行下载数据的一键复现命令。
+以下从仓库根目录运行；`RUN_ROOT` 指外部证据目录，包含 `calibration-04`、`score-calibration-04`、`fresh-05`。公开证据现位于`reports/quality-study-20260920/`；原始分阶段命令需使用新的工作目录，不得写入冻结reports。
 
 ```bash
 # 离线重算：不加载模型，不训练

@@ -1,0 +1,23 @@
+{
+  "original": {
+    "n": 64,
+    "tpr": 0.75,
+    "tnr": 0.9375,
+    "balanced_accuracy": 0.84375,
+    "invalid": 0
+  },
+  "english_short_span": {
+    "n": 64,
+    "tpr": 1.0,
+    "tnr": 0.15625,
+    "balanced_accuracy": 0.578125,
+    "invalid": 0
+  },
+  "chinese_short_span": {
+    "n": 64,
+    "tpr": 1.0,
+    "tnr": 0.28125,
+    "balanced_accuracy": 0.640625,
+    "invalid": 0
+  }
+}

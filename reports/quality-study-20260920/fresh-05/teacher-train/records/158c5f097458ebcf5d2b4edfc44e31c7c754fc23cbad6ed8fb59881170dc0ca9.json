@@ -1,0 +1,22 @@
+{
+  "input_sha256": "aa69742f8c50c0545c4e5015c1ae60f20f9b7b90422b48f51b202eae3d4e5aa6",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3134_QUERY_0",
+    "prediction": "监狱",
+    "input_tokens": 460,
+    "generated_tokens": 2,
+    "token_ids": [
+      110189,
+      151645
+    ],
+    "prompt_sha256": "d8a2998acc60cb41a70d96fd90f19e6f51f37af3b3556eaa14e69623cd5a2d76",
+    "ttft_seconds": 0.19216754200169817,
+    "generation_seconds": 0.2344910419997177,
+    "decode_seconds": 0.04232349999801954,
+    "decode_tokens_per_second": 23.627535531012164,
+    "end_to_end_seconds": 0.23561783399782144,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "4c3c74f64916d21d9a952020fb30750737cddc1f07a3877f56fc500b156a6d7d"
+}

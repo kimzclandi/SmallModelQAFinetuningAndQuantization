@@ -1,0 +1,40 @@
+{
+  "input_sha256": "32b74b1970744cf7b8bc975aca0b2ad2cc0b6f977e264e52841136db6fd80a52",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1156_QUERY_3",
+    "prediction": "2005年，他以先租借后转会的方式加盟厦门蓝狮。",
+    "input_tokens": 356,
+    "generated_tokens": 20,
+    "token_ids": [
+      17,
+      15,
+      15,
+      20,
+      7948,
+      3837,
+      42411,
+      23031,
+      60726,
+      99850,
+      99588,
+      33447,
+      112813,
+      101990,
+      100233,
+      102434,
+      100400,
+      102849,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "ae05f2559df357947c85060976e114ac0ae0536f2219f5dc2adadeedf1e4fbfa",
+    "ttft_seconds": 0.16418237499601673,
+    "generation_seconds": 0.8892538329964736,
+    "decode_seconds": 0.7250714580004569,
+    "decode_tokens_per_second": 26.204313782253482,
+    "end_to_end_seconds": 0.8904039999979432,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c92ebf27f12a8caf1db6ad9887e22825a54e9c388743833069471554a9420fd4"
+}

@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "files": {
+    "README.md": 4930,
+    "config.json": 661,
+    "generation_config.json": 242,
+    "merges.txt": 1671839,
+    "model-00001-of-00002.safetensors": 3968658944,
+    "model-00002-of-00002.safetensors": 2203268048,
+    "model.safetensors.index.json": 35581,
+    "tokenizer.json": 7031645,
+    "tokenizer_config.json": 7305,
+    "vocab.json": 2776833
+  },
+  "bytes": 6183456028
+}

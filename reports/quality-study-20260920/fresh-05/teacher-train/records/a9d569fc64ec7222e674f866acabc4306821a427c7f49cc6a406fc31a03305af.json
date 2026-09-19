@@ -1,0 +1,25 @@
+{
+  "input_sha256": "5394f43a5550a85c6cda935ef666e0b2385482057f86574984e0490abfaff461",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_764_QUERY_3",
+    "prediction": "霍芬海姆",
+    "input_tokens": 362,
+    "generated_tokens": 5,
+    "token_ids": [
+      104681,
+      102727,
+      55135,
+      101316,
+      151645
+    ],
+    "prompt_sha256": "ad018f36a6916322e298041fd287da0b5c4446ceee187c8c29fc3322eb72cc1e",
+    "ttft_seconds": 0.16211037500033854,
+    "generation_seconds": 0.3258522090036422,
+    "decode_seconds": 0.16374183400330367,
+    "decode_tokens_per_second": 24.428699143062584,
+    "end_to_end_seconds": 0.3269091250040219,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "a55650c7c9943749d7ae63e1a5cc575ecbd23c2ffca36d4143df2754540c994e"
+}

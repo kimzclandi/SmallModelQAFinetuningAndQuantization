@@ -1,0 +1,20 @@
+{
+  "original": {
+    "tpr": 0.78125,
+    "tnr": 0.8125,
+    "balanced_accuracy": 0.796875,
+    "threshold": -0.44312000274658203
+  },
+  "english_short_span": {
+    "tpr": 1.0,
+    "tnr": 1.0,
+    "balanced_accuracy": 1.0,
+    "threshold": 7.494487724470673
+  },
+  "chinese_short_span": {
+    "tpr": 1.0,
+    "tnr": 1.0,
+    "balanced_accuracy": 1.0,
+    "threshold": 4.263771896250546
+  }
+}

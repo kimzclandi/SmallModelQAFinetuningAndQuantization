@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-09-19T17:00:35.694939+00:00",
+  "student": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260920,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 768,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "zh-extract-or-abstain-v1",
+    "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+    "warmup": "none"
+  },
+  "selection_seed": "fresh-quality-20260920",
+  "counts": {
+    "train": 192,
+    "dev": 64,
+    "holdout": 96
+  },
+  "source_sha256": "5497aa2f81908e31d6b0e27d99b1f90ab63a8f58fa92fffe5d17cf62eba0c212",
+  "official_dev_sha256": "e9ff74231f05c230c6fa88b84441ee334d97234cbb610991cd94b82db00c7f1f",
+  "prior_split_hashes": {
+    "train": "a2afedd9857c89af501802286efcabd479f5c8df7124887c12527c52ba0aa2eb",
+    "dev": "71cd9a4f4d24f76237d74471b62bd8063292520d9b67ffa1de7c1e62b2c4fb17",
+    "holdout": "4abf7f38c0efdc0e7f97bf2b662c8156ae6e01851809ff96b168f80acd4f5e3f"
+  },
+  "old_rows_compared": 3651,
+  "near_excluded": [],
+  "eligible_pool": 7954,
+  "isolation": "Whole article titles excluded; every selected candidate compared against all prior pilot rows, all official dev rows, historical retrieval queries and earlier selected rows using existing character ngram/question heuristic. Not a semantic proof.",
+  "scope": "Answerable-only; same previously indexed CMRC source; not a new domain or pretraining-unseen"
+}

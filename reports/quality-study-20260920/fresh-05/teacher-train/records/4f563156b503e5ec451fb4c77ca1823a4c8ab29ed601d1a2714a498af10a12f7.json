@@ -1,0 +1,26 @@
+{
+  "input_sha256": "65b003943ad948a0131bb2deb43b05056053fc1223feee2cb850d1c8f619ca2a",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_130_QUERY_0",
+    "prediction": "民族主义和国际关系",
+    "input_tokens": 423,
+    "generated_tokens": 6,
+    "token_ids": [
+      100742,
+      100091,
+      33108,
+      99876,
+      100145,
+      151645
+    ],
+    "prompt_sha256": "98892ddcd03626f22b3a51eb49716c508d25353567af320c1747858fc0991516",
+    "ttft_seconds": 0.17738416599604534,
+    "generation_seconds": 0.3763935829992988,
+    "decode_seconds": 0.19900941700325347,
+    "decode_tokens_per_second": 25.12443921142816,
+    "end_to_end_seconds": 0.3776339169999119,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ecc9cb317ab92786266ee5996c63aebe88dd84742ee10f662e55ab33e1447f70"
+}

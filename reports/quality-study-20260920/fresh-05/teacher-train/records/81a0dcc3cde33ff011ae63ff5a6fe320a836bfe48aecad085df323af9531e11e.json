@@ -1,0 +1,36 @@
+{
+  "input_sha256": "47cc0cd1e026e33801e8c8d3dc4644345c74059ffb8693aa25413544ca3034bd",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_664_QUERY_1",
+    "prediction": "岱西皮鞋厂，岱山县仇江门拆船有限公司等。",
+    "input_tokens": 323,
+    "generated_tokens": 16,
+    "token_ids": [
+      118180,
+      60686,
+      99888,
+      102097,
+      99675,
+      3837,
+      118180,
+      110071,
+      100956,
+      112927,
+      101348,
+      100031,
+      103921,
+      49567,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "766359553349d3678b18a166e1a4454d5d2410139e0445c7ddba9d22937fd07c",
+    "ttft_seconds": 0.15256479199888417,
+    "generation_seconds": 0.7396502499977942,
+    "decode_seconds": 0.58708545799891,
+    "decode_tokens_per_second": 25.549943020438175,
+    "end_to_end_seconds": 0.7408337919987389,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c408707e00d2322542e208d6d20d5496af76f7d1ee856ff014b81690d6a83a40"
+}

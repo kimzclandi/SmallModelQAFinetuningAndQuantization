@@ -1,0 +1,26 @@
+{
+  "input_sha256": "157e4e8763742071836c7aae17d06f2683b630aa0391179a4442e2a24845ea3c",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_726_QUERY_4",
+    "prediction": "安室奈美惠",
+    "input_tokens": 328,
+    "generated_tokens": 6,
+    "token_ids": [
+      50285,
+      99478,
+      102641,
+      57566,
+      99839,
+      151645
+    ],
+    "prompt_sha256": "9533022ce872aed60cb8f053cd84518ebe06a7ea6ba14221980c7cd031f50bea",
+    "ttft_seconds": 0.15726487500069197,
+    "generation_seconds": 0.35579154200240737,
+    "decode_seconds": 0.1985266670017154,
+    "decode_tokens_per_second": 25.185533387093013,
+    "end_to_end_seconds": 0.3569029159989441,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "1804d58dc11211b13745170b5fabb5c15b17cdf558a1da6379987db0abfa11cc"
+}

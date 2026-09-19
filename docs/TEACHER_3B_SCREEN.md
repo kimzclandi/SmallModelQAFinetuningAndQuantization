@@ -1,6 +1,7 @@
 # 3B 教师与核验器筛查（2026-09-20）
 
-继[1.5B核验器未通过验证](JUDGE_CALIBRATION_AND_DATA.md)后，固定Qwen2.5-3B-Instruct版本`aa8e72537993ba99e69dfaafa59ed015b17504d1`，实际下载6,183,456,028字节并执行本地MPS FP32推理。模型卡标注qwen-research许可；权重不随仓库分发。本轮是新增研究，不属于历史业务或实习成果。
+当前公开入口见[数据质量实验发布说明](QUALITY_STUDY_RELEASE.md)。本文描述各阶段执行时的状态；其中“未使用holdout”仅限该阶段，最终holdout-08已按冻结协议评估一次。
+继[1.5B核验器未通过验证](JUDGE_CALIBRATION_AND_DATA.md)后，固定Qwen2.5-3B-Instruct版本`aa8e72537993ba99e69dfaafa59ed015b17504d1`，实际下载6,183,456,028字节并执行本地MPS FP32推理。模型卡标注qwen-research许可；权重不随仓库分发。本轮是2026-09-20新增研究，不回填历史结果。
 
 ## 冻结协议与结论
 
@@ -24,7 +25,7 @@
 
 ## 可复现入口与边界
 
-`RUN_ROOT`为保存的外部本地实验根目录，其中包含前轮`calibration-04`、`fresh-05`和本轮`teacher-3b-06`。本地证据尚未公开，不是缺少数据时可直接运行的一键下载项目。
+`RUN_ROOT`为保存的外部本地实验根目录，其中包含前轮`calibration-04`、`fresh-05`和本轮`teacher-3b-06`。公开证据现位于`reports/quality-study-20260920/`；公开的最小推理及完整训练命令见发布说明。
 
 ```bash
 # 离线核验已完成实验，不加载模型

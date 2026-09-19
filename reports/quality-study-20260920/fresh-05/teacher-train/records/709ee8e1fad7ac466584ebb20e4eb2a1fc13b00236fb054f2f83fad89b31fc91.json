@@ -1,0 +1,30 @@
+{
+  "input_sha256": "649611b838b50a0f52a43c8473929451abb210a7adfd906db2bce128ed921cf2",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_710_QUERY_2",
+    "prediction": "终结印度在克什米尔地区的管治",
+    "input_tokens": 375,
+    "generated_tokens": 10,
+    "token_ids": [
+      112080,
+      104456,
+      18493,
+      99316,
+      99217,
+      117108,
+      105638,
+      35551,
+      69905,
+      151645
+    ],
+    "prompt_sha256": "01b33ead89ea920e4fa55ad7680568a411a0662a808150c3ae5d9bf7ba2c1886",
+    "ttft_seconds": 0.17313345900038257,
+    "generation_seconds": 0.5080016249994515,
+    "decode_seconds": 0.3348681659990689,
+    "decode_tokens_per_second": 26.87624836821612,
+    "end_to_end_seconds": 0.5091160419979133,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "2324ca3b99b28f2fe25589e3ce057a3da66e7bce131772c9e61e3ab9c95c1510"
+}

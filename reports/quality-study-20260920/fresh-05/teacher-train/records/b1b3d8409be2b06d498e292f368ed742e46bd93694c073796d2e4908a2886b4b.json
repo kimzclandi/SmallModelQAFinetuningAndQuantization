@@ -1,0 +1,30 @@
+{
+  "input_sha256": "dd9d2bfe8431804955abb90e849be6404ebd66274ca0751b611ea1fc11cc0207",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_879_QUERY_2",
+    "prediction": "被烹吃及与其他家畜争食",
+    "input_tokens": 410,
+    "generated_tokens": 10,
+    "token_ids": [
+      99250,
+      103499,
+      99405,
+      81217,
+      106961,
+      45629,
+      101007,
+      99399,
+      99450,
+      151645
+    ],
+    "prompt_sha256": "0a8ec6e8a8d1acddde913699c7814c60320701faa117f3800587dadecfa46b27",
+    "ttft_seconds": 0.16479529199568788,
+    "generation_seconds": 0.5053062500010128,
+    "decode_seconds": 0.34051095800532494,
+    "decode_tokens_per_second": 26.430867460832957,
+    "end_to_end_seconds": 0.5064349169988418,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "40471445dfb87dd750965ef96092d04d71563fe2ad77d8f26f6cd23a479de191"
+}

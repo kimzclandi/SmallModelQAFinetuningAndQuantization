@@ -1,0 +1,34 @@
+{
+  "input_sha256": "6b36b2bdd2306ff35204cdc7df4ebb4121bc14b2dabee4f69f7c3275712e61fc",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_119_QUERY_1",
+    "prediction": "西部地震带、东部地震带及东北部地震带。",
+    "input_tokens": 457,
+    "generated_tokens": 14,
+    "token_ids": [
+      104938,
+      105526,
+      99278,
+      5373,
+      106565,
+      105526,
+      99278,
+      81217,
+      104756,
+      32948,
+      105526,
+      99278,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "1eb10d62fce86849dc37d75921ed52539beabeb2b6fa1aea8abcb0d11fb123d8",
+    "ttft_seconds": 0.19994162499642698,
+    "generation_seconds": 0.7503261669990025,
+    "decode_seconds": 0.5503845420025755,
+    "decode_tokens_per_second": 23.619849410558423,
+    "end_to_end_seconds": 0.7515262500019162,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "1e4c87b8a4355bd4ab89f2d81d7b40195b344443a498d92368abaa37fdb94d0c"
+}

@@ -1,5 +1,6 @@
 # 使用参考标签的监督质量对照（2026-09-20）
 
+当前公开入口见[数据质量实验发布说明](QUALITY_STUDY_RELEASE.md)。本文描述各阶段执行时的状态；其中“未使用holdout”仅限该阶段，最终holdout-08已按冻结协议评估一次。
 在[3B教师筛查](TEACHER_3B_SCREEN.md)失败后，改做有明确监督信息的诊断实验。它回答：在固定学生和训练预算下，用参考答案修正训练目标能否改善开发集表现？它不是无需标注的自动质量筛选，也不是对失败核验器的继续使用。
 
 ## 输入与对照
@@ -18,7 +19,7 @@
 
 Qwen2.5-0.5B-Instruct固定revision；PyTorch/MPS FP32；LoRA只作用q_proj/v_proj，rank8、alpha16、dropout0；learning rate 1e-4。3组×3固定seed×64更新，共576更新。batch size1、answer-only loss、梯度裁剪1.0，非有限loss/梯度直接失败。各组更新次数相同，但输入/监督token数并不相同，实际token数随步骤记录。
 
-开发集沿用64题，只作探索性分析。96题holdout未复制到本轮训练目录，也不执行推理。已查看过开发集，因此任何提升都不是独立验证；不挑选最好seed、不根据结果改训练参数。本轮为投递后新增本地研究，不追溯为既有业务成果。
+开发集沿用64题，只作探索性分析。96题holdout未复制到本轮训练目录，也不执行推理。已查看过开发集，因此任何提升都不是独立验证；不挑选最好seed、不根据结果改训练参数。本轮为2026-09-20新增研究，不回填历史结果。
 
 ## 本轮实测结果
 
@@ -38,7 +39,7 @@ Qwen2.5-0.5B-Instruct固定revision；PyTorch/MPS FP32；LoRA只作用q_proj/v_p
 
 ## 运行与验证
 
-`RUN_ROOT`是含fresh-05和semantic-02协议的外部本地证据目录；这些新增证据尚未公开。先准备再训练，已有目标目录拒绝覆盖。
+`RUN_ROOT`是含fresh-05和semantic-02协议的外部本地证据目录；公开证据现位于`reports/quality-study-20260920/`，最小复现不再依赖外部目录。先准备再训练，已有目标目录拒绝覆盖。
 
 ```bash
 .venv-ci/bin/python scripts/supervised_quality_control.py prepare "$RUN_ROOT"

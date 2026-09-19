@@ -1,0 +1,24 @@
+{
+  "input_sha256": "9b75b227732f35353326f454f47a2e57ab2e7fb494e847623fc8d812d0985a0c",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3502_QUERY_3",
+    "prediction": "沙丁鱼",
+    "input_tokens": 361,
+    "generated_tokens": 4,
+    "token_ids": [
+      99617,
+      101142,
+      100655,
+      151645
+    ],
+    "prompt_sha256": "7636c723284460fa794cecf41147d3b9459e4efb75774e57e2aaa80c668cadf1",
+    "ttft_seconds": 0.15036183299525874,
+    "generation_seconds": 0.26272708299802616,
+    "decode_seconds": 0.11236525000276743,
+    "decode_tokens_per_second": 26.69864571053874,
+    "end_to_end_seconds": 0.26376062499912223,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "eb6e2d5ae203b1e74421dc62a9424c124ded205365d4c35023a9c45a57ef9075"
+}

@@ -1,0 +1,24 @@
+{
+  "input_sha256": "1943ce972e6816c1d41bc4f75cbf436c4494f6cd835ce1249deb99105a7a4500",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3085_QUERY_1",
+    "prediction": "李存勖",
+    "input_tokens": 378,
+    "generated_tokens": 4,
+    "token_ids": [
+      100339,
+      24360,
+      120647,
+      151645
+    ],
+    "prompt_sha256": "726faa1f9c60d0830a60008568a7e526b93aa503a91f1fada8772fbc6abcb27d",
+    "ttft_seconds": 0.17390475000138395,
+    "generation_seconds": 0.28472916600003373,
+    "decode_seconds": 0.11082441599864978,
+    "decode_tokens_per_second": 27.069847135820233,
+    "end_to_end_seconds": 0.2857709999952931,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "3911b95620e29f0e38fd95c121c6536e78138edf14d267ef4dee4d861f67f27d"
+}

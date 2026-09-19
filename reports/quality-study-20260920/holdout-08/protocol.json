@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-09-19T18:01:22.011337+00:00",
+  "student": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260920,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 768,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "zh-extract-or-abstain-v1",
+    "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+    "warmup": "none"
+  },
+  "models": {
+    "baseline": null,
+    "oracle_selected-20260920": "supervised-07/run/oracle_selected-20260920",
+    "oracle_selected-20260921": "supervised-07/run/oracle_selected-20260921",
+    "oracle_selected-20260922": "supervised-07/run/oracle_selected-20260922",
+    "random_teacher-20260920": "supervised-07/run/random_teacher-20260920",
+    "random_teacher-20260921": "supervised-07/run/random_teacher-20260921",
+    "random_teacher-20260922": "supervised-07/run/random_teacher-20260922",
+    "random_gold-20260920": "supervised-07/run/random_gold-20260920",
+    "random_gold-20260921": "supervised-07/run/random_gold-20260921",
+    "random_gold-20260922": "supervised-07/run/random_gold-20260922"
+  },
+  "model_hashes": {
+    "oracle_selected-20260920": {
+      "adapter_model.safetensors": "c3ca95b9e2e3ce79e167d0f4fb217d51fbcabbf0d2cdd6569123b69d6e81620d",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "oracle_selected-20260921": {
+      "adapter_model.safetensors": "d32f6c47f9f36b7d3e126ece59c87efc71d2dc528d3e5fefee40f6fc7f0218a8",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "oracle_selected-20260922": {
+      "adapter_model.safetensors": "3029b5160447c00795146bc25079daf8ae1c4915a471c57e9898fbfb8bcc5bfd",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "random_teacher-20260920": {
+      "adapter_model.safetensors": "caef00be0011528a049429075983f575f8e36b3c328938091e0e2fa4b604f7ab",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "random_teacher-20260921": {
+      "adapter_model.safetensors": "0e76d561994b7d7cec706b4026049452acfe3cc89ab183473c368526fab7391c",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "random_teacher-20260922": {
+      "adapter_model.safetensors": "f00e37aac01de14c09c2a29c252a525bd63a9b35b4acfc9f78c832232c1a8d24",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "random_gold-20260920": {
+      "adapter_model.safetensors": "2a661c8e78fe5745668562860e6b2ba9504a50a562876c942f6b2267da4f1ef7",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "random_gold-20260921": {
+      "adapter_model.safetensors": "cc72272fb5373f4f339a814564c436cbf06bd4257af7e5b7eeed93dcf5c3a321",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    },
+    "random_gold-20260922": {
+      "adapter_model.safetensors": "1aa3af5d386793760e6798b500088c210a1e745caee58f0075f1bf46751bb654",
+      "adapter_config.json": "d36e3e6dac1c28d4eba737ca5ee0ccbed94dad2c33646d55a1e9497363919f1d"
+    }
+  },
+  "seeds": [
+    20260920,
+    20260921,
+    20260922
+  ],
+  "groups": [
+    "oracle_selected",
+    "random_teacher",
+    "random_gold"
+  ],
+  "holdout_sha256": "15c3446b927c74326dbc170a96dec3e83101f1af7cd9ec22d82cde598e1c9e9d",
+  "max_wall_seconds": 1800,
+  "primary": "random_gold minus random_teacher mean strict EM across all fixed seeds; paired article-bootstrap95 lower bound >0 is research evidence only",
+  "secondary": "F1, oracle_selected and baseline contrasts descriptive; no multiplicity correction",
+  "policy": "One access; no seed selection, no extra training, no prompt/budget changes after results. Holdout becomes consumed. Same public corpus, not external source or pretraining-unseen.",
+  "source_sha256": "a82f3052b9c7351f64cbc4ed28ab0fe69ae3c5b759017186a782687434eccea7"
+}

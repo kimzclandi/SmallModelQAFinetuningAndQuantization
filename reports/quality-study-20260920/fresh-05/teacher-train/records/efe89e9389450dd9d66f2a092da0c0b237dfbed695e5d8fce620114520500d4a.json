@@ -1,0 +1,24 @@
+{
+  "input_sha256": "b028adcb2545d2c1bcdd380978df7afae147b26a2d3daf195bd5eb54ba64e1f2",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2439_QUERY_4",
+    "prediction": "NO_ANSWER",
+    "input_tokens": 548,
+    "generated_tokens": 4,
+    "token_ids": [
+      8996,
+      67752,
+      39351,
+      151645
+    ],
+    "prompt_sha256": "ba0834bab7db5f0d527112453a780427c561fa871abb09ab6448a2210b8dbff8",
+    "ttft_seconds": 0.22538220799469855,
+    "generation_seconds": 0.3701155419985298,
+    "decode_seconds": 0.14473333400383126,
+    "decode_tokens_per_second": 20.72777512276879,
+    "end_to_end_seconds": 0.37145145799877355,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ad55fbeffd7eb5e4f294038791051e70d385a4ff3d04eccf7891fca2c70a4713"
+}

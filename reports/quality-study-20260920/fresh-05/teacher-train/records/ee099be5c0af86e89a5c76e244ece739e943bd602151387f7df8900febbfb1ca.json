@@ -1,0 +1,22 @@
+{
+  "input_sha256": "7c96d45d80c771fbe32b1a7acd7fc4e08a514adee65951049c14a645cf262387",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1158_QUERY_1",
+    "prediction": "越南",
+    "input_tokens": 725,
+    "generated_tokens": 2,
+    "token_ids": [
+      106676,
+      151645
+    ],
+    "prompt_sha256": "06fc9995dccd0240683ff23102a5e15c3658fb18d2413a57020910a46f545837",
+    "ttft_seconds": 0.2847855410000193,
+    "generation_seconds": 0.33085783300339244,
+    "decode_seconds": 0.04607229200337315,
+    "decode_tokens_per_second": 21.705019579377247,
+    "end_to_end_seconds": 0.332836583002063,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "1b365d652049e24f3fb09da716f02795f85be705d80e95cbaa63a771dabf434c"
+}

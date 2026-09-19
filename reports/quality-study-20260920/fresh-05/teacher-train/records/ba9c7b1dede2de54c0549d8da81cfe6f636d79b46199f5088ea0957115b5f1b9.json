@@ -1,0 +1,25 @@
+{
+  "input_sha256": "0e6b0bff9dd1b1179c2ebcc2a8415807521752c722cf22be9dd09fa8dc787a89",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3528_QUERY_2",
+    "prediction": "仔稚鱼时期",
+    "input_tokens": 338,
+    "generated_tokens": 5,
+    "token_ids": [
+      102437,
+      103827,
+      100655,
+      100728,
+      151645
+    ],
+    "prompt_sha256": "26ab6746527d57f12cd7611e734d6a909ba11db7053902565f06b301af2d4a68",
+    "ttft_seconds": 0.1664212080067955,
+    "generation_seconds": 0.31503400000656256,
+    "decode_seconds": 0.14861279199976707,
+    "decode_tokens_per_second": 26.915583417652698,
+    "end_to_end_seconds": 0.3160792080016108,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "5b6e7ced6ccb78db262493a407cc81eef6bc833614b5a10c093ce62be1e6fa7a"
+}

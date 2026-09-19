@@ -1,0 +1,24 @@
+{
+  "input_sha256": "8a09a5060f356277a4fe3223e751c787770fb43040f34c69e0534ee0bce91d25",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_771_QUERY_0",
+    "prediction": "蔷薇目",
+    "input_tokens": 306,
+    "generated_tokens": 4,
+    "token_ids": [
+      121365,
+      105978,
+      29732,
+      151645
+    ],
+    "prompt_sha256": "e2768a2b6fba661cd537d29a3b390aea051d54212fd65c1a9a5a6e6d81dbc2b3",
+    "ttft_seconds": 0.15468300000065938,
+    "generation_seconds": 0.2656965839996701,
+    "decode_seconds": 0.11101358399901073,
+    "decode_tokens_per_second": 27.02371990824775,
+    "end_to_end_seconds": 0.26673287500307197,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ed31728f38fac94be6e2a9bf7297d82f2e7c09e8ce723a6e22e8fbc2d2de5489"
+}

@@ -1,0 +1,23 @@
+{
+  "input_sha256": "ca011777ec2badd015a7a1a2d7dfecc037ee984082c2b35349a5f2dff186b6ff",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_479_QUERY_0",
+    "prediction": "物资不足",
+    "input_tokens": 380,
+    "generated_tokens": 3,
+    "token_ids": [
+      104657,
+      102004,
+      151645
+    ],
+    "prompt_sha256": "4bf9695d979284461d432b539755a400593e43f7c29f19bed1b16413e410771c",
+    "ttft_seconds": 0.1621509579999838,
+    "generation_seconds": 0.24115624999831198,
+    "decode_seconds": 0.07900529199832818,
+    "decode_tokens_per_second": 25.314759928263058,
+    "end_to_end_seconds": 0.24222000000008848,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "8f74df29800ec1712bc36d6c7c7838bf6a065de9883a1cf1d947d24763851412"
+}
