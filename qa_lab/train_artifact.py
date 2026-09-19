@@ -32,8 +32,9 @@ def verified_rows(artifact,source):
         tr=json.loads((report/'run.json').read_text())
         if tr['method']!='local_public_teacher' or tr['status']!='complete' or tr['config']!=m['teacher_config']:
             raise ValueError('Non-local or incomplete teacher')
-        pm={p['id']:p for p in read_jsonl(report/'predictions.jsonl')}
-        if set(pm)!={r['id'] for r in rows}:raise ValueError('Teacher ID mismatch')
+        predictions=read_jsonl(report/'predictions.jsonl')
+        pm={p['id']:p for p in predictions}
+        if len(pm)!=len(predictions) or set(pm)!={r['id'] for r in rows}:raise ValueError('Teacher ID coverage mismatch')
         for r in rows:
             if r['target']!=pm[r['id']]['prediction'].strip() or pm[r['id']]['stop_reason']!='eos':raise ValueError('Teacher target altered')
     else:raise ValueError('Unsupported artifact method')

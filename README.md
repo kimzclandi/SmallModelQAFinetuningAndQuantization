@@ -69,3 +69,5 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 [实验协议](docs/PROTOCOL.md) · [研究范围](docs/ROADMAP.md) · [历史工程验收](docs/RELEASE_AUDIT.md) · [手工候选审计流程](docs/TEACHER_CANDIDATE_AUDIT.md) · [AI辅助与贡献](CONTRIBUTIONS.md) · [数据许可](DATA_LICENSE.md) · [组件归属](THIRD_PARTY.md)
 
 `reports/`保留各轮原始报告及其当时状态；其中“未公开”“尚无线上CI”等是发布前历史快照。当前代码、许可数据与记录已公开，当前CI见页首。模型权重、缓存与环境目录不随仓库分发。
+
+[2026-09-19 工程维护与验证边界](docs/maintenance/2026-09-19/README.md)

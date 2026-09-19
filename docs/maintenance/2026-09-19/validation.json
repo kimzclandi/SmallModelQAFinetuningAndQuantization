@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-19",
+  "base_commit": "c63d225a4fcfb3565fffa1eb69a2181f5fe18ff3",
+  "scope": "Local maintenance verification; no remote CI for this unpushed change and no new model quality claim",
+  "tests_passed": 58,
+  "checks": [
+    {
+      "command": ".venv-ci/bin/python scripts/acceptance.py --output work/final-acceptance",
+      "returncode": 0
+    }
+  ],
+  "changed_python_sha256": {
+    "qa_lab/train_artifact.py": "073ea8dccdd1282470e1297df72a3c9c155746fd462cebec9fa12b31ac523eb8",
+    "tests/test_closure.py": "80277f52915089bb6b2c15a20f756604d00baccc80868d6c6fbedab2a3194e32"
+  }
+}
