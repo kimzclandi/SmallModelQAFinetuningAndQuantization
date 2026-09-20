@@ -1,11 +1,11 @@
-# Domain QA Lab
+# Extractive QA
 
 ![Project wordmark](.github/project-header.svg)
 
 可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
 
-[![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
-[![Stars](https://img.shields.io/github/stars/kimzclandi/domain-qa-lab?style=flat)](https://github.com/kimzclandi/domain-qa-lab/stargazers) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![offline-integrity](https://github.com/kimzclandi/extractive-qa/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/extractive-qa/actions/workflows/tests.yml)
+[![Stars](https://img.shields.io/github/stars/kimzclandi/extractive-qa?style=flat)](https://github.com/kimzclandi/extractive-qa/stargazers) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
@@ -56,8 +56,8 @@
 需要先安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)；以下命令在仓库根目录执行。
 
 ```bash
-git clone https://github.com/kimzclandi/domain-qa-lab.git
-cd domain-qa-lab
+git clone https://github.com/kimzclandi/extractive-qa.git
+cd extractive-qa
 uv venv .venv-ci --python 3.12
 uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 ```
@@ -110,8 +110,10 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 
 [贡献指南](CONTRIBUTING.md) · [行为准则](CODE_OF_CONDUCT.md) · [结构与维护](docs/MAINTAINING.md)
 
-[反馈问题](https://github.com/kimzclandi/domain-qa-lab/issues/new?template=bug_report.yml) · [建议功能](https://github.com/kimzclandi/domain-qa-lab/issues/new?template=feature_request.yml)
+[反馈问题](https://github.com/kimzclandi/extractive-qa/issues/new?template=bug_report.yml) · [建议功能](https://github.com/kimzclandi/extractive-qa/issues/new?template=feature_request.yml)
 
 ## License
 
 Project code: [MIT](LICENSE). Data and derived assets: [data licensing and attribution](DATA_LICENSE.md).
+
+[项目名称与兼容性说明 / Naming and compatibility](docs/NAMING.md)
