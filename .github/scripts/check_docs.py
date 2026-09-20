@@ -21,7 +21,9 @@ DOCS = [
 
 def main():
     tracked = set(
-        subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines()
+        subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT, text=True).split(
+            "\0"
+        )
     )
     failures = []
     checked = 0
