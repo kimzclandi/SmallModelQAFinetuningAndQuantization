@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-21",
+  "scope": "New engineering validation; no new model-quality experiment",
+  "tests_passed": 103,
+  "before": "DRCD入口遍历清单已有键，空清单或缺少eval条目会绕过对应哈希检查；独立article检查不等同于唯一sample ID检查。",
+  "change": "要求清单恰好覆盖eval.jsonl、selection.json、protocol.json，并要求非空唯一样本ID，保留独立article检查。",
+  "validation": "12项离线验收全部通过，冻结输入/预测/报告逐字不变。未训练、推理或复用已消耗测试集调参。历史protocol仍绑定原runner哈希，本轮修改不会让新runner冒充原冻结源码；重放旧记录与重新执行原协议是不同操作。",
+  "acceptance_checks": 12
+}
