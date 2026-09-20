@@ -1,0 +1,151 @@
+{
+  "raw_questions": 3524,
+  "selected_n": 96,
+  "old_contexts": 3457,
+  "old_questions": 13858,
+  "source_sha256": "e236df03861ba241bd7b29628cd48b3b8e339c60137e041a4358b5320ed61928",
+  "source_revision": "b944790de5af02c5fbb7cd9cb1473d27d169eebf",
+  "source_url": "https://raw.githubusercontent.com/DRCKnowledgeTeam/DRCD/b944790de5af02c5fbb7cd9cb1473d27d169eebf/DRCD_dev.json",
+  "prior_hashes": {
+    "cmrc_train": "5497aa2f81908e31d6b0e27d99b1f90ab63a8f58fa92fffe5d17cf62eba0c212",
+    "cmrc_dev": "e9ff74231f05c230c6fa88b84441ee334d97234cbb610991cd94b82db00c7f1f",
+    "data/chinese-v5/external.jsonl": "badcf3a96bb1dc5dc9e8afcefc74ce3ea9b4ba1440f840b2fac5dad267fa6567",
+    "data/complexity-v1/dev.jsonl": "8eb033584f81c1e5763c609fc6259678a550329dd9e72cdf89e4c806084c2a68",
+    "data/complexity-v1/samples.jsonl": "ca0e860f88f996578fac9a0dc2a07bafe637b5c7dd951faec97789aeb5ccfdcd",
+    "data/complexity-v1/test.jsonl": "26f1871ab38d22ccbb36a810a7b456aa09c6b615e63f5b64f0818ab8d024ad69",
+    "data/complexity-v1/train.jsonl": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+    "data/coverage-v3-gold242/train.jsonl": "38e4dba72b8c3160cfd40ceb7fd749b2012b7303549c2f5dec1bfcaa11926543",
+    "data/cross-article-v3/test.jsonl": "f92a5468392fe403e9badbb53094d03d84a1e7826a1d99230ec2e4cb9c128589",
+    "data/distilled-local-v1/train.jsonl": "377ccb5d60e3387b8d875933fd09335ebb8ac5676ce66d617cb8b2a5e3f52b1d",
+    "data/repair-v1/train.jsonl": "a1c468822c24285113b340531335d65d79fffd28bd5c121307e7e62f643cb87b",
+    "data/teacher-study-v2-gold/train.jsonl": "3710aab095c88dcd9b209dc594b40fc9bb7174d51bdef1a564dbc94d98f9b759",
+    "data/teacher-study-v2-prompted/train.jsonl": "eafdca263c9c42615a78ceeb177c5a456ebe51823ddaa8cd46be6adeb73eeadb",
+    "reports/entrypoint-retrain-20260920/fresh-05/train.jsonl": "6ac5461989027417e854ebda1ce44cdc3986bac3e2e11c67f6d0b296d91022b6",
+    "reports/entrypoint-retrain-20260920/supervised-07/dev.jsonl": "e5663b7cbb3b131cb62af987040718e2b66f2c83a2b6ee3d4249e329f266b116",
+    "reports/entrypoint-retrain-20260920/supervised-07/oracle_selected.jsonl": "1ec3723f392866bb14db85afb37161bd2b99200fc30cf43be9f8bc8cb9341cdf",
+    "reports/entrypoint-retrain-20260920/supervised-07/random_gold.jsonl": "ca7f2b1a3f96e7a2bfa58d3303bc4608d8b05a650d3bbfd871009236b85617e3",
+    "reports/entrypoint-retrain-20260920/supervised-07/random_teacher.jsonl": "8b46dab00572dbd1ac835c3feffe424b9ae72ebee90def3da769c9b1d54d755b",
+    "reports/quality-study-20260920/calibration-04/calibration.jsonl": "01231e28ec997855b5da979af665636deeae92599fd74892b9732d0427b1c518",
+    "reports/quality-study-20260920/calibration-04/validation.jsonl": "7a5d26ad9a0c18324e26248d8195529830f3de492fa37a764bb832038e41fa90",
+    "reports/quality-study-20260920/fresh-05/audit/review-inputs.jsonl": "28a61e3a244661c1ee9cbb354b2dee8f7f49714b211ffebc8772e0c01f6a55f3",
+    "reports/quality-study-20260920/fresh-05/dev.jsonl": "e5663b7cbb3b131cb62af987040718e2b66f2c83a2b6ee3d4249e329f266b116",
+    "reports/quality-study-20260920/fresh-05/holdout.jsonl": "15c3446b927c74326dbc170a96dec3e83101f1af7cd9ec22d82cde598e1c9e9d",
+    "reports/quality-study-20260920/fresh-05/train.jsonl": "6ac5461989027417e854ebda1ce44cdc3986bac3e2e11c67f6d0b296d91022b6",
+    "reports/quality-study-20260920/holdout-08/holdout.jsonl": "15c3446b927c74326dbc170a96dec3e83101f1af7cd9ec22d82cde598e1c9e9d",
+    "reports/quality-study-20260920/supervised-07/dev.jsonl": "e5663b7cbb3b131cb62af987040718e2b66f2c83a2b6ee3d4249e329f266b116",
+    "reports/quality-study-20260920/supervised-07/oracle_selected.jsonl": "1ec3723f392866bb14db85afb37161bd2b99200fc30cf43be9f8bc8cb9341cdf",
+    "reports/quality-study-20260920/supervised-07/random_gold.jsonl": "ca7f2b1a3f96e7a2bfa58d3303bc4608d8b05a650d3bbfd871009236b85617e3",
+    "reports/quality-study-20260920/supervised-07/random_teacher.jsonl": "8b46dab00572dbd1ac835c3feffe424b9ae72ebee90def3da769c9b1d54d755b",
+    "reports/quality-study-20260920/teacher-3b-06/calibration.jsonl": "01231e28ec997855b5da979af665636deeae92599fd74892b9732d0427b1c518",
+    "reports/quality-study-20260920/teacher-3b-06/judge-failures.jsonl": "e691505497cd01ea8f2915bba5fe9be321ca21c52c0bd6cfc87f4d0ae8c91ab6",
+    "reports/quality-study-20260920/teacher-3b-06/qa-failures.jsonl": "7f50c8b369cb1c53cd6c170101e6d0eb14477a6e46dd9891b0b68b29fdb58e3b",
+    "reports/quality-study-20260920/teacher-3b-06/validation.jsonl": "35c9e2cb6e2b79eace89884c68123bcb2ed1c8427c580f0ee544d7c314841ec2"
+  },
+  "exclusions": [
+    {
+      "id": "drcd:3395-8-3",
+      "reason": "prompt_over_768"
+    },
+    {
+      "id": "drcd:5758-17-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:2527-14-2",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:1179-2-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:6373-66-3",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:6373-68-2",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3241-2-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:6001-1-2",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:6373-32-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:1193-84-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3206-6-5",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:1193-5-2",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3208-2-5",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3431-8-5",
+      "reason": "prompt_over_768"
+    },
+    {
+      "id": "drcd:1193-76-3",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:2527-18-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:1190-32-2",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:6171-57-4",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3299-1-4",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3241-3-3",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:1193-52-3",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:2525-13-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:3297-8-5",
+      "reason": "prompt_over_768"
+    },
+    {
+      "id": "drcd:5759-3-1",
+      "reason": "selected_title"
+    },
+    {
+      "id": "drcd:5597-7-3",
+      "reason": "selected_title"
+    }
+  ],
+  "exclusion_counts": {
+    "prompt_over_768": 3,
+    "selected_title": 22
+  },
+  "scope": "Exclusions include invalid references and traversed candidates until 96 selected; title/exact-question and 5gram Jaccard heuristic after OpenCC t2s; no semantic or pretraining contamination guarantee."
+}
