@@ -1,0 +1,15 @@
+{
+  "strict_em": 0.5729166666666666,
+  "normalized_em": 0.5729166666666666,
+  "char_lcs_f1": 0.7516683708126238,
+  "format_valid": 0.9583333333333334,
+  "abstain": 0.0,
+  "n": 96,
+  "categories": {
+    "correct": 55,
+    "wrong_or_partial_span": 37,
+    "format_or_nonextractive": 4
+  },
+  "metric_version": "zh-strict-em-and-char-lcs-v1-NOT-official-CMRC",
+  "unanswerable_n": 0
+}
