@@ -1,5 +1,7 @@
 # Domain QA Lab
 
+**简体中文** | [English](README.en.md)
+
 可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
 
 [![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
