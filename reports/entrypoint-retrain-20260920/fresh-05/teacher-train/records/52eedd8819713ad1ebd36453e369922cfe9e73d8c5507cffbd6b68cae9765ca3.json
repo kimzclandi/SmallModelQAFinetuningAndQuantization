@@ -1,0 +1,25 @@
+{
+  "input_sha256": "756192fe92afb4f0d7817274555e2ef4de46c974c93207b5f1569a6be0e2ecfd",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1072_QUERY_3",
+    "prediction": "15世纪末",
+    "input_tokens": 448,
+    "generated_tokens": 5,
+    "token_ids": [
+      16,
+      20,
+      101186,
+      100072,
+      151645
+    ],
+    "prompt_sha256": "449282d7bfa3e8c8cb4bef167baced25166daa458e4bae0349e3e3f48cb0b961",
+    "ttft_seconds": 0.18055699999968056,
+    "generation_seconds": 0.34015283299959265,
+    "decode_seconds": 0.1595958329999121,
+    "decode_tokens_per_second": 25.063311020170577,
+    "end_to_end_seconds": 0.3413123749996885,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ae702a22e41904f1a9c8268cc2b46811528452111fa38b945c511b590dcc44c0"
+}

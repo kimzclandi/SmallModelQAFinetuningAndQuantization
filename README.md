@@ -10,7 +10,7 @@
 
 完成9次LoRA训练、576步，并对未训练基线和全部9个适配器做一次96题留出评估。同题将教师目标替换为参考答案后，平均严格EM从17.36%升至24.31%，差+6.94个百分点，配对95%区间[+1.04,+13.54]；F1差值区间仍跨零。使用了训练参考标签，不能称为无标注自动筛选；1.5B/3B自动核验器均未通过挑战门槛。
 
-[结果、失败案例与限制](reports/quality-study-20260920/RESULTS.md) · [离线检查 / 两题真实推理 / 重新训练](docs/QUALITY_STUDY_RELEASE.md)
+[结果、失败案例与限制](reports/quality-study-20260920/RESULTS.md) · [离线检查 / 两题真实推理 / 重新训练](docs/QUALITY_STUDY_RELEASE.md) · [完整训练入口重跑](docs/ENTRYPOINT_RETRAIN.md)
 
 ## 历史五轮实验与证据
 

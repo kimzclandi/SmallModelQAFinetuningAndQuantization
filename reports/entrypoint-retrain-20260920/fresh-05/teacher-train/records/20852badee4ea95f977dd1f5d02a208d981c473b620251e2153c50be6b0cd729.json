@@ -1,0 +1,23 @@
+{
+  "input_sha256": "81cf5f21db8bf80bda7f2e33332c0bc3e712be03c736690a841c82f39139c5aa",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3632_QUERY_1",
+    "prediction": "社会民主党",
+    "input_tokens": 700,
+    "generated_tokens": 3,
+    "token_ids": [
+      99328,
+      117221,
+      151645
+    ],
+    "prompt_sha256": "af9be415f4e3587f0695883551369d9467122478f5a5608a0e184704d14b758d",
+    "ttft_seconds": 0.2651499159983359,
+    "generation_seconds": 0.3321003329983796,
+    "decode_seconds": 0.06695041700004367,
+    "decode_tokens_per_second": 29.872853517830897,
+    "end_to_end_seconds": 0.3340763749947655,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ab7e23cae848dbb5c5cf70adb8fea283a252799c1603a0fde082913ca9c6d0d7"
+}

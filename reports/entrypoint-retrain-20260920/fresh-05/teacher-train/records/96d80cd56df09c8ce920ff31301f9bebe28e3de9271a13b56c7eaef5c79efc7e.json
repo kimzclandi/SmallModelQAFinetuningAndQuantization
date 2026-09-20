@@ -1,0 +1,40 @@
+{
+  "input_sha256": "159b9946af41a3ae8468aaef2ca8643c9f5b6d3c9d58f15561ab0a738ea70e0b",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_720_QUERY_0",
+    "prediction": "开慧一地，因是毛泽东发妻杨开慧的故乡而得名。",
+    "input_tokens": 372,
+    "generated_tokens": 20,
+    "token_ids": [
+      29767,
+      101104,
+      14777,
+      29490,
+      3837,
+      62112,
+      20412,
+      107033,
+      28291,
+      100866,
+      101058,
+      29767,
+      101104,
+      9370,
+      111239,
+      68536,
+      49828,
+      13072,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "b251a9d795355560b5e2e70c44b0910cd77f82b9d15edfbf5a29b716e3ecff91",
+    "ttft_seconds": 0.17391287499776809,
+    "generation_seconds": 0.883834249994834,
+    "decode_seconds": 0.7099213749970659,
+    "decode_tokens_per_second": 26.76352715831176,
+    "end_to_end_seconds": 0.8849149160014349,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "db37a92d3feb2a562227200b0e29f8ae303e086448efede92852aacf8c9823fc"
+}

@@ -1,0 +1,22 @@
+{
+  "input_sha256": "dc4f1cae5760b36a830bc68ccbef1351efebad0e1760de630a8d3afbf7a48f79",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2501_QUERY_1",
+    "prediction": "唐朝",
+    "input_tokens": 342,
+    "generated_tokens": 2,
+    "token_ids": [
+      115099,
+      151645
+    ],
+    "prompt_sha256": "5cda55e5b63a49a8e0cf56b5a080ad3d21be461f7b9a08c129f9a0ff5fe30fe8",
+    "ttft_seconds": 0.1944325000004028,
+    "generation_seconds": 0.25025012499827426,
+    "decode_seconds": 0.05581762499787146,
+    "decode_tokens_per_second": 17.9154881641441,
+    "end_to_end_seconds": 0.2560937910020584,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "801da32c7422697f6b1ff308a8911c5a73fe53557c0c7319c6653653da84be52"
+}

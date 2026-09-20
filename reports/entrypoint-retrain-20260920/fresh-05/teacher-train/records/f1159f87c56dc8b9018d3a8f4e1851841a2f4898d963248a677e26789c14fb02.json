@@ -1,0 +1,32 @@
+{
+  "input_sha256": "a52f7c4134c0b223ff0ede313a645dfea3f0ac68ad788c4c12f70bfca9616dd1",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1276_QUERY_3",
+    "prediction": "民国七十六年（1987年）",
+    "input_tokens": 578,
+    "generated_tokens": 12,
+    "token_ids": [
+      108982,
+      99612,
+      102853,
+      7948,
+      9909,
+      16,
+      24,
+      23,
+      22,
+      7948,
+      7552,
+      151645
+    ],
+    "prompt_sha256": "88d1d9e3750ee40c33371a8da30deced0debef1bf113dab6f998f38d068260e3",
+    "ttft_seconds": 0.24243891699734377,
+    "generation_seconds": 0.7292640840023523,
+    "decode_seconds": 0.48682516700500855,
+    "decode_tokens_per_second": 22.595380735291425,
+    "end_to_end_seconds": 0.7305839159962488,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "85b27a2a37fc5ca619e6f2139519d626c3d6ff992ce8df95f36a828dc22ccf01"
+}

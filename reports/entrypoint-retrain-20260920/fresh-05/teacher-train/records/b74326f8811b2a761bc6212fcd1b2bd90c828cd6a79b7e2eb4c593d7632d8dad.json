@@ -1,0 +1,26 @@
+{
+  "input_sha256": "7161a11e708e6b8c2788f90d566e2bc21d35e8d752b16e11be9099bee7e0be73",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1608_QUERY_1",
+    "prediction": "鸟类学和昆虫学",
+    "input_tokens": 361,
+    "generated_tokens": 6,
+    "token_ids": [
+      118203,
+      47764,
+      33108,
+      118093,
+      47764,
+      151645
+    ],
+    "prompt_sha256": "455154a32dd7fdd4444bcb73297ac4207fca644135c963c3ea6cd9ecc2286b2e",
+    "ttft_seconds": 0.17068220899818698,
+    "generation_seconds": 0.35931416699895635,
+    "decode_seconds": 0.18863195800076937,
+    "decode_tokens_per_second": 26.506643163718877,
+    "end_to_end_seconds": 0.3603911660029553,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "d84ebe7aaf274925a3a04479242ba5b0791138f1dfd130d8362c9647dfe43f2b"
+}

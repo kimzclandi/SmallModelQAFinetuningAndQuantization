@@ -1,0 +1,27 @@
+{
+  "input_sha256": "636d6ebbfb0a4a17b2f7af10a8025979edc775966b43b5932740b227529c21bd",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1162_QUERY_1",
+    "prediction": "拉布·巴特勒",
+    "input_tokens": 657,
+    "generated_tokens": 7,
+    "token_ids": [
+      72225,
+      51827,
+      13935,
+      99395,
+      65278,
+      104240,
+      151645
+    ],
+    "prompt_sha256": "dc87c1614bc604f3e5b0d48e20d8230ce780d0a7d8b58eb80fd96ca442e96b2a",
+    "ttft_seconds": 0.2756951669944101,
+    "generation_seconds": 0.5060199999934412,
+    "decode_seconds": 0.23032483299903106,
+    "decode_tokens_per_second": 26.0501654201796,
+    "end_to_end_seconds": 0.5074635829951148,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "5827a469a2a743354150bf14a82f57f5a677369296152aec90a0fbe7d233a2a1"
+}

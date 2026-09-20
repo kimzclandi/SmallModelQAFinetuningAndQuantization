@@ -1,0 +1,38 @@
+{
+  "input_sha256": "2ec6336070915cc5695b843a1828437e86ff03c9247b3235e6a081a725577d3a",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1167_QUERY_4",
+    "prediction": "军阀斗争比热带雨林更险，金钱比野蛮部落更恶",
+    "input_tokens": 299,
+    "generated_tokens": 18,
+    "token_ids": [
+      99292,
+      102860,
+      102784,
+      56006,
+      111074,
+      100029,
+      99463,
+      33126,
+      99567,
+      3837,
+      107350,
+      56006,
+      99924,
+      106156,
+      101917,
+      33126,
+      99695,
+      151645
+    ],
+    "prompt_sha256": "a3352301558dfdc0ed1a2ed93e77bbaa3594255546755bd6078ea9efa48b5ca6",
+    "ttft_seconds": 0.14630374999978812,
+    "generation_seconds": 0.7807705829982297,
+    "decode_seconds": 0.6344668329984415,
+    "decode_tokens_per_second": 26.79415079848903,
+    "end_to_end_seconds": 0.78184945799876,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c9dc04448300ab6369b7752a3af2b835ff8dc578858009fc8e561918806fa644"
+}

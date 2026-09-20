@@ -1,0 +1,34 @@
+{
+  "input_sha256": "dd7f9473efa4835cd7949fb6a814e8d019f6dcf49bf19f8a04a504f8ba27b884",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_734_QUERY_2",
+    "prediction": "生长于较高的温度，喜爱阴凉处及新鲜空气。",
+    "input_tokens": 414,
+    "generated_tokens": 14,
+    "token_ids": [
+      104569,
+      34204,
+      107529,
+      104273,
+      3837,
+      102721,
+      100205,
+      102058,
+      44290,
+      81217,
+      104838,
+      100819,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "491644c8a574a9a3ee95a898c093fc139339d286ad3855ee7d716152b1998afb",
+    "ttft_seconds": 0.17837054199480917,
+    "generation_seconds": 0.6645298750008806,
+    "decode_seconds": 0.4861593330060714,
+    "decode_tokens_per_second": 26.740204532569674,
+    "end_to_end_seconds": 0.6657262080043438,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "5035cef3e8e7ea0ce39565b8d4589755111c91b5d19b4a5fef7f60ef81a575fa"
+}

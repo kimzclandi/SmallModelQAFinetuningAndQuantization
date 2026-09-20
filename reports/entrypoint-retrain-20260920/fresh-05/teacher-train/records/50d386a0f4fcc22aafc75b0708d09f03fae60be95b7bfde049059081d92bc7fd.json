@@ -1,0 +1,29 @@
+{
+  "input_sha256": "c823bf15ed6d196d3acb8600e3206489e08a6a3e51e18d42a4d04ce2ef5f80df",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2582_QUERY_3",
+    "prediction": "大量地阅读并深入地思考。",
+    "input_tokens": 310,
+    "generated_tokens": 9,
+    "token_ids": [
+      100722,
+      29490,
+      101113,
+      62926,
+      100403,
+      29490,
+      104107,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "90216f14df0f0e75dd9cbcd7c51fac96f661a984b3395f7dc2bc69d5c7a7e2fc",
+    "ttft_seconds": 0.14646979199460475,
+    "generation_seconds": 0.42609499999525724,
+    "decode_seconds": 0.2796252080006525,
+    "decode_tokens_per_second": 28.60972391295041,
+    "end_to_end_seconds": 0.4271693749979022,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "bbdd8d98aa2ec98b6a366c9a95ed016667f4085718ea751e0370402848a8fe23"
+}

@@ -1,0 +1,23 @@
+{
+  "input_sha256": "819f8fb64c5eeb03c70266087e8461571759cade1c6e958c5c28c5076aabb24b",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2454_QUERY_3",
+    "prediction": "男演员",
+    "input_tokens": 377,
+    "generated_tokens": 3,
+    "token_ids": [
+      70108,
+      104534,
+      151645
+    ],
+    "prompt_sha256": "fd93171f451d5083712181d3cc837b267a1e121da6a6cb8e0ecf9df33457da0e",
+    "ttft_seconds": 0.16659475000051316,
+    "generation_seconds": 0.24095662499894388,
+    "decode_seconds": 0.07436187499843072,
+    "decode_tokens_per_second": 26.895502568247593,
+    "end_to_end_seconds": 0.2420906660045148,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "e98c113ade264410cb2c3ae827525e154a26530e62266fe01a9c8c8962eb2c6e"
+}

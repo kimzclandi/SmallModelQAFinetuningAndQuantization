@@ -1,0 +1,31 @@
+{
+  "input_sha256": "d85cd7e44969555f882cc41fac847e1750a37ea0f34c894e4ddaf57dfb646600",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_508_QUERY_0",
+    "prediction": "和歌山县东牟娄郡串本町",
+    "input_tokens": 322,
+    "generated_tokens": 11,
+    "token_ids": [
+      33108,
+      99678,
+      110071,
+      67364,
+      112418,
+      116538,
+      106317,
+      51575,
+      21894,
+      119202,
+      151645
+    ],
+    "prompt_sha256": "76efb1f4f794f095e1d5962a83a8e46ad279f23e572834a47a0ae4a96b335ed6",
+    "ttft_seconds": 0.14422583299892722,
+    "generation_seconds": 0.5210962920027669,
+    "decode_seconds": 0.37687045900383964,
+    "decode_tokens_per_second": 26.534316397290556,
+    "end_to_end_seconds": 0.52219150000019,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "a5b1dbb3c198c8768b400b49bf37d8d6d806555f639c598474cc8d87634f0bc0"
+}

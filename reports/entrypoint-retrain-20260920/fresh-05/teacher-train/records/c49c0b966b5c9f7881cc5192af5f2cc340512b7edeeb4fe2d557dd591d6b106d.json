@@ -1,0 +1,28 @@
+{
+  "input_sha256": "9b76c28a694b05c6de84b9de3635c1b06fcd1102b2cb174c74086b152740ea18",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1209_QUERY_2",
+    "prediction": "2012年第四季",
+    "input_tokens": 257,
+    "generated_tokens": 8,
+    "token_ids": [
+      17,
+      15,
+      16,
+      17,
+      7948,
+      102232,
+      99377,
+      151645
+    ],
+    "prompt_sha256": "9ac00d2f670597649fef2dc24d8e7498fef1d650abbaba4dd2582d01a5859b0c",
+    "ttft_seconds": 0.1450061670038849,
+    "generation_seconds": 0.39831695800239686,
+    "decode_seconds": 0.25331079099851195,
+    "decode_tokens_per_second": 27.634037904216726,
+    "end_to_end_seconds": 0.3993709169953945,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c59c242c82bee939a0c14625b166d38af89576411f85980c207e078395265c2a"
+}

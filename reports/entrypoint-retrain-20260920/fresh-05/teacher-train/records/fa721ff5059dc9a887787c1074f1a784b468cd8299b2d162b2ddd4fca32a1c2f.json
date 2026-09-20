@@ -1,0 +1,35 @@
+{
+  "input_sha256": "aaa2bd7cf8cf844ad50325ed481cb784d5859efd4644439563eee32e82da7e3b",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2101_QUERY_0",
+    "prediction": "这个美国政党列表包含了以前和目前存在于美国政治的政党。",
+    "input_tokens": 297,
+    "generated_tokens": 15,
+    "token_ids": [
+      99487,
+      100625,
+      115510,
+      44177,
+      115191,
+      103982,
+      33108,
+      100004,
+      114672,
+      100625,
+      101091,
+      9370,
+      115510,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "855edd006181298258904da7ce19b083b251da868f39eefca0d9a8e05c35c17b",
+    "ttft_seconds": 0.1474012920007226,
+    "generation_seconds": 0.74557262500457,
+    "decode_seconds": 0.5981713330038474,
+    "decode_tokens_per_second": 23.404665565793593,
+    "end_to_end_seconds": 0.7466458750059246,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "e2e17aa7e1cd8d5c3208935f64593153431c9cf95a00d347ffdb62cb944e3707"
+}

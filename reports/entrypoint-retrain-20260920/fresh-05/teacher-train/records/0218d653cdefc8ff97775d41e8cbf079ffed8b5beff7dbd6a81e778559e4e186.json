@@ -1,0 +1,26 @@
+{
+  "input_sha256": "f14aefe125301105150e46ec0736b7e45fbaab181bcfb5601b59708bff280dbc",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_228_QUERY_2",
+    "prediction": "1998年",
+    "input_tokens": 275,
+    "generated_tokens": 6,
+    "token_ids": [
+      16,
+      24,
+      24,
+      23,
+      7948,
+      151645
+    ],
+    "prompt_sha256": "a5bf7a2bab96dd343feeee2144e85fefd505b3e0c0314b818a259a5a9ba6c204",
+    "ttft_seconds": 0.14820666699961293,
+    "generation_seconds": 0.3319835000002058,
+    "decode_seconds": 0.1837768330005929,
+    "decode_tokens_per_second": 27.206911330242967,
+    "end_to_end_seconds": 0.33303129200066905,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "4530f410302a79acacff2f2edf1b0f34780d2f9cee01f473b8cc44867761cc48"
+}

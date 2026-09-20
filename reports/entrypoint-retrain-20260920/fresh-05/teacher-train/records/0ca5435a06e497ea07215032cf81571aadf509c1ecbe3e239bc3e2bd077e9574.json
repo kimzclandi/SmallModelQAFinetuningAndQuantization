@@ -1,0 +1,26 @@
+{
+  "input_sha256": "e1b715b0de1725fe7988fa7bc9dcaf88844df6e5c1089071e49bbad950ea425b",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_507_QUERY_3",
+    "prediction": "角田马车轨道",
+    "input_tokens": 344,
+    "generated_tokens": 6,
+    "token_ids": [
+      63836,
+      99810,
+      99313,
+      39953,
+      103068,
+      151645
+    ],
+    "prompt_sha256": "458e44f48dcf440cd45ab14d9cec497f23f016c116d1be28982f0724bfc42a2f",
+    "ttft_seconds": 0.14740216599602718,
+    "generation_seconds": 0.3351916249957867,
+    "decode_seconds": 0.18778945899975952,
+    "decode_tokens_per_second": 26.62556262013835,
+    "end_to_end_seconds": 0.33636345800186973,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "bb9bad944a2b50882144cf64e0a6d41962e34afa47091c50611c57ab5446719f"
+}

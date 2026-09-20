@@ -1,0 +1,34 @@
+{
+  "input_sha256": "6e6c91d141b9a44a1b34cf00fe5f6819c05e653a88bcbdd0a8ce9ed34a63545d",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2648_QUERY_1",
+    "prediction": "由一名性工作者向嫖客提供性服务的一种方式。",
+    "input_tokens": 405,
+    "generated_tokens": 14,
+    "token_ids": [
+      67071,
+      101177,
+      33071,
+      106134,
+      69041,
+      121529,
+      64754,
+      99553,
+      33071,
+      47874,
+      104491,
+      75768,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "fbaff0242da87c9e05c7d42d9af29016730df846584c6c05a48424f909192605",
+    "ttft_seconds": 0.17810291700152447,
+    "generation_seconds": 0.6614962090025074,
+    "decode_seconds": 0.4833932920009829,
+    "decode_tokens_per_second": 26.893215555778887,
+    "end_to_end_seconds": 0.662664000003133,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "44c51db85373134d182be703d5ce767d5d4bcb21e96402753236c626b9998876"
+}

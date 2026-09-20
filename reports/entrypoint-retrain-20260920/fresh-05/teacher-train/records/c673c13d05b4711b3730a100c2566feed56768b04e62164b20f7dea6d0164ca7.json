@@ -1,0 +1,42 @@
+{
+  "input_sha256": "78fa6c2aaeeb5a9c33d9520541495c1b0bedabac3f76970189bcfd99e84c6966",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2676_QUERY_2",
+    "prediction": "用{x|x≥1.2}表示不小于1.2的全体实数，等等。",
+    "input_tokens": 343,
+    "generated_tokens": 22,
+    "token_ids": [
+      11622,
+      45340,
+      62827,
+      144481,
+      16,
+      13,
+      17,
+      92,
+      51463,
+      16530,
+      110089,
+      16,
+      13,
+      17,
+      9370,
+      102270,
+      39973,
+      8863,
+      3837,
+      104008,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "ff4d218075b578684716ebca2b1ddab7edd704ea5006fc20ed613c64a4fea944",
+    "ttft_seconds": 0.15886737500113668,
+    "generation_seconds": 0.9021454169997014,
+    "decode_seconds": 0.7432780419985647,
+    "decode_tokens_per_second": 28.2532226346067,
+    "end_to_end_seconds": 0.9032321669947123,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "76ed298bdf404f806856ad66c4cc4419f1750e6a21e2a974914bcc02b7ea809b"
+}

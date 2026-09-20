@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "seed": 20260922,
+  "steps": 64,
+  "elapsed_seconds": 13.351196874995367,
+  "trainable_parameters": 540672,
+  "total_input_tokens": 27912,
+  "total_supervised_tokens": 640,
+  "adapter_sha256": "f00e37aac01de14c09c2a29c252a525bd63a9b35b4acfc9f78c832232c1a8d24"
+}
