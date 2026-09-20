@@ -41,7 +41,7 @@ HF_HUB_OFFLINE=1 .venv/bin/python scripts/reproduce_quality_release.py smoke \
   --output work/quality-smoke-01
 ```
 
-输出`predictions.jsonl`和`receipt.json`；已有目标目录直接失败。这只是公开dev前两题的真实推理，不是完整质量评测。
+加载模型前先校验公开清单和全部文件hash；缺失、多出或被修改的文件会在创建输出前失败。输出`predictions.jsonl`和`receipt.json`；已有目标目录直接失败，reports/data/configs及其符号链接别名不能作为输出位置。每题完成后立即写入预测；可捕获的异常会保留已完成行，将receipt标为failed并重新抛出异常。SIGKILL或断电不保证更新最终状态，也不提供自动恢复训练。这只是公开dev前两题的真实推理，不是完整质量评测。
 
 ## 3. 重新训练全部对照
 
@@ -65,3 +65,5 @@ HF_HUB_OFFLINE=1 .venv/bin/python scripts/reproduce_quality_release.py train \
 ## 发布前验收记录
 
 本次在新建Python3.12环境安装CI锁后，92项测试与全部10个验收检查通过，前后冻结文件hash不变；公开两题CPU推理入口实际完成。重新训练包装器的目录、协议、输入hash和拒绝覆盖行为已测试，底层9次完整训练与适配器重载另有原始记录。公开CI仍只做保存证据重算，不代表异机模型执行。约3.6MB公开证据不含权重、本机缓存路径或访问令牌。
+
+2026-09-20追加入口可靠性修复：前置完整性核验、冻结目录保护、逐条预测保存与异常状态记录；覆盖输入篡改、符号链接和第二次生成失败的回归测试。未改变模型、训练参数、数据切分或已保存指标。
