@@ -10,3 +10,5 @@ work/
 *.bin
 .DS_Store
 .venv-*/
+.venv*/
+.ruff_cache/

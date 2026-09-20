@@ -87,7 +87,7 @@ PYTHONPATH=. .venv/bin/python scripts/verify_artifacts.py
 PYTHONPATH=. .venv/bin/python scripts/verify_closure.py
 ```
 
-这些检查重算保存的预测、比较输入与源码hash，不会重新访问模型或追加测试集推理。GitHub已运行离线CI；当前提交的执行状态见[Actions](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)，不代表重新推理或训练。
+这些检查重算保存的预测、比较输入与源码hash，不会重新访问模型或追加测试集推理。GitHub已运行离线CI；当前提交的执行状态见[Actions](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)，不代表重新推理或训练。
 
 元数据说明：实际首轮蒸馏/修订复用了gold配置以匹配数值超参数，其中purpose文字是控制组历史说明；真实标签来源以training.json的method和artifact_path/hash为准。新增两份复现配置只修正purpose说明，数值参数完全相同，历史run.json未改写。
 

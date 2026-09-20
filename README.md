@@ -1,10 +1,19 @@
-# Domain QA Lab
+# 小语言模型问答微调与量化实验
+
+![Project wordmark](.github/project-header.svg)
 
 可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
 
-[![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
+[![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
+[![Stars](https://img.shields.io/github/stars/kimzclandi/SmallModelQAFinetuningAndQuantization?style=flat)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/stargazers) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
+
+## 功能特性 / Features
+
+- 家族隔离的数据划分与逐条问答评测。
+- LoRA、响应蒸馏和参考标签质量对照。
+- 同框架量化与只读证据验收。
 
 ## 项目沿革（2026-09-20 补记）
 
@@ -38,13 +47,24 @@
 - 历史实测为Apple M4 Max、48GiB统一内存、40核GPU、macOS27.0。PyTorch/MPS用于训练，独立MLX环境用于量化。未验证CUDA/Ascend训练、生产负载或外部业务泛化。
 - 三seed描述训练波动，不是三个独立测试集；dev已多轮使用。中文指标含明确命名的自定义指标，不能称CMRC官方成绩。后续选择新方法需要新协议与独立数据。
 
-## 快速开始：离线证据验收
+## 快速开始 / Quick Start：离线证据验收
 
 从仓库根目录运行，Python3.12。此入口无需模型、GPU或API key；首次安装依赖需要网络，之后验收离线运行。
 
+### Installation / 安装
+
+需要先安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)；以下命令在仓库根目录执行。
+
 ```bash
+git clone https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization.git
+cd SmallModelQAFinetuningAndQuantization
 uv venv .venv-ci --python 3.12
 uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
+```
+
+### Usage / 使用示例
+
+```bash
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
@@ -85,3 +105,15 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 [2026-09-19 工程维护与验证边界](docs/maintenance/2026-09-19/README.md)
 
 [2026-09-21 工程维护与验证](docs/maintenance/2026-09-21/README.md)
+
+## Contributing / 参与贡献
+
+[贡献指南](CONTRIBUTING.md) · [行为准则](CODE_OF_CONDUCT.md) · [结构与维护](docs/MAINTAINING.md)
+
+[反馈问题](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/issues/new?template=bug_report.yml) · [建议功能](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/issues/new?template=feature_request.yml)
+
+## License
+
+Project code: [MIT](LICENSE). Data and derived assets: [data licensing and attribution](DATA_LICENSE.md).
+
+[项目名称与兼容性说明 / Naming and compatibility](docs/NAMING.md)
