@@ -1,0 +1,36 @@
+{
+  "input_sha256": "b552361f0c04a77ed5a9b52771f2b1dc0d34c66de040ce2ef7a36428d5672e04",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2557_QUERY_0",
+    "prediction": "广西壮族自治区中部、湘桂铁路与黎湛铁路交汇处",
+    "input_tokens": 628,
+    "generated_tokens": 16,
+    "token_ids": [
+      104366,
+      100511,
+      103840,
+      23836,
+      108807,
+      5373,
+      101351,
+      100877,
+      104124,
+      57218,
+      101521,
+      101823,
+      104124,
+      113692,
+      44290,
+      151645
+    ],
+    "prompt_sha256": "5ac0f0353511af3fad66e0e1b6c92df1222d26afad58243b7eb0574101d8b7c6",
+    "ttft_seconds": 0.2510885829979088,
+    "generation_seconds": 0.8301831659991876,
+    "decode_seconds": 0.5790945830012788,
+    "decode_tokens_per_second": 25.902504427272248,
+    "end_to_end_seconds": 0.8315325419971487,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "026e2d95026883960e784184ec3f0844e01054e88998bb003df5004c3e8b8069"
+}

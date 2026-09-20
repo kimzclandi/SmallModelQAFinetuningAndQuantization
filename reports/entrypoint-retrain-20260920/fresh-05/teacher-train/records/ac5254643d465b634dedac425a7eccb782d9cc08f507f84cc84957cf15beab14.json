@@ -1,0 +1,26 @@
+{
+  "input_sha256": "d3b21de586c9db2a5cd01b0fadafc40a6a5c3d28f05ca6dfa952ad64e8dd451d",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2736_QUERY_1",
+    "prediction": "合理售价，简易维修",
+    "input_tokens": 542,
+    "generated_tokens": 6,
+    "token_ids": [
+      100745,
+      107249,
+      3837,
+      115161,
+      104440,
+      151645
+    ],
+    "prompt_sha256": "7aef142465807010ac643c187fef1243dd7ec49cbb13c7e6fbfb98cd4ce057f6",
+    "ttft_seconds": 0.2158560829993803,
+    "generation_seconds": 0.4267775000043912,
+    "decode_seconds": 0.21092141700501088,
+    "decode_tokens_per_second": 23.705511137739105,
+    "end_to_end_seconds": 0.42804070800048066,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "efbbe3729c02c1c814c8c2641e7960061a2c5535b6143cd0a7055fc3598d1247"
+}

@@ -1,0 +1,30 @@
+{
+  "input_sha256": "40f24f2cadd86bda94406d34df709d05b9a27d6d93668f60f3987055ad362abc",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2246_QUERY_3",
+    "prediction": "亏空公家白银三十八万两",
+    "input_tokens": 491,
+    "generated_tokens": 10,
+    "token_ids": [
+      101482,
+      34794,
+      34317,
+      45629,
+      109050,
+      44991,
+      101526,
+      31207,
+      77540,
+      151645
+    ],
+    "prompt_sha256": "928d1f6368630aae419a3c088ace632b3b17a5fbf7db7f55e6e2b964c6829661",
+    "ttft_seconds": 0.18550733400479658,
+    "generation_seconds": 0.52544491700246,
+    "decode_seconds": 0.3399375829976634,
+    "decode_tokens_per_second": 26.475448582753092,
+    "end_to_end_seconds": 0.5266062079972471,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "671b1c4634576aa9564b657ce4df75f0cae450740e588614baaf6bb0c13c6dc5"
+}

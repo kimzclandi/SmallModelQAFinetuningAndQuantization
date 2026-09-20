@@ -1,0 +1,26 @@
+{
+  "input_sha256": "f668609ad1a1d3d93111e760defbeab2c6ee5b6549ebaeebf3bfd6398e7269c1",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1038_QUERY_4",
+    "prediction": "因为外国的环境差异",
+    "input_tokens": 318,
+    "generated_tokens": 6,
+    "token_ids": [
+      99519,
+      101566,
+      9370,
+      99719,
+      102478,
+      151645
+    ],
+    "prompt_sha256": "d19d6b31d8799a13ef6ffa841b9a4ffb10f72643ba5113446ae4caa95f674d40",
+    "ttft_seconds": 0.13236858299933374,
+    "generation_seconds": 0.3225771670040558,
+    "decode_seconds": 0.19020858400472207,
+    "decode_tokens_per_second": 26.28693140303211,
+    "end_to_end_seconds": 0.3236837500007823,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "19117cfaacf8090f9123f8a48380d430350751db3ce1da2819c431c622298308"
+}

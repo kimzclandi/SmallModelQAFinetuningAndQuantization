@@ -1,0 +1,56 @@
+{
+  "seeds": [
+    20260920,
+    20260921,
+    20260922
+  ],
+  "steps": 64,
+  "learning_rate": 0.0001,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "target_modules": [
+    "q_proj",
+    "v_proj"
+  ],
+  "student": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260920,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 768,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "zh-extract-or-abstain-v1",
+    "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+    "warmup": "none"
+  },
+  "created_utc": "2026-09-20T08:09:16.438672+00:00",
+  "groups": [
+    "oracle_selected",
+    "random_teacher",
+    "random_gold"
+  ],
+  "subset_seed": 20260920,
+  "max_wall_seconds": 1800,
+  "source_hashes": {
+    "fresh-05/train.jsonl": "6ac5461989027417e854ebda1ce44cdc3986bac3e2e11c67f6d0b296d91022b6",
+    "fresh-05/teacher-train/manifest.json": "57db7068b9d7beb0ef68f47a527a4e77c9e151e6457379939589b35562ff51c0",
+    "fresh-05/teacher-train/complete.json": "36bb41c349ce79b166c5f9d768b98d897823aa2c5cb2adc92ff3137e61f2127b"
+  },
+  "code_hashes": {
+    "supervised_quality_control.py": "15dd1d6fac6b8c6e6f8a85bd351b407f57dc2f499f5a2f401ae144f8c886e40d",
+    "semantic_quality_pilot.py": "f2e9e5c9430a1c0c65f3d79c587e3ec392e0206bafaa28b68b7590f091db17af",
+    "quality_pilot.py": "8b3436fa2594cb48a330fb741b923de544ab537ed7c40d4b75608fa4dad57d95"
+  },
+  "contrasts": {
+    "primary": "random_gold minus random_teacher: identical examples/order, only reference targets substituted; token lengths may differ",
+    "secondary": "oracle_selected minus random_teacher: equal sample count, selection and example difficulty confounded"
+  },
+  "budget": "3 groups x 3 seeds x 64 updates; equal updates, not equal tokens; fixed subset across seeds.",
+  "interpretation": "Exploratory reused development data; no holdout access, no label-free claim, no independent validation. Do not select seed, adjust parameters, or adopt model from this experiment.",
+  "selection": "EOS non-refusal extractive pool; oracle exact match against any training reference; random_gold first reference; all choices frozen before training.",
+  "reproduces_protocol_sha256": "1c2d14306b7a423d79b9a8e02420b5af8425fe577e2b29b5d44329c225f2374d"
+}

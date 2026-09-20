@@ -1,0 +1,41 @@
+{
+  "input_sha256": "5897f4189d93b735be2d05c3601cb6c5949d7814fe1ecd2f8bbd30c46fbb6148",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2218_QUERY_0",
+    "prediction": "超实数系统是为了严格处理无穷量（无穷大量和无穷小量）而提出的。",
+    "input_tokens": 384,
+    "generated_tokens": 21,
+    "token_ids": [
+      71304,
+      39973,
+      8863,
+      72448,
+      104802,
+      100470,
+      54542,
+      109995,
+      32757,
+      9909,
+      109995,
+      100722,
+      33108,
+      109995,
+      30709,
+      32757,
+      7552,
+      68536,
+      106962,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "28bfb3d2a1dd96ff409da802c9b731b24cfb5fa1f1b45a26cf15112b139bd4ba",
+    "ttft_seconds": 0.17500745799770812,
+    "generation_seconds": 0.9188482500030659,
+    "decode_seconds": 0.7438407920053578,
+    "decode_tokens_per_second": 26.88747406025017,
+    "end_to_end_seconds": 0.9199877909995848,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "437eb91cb0b21e13e34b7ce28b06f9e8997adea51b9d91838d724d1fc37e7a52"
+}

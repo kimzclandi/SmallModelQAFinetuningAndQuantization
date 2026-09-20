@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "stage": "train",
+  "release_manifest_sha256": "db89d24786e1af1d83c93eae9ae841ef389f3120b17dff2a12fd8d0368ccced2",
+  "runner_sha256": "be2c41ef7d826ca04b7d6c8670c4d2cdb1ef0827a4efd6060cf9fb37bb20508f",
+  "started_utc": "2026-09-20T08:09:16.408420+00:00",
+  "scope": "Fresh fixed-protocol training and saved-result verification",
+  "finished_utc": "2026-09-20T08:16:10.793504+00:00"
+}

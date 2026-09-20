@@ -1,0 +1,36 @@
+{
+  "input_sha256": "17cb364aa0b020ab57327fc380e8ea5480445816835783aa835ae896879dbb69",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2369_QUERY_3",
+    "prediction": "因为该公路所环绕的华盛顿特区是美国政治的中心。",
+    "input_tokens": 272,
+    "generated_tokens": 16,
+    "token_ids": [
+      99519,
+      75882,
+      102175,
+      31838,
+      112834,
+      9370,
+      112916,
+      65278,
+      23836,
+      20412,
+      100625,
+      101091,
+      9370,
+      99488,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "f4c14d17ddfed97d6d402eedd1358a72a0e4997c7461b80d1ee03ec5f6692448",
+    "ttft_seconds": 0.1463545000005979,
+    "generation_seconds": 0.7214609169968753,
+    "decode_seconds": 0.5751064169962774,
+    "decode_tokens_per_second": 26.08212942283531,
+    "end_to_end_seconds": 0.7225379579977016,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c935c04c3dc39261fd9abe3bc67c35bcba6db1210e201fd378595d343ff397c8"
+}

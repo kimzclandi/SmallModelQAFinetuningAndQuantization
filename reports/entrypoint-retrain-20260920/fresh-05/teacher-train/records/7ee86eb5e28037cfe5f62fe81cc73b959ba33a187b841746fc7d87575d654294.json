@@ -1,0 +1,22 @@
+{
+  "input_sha256": "3a274dfe3f2440097d16bf1639ab0c0da5111ea238601a190dc3ae3335aa74d3",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_958_QUERY_1",
+    "prediction": "天津市",
+    "input_tokens": 356,
+    "generated_tokens": 2,
+    "token_ids": [
+      109422,
+      151645
+    ],
+    "prompt_sha256": "0da52f4c33c54bde614dfbadd138f716728d9fbe01821befc9439a9cd3f8036c",
+    "ttft_seconds": 0.14943312499963213,
+    "generation_seconds": 0.18787116699968465,
+    "decode_seconds": 0.03843804200005252,
+    "decode_tokens_per_second": 26.015893317319172,
+    "end_to_end_seconds": 0.18901024999649962,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "87518cdf7ebc292bd7f77dc6c4d520ce746a60c1b088842a50a0fbf065994b72"
+}

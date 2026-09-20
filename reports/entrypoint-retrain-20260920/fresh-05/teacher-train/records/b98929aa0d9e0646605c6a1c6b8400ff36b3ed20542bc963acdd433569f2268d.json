@@ -1,0 +1,28 @@
+{
+  "input_sha256": "27b4b5aa51a8e7d71fd819d33a5fb38a5cdac8f5a2f82e99020f8cc1161a7721",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_667_QUERY_0",
+    "prediction": "进士第三甲第四十五名",
+    "input_tokens": 629,
+    "generated_tokens": 8,
+    "token_ids": [
+      41299,
+      99253,
+      99749,
+      100043,
+      102232,
+      101510,
+      13072,
+      151645
+    ],
+    "prompt_sha256": "0695ccce992801c23c3d64a0dfd481e0f53e1978bb84d0b78697d5d155a2d29f",
+    "ttft_seconds": 0.23058533299627015,
+    "generation_seconds": 0.5005138749984326,
+    "decode_seconds": 0.26992854200216243,
+    "decode_tokens_per_second": 25.93278927851921,
+    "end_to_end_seconds": 0.5018386250012554,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "bae1bfb848437ae2781db573523ebcb8d92f00f7efbb4008701e38e46a4e6bd7"
+}

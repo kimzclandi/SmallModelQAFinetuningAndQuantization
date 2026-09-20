@@ -1,0 +1,41 @@
+{
+  "input_sha256": "89a403b028e9393ac37fcf18b0c5fd9abdc42e20a73d3d4201797bb144cbe5c2",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1046_QUERY_4",
+    "prediction": "张娟娟取得参赛资格，姜林于初赛意外出局，无缘全运会。",
+    "input_tokens": 281,
+    "generated_tokens": 21,
+    "token_ids": [
+      86341,
+      107655,
+      107655,
+      101094,
+      106311,
+      104303,
+      3837,
+      102282,
+      99463,
+      34204,
+      84607,
+      99273,
+      104424,
+      112352,
+      3837,
+      114805,
+      35987,
+      90840,
+      36993,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "98b2ced989287f63a08bbc976206e4ab025dfed2359a93f789a12ea35118835b",
+    "ttft_seconds": 0.14061224999750266,
+    "generation_seconds": 0.8818304169981275,
+    "decode_seconds": 0.7412181670006248,
+    "decode_tokens_per_second": 26.98260902175532,
+    "end_to_end_seconds": 0.8828734999988228,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "b4ab8380e0d835a591f1834b24138f255d272c00e52e54c5b95662a159e972a9"
+}

@@ -1,0 +1,26 @@
+{
+  "input_sha256": "71253b3ef13a13128598a17058e30e417f089cdf07eb5152366b3a0ac8afb523",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1029_QUERY_3",
+    "prediction": "日奈森亚梦",
+    "input_tokens": 557,
+    "generated_tokens": 6,
+    "token_ids": [
+      8903,
+      102641,
+      100739,
+      99449,
+      99815,
+      151645
+    ],
+    "prompt_sha256": "7a1cd21a94c943d95e09e02f3e1accc8a5a84b7d1ebedffb18240338cc93c625",
+    "ttft_seconds": 0.21583229200041387,
+    "generation_seconds": 0.41868570799852023,
+    "decode_seconds": 0.20285341599810636,
+    "decode_tokens_per_second": 24.648340159313243,
+    "end_to_end_seconds": 0.4199250829988159,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "9a41ac1b6078e7fa860390952443e64f2e797fad203cac99bc908029d8d9d685"
+}

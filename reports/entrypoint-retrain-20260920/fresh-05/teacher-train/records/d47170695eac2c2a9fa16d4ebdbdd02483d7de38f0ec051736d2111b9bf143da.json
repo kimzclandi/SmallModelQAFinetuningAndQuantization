@@ -1,0 +1,28 @@
+{
+  "input_sha256": "0202e32323c302d0b72f8ef8b2716dd8054f5402be8f2ab85ad86eac9a34f077",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_919_QUERY_0",
+    "prediction": "台湾，香港，新加坡，马来西亚",
+    "input_tokens": 371,
+    "generated_tokens": 8,
+    "token_ids": [
+      104109,
+      3837,
+      101926,
+      3837,
+      105394,
+      3837,
+      109123,
+      151645
+    ],
+    "prompt_sha256": "599f3b3dc88f5d280dbe62e752862457300d2227c7c2daa8c4f780121b2a8bb3",
+    "ttft_seconds": 0.16572166699916124,
+    "generation_seconds": 0.4285100419947412,
+    "decode_seconds": 0.26278837499557994,
+    "decode_tokens_per_second": 26.6374035766146,
+    "end_to_end_seconds": 0.42964662500162376,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "0dfe5f98cddebc22776494fa26d973bb7872ff20a5dde420f65b61c0c1d8b8bf"
+}

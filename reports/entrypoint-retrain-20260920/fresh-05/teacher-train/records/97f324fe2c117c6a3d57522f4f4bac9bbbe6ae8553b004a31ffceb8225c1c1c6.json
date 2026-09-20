@@ -1,0 +1,31 @@
+{
+  "input_sha256": "44a4618af8885306239284c34fcd01870cd7d0c4322572a68b1ebc5a7d4ddd07",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1298_QUERY_2",
+    "prediction": "永泰元年（765年）",
+    "input_tokens": 394,
+    "generated_tokens": 11,
+    "token_ids": [
+      99906,
+      100396,
+      23305,
+      7948,
+      9909,
+      22,
+      21,
+      20,
+      7948,
+      7552,
+      151645
+    ],
+    "prompt_sha256": "28fccaaa5292d54f98930600551a3981b1a85e907f4fc071eaf13cd749491b7c",
+    "ttft_seconds": 0.17571674999635434,
+    "generation_seconds": 0.5459138749938575,
+    "decode_seconds": 0.3701971249975031,
+    "decode_tokens_per_second": 27.012635498094284,
+    "end_to_end_seconds": 0.5469770420022542,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "c49c1749a37bbc0393ff6d2a90924241bfb537f8d6359b151a97bb68b611f3ee"
+}

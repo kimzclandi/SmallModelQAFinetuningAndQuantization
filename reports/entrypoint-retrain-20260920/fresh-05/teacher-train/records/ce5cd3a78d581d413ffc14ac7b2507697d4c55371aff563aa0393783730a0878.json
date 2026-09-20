@@ -1,0 +1,24 @@
+{
+  "input_sha256": "7472121ad24dd1f23e2e8dabd34bbafbe3db175cfedd55b4e43e208fa842e373",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1221_QUERY_0",
+    "prediction": "总政治部",
+    "input_tokens": 672,
+    "generated_tokens": 4,
+    "token_ids": [
+      59743,
+      101091,
+      32948,
+      151645
+    ],
+    "prompt_sha256": "0b44a409be1daef6a435ee0ea57450ea186afe51c6b5aaa9234126a3efd9b3fe",
+    "ttft_seconds": 0.33041604100435507,
+    "generation_seconds": 0.4481201250018785,
+    "decode_seconds": 0.11770408399752341,
+    "decode_tokens_per_second": 25.48764578179906,
+    "end_to_end_seconds": 0.4494981249954435,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "1bcb433affe51fde4abbae0fb6e9ee2898597dad76d1c51e038367f5ec6c143b"
+}

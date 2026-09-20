@@ -1,0 +1,102 @@
+{
+  "status": "pass",
+  "adapter_weights_checked": true,
+  "runs": 9,
+  "updates": 576,
+  "dev_n": 64,
+  "groups": {
+    "oracle_selected": {
+      "strict_em": 0.28125,
+      "char_lcs_f1": 0.6847565966585257
+    },
+    "random_teacher": {
+      "strict_em": 0.265625,
+      "char_lcs_f1": 0.6709869196307876
+    },
+    "random_gold": {
+      "strict_em": 0.3333333333333333,
+      "char_lcs_f1": 0.7175662414087894
+    }
+  },
+  "paired": {
+    "random_gold:strict_em": {
+      "delta": 0.06770833333333333,
+      "percentile_95": [
+        -0.005208333333333332,
+        0.15104166666666666
+      ],
+      "scope": "Exploratory article bootstrap conditional on fixed subsets/seeds; no multiplicity correction or independent-test claim"
+    },
+    "random_gold:char_lcs_f1": {
+      "delta": 0.04657932177800181,
+      "percentile_95": [
+        -0.0008616714401503162,
+        0.09772065033072795
+      ],
+      "scope": "Exploratory article bootstrap conditional on fixed subsets/seeds; no multiplicity correction or independent-test claim"
+    },
+    "oracle_selected:strict_em": {
+      "delta": 0.015625,
+      "percentile_95": [
+        -0.026041666666666664,
+        0.0625
+      ],
+      "scope": "Exploratory article bootstrap conditional on fixed subsets/seeds; no multiplicity correction or independent-test claim"
+    },
+    "oracle_selected:char_lcs_f1": {
+      "delta": 0.013769677027738078,
+      "percentile_95": [
+        -0.01006467653081456,
+        0.03833256737948293
+      ],
+      "scope": "Exploratory article bootstrap conditional on fixed subsets/seeds; no multiplicity correction or independent-test claim"
+    }
+  },
+  "token_totals": {
+    "oracle_selected-20260920": {
+      "total_input_tokens": 27658,
+      "total_supervised_tokens": 542,
+      "elapsed_seconds": 17.1126513749914
+    },
+    "oracle_selected-20260921": {
+      "total_input_tokens": 27811,
+      "total_supervised_tokens": 570,
+      "elapsed_seconds": 13.281109791001654
+    },
+    "oracle_selected-20260922": {
+      "total_input_tokens": 28230,
+      "total_supervised_tokens": 547,
+      "elapsed_seconds": 13.443222333997255
+    },
+    "random_teacher-20260920": {
+      "total_input_tokens": 27635,
+      "total_supervised_tokens": 660,
+      "elapsed_seconds": 15.920389124992653
+    },
+    "random_teacher-20260921": {
+      "total_input_tokens": 27643,
+      "total_supervised_tokens": 675,
+      "elapsed_seconds": 13.2088622910087
+    },
+    "random_teacher-20260922": {
+      "total_input_tokens": 27912,
+      "total_supervised_tokens": 640,
+      "elapsed_seconds": 13.351196874995367
+    },
+    "random_gold-20260920": {
+      "total_input_tokens": 27732,
+      "total_supervised_tokens": 757,
+      "elapsed_seconds": 15.54316766699776
+    },
+    "random_gold-20260921": {
+      "total_input_tokens": 27760,
+      "total_supervised_tokens": 792,
+      "elapsed_seconds": 14.310225958004594
+    },
+    "random_gold-20260922": {
+      "total_input_tokens": 28022,
+      "total_supervised_tokens": 750,
+      "elapsed_seconds": 13.949994665992563
+    }
+  }
+}

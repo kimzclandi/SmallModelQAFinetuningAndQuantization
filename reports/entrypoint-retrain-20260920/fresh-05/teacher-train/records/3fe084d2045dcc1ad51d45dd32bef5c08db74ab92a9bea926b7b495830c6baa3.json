@@ -1,0 +1,25 @@
+{
+  "input_sha256": "de2aec20cd3f421e67360f44820373f1167cf7b339d480512fc9f58a2e6552a0",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2467_QUERY_2",
+    "prediction": "天山影业公司",
+    "input_tokens": 536,
+    "generated_tokens": 5,
+    "token_ids": [
+      35727,
+      57811,
+      117319,
+      73218,
+      151645
+    ],
+    "prompt_sha256": "6353a2165058ef12abbc998cbd3865c51157f312e9ba5a399abe8cff71f1f092",
+    "ttft_seconds": 0.2244438329944387,
+    "generation_seconds": 0.37767449999955716,
+    "decode_seconds": 0.15323066700511845,
+    "decode_tokens_per_second": 26.10443508587211,
+    "end_to_end_seconds": 0.37895712499448564,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "7770b1bb5fe14e80a6fa7250886faf2dbf2da05d669bbbee1a4953a1de861c3b"
+}

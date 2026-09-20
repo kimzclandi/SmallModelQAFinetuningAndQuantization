@@ -1,0 +1,27 @@
+{
+  "input_sha256": "ee7b902f58ea927d70056b6273e8b4da8c47a4e3f623dbe37da63fddc06df715",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_673_QUERY_1",
+    "prediction": "37英尺2英寸",
+    "input_tokens": 408,
+    "generated_tokens": 7,
+    "token_ids": [
+      18,
+      22,
+      82847,
+      101489,
+      17,
+      111047,
+      151645
+    ],
+    "prompt_sha256": "41afece3f41b1eeb4471c594aea5f72d98d3ff65e3bfeaa0762927f1493a4f8f",
+    "ttft_seconds": 0.16371074999915436,
+    "generation_seconds": 0.39376595800422365,
+    "decode_seconds": 0.2300552080050693,
+    "decode_tokens_per_second": 26.080696246910392,
+    "end_to_end_seconds": 0.39491491700027836,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "cac1c3e10dbe35ea8d24c5b34e369cd75d4f68f0bf7ad10006d3c3ca7d0c6375"
+}

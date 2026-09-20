@@ -1,0 +1,24 @@
+{
+  "input_sha256": "c0e64e5db53c013ed0835ddc5c39fb8cdf74c1f2615dddbc732c9071ca1a58df",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3531_QUERY_1",
+    "prediction": "日本高知",
+    "input_tokens": 338,
+    "generated_tokens": 4,
+    "token_ids": [
+      101059,
+      44636,
+      52183,
+      151645
+    ],
+    "prompt_sha256": "003a37c55843c0f23ec1d25c8aa92e76cbea6b9af3e15430d85043f91c6c5f7d",
+    "ttft_seconds": 0.15493762499681907,
+    "generation_seconds": 0.27052516600087984,
+    "decode_seconds": 0.11558754100406077,
+    "decode_tokens_per_second": 25.95435437020505,
+    "end_to_end_seconds": 0.2715921669951058,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "29a9d2276b77917707cfa4303009f92c1303a2a7759310a736a91e8c747c9875"
+}

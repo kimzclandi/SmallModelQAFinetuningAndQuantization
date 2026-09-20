@@ -1,0 +1,30 @@
+{
+  "input_sha256": "33cb6c710b5d491f2c3c76d87a7b3e9c0a56841d51a175ff20981a0cd98ae4b7",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2488_QUERY_1",
+    "prediction": "将原有的北京各个农场合并而来所组成的",
+    "input_tokens": 678,
+    "generated_tokens": 10,
+    "token_ids": [
+      44063,
+      110917,
+      68990,
+      101284,
+      108447,
+      106080,
+      105758,
+      31838,
+      107339,
+      151645
+    ],
+    "prompt_sha256": "265c16dd3bc6839d3de4f32e076483152f481bb85ee5f543c9db71070acd88c0",
+    "ttft_seconds": 0.2659127919978346,
+    "generation_seconds": 0.6661873339980957,
+    "decode_seconds": 0.40027454200026114,
+    "decode_tokens_per_second": 22.484567604587074,
+    "end_to_end_seconds": 0.6683080000002519,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "077d847b42b1726e4650cb34d116b16977afd946d2ccd9245d2aed5095d9892b"
+}

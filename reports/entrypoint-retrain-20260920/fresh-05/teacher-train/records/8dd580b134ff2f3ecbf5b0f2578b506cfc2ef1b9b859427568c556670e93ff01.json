@@ -1,0 +1,24 @@
+{
+  "input_sha256": "54eb2ad98d0449a040771721d42f77c96d53f7f68b66d74375de668cf7d9fdfa",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1161_QUERY_3",
+    "prediction": "冈部长盛",
+    "input_tokens": 425,
+    "generated_tokens": 4,
+    "token_ids": [
+      109693,
+      101662,
+      99681,
+      151645
+    ],
+    "prompt_sha256": "3003d6689e8d27a5a304ff6316a11c84e0cf3561c66a0904039ce6afdcc00395",
+    "ttft_seconds": 0.18816549999610288,
+    "generation_seconds": 0.2999496249976801,
+    "decode_seconds": 0.1117841250015772,
+    "decode_tokens_per_second": 26.837442257186986,
+    "end_to_end_seconds": 0.3010382499996922,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "6e8ae329518dda02bc0820b08116d0e56de6c6f53172dc0f83cb203730f483b1"
+}

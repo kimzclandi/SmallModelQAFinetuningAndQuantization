@@ -1,0 +1,30 @@
+{
+  "input_sha256": "4a8cc32988e5a4efb9b98aa7aff86acb197e9ee5ef095f28c61c946792206fe2",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3625_QUERY_2",
+    "prediction": "D300感光元件尺寸不同",
+    "input_tokens": 666,
+    "generated_tokens": 10,
+    "token_ids": [
+      35,
+      18,
+      15,
+      15,
+      98650,
+      99225,
+      115088,
+      105356,
+      99604,
+      151645
+    ],
+    "prompt_sha256": "e5d3f7266b8be6c739cafe8813eecc490b8bd78fd2088320555ba71363259442",
+    "ttft_seconds": 0.2608367499997257,
+    "generation_seconds": 0.6300825830039685,
+    "decode_seconds": 0.36924583300424274,
+    "decode_tokens_per_second": 24.3740055961487,
+    "end_to_end_seconds": 0.6321294159934041,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "42c4268120a3139d47fd3f1855c16c0bbce5f3b2cd41ead3485c511226c5fa0d"
+}

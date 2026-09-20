@@ -1,0 +1,31 @@
+{
+  "input_sha256": "32ec280e741e503ad2372c2f02f052573830fd7291de7227d3e7a3afed238e2f",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_298_QUERY_4",
+    "prediction": "卡累利阿苏维埃社会主义自治共和国",
+    "input_tokens": 639,
+    "generated_tokens": 11,
+    "token_ids": [
+      99603,
+      99847,
+      59532,
+      99727,
+      99908,
+      99479,
+      101499,
+      104407,
+      93034,
+      104773,
+      151645
+    ],
+    "prompt_sha256": "1ac2cef24d488bfbdf8b2924c4643c51c4790b4c7d758f22b4d91df83f3eac3a",
+    "ttft_seconds": 0.2541667499972391,
+    "generation_seconds": 0.6369936670016614,
+    "decode_seconds": 0.3828269170044223,
+    "decode_tokens_per_second": 26.1214652257184,
+    "end_to_end_seconds": 0.6390379580043373,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "57e86341114639923cde6d1569ec912046f8568216544acf5e9ff5104d26c2d7"
+}

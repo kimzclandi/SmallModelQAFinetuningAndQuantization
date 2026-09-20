@@ -1,0 +1,23 @@
+{
+  "input_sha256": "d0cb13faaaec3877a00c3077d305798f3fca49b773916b2b21505b1f9fb43dd3",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_50_QUERY_4",
+    "prediction": "英国政府",
+    "input_tokens": 464,
+    "generated_tokens": 3,
+    "token_ids": [
+      104025,
+      99563,
+      151645
+    ],
+    "prompt_sha256": "c7407f6b4dcdd935492801e34c1a1d214c581336800d01851caf5ffd47803bda",
+    "ttft_seconds": 0.2135370830001193,
+    "generation_seconds": 0.30219450000004144,
+    "decode_seconds": 0.08865741699992213,
+    "decode_tokens_per_second": 22.558744295491447,
+    "end_to_end_seconds": 0.3034290829964448,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "2c81170c6043ed88036b2bc26a94b96a1d5315c26515f1a21eb176c076c1a37c"
+}

@@ -1,0 +1,26 @@
+{
+  "input_sha256": "dff26ded8601086202ba5b136735aa50cb1efdaa1940a593f7e90d9b6db113e1",
+  "config": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "seed": 20260920,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 768,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "zh-extract-or-abstain-v1",
+    "system_prompt": "请仅根据给定文段回答问题。如果文段包含答案，只输出能回答问题的最短连续原文片段，不要改写，不要解释。如果文段不包含答案，只输出 NO_ANSWER。",
+    "warmup": "none"
+  },
+  "binding": {
+    "inference_source": "76e37317e1cfd83f146c55211d4e23c66919c450b46b02cb37e1711e512b24da",
+    "runner_source": "2ad7b829904ae3320fa76ed1f04432ba7b4cb1f172260063527c593f7f8dbb29",
+    "versions": {
+      "torch": "2.8.0",
+      "transformers": "4.56.2"
+    }
+  }
+}

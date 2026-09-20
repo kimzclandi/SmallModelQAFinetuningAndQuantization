@@ -1,0 +1,26 @@
+{
+  "input_sha256": "a2e8c8c0b74cefa589cc556a432fbbc10a06854731ab2aa1b940aefdabec81a9",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3538_QUERY_3",
+    "prediction": "礁缝凹陷处",
+    "input_tokens": 422,
+    "generated_tokens": 6,
+    "token_ids": [
+      114138,
+      100904,
+      113672,
+      100580,
+      44290,
+      151645
+    ],
+    "prompt_sha256": "af9c06b41384dcde8e398b62b76a9334c967a55a958628cdffa284c576a0095f",
+    "ttft_seconds": 0.1806890410007327,
+    "generation_seconds": 0.3659437909955159,
+    "decode_seconds": 0.1852547499947832,
+    "decode_tokens_per_second": 26.989861259378237,
+    "end_to_end_seconds": 0.36704591699526645,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "4d78a76a4c93045fa4ed47e5e28d1f0059591c15a3d5a5eeed5f774170d03e89"
+}

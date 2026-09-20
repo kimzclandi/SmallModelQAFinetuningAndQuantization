@@ -1,0 +1,30 @@
+{
+  "input_sha256": "30645613adf18eb90580c89d561aec480997ae6ae51e00ba2a2dec54951d9822",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_3025_QUERY_1",
+    "prediction": "大约53,000光年",
+    "input_tokens": 299,
+    "generated_tokens": 10,
+    "token_ids": [
+      104995,
+      20,
+      18,
+      11,
+      15,
+      15,
+      15,
+      99225,
+      7948,
+      151645
+    ],
+    "prompt_sha256": "9a3065cb95c502d059c4bea0d09870a17c57e72f45268d62516060a5ead6ecc0",
+    "ttft_seconds": 0.13241800000105286,
+    "generation_seconds": 0.4674762920039939,
+    "decode_seconds": 0.335058292002941,
+    "decode_tokens_per_second": 26.8609976675969,
+    "end_to_end_seconds": 0.46850629200343974,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "ba4270b7f3d67982e84d42eb801c94b2beaa0a6a2cd4e5fc2eefe5d04f9d1896"
+}

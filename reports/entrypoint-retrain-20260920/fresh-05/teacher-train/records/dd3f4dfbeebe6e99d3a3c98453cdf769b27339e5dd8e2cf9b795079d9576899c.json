@@ -1,0 +1,25 @@
+{
+  "input_sha256": "498d955992367545910e8a44dc6cc80c1d2d12502bd1c373ad7360e3a27afda8",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2290_QUERY_1",
+    "prediction": "澳大利亚昆士兰",
+    "input_tokens": 349,
+    "generated_tokens": 5,
+    "token_ids": [
+      105579,
+      100584,
+      99253,
+      99533,
+      151645
+    ],
+    "prompt_sha256": "f15c8b92f3859e3dbd8401ff31e3d60a78d5bc8e41de01357313815f1c17f2d2",
+    "ttft_seconds": 0.15530820799904177,
+    "generation_seconds": 0.3017866669979412,
+    "decode_seconds": 0.14647845899889944,
+    "decode_tokens_per_second": 27.307769533744576,
+    "end_to_end_seconds": 0.30279533300199546,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "896b4d97836ee50300e099caa818bf554f0b901050145c7f2ae02edca41c3d4b"
+}

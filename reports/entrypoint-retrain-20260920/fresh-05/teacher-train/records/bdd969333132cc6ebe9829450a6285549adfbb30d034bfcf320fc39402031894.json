@@ -1,0 +1,34 @@
+{
+  "input_sha256": "700f9fda97d4bfc3d064ace7fa3e45239567a4a3f9b4a5aa2190e69875ef4250",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1650_QUERY_3",
+    "prediction": "二级八一勋章、二级独立自由勋章、一级解放勋章",
+    "input_tokens": 342,
+    "generated_tokens": 14,
+    "token_ids": [
+      106587,
+      99568,
+      14777,
+      117754,
+      5373,
+      106587,
+      102024,
+      101972,
+      117754,
+      5373,
+      105072,
+      101533,
+      117754,
+      151645
+    ],
+    "prompt_sha256": "ab4d70cb76999864258435650a0220177c3a6faeb94308880a4e0f23cfb294bc",
+    "ttft_seconds": 0.1455417920005857,
+    "generation_seconds": 0.6068643339967821,
+    "decode_seconds": 0.4613225419961964,
+    "decode_tokens_per_second": 28.179849923976153,
+    "end_to_end_seconds": 0.6079305000021122,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "b654886a63670d696507d208b6dd34d8dda2dbd665c71771ba48866ff2cb89aa"
+}

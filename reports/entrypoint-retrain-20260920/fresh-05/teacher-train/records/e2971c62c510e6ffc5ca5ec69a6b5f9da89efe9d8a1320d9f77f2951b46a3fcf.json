@@ -1,0 +1,26 @@
+{
+  "input_sha256": "aab9f24dbb595c1dc2455cd0dbcd94c9cede1b5ac498e62bbca47c58fb3ebed4",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_1562_QUERY_1",
+    "prediction": "伊拉克首都巴格达",
+    "input_tokens": 544,
+    "generated_tokens": 6,
+    "token_ids": [
+      113790,
+      106114,
+      99395,
+      33983,
+      93488,
+      151645
+    ],
+    "prompt_sha256": "c705f45d45fddb2485d661a76e16211237bd0e8654180a265604d97354a036e3",
+    "ttft_seconds": 0.22515316600038204,
+    "generation_seconds": 0.41516137500002515,
+    "decode_seconds": 0.1900082089996431,
+    "decode_tokens_per_second": 26.314652542245643,
+    "end_to_end_seconds": 0.4164245409992873,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "d66761e0f7aeb413b37739883693e3c3918cfe808b869eb999594f8b8768ac07"
+}

@@ -1,0 +1,42 @@
+{
+  "input_sha256": "143804105f7f4c57392b29bad3b292df36ec8acd7cf8065f3a15fb002f4e6929",
+  "config_sha256": "fb8eb9d3192da2652f877188ac6aff7356be41a6d1ddd1e709744ebf376d0cc0",
+  "prediction": {
+    "id": "TRAIN_2590_QUERY_0",
+    "prediction": "伯克尔坑是全新世撞击工作群发现，被假设为撞击坑的一个海底地形。",
+    "input_tokens": 493,
+    "generated_tokens": 22,
+    "token_ids": [
+      102044,
+      99316,
+      99079,
+      104527,
+      20412,
+      104623,
+      99244,
+      115382,
+      99257,
+      99430,
+      99879,
+      3837,
+      99250,
+      108140,
+      17714,
+      115382,
+      104527,
+      104111,
+      112002,
+      111282,
+      1773,
+      151645
+    ],
+    "prompt_sha256": "725ca301e23862ef88d619619bb615f5f19ff1449a373a8ba53739b4e6ffacab",
+    "ttft_seconds": 0.19874316699861083,
+    "generation_seconds": 0.997157708996383,
+    "decode_seconds": 0.7984145419977722,
+    "decode_tokens_per_second": 26.30212614546617,
+    "end_to_end_seconds": 0.9984169999952428,
+    "stop_reason": "eos"
+  },
+  "prediction_sha256": "8dacc309321c1fb5e44c0f13f37f8ad6e1790435863702c8d0da5d83f1fbfccc"
+}
