@@ -83,10 +83,13 @@ def prepare(a):
     print('Frozen96 external articles',flush=True)
 
 def check(out):
-    for name,h in json.loads((out/'manifest.json').read_text()).items():
+    manifest=json.loads((out/'manifest.json').read_text())
+    if not isinstance(manifest,dict) or set(manifest)!={'eval.jsonl','selection.json','protocol.json'}:raise ValueError('Frozen external manifest coverage')
+    for name,h in manifest.items():
         if sha(out/name)!=h:raise ValueError('Frozen external input changed')
     cfg=json.loads((out/'protocol.json').read_text());rows=read_jsonl(out/'eval.jsonl')
     if len(rows)!=cfg['n'] or len({r['family_id'] for r in rows})!=len(rows):raise ValueError('Article coverage')
+    if any(not isinstance(r.get('id'),str) or not r['id'] for r in rows) or len({r['id'] for r in rows})!=len(rows):raise ValueError('External sample ID coverage')
     return cfg,rows
 
 def run(a):
