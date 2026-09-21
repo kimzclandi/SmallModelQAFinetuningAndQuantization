@@ -1,0 +1,12 @@
+{
+  "python": "3.12.13",
+  "dependencies": {
+    "pytest": "8.4.2"
+  },
+  "commands": [
+    "python scripts/acceptance.py --output work/baseline-acceptance",
+    "python -m pytest -q tests/test_selection_profile.py (before implementation: import failure)",
+    "python scripts/acceptance.py --output work/after-acceptance",
+    "python scripts/selection_profile.py --run docs/synthetic-qc-20260922/evidence/<preset>-<permission> --output work/profile-<preset>-<permission> (all 3 presets x 2 permissions)"
+  ]
+}

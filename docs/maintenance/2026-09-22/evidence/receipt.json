@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-09-21T20:14:14.324932+00:00",
+  "local_date": "2026-09-22",
+  "timezone": "Asia/Singapore",
+  "source_commit": "0aa2b660adc2ff8e337da98493403c06bce31566",
+  "source_tree": "0fbce1b792aa2219116263ccb596c1327a2a2177",
+  "baseline_commit": "b426a6015220fd0af18cfed726d87c301a46f532",
+  "baseline_default_commit": "3a7ebbe2c928ed18277577284f731888b7ef6006",
+  "remote": "https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization.git",
+  "original_checkout_clean": true,
+  "protected_files_checked": 1410,
+  "protected_files_changed": [],
+  "environment": {
+    "os": "Darwin",
+    "release": "27.0.0",
+    "machine": "arm64",
+    "scope": "same host; reused installed dependencies, fresh isolated repository checkout"
+  },
+  "log_redaction": "Absolute home paths replaced with <USER_HOME>; raw logs kept locally. ANSI colors and trailing whitespace removed from public copies.",
+  "publication": "This receipt precedes evidence commit and draft PR; no default-branch merge."
+}

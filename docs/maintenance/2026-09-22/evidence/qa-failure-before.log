@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+_______________ ERROR collecting tests/test_selection_profile.py _______________
+ImportError while importing test module '<USER_HOME>/Documents/Codex/2026-09-22/github-readme-id-a194498-1-2/work/SmallModelQAFinetuningAndQuantization/tests/test_selection_profile.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+<USER_HOME>/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_selection_profile.py:3: in <module>
+    from qa_lab.selection_profile import profile
+E   ModuleNotFoundError: No module named 'qa_lab.selection_profile'
+=========================== short test summary info ============================
+ERROR tests/test_selection_profile.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.04s
