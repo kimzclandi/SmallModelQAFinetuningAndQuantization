@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-09-21T17:57:08.158064+00:00",
+  "rule_version": "extractive-qc-v1",
+  "language": "en",
+  "label_permission": "none",
+  "source_files": {
+    "data/complexity-v1/train.jsonl": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+    "reports/closure-v1/teacher-fp32/predictions.jsonl": "885394ef9739c0d4106467a8ef2b181811007b4860441a83fce0e6ff736d84c0",
+    "reports/closure-v1/teacher-fp32/run.json": "1aec0ca5149a67eeb6de4d46c3876b9b9e97ac239bf3dcb48eececf75965abde",
+    "data/complexity-v1/dev.jsonl": "8eb033584f81c1e5763c609fc6259678a550329dd9e72cdf89e4c806084c2a68",
+    "data/complexity-v1/test.jsonl": "26f1871ab38d22ccbb36a810a7b456aa09c6b615e63f5b64f0818ab8d024ad69"
+  },
+  "code_sha256": {
+    "scripts/synthetic_qc.py": "6d7fac7658326c153e3c79b4e875c111586ce31c053107bfcd50d12fb22d0217",
+    "qa_lab/quality_control.py": "5b6abe542ace67e0641f4a058fe064a55c108d767854000dde222869272b2ca7",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/chinese.py": "3d20544a81c9ba2737cf40710fba852d9298d9afda9d8a064af6f620753bc740"
+  },
+  "scope": "Real saved teacher candidates; new rule execution, no new generation/training.",
+  "evaluation_access": "Input-only projection for split isolation; no evaluation labels in QC."
+}

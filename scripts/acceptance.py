@@ -38,6 +38,7 @@ def main():
     checks += [(name, [f'scripts/verify_{name}.py']) for name in
                ('artifacts', 'closure', 'teacher_study', 'coverage', 'quantization', 'chinese')]
     checks += [('quality_release', ['scripts/verify_quality_release.py']),
+               ('synthetic_qc', ['scripts/verify_synthetic_qc.py']),
                ('retraining', ['scripts/verify_retraining.py']),
                ('external_drcd', ['scripts/verify_external_drcd.py'])]
     checks += [('gold_pilot', ['scripts/compare_gold_pilot.py', '--output', str(output/'gold.json')]),
