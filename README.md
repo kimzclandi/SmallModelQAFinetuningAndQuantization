@@ -20,6 +20,17 @@
 
 [结果、失败案例与限制](reports/quality-study-20260920/RESULTS.md) · [离线检查 / 两题真实推理 / 重新训练](docs/QUALITY_STUDY_RELEASE.md) · [完整训练入口重跑](docs/ENTRYPOINT_RETRAIN.md)
 
+## 可追溯候选质检（2026-09-22）
+
+新增统一离线入口，逐条输出接收／拒收／待复核、参考权限、来源与规则版本。实际检查240个历史真实教师候选：有训练参考时，英文原提示24条为8/11/5，新提示24条为8/12/4，中文192条为59/40/93（依次为接收/拒收/待复核）。无参考权限时不自动接收合法片段；格式匹配不等于语义正确。近重复只触发复核，原始候选和冻结证据不变。
+
+```bash
+python scripts/synthetic_qc.py --preset chinese --label-permission train_reference --output work/qc-01
+python scripts/verify_synthetic_qc.py
+```
+
+中文接收59条与已有参考筛选训练组的输入、目标逐条一致，可复用历史对照；本次未新增训练或测得语义准确率。英文接收样本的有答案占比由原提示62.5%变为新提示25%，不能仅看接收总数。全部规则、逐条证据、训练复用限制及复现命令见[质检说明](docs/SYNTHETIC_QC.md)。
+
 ## 历史五轮实验与证据
 
 | 实验 | 主要结果 | 结论与证据 |
