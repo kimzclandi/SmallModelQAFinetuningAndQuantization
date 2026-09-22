@@ -1,0 +1,95 @@
+{
+  "schema_version": "selection-profile-v1",
+  "candidate_count": 192,
+  "accepted_candidates": 59,
+  "accept_rate": 0.3072916666666667,
+  "input_coverage": {
+    "unique_ids": 192,
+    "unique_questions": 192,
+    "unique_families": 192
+  },
+  "accepted_coverage": {
+    "unique_ids": 59,
+    "unique_questions": 59,
+    "unique_families": 59
+  },
+  "answerability_known_n": 192,
+  "accepted_answerability_known_n": 59,
+  "answerable_fraction_input": 1.0,
+  "answerable_fraction_accepted": 1.0,
+  "slices": {
+    "answerable": {
+      "n": 192,
+      "decisions": {
+        "review": 93,
+        "accept": 59,
+        "reject": 40
+      },
+      "accept_rate": 0.3072916666666667
+    },
+    "unanswerable": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    },
+    "unknown": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    }
+  },
+  "character_length_bands": {
+    "context": {
+      "0-127": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      },
+      "128-511": {
+        "n": 123,
+        "decisions": {
+          "accept": 40,
+          "review": 58,
+          "reject": 25
+        },
+        "accept_rate": 0.3252032520325203
+      },
+      "512+": {
+        "n": 69,
+        "decisions": {
+          "review": 35,
+          "accept": 19,
+          "reject": 15
+        },
+        "accept_rate": 0.2753623188405797
+      }
+    },
+    "question": {
+      "0-127": {
+        "n": 192,
+        "decisions": {
+          "review": 93,
+          "accept": 59,
+          "reject": 40
+        },
+        "accept_rate": 0.3072916666666667
+      },
+      "128-511": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      },
+      "512+": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      }
+    }
+  },
+  "limitations": [
+    "Descriptive candidate batch, not unique independent questions.",
+    "Unknown answerability excluded from fractions; denominators reported.",
+    "Length is not measured difficulty; semantic review not performed.",
+    "No training, no causal model-quality claim."
+  ]
+}

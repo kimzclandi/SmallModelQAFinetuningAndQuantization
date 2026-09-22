@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-09-21T20:08:16.318352+00:00",
+  "input_manifest_sha256": "93d78b7ad4315e1862f285860561e96cca5319b2ea4ee7c23a8235d71d8bf668",
+  "code_sha256": {
+    "scripts/selection_profile.py": "9d28a0afc18c19fc2aeb33afc87d3979d59e758fcc2846dbb2538f4304fe07b1",
+    "qa_lab/selection_profile.py": "fe1b27e4cb47e74c2595055cccbae9a12bce303699a6bed86caf0ba41e11f26c"
+  },
+  "execution": "new descriptive analysis of saved candidates; no new model inference"
+}

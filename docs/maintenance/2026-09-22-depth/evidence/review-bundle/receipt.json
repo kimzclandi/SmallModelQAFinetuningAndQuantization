@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-09-22T07:28:33.043702+00:00",
+  "input_sha256": {
+    "english-original-train_reference": "9344cfaca5e54d0e3c3e1047347db2ae7a41bea260b5e1fc1e253afea4fa90f4",
+    "english-prompted-train_reference": "fc2a6a51ee44eebe5b1d0dae8b63e6be4bd32fe72db07ad357cc65462cbddf32",
+    "chinese-train_reference": "ab0b858d5bbbab07e3e84364e6066b482ae383565c3d5e160e3e680ede1f3343"
+  },
+  "code_sha256": {
+    "scripts/blind_review.py": "85c52c1f026bebceda8eec99458ffe00abb627ad556105667a0696e2e89a61e0",
+    "qa_lab/blind_review.py": "d57799ba722a46d207e675860c6e8d8e5c0f97270501e1edabe626b3ce6bc521"
+  },
+  "execution": "Review preparation/analysis only; no human annotation performed by this command."
+}

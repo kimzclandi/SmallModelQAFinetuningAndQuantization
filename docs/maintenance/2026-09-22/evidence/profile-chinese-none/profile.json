@@ -1,0 +1,91 @@
+{
+  "schema_version": "selection-profile-v1",
+  "candidate_count": 192,
+  "accepted_candidates": 0,
+  "accept_rate": 0.0,
+  "input_coverage": {
+    "unique_ids": 192,
+    "unique_questions": 192,
+    "unique_families": 192
+  },
+  "accepted_coverage": {
+    "unique_ids": 0,
+    "unique_questions": 0,
+    "unique_families": 0
+  },
+  "answerability_known_n": 0,
+  "accepted_answerability_known_n": 0,
+  "answerable_fraction_input": null,
+  "answerable_fraction_accepted": null,
+  "slices": {
+    "answerable": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    },
+    "unanswerable": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    },
+    "unknown": {
+      "n": 192,
+      "decisions": {
+        "review": 174,
+        "reject": 18
+      },
+      "accept_rate": 0.0
+    }
+  },
+  "character_length_bands": {
+    "context": {
+      "0-127": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      },
+      "128-511": {
+        "n": 123,
+        "decisions": {
+          "review": 112,
+          "reject": 11
+        },
+        "accept_rate": 0.0
+      },
+      "512+": {
+        "n": 69,
+        "decisions": {
+          "review": 62,
+          "reject": 7
+        },
+        "accept_rate": 0.0
+      }
+    },
+    "question": {
+      "0-127": {
+        "n": 192,
+        "decisions": {
+          "review": 174,
+          "reject": 18
+        },
+        "accept_rate": 0.0
+      },
+      "128-511": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      },
+      "512+": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      }
+    }
+  },
+  "limitations": [
+    "Descriptive candidate batch, not unique independent questions.",
+    "Unknown answerability excluded from fractions; denominators reported.",
+    "Length is not measured difficulty; semantic review not performed.",
+    "No training, no causal model-quality claim."
+  ]
+}

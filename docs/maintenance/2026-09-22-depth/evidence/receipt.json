@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-09-22T07:33:11.705955+00:00",
+  "source_commit": "e05367892a2be42d96e29aee25aa9c059f68d3d5",
+  "baseline_commit": "32e22d087a48c3c48aaf945b3ac17cd6184dd361",
+  "protected_prior_files": 1483,
+  "changed_prior_files": [],
+  "scope": "Post-submission evaluation infrastructure. Blank human labels; no new model inference or training. Agent live observations use deterministic proposals with real isolated HTTP/SQLite; historical state remains unknown.",
+  "validation": "Same host. Python QA uses previously fresh Python 3.12.13 environment; Agent uses Python standard library and existing Go 1.27.1 runtime build. No independent hardware claim.",
+  "log_transform": "Home/temp locations and username redacted in public diagnostic copies; original logs local."
+}
