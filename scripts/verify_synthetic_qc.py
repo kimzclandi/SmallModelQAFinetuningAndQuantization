@@ -47,6 +47,27 @@ def verify_run(folder):
             source = HISTORICAL_ENTRYPOINT
         if source.is_symlink() or not source.is_file() or sha(source) != digest:
             raise ValueError('QC implementation changed: ' + name)
+    origin = receipt.get('input_origin')
+    legacy = receipt['code_sha256']['scripts/synthetic_qc.py'] == HISTORICAL_ENTRYPOINT_SHA
+    if origin is None and legacy and 'input_origin' not in receipt:
+        pass  # Legacy receipts predate this field; do not infer a provenance claim.
+    elif origin == {'kind': 'custom_unverified'}:
+        pass
+    elif (isinstance(origin, dict) and set(origin) == {'kind', 'name'} and
+          origin['kind'] == 'historical_teacher_preset' and isinstance(origin['name'], str) and
+          origin['name'] in {'english-original', 'english-prompted', 'chinese'}):
+        from scripts.synthetic_qc import preset
+        sources, candidates, index, language, paths = preset(origin['name'])
+        if receipt['label_permission'] == 'none':
+            sources = [{k:v for k,v in r.items() if k not in {'answers', 'is_impossible'}} for r in sources]
+        expected_files = {str(p.relative_to(ROOT)): sha(p) for p in paths}
+        if (receipt['language'] != language or receipt['source_files'] != expected_files or
+                read_jsonl(folder / 'sources.jsonl') != sources or
+                read_jsonl(folder / 'raw-candidates.jsonl') != candidates or
+                read_jsonl(folder / 'split-index.jsonl') != index):
+            raise ValueError('QC preset origin does not match input and source bindings')
+    else:
+        raise ValueError('QC input origin contract mismatch')
     result = audit(read_jsonl(folder / 'sources.jsonl'), read_jsonl(folder / 'raw-candidates.jsonl'),
                    read_jsonl(folder / 'split-index.jsonl'), language=receipt['language'],
                    label_permission=receipt['label_permission'])

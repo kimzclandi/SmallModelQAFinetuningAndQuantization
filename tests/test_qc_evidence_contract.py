@@ -45,3 +45,13 @@ def test_custom_input_cannot_claim_preset_origin(tmp_path,monkeypatch):
         synthetic_qc.run([],[],[],'en','train_reference',tmp_path/'work/forged',
                          preset_name='english-original')
     assert not (tmp_path/'work/forged').exists()
+
+@pytest.mark.parametrize('origin', [None, {'kind':'historical_teacher_preset','name':'english-original'}, {'kind':'unknown'}])
+def test_readback_rejects_unbound_origin(saved, origin):
+    receipt=json.loads((saved/'run.json').read_text())
+    receipt['input_origin']=origin
+    (saved/'run.json').write_text(json.dumps(receipt))
+    manifest=json.loads((saved/'manifest.json').read_text())
+    manifest['run.json']=sha(saved/'run.json')
+    (saved/'manifest.json').write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match='origin'):verify_run(saved)
