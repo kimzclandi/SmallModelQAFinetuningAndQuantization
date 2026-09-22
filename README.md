@@ -104,3 +104,5 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 [2026-09-22 detail review and regression fixes](docs/maintenance/2026-09-22-detail/README.md)
 
 Further review: [2026-09-22 evidence and export hardening](docs/maintenance/2026-09-22-readiness/README.md).
+
+2026-09-22 deeper evaluation: [盲审与错误分析](docs/BLIND_REVIEW.md).
