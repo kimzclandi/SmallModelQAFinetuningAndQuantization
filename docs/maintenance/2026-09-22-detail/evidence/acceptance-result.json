@@ -1,0 +1,124 @@
+{
+  "started_utc": "2026-09-22T04:34:17.490957+00:00",
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "executable": "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+  "scope": "Saved evidence recomputation and tests only; no model inference.",
+  "checks": [
+    {
+      "name": "tests",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "artifacts",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_artifacts.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "closure",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_closure.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "teacher_study",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_teacher_study.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_coverage.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "quantization",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_quantization.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "chinese",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_chinese.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "quality_release",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_quality_release.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "synthetic_qc",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_synthetic_qc.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "retraining",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_retraining.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "external_drcd",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/verify_external_drcd.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "gold_pilot",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "scripts/compare_gold_pilot.py",
+        "--output",
+        "<USER_HOME>/Documents/Codex/2026-09-22/github-readme-id-a194498-1-2/work/SmallModelQAFinetuningAndQuantization/work/detail-acceptance/gold.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "teacher_audit",
+      "command": [
+        "<USER_HOME>/Documents/Codex/2026-09-18/domain-qa-lab-ai-users-<LOCAL_USER>/work/acceptance-venv/bin/python",
+        "-m",
+        "qa_lab.teacher_audit",
+        "--raw",
+        "data/teacher-received-v1/user-message.txt",
+        "--output",
+        "<USER_HOME>/Documents/Codex/2026-09-22/github-readme-id-a194498-1-2/work/SmallModelQAFinetuningAndQuantization/work/detail-acceptance/teacher-audit"
+      ],
+      "returncode": 0
+    }
+  ],
+  "frozen_unchanged": true,
+  "passed": true,
+  "finished_utc": "2026-09-22T04:34:54.818422+00:00"
+}

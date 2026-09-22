@@ -1,0 +1,102 @@
+{
+  "schema_version": "selection-profile-v1",
+  "candidate_count": 24,
+  "accepted_candidates": 8,
+  "accept_rate": 0.3333333333333333,
+  "input_coverage": {
+    "unique_ids": 24,
+    "unique_questions": 24,
+    "unique_families": 17
+  },
+  "accepted_coverage": {
+    "unique_ids": 8,
+    "unique_questions": 8,
+    "unique_families": 7
+  },
+  "answerability_known_n": 24,
+  "accepted_answerability_known_n": 8,
+  "answerable_fraction_input": 0.5,
+  "answerable_fraction_accepted": 0.625,
+  "slices": {
+    "answerable": {
+      "n": 12,
+      "decisions": {
+        "review": 5,
+        "accept": 5,
+        "reject": 2
+      },
+      "accept_rate": 0.4166666666666667
+    },
+    "unanswerable": {
+      "n": 12,
+      "decisions": {
+        "reject": 9,
+        "accept": 3
+      },
+      "accept_rate": 0.25
+    },
+    "unknown": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    }
+  },
+  "character_length_bands": {
+    "context": {
+      "0-127": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      },
+      "128-511": {
+        "n": 8,
+        "decisions": {
+          "accept": 4,
+          "reject": 3,
+          "review": 1
+        },
+        "accept_rate": 0.5
+      },
+      "512+": {
+        "n": 16,
+        "decisions": {
+          "review": 4,
+          "reject": 8,
+          "accept": 4
+        },
+        "accept_rate": 0.25
+      }
+    },
+    "question": {
+      "0-127": {
+        "n": 19,
+        "decisions": {
+          "review": 4,
+          "accept": 6,
+          "reject": 9
+        },
+        "accept_rate": 0.3157894736842105
+      },
+      "128-511": {
+        "n": 5,
+        "decisions": {
+          "accept": 2,
+          "reject": 2,
+          "review": 1
+        },
+        "accept_rate": 0.4
+      },
+      "512+": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      }
+    }
+  },
+  "limitations": [
+    "Descriptive candidate batch, not unique independent questions.",
+    "Unknown answerability excluded from fractions; denominators reported.",
+    "Length is not measured difficulty; semantic review not performed.",
+    "No training, no causal model-quality claim."
+  ]
+}

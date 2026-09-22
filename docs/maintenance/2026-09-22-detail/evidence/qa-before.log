@@ -1,0 +1,121 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_________________ test_custom_run_does_not_claim_real_teacher __________________
+
+saved = PosixPath('<TEMP>/pytest-of-<LOCAL_USER>/pytest-18/test_custom_run_does_not_claim0/work/run')
+
+    def test_custom_run_does_not_claim_real_teacher(saved):
+        receipt=json.loads((saved/'run.json').read_text())
+>       assert receipt.get('input_origin') == {'kind':'custom_unverified'}
+E       AssertionError: assert None == {'kind': 'custom_unverified'}
+E        +  where None = <built-in method get of dict object at 0x107471880>('input_origin')
+E        +    where <built-in method get of dict object at 0x107471880> = {'code_sha256': {'qa_lab/chinese.py': '3d20544a81c9ba2737cf40710fba852d9298d9afda9d8a064af6f620753bc740', 'qa_lab/data...: 'Input-only projection for split isolation; no evaluation labels in QC.', 'label_permission': 'train_reference', ...}.get
+
+tests/test_qc_evidence_contract.py:21: AssertionError
+_________ test_evidence_contract_rejects_structural_mutations[symlink] _________
+
+saved = PosixPath('<TEMP>/pytest-of-<LOCAL_USER>/pytest-18/test_evidence_contract_rejects0/work/run')
+mutation = 'symlink'
+
+    @pytest.mark.parametrize('mutation',['symlink','extra_directory','extra_file','missing_code_binding'])
+    def test_evidence_contract_rejects_structural_mutations(saved,mutation):
+        manifest=json.loads((saved/'manifest.json').read_text())
+        if mutation=='symlink':
+            f=saved/'records.jsonl';outside=saved.parent/'outside.jsonl'
+            outside.write_bytes(f.read_bytes());f.unlink();f.symlink_to(outside)
+        elif mutation=='extra_directory':
+            (saved/'untracked-directory').mkdir()
+        elif mutation=='extra_file':
+            (saved/'untracked.txt').write_text('not part of the QC format')
+            manifest['untracked.txt']=sha(saved/'untracked.txt')
+        else:
+            receipt=json.loads((saved/'run.json').read_text());receipt['code_sha256']={}
+            (saved/'run.json').write_text(json.dumps(receipt));manifest['run.json']=sha(saved/'run.json')
+        (saved/'manifest.json').write_text(json.dumps(manifest))
+>       with pytest.raises(ValueError):verify_run(saved)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_qc_evidence_contract.py:39: Failed
+_____ test_evidence_contract_rejects_structural_mutations[extra_directory] _____
+
+saved = PosixPath('<TEMP>/pytest-of-<LOCAL_USER>/pytest-18/test_evidence_contract_rejects1/work/run')
+mutation = 'extra_directory'
+
+    @pytest.mark.parametrize('mutation',['symlink','extra_directory','extra_file','missing_code_binding'])
+    def test_evidence_contract_rejects_structural_mutations(saved,mutation):
+        manifest=json.loads((saved/'manifest.json').read_text())
+        if mutation=='symlink':
+            f=saved/'records.jsonl';outside=saved.parent/'outside.jsonl'
+            outside.write_bytes(f.read_bytes());f.unlink();f.symlink_to(outside)
+        elif mutation=='extra_directory':
+            (saved/'untracked-directory').mkdir()
+        elif mutation=='extra_file':
+            (saved/'untracked.txt').write_text('not part of the QC format')
+            manifest['untracked.txt']=sha(saved/'untracked.txt')
+        else:
+            receipt=json.loads((saved/'run.json').read_text());receipt['code_sha256']={}
+            (saved/'run.json').write_text(json.dumps(receipt));manifest['run.json']=sha(saved/'run.json')
+        (saved/'manifest.json').write_text(json.dumps(manifest))
+>       with pytest.raises(ValueError):verify_run(saved)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_qc_evidence_contract.py:39: Failed
+_______ test_evidence_contract_rejects_structural_mutations[extra_file] ________
+
+saved = PosixPath('<TEMP>/pytest-of-<LOCAL_USER>/pytest-18/test_evidence_contract_rejects2/work/run')
+mutation = 'extra_file'
+
+    @pytest.mark.parametrize('mutation',['symlink','extra_directory','extra_file','missing_code_binding'])
+    def test_evidence_contract_rejects_structural_mutations(saved,mutation):
+        manifest=json.loads((saved/'manifest.json').read_text())
+        if mutation=='symlink':
+            f=saved/'records.jsonl';outside=saved.parent/'outside.jsonl'
+            outside.write_bytes(f.read_bytes());f.unlink();f.symlink_to(outside)
+        elif mutation=='extra_directory':
+            (saved/'untracked-directory').mkdir()
+        elif mutation=='extra_file':
+            (saved/'untracked.txt').write_text('not part of the QC format')
+            manifest['untracked.txt']=sha(saved/'untracked.txt')
+        else:
+            receipt=json.loads((saved/'run.json').read_text());receipt['code_sha256']={}
+            (saved/'run.json').write_text(json.dumps(receipt));manifest['run.json']=sha(saved/'run.json')
+        (saved/'manifest.json').write_text(json.dumps(manifest))
+>       with pytest.raises(ValueError):verify_run(saved)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_qc_evidence_contract.py:39: Failed
+__ test_evidence_contract_rejects_structural_mutations[missing_code_binding] ___
+
+saved = PosixPath('<TEMP>/pytest-of-<LOCAL_USER>/pytest-18/test_evidence_contract_rejects3/work/run')
+mutation = 'missing_code_binding'
+
+    @pytest.mark.parametrize('mutation',['symlink','extra_directory','extra_file','missing_code_binding'])
+    def test_evidence_contract_rejects_structural_mutations(saved,mutation):
+        manifest=json.loads((saved/'manifest.json').read_text())
+        if mutation=='symlink':
+            f=saved/'records.jsonl';outside=saved.parent/'outside.jsonl'
+            outside.write_bytes(f.read_bytes());f.unlink();f.symlink_to(outside)
+        elif mutation=='extra_directory':
+            (saved/'untracked-directory').mkdir()
+        elif mutation=='extra_file':
+            (saved/'untracked.txt').write_text('not part of the QC format')
+            manifest['untracked.txt']=sha(saved/'untracked.txt')
+        else:
+            receipt=json.loads((saved/'run.json').read_text());receipt['code_sha256']={}
+            (saved/'run.json').write_text(json.dumps(receipt));manifest['run.json']=sha(saved/'run.json')
+        (saved/'manifest.json').write_text(json.dumps(manifest))
+>       with pytest.raises(ValueError):verify_run(saved)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_qc_evidence_contract.py:39: Failed
+=========================== short test summary info ============================
+FAILED tests/test_qc_evidence_contract.py::test_custom_run_does_not_claim_real_teacher
+FAILED tests/test_qc_evidence_contract.py::test_evidence_contract_rejects_structural_mutations[symlink]
+FAILED tests/test_qc_evidence_contract.py::test_evidence_contract_rejects_structural_mutations[extra_directory]
+FAILED tests/test_qc_evidence_contract.py::test_evidence_contract_rejects_structural_mutations[extra_file]
+FAILED tests/test_qc_evidence_contract.py::test_evidence_contract_rejects_structural_mutations[missing_code_binding]
+5 failed in 0.04s
