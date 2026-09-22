@@ -7,20 +7,45 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from qa_lab.common import read_jsonl, sha
-from qa_lab.quality_control import audit
+from qa_lab.quality_control import RULE_VERSION, audit
+
+EVIDENCE_FILES = {'raw-candidates.jsonl', 'sources.jsonl', 'split-index.jsonl',
+                  'records.jsonl', 'leakage.jsonl', 'accept.jsonl', 'reject.jsonl',
+                  'review.jsonl', 'summary.json', 'run.json'}
+CODE_FILES = {'scripts/synthetic_qc.py', 'qa_lab/quality_control.py',
+              'qa_lab/data.py', 'qa_lab/chinese.py'}
+HISTORICAL_ENTRYPOINT = ROOT / 'docs/maintenance/2026-09-22-detail/baseline/scripts/synthetic_qc.py.txt'
+HISTORICAL_ENTRYPOINT_SHA = '6d7fac7658326c153e3c79b4e875c111586ce31c053107bfcd50d12fb22d0217'
+
 
 
 def verify_run(folder):
+    folder = Path(folder)
+    if folder.is_symlink() or not folder.is_dir():
+        raise ValueError('QC evidence folder must be a regular directory')
+    entries = list(folder.iterdir())
+    if ({p.name for p in entries} != EVIDENCE_FILES | {'manifest.json'} or
+            any(p.is_symlink() or not p.is_file() for p in entries)):
+        raise ValueError('QC evidence file set/hash mismatch: regular files required')
     manifest = json.loads((folder / 'manifest.json').read_text())
+    if not isinstance(manifest, dict) or set(manifest) != EVIDENCE_FILES:
+        raise ValueError('QC evidence file set/hash mismatch: manifest contract')
     actual = {p.name: sha(p) for p in folder.iterdir() if p.is_file() and p.name != 'manifest.json'}
     if actual != manifest:
         raise ValueError('QC evidence file set/hash mismatch')
     receipt = json.loads((folder / 'run.json').read_text())
+    if (not isinstance(receipt, dict) or receipt.get('rule_version') != RULE_VERSION or
+            not isinstance(receipt.get('code_sha256'), dict) or set(receipt['code_sha256']) != CODE_FILES or
+            not isinstance(receipt.get('source_files'), dict)):
+        raise ValueError('QC receipt binding contract mismatch')
     for name, digest in receipt['source_files'].items():
         if sha(ROOT / name) != digest:
             raise ValueError('QC source changed: ' + name)
     for name, digest in receipt['code_sha256'].items():
-        if sha(ROOT / name) != digest:
+        source = ROOT / name
+        if name == 'scripts/synthetic_qc.py' and digest == HISTORICAL_ENTRYPOINT_SHA:
+            source = HISTORICAL_ENTRYPOINT
+        if source.is_symlink() or not source.is_file() or sha(source) != digest:
             raise ValueError('QC implementation changed: ' + name)
     result = audit(read_jsonl(folder / 'sources.jsonl'), read_jsonl(folder / 'raw-candidates.jsonl'),
                    read_jsonl(folder / 'split-index.jsonl'), language=receipt['language'],

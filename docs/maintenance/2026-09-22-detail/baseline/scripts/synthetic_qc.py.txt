@@ -66,19 +66,7 @@ def preset(name):
     return sources, predictions, index, lang, paths
 
 
-def run(sources, candidates, index, language, permission, output, paths=(), *, preset_name=None):
-    origin = {'kind': 'custom_unverified'}
-    if preset_name is not None:
-        if preset_name not in {'english-original', 'english-prompted', 'chinese'}:
-            raise ValueError('Unknown preset origin')
-        expected_sources, expected_candidates, expected_index, expected_language, expected_paths = preset(preset_name)
-        if permission == 'none':
-            expected_sources = [{k:v for k,v in r.items() if k not in {'answers','is_impossible'}}
-                                for r in expected_sources]
-        if (sources, candidates, index, language, list(paths)) != (
-                expected_sources, expected_candidates, expected_index, expected_language, expected_paths):
-            raise ValueError('Preset origin does not match the supplied input')
-        origin = {'kind': 'historical_teacher_preset', 'name': preset_name}
+def run(sources, candidates, index, language, permission, output, paths=()):
     result = audit(sources, candidates, index, language=language, label_permission=permission)
     output = create_output_directory(output)
     write_jsonl(output / 'raw-candidates.jsonl', candidates)
@@ -97,8 +85,7 @@ def run(sources, candidates, index, language, permission, output, paths=(), *, p
         code_sha256={str(p.relative_to(ROOT)): sha(p) for p in
                      [Path(__file__), ROOT / 'qa_lab/quality_control.py',
                       ROOT / 'qa_lab/data.py', ROOT / 'qa_lab/chinese.py']},
-        input_origin=origin,
-        scope='Offline QC of supplied candidates; no new generation, training or semantic review.',
+        scope='Real saved teacher candidates; new rule execution, no new generation/training.',
         evaluation_access='Input-only projection for split isolation; no evaluation labels in QC.'))
     write_json(output / 'manifest.json', {p.name: sha(p) for p in sorted(output.iterdir()) if p.is_file()})
     return result['summary']
@@ -127,7 +114,7 @@ def main():
         paths = [a.sources.resolve(), a.candidates.resolve(), a.split_index.resolve()]
         sources, candidates, index = [read_jsonl(v) for v in paths]
         lang = a.language
-    print(json.dumps(run(sources, candidates, index, lang, a.label_permission, a.output, paths, preset_name=a.preset),
+    print(json.dumps(run(sources, candidates, index, lang, a.label_permission, a.output, paths),
                      ensure_ascii=False, indent=2))
 
 
