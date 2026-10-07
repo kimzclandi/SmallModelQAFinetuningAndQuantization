@@ -8,6 +8,12 @@
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
+## 新增：完整词表 logits 蒸馏路径（尚未运行）
+
+新增答案 token 位置上的 `hard-label CE + T²·KL` 训练入口，教师完整词表 log-probability 先写入哈希绑定缓存，三个学生 seed 可复用而无需教师、学生同时驻留设备。实现显式校验 tokenizer 映射、causal shift、prompt mask、temperature、artifact 来源和逐文件哈希。
+
+这只是已测试的实验实现，不是性能结果；尚未运行三 seed 训练或质量评估，不能声称 logits 蒸馏改善 EM/F1。协议、公式、命令与验收边界见[Logits distillation v1](docs/LOGITS_DISTILLATION_V1.md)。
+
 ## 项目沿革（2026-09-20 补记）
 
 根据维护者对本地开发过程的说明，相关早期工作约于 2026 年 6 月开始在本地开展，之后集中整理并上传 GitHub。该月份是早期工作的近似起点，不表示当前全部功能和实验在当时已完成。后续实现、实验与维护保留各自的实际版本及运行日期。
@@ -88,6 +94,7 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 | `qa_lab/data.py` | 来源hash、去重、近重复家族与固定切分 |
 | `qa_lab/inference.py`、`metrics.py` | 输入白名单、真实推理、ID完整覆盖、EM/F1/拒答/格式 |
 | `qa_lab/train.py`、`train_artifact.py`、`closure_data.py` | LoRA、answer-only loss、本地教师数据与训练边界 |
+| `qa_lab/logits_distillation.py` | 回答 token 的完整词表 teacher cache、温度 KL 与 CE 混合训练 |
 | `qa_lab/mlx_experiment.py` | 同框架转换、质量比较与固定工作量测速 |
 | `scripts/acceptance.py`、`scripts/verify_*.py` | 测试与保存证据的只读重算 |
 

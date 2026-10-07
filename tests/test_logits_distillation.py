@@ -1,0 +1,43 @@
+import pytest
+
+from qa_lab.logits_distillation import validate_objective
+
+
+@pytest.mark.parametrize("objective", [
+    {"temperature": 0, "hard_ce_weight": 1, "soft_kl_weight": 1},
+    {"temperature": 2, "hard_ce_weight": -1, "soft_kl_weight": 1},
+    {"temperature": 2, "hard_ce_weight": 0, "soft_kl_weight": 0},
+])
+def test_invalid_objective_rejected(objective):
+    with pytest.raises(ValueError):
+        validate_objective(objective)
+
+
+def test_identical_teacher_student_distribution_has_zero_kl():
+    torch = pytest.importorskip("torch")
+    from qa_lab.logits_distillation import distillation_losses
+
+    logits = torch.tensor([[[9.0, -9.0, 0.0], [1.0, 2.0, 3.0], [3.0, 1.0, 2.0]]])
+    labels = torch.tensor([[-100, 2, 0]])
+    selected = logits[:, :-1, :][labels[:, 1:] != -100]
+    teacher = torch.log_softmax(selected / 2.0, dim=-1)
+    total, hard, kl, count = distillation_losses(
+        logits, labels, teacher,
+        {"temperature": 2.0, "hard_ce_weight": 0.5, "soft_kl_weight": 0.5})
+    assert count == 2
+    assert hard.item() > 0
+    assert abs(kl.item()) < 1e-6
+    assert total.item() == pytest.approx(0.5 * hard.item(), rel=1e-6)
+
+
+def test_causal_shift_and_shape_mismatch_are_enforced():
+    torch = pytest.importorskip("torch")
+    from qa_lab.logits_distillation import distillation_losses, supervised_prediction_mask
+
+    labels = torch.tensor([[-100, -100, 1, 2]])
+    assert supervised_prediction_mask(labels).tolist() == [[False, True, True]]
+    logits = torch.randn(1, 4, 5)
+    with pytest.raises(ValueError, match="shape mismatch"):
+        distillation_losses(
+            logits, labels, torch.randn(1, 5),
+            {"temperature": 2, "hard_ce_weight": 0, "soft_kl_weight": 1})
