@@ -1,0 +1,9 @@
+Using Python 3.12.13 environment at: work/readiness/qa-venv
+Resolved 5 packages in 708ms
+Prepared 1 package in 529ms
+Installed 5 packages in 46ms
+ + iniconfig==2.3.0
+ + packaging==26.3
+ + pluggy==1.6.0
+ + pygments==2.21.0
+ + pytest==8.4.2

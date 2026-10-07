@@ -1,0 +1,10 @@
+{
+  "qa-after.log": "8b50e432b84488e76adf20d583cf1dff6d04bf99506b1af730633bc601caac1b",
+  "qa-before.log": "d1904c3792c36d3b054fd039b2f9be0ee35965ea3d08e7f31c474c85d67f1fe1",
+  "qa-clean.log": "d78bbeb99ad389eb9c04837bced70111156ffeddb03eaa534dd0a2171e0e7ee9",
+  "qa-history.log": "7055ca1e1e4c7d283688bc092433d3f34e92f048ec4b7187082c4a61c11141a9",
+  "qa-install.log": "7a756c23d49250400e339d17355aaad191fd8fe87703b18f482e61f39d6c4e64",
+  "qa-modern-origin.log": "e1af89ad3c711932e56c77b57a09a164c315d97093f4fcf342eba1300c936e66",
+  "readiness-acceptance-result.json": "ff562204dea028c577cc0f77fbb484fbc1cd953848f7e1bfec28f2425439af53",
+  "receipt.json": "cd7aeb7c3a45e0f0c9d926667ae1082d40b25adcf99d266443d2f5a609f0a43d"
+}

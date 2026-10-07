@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-09-22T05:11:08.104224+00:00",
+  "source_commit": "f56ea66423296e1f90c8a21fa2d324c61c33281b",
+  "baseline_commit": "7572d786e5dbdb7a79235c33a0e54d6b938e3ec3",
+  "protected_prior_files": 1473,
+  "changed_prior_files": [],
+  "validation": "Fresh local git clone. QA and engine have new Python 3.12.13 environments installed from requirements-ci.lock.txt. Agent Python uses host standard library; Go uses a new build cache and existing module cache. Ray uses existing pinned runtime. Same-host replication, not independent hardware.",
+  "log_transform": "Public diagnostic copies redact local home, username, temporary locations, ANSI and trailing spaces; raw logs remain local.",
+  "scope": "Post-submission reliability work. No training, human annotation, or new model inference."
+}

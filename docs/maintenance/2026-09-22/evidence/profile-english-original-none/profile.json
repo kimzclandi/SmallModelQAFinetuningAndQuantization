@@ -1,0 +1,93 @@
+{
+  "schema_version": "selection-profile-v1",
+  "candidate_count": 24,
+  "accepted_candidates": 0,
+  "accept_rate": 0.0,
+  "input_coverage": {
+    "unique_ids": 24,
+    "unique_questions": 24,
+    "unique_families": 17
+  },
+  "accepted_coverage": {
+    "unique_ids": 0,
+    "unique_questions": 0,
+    "unique_families": 0
+  },
+  "answerability_known_n": 0,
+  "accepted_answerability_known_n": 0,
+  "answerable_fraction_input": null,
+  "answerable_fraction_accepted": null,
+  "slices": {
+    "answerable": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    },
+    "unanswerable": {
+      "n": 0,
+      "decisions": {},
+      "accept_rate": null
+    },
+    "unknown": {
+      "n": 24,
+      "decisions": {
+        "review": 22,
+        "reject": 2
+      },
+      "accept_rate": 0.0
+    }
+  },
+  "character_length_bands": {
+    "context": {
+      "0-127": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      },
+      "128-511": {
+        "n": 8,
+        "decisions": {
+          "review": 7,
+          "reject": 1
+        },
+        "accept_rate": 0.0
+      },
+      "512+": {
+        "n": 16,
+        "decisions": {
+          "review": 15,
+          "reject": 1
+        },
+        "accept_rate": 0.0
+      }
+    },
+    "question": {
+      "0-127": {
+        "n": 19,
+        "decisions": {
+          "review": 17,
+          "reject": 2
+        },
+        "accept_rate": 0.0
+      },
+      "128-511": {
+        "n": 5,
+        "decisions": {
+          "review": 5
+        },
+        "accept_rate": 0.0
+      },
+      "512+": {
+        "n": 0,
+        "decisions": {},
+        "accept_rate": null
+      }
+    }
+  },
+  "limitations": [
+    "Descriptive candidate batch, not unique independent questions.",
+    "Unknown answerability excluded from fractions; denominators reported.",
+    "Length is not measured difficulty; semantic review not performed.",
+    "No training, no causal model-quality claim."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "acceptance-result.json": "d541e640c43a4a7ba7d364845cd62be6f5512c1a1a116fefbde49412760de9f8",
+  "acceptance-tests.log": "0eaafe17efc68caff6b005ddf45d5b2fe0f14d0b8cf77f9b0936fe59e09caea4",
+  "pending-analysis/analysis.json": "0eb09ec2f8f1fa8428a3afe98d2fac86f5659f5d2f43449c55a33f2979703a0a",
+  "pending-analysis/manifest.json": "3b3a36a20cf922f8389e45f15755ef3db77359188e0646edbc1bc0691e614c3b",
+  "pending-analysis/receipt.json": "0c256f8b1cd7ca587a55f414ac670e36a8f6da32026911e83a8f403c7f7fcf38",
+  "qa-before.log": "6dc04085b4fbc13b8ede5c21988eb1043768507ac3688591f4d30e98255b4b3b",
+  "qa-final-acceptance.log": "d78bbeb99ad389eb9c04837bced70111156ffeddb03eaa534dd0a2171e0e7ee9",
+  "qa-final-pending.log": "e989c08f4dd379fe71e356daef5914f74a1ce9c1957b7f00d200375d061442dc",
+  "qa-final-prepare.log": "4d792cc75586dadc6da894ff17f903f4d0e0ac9ffd66e3c5bc27f3b1e7e2dbc1",
+  "qa-targeted.log": "9acd31e10db46689f41e483bd47d34e3542fb4ceaa9230e52769742c670ddc3f",
+  "receipt.json": "c164f73fca9ac815d60ce8da65a7dda4d918a0f1a04c338680a4f595f7adc470",
+  "review-bundle/coordinator-only.json": "5ced6a62d071ccbc4b9badbee75659c91195a222d895e78e7918f52aaa37b63f",
+  "review-bundle/manifest.json": "eff69b7a022a684dfc158708bcc1da43ce7056d3da3fec4693b59837272a5d43",
+  "review-bundle/receipt.json": "0a41dbbd5565acf901e8f92352df76ac626910d64220b39de44b26ff14f4b7d6",
+  "review-bundle/reviewer/INSTRUCTIONS.md": "5a19d56ffe5e72eef6b8c2511f3a6963bf05427c2bad9c550b825288961026ed",
+  "review-bundle/reviewer/annotations.json": "bd67ae385d99b8d22fcf16f97ba427d0c3b525980b14c83d8cb4c30a2d8239b5",
+  "review-bundle/reviewer/items.jsonl": "34432619c8ef94446b8241ffcfbe992cc96a93f54fc043b4b4e26257ca3624af"
+}

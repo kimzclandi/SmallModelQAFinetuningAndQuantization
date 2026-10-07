@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-09-22T07:28:33.080062+00:00",
+  "input_sha256": {
+    "bundle": "5ced6a62d071ccbc4b9badbee75659c91195a222d895e78e7918f52aaa37b63f",
+    "annotation-0": "bd67ae385d99b8d22fcf16f97ba427d0c3b525980b14c83d8cb4c30a2d8239b5"
+  },
+  "code_sha256": {
+    "scripts/blind_review.py": "85c52c1f026bebceda8eec99458ffe00abb627ad556105667a0696e2e89a61e0",
+    "qa_lab/blind_review.py": "d57799ba722a46d207e675860c6e8d8e5c0f97270501e1edabe626b3ce6bc521"
+  },
+  "execution": "Review preparation/analysis only; no human annotation performed by this command."
+}

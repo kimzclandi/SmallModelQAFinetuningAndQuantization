@@ -8,6 +8,18 @@
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
+## 新增：242条完整词表 logits 蒸馏对照
+
+在保留24条v1负结果的基础上，使用全部242条冻结TRAIN数据完成新一轮gold teacher-forcing蒸馏。三个固定seed各训练242步；训练ID、seed、步数、LoRA配置和学习率与历史gold242 hard-CE-only控制组匹配。
+
+扩大数据后，74题dev整体EM由v1的46.40%±7.44%提高到**60.36%±2.81%**，但仍低于匹配gold242控制组的64.86%±1.35%。完整词表float16缓存为374.69 MiB。因此当前证据支持“增加训练覆盖改善了logits方案”，不支持“soft targets优于同数据gold SFT”。dev已复用，本轮未运行外部集，也未结果后调参。[完整结果](reports/logits-distillation-v2/RESULTS.md) · [协议与命令](docs/LOGITS_DISTILLATION_V2.md)
+
+## 24条完整词表 logits 蒸馏负结果
+
+新增答案 token 位置上的 `hard-label CE + T²·KL` 训练入口，教师完整词表 log-probability 先写入哈希绑定缓存，三个学生 seed 可复用而无需教师、学生同时驻留设备。实现显式校验 tokenizer 映射、causal shift、prompt mask、temperature、artifact 来源和逐文件哈希。
+
+固定 `T=2`、CE/KL各0.5，在CPU完成3个seed、每组48步及74题dev评测：整体EM为50.00% / 51.35% / 37.84%，均值46.40%；有答案EM均为42.42%。没有超过历史gold-SFT与response-distillation均值，且未通过历史有答案继续门槛，因此未运行外部集，也未看结果后调参。[完整负结果](reports/logits-distillation-v1/RESULTS.md) · [方法与命令](docs/LOGITS_DISTILLATION_V1.md)
+
 ## 项目沿革（2026-09-20 补记）
 
 根据维护者对本地开发过程的说明，相关早期工作约于 2026 年 6 月开始在本地开展，之后集中整理并上传 GitHub。该月份是早期工作的近似起点，不表示当前全部功能和实验在当时已完成。后续实现、实验与维护保留各自的实际版本及运行日期。
@@ -61,7 +73,7 @@ uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
-入口执行测试、六套离线核验、gold对照与教师审计；日志只写新的`work/`子目录，前后校验`reports/data/configs`。缺失冻结汇总直接失败，不补写；禁止`python -O`。Linux CI使用同一入口，**不下载模型、不训练、不重新推理**。历史工程验收含51项测试；最新执行以Actions记录为准。
+入口执行测试、离线核验、gold对照与教师审计；日志只写新的`work/`子目录，前后校验`reports/data/configs`。缺失冻结汇总直接失败，不补写；禁止`python -O`。Linux CI使用同一入口，**不下载模型、不训练、不重新推理**。历史工程验收含51项测试；最新执行以Actions记录为准。
 
 ## 实际模型推理与训练复现
 
@@ -88,6 +100,7 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 | `qa_lab/data.py` | 来源hash、去重、近重复家族与固定切分 |
 | `qa_lab/inference.py`、`metrics.py` | 输入白名单、真实推理、ID完整覆盖、EM/F1/拒答/格式 |
 | `qa_lab/train.py`、`train_artifact.py`、`closure_data.py` | LoRA、answer-only loss、本地教师数据与训练边界 |
+| `qa_lab/logits_distillation.py` | 回答 token 的完整词表 teacher cache、温度 KL 与 CE 混合训练 |
 | `qa_lab/mlx_experiment.py` | 同框架转换、质量比较与固定工作量测速 |
 | `scripts/acceptance.py`、`scripts/verify_*.py` | 测试与保存证据的只读重算 |
 
@@ -98,3 +111,11 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 [2026-09-19 工程维护与验证边界](docs/maintenance/2026-09-19/README.md)
 
 [2026-09-21 工程维护与验证](docs/maintenance/2026-09-21/README.md)
+
+[2026-09-22 implementation and verification](docs/maintenance/2026-09-22/README.md)
+
+[2026-09-22 detail review and regression fixes](docs/maintenance/2026-09-22-detail/README.md)
+
+Further review: [2026-09-22 evidence and export hardening](docs/maintenance/2026-09-22-readiness/README.md).
+
+2026-09-22 deeper evaluation: [盲审与错误分析](docs/BLIND_REVIEW.md).
