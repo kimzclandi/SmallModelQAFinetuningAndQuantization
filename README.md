@@ -1,12 +1,28 @@
-# Domain QA Lab
+# 小模型问答蒸馏、微调与量化
 
 **简体中文** | [English](README.en.md)
 
 可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
 
-[![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
+[![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
+
+## 242条完整词表 logits 蒸馏对照
+
+在保留24条v1负结果的基础上，使用全部242条冻结TRAIN数据完成新一轮gold teacher-forcing蒸馏。三个固定seed各训练242步；训练ID、seed、步数、LoRA配置和学习率与历史gold242 hard-CE-only控制组匹配。
+
+扩大数据后，74题dev整体EM由v1的46.40%±7.44%提高到**60.36%±2.81%**，但仍低于匹配gold242控制组的64.86%±1.35%。完整词表float16缓存为374.69 MiB。扩大覆盖后的结果改善，但v1→v2同时改变训练步数与目标来源，不能单独归因于样本数量；soft targets仍未超过匹配gold SFT。dev已复用，本轮未运行外部集，也未结果后调参。[完整结果](reports/logits-distillation-v2/RESULTS.md) · [协议与命令](docs/LOGITS_DISTILLATION_V2.md)
+
+## 核心表述与证据入口
+
+[代码、逐题记录、固定协议与核验命令](docs/EVIDENCE_MAP.md)。其中242条v2是当前开发结果；24条v1及其他历史负结果完整保留。CI验证工程契约与保存证据，不代表独立模型质量确认或生产部署。
+
+## 24条完整词表 logits 蒸馏负结果
+
+新增答案 token 位置上的 `hard-label CE + T²·KL` 训练入口，教师完整词表 log-probability 先写入哈希绑定缓存，三个学生 seed 可复用而无需教师、学生同时驻留设备。实现显式校验 tokenizer 映射、causal shift、prompt mask、temperature、artifact 来源和逐文件哈希。
+
+固定 `T=2`、CE/KL各0.5，在CPU完成3个seed、每组48步及74题dev评测：整体EM为50.00% / 51.35% / 37.84%，均值46.40%；有答案EM均为42.42%。没有超过历史gold-SFT与response-distillation均值，且未通过历史有答案继续门槛，因此未运行外部集，也未看结果后调参。[完整负结果](reports/logits-distillation-v1/RESULTS.md) · [方法与命令](docs/LOGITS_DISTILLATION_V1.md)
 
 ## 项目沿革（2026-09-20 补记）
 
@@ -19,6 +35,17 @@
 **外部补充：DRCD 96题上，random_gold与random_teacher的平均EM均为57.29%，差值95%区间[-5.21,+4.86]个百分点，未复现CMRC上的正向主比较。** [外部评测与边界](docs/EXTERNAL_DRCD.md)
 
 [结果、失败案例与限制](reports/quality-study-20260920/RESULTS.md) · [离线检查 / 两题真实推理 / 重新训练](docs/QUALITY_STUDY_RELEASE.md) · [完整训练入口重跑](docs/ENTRYPOINT_RETRAIN.md)
+
+## 可追溯候选质检（2026-09-22）
+
+新增统一离线入口，逐条输出接收／拒收／待复核、参考权限、来源与规则版本。实际检查240个历史真实教师候选：有训练参考时，英文原提示24条为8/11/5，新提示24条为8/12/4，中文192条为59/40/93（依次为接收/拒收/待复核）。无参考权限时不自动接收合法片段；格式匹配不等于语义正确。近重复只触发复核，原始候选和冻结证据不变。
+
+```bash
+python scripts/synthetic_qc.py --preset chinese --label-permission train_reference --output work/qc-01
+python scripts/verify_synthetic_qc.py
+```
+
+中文接收59条与已有参考筛选训练组的输入、目标逐条一致，可复用历史对照；本次未新增训练或测得语义准确率。英文接收样本的有答案占比由原提示62.5%变为新提示25%，不能仅看接收总数。全部规则、逐条证据、训练复用限制及复现命令见[质检说明](docs/SYNTHETIC_QC.md)。
 
 ## 历史五轮实验与证据
 
@@ -50,7 +77,7 @@ uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
-入口执行测试、六套离线核验、gold对照与教师审计；日志只写新的`work/`子目录，前后校验`reports/data/configs`。缺失冻结汇总直接失败，不补写；禁止`python -O`。Linux CI使用同一入口，**不下载模型、不训练、不重新推理**。历史工程验收含51项测试；最新执行以Actions记录为准。
+入口执行测试、离线核验、gold对照与教师审计；日志只写新的`work/`子目录，前后校验`reports/data/configs`。缺失冻结汇总直接失败，不补写；禁止`python -O`。Linux CI使用同一入口，**不下载模型、不训练、不重新推理**。历史工程验收含51项测试；最新执行以Actions记录为准。
 
 ## 实际模型推理与训练复现
 
@@ -77,6 +104,7 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 | `qa_lab/data.py` | 来源hash、去重、近重复家族与固定切分 |
 | `qa_lab/inference.py`、`metrics.py` | 输入白名单、真实推理、ID完整覆盖、EM/F1/拒答/格式 |
 | `qa_lab/train.py`、`train_artifact.py`、`closure_data.py` | LoRA、answer-only loss、本地教师数据与训练边界 |
+| `qa_lab/logits_distillation.py` | 回答 token 的完整词表 teacher cache、温度 KL 与 CE 混合训练 |
 | `qa_lab/mlx_experiment.py` | 同框架转换、质量比较与固定工作量测速 |
 | `scripts/acceptance.py`、`scripts/verify_*.py` | 测试与保存证据的只读重算 |
 
@@ -87,3 +115,11 @@ MPS推理将`--device cpu`换成`--device mps`；不可用会报错，不静默�
 [2026-09-19 工程维护与验证边界](docs/maintenance/2026-09-19/README.md)
 
 [2026-09-21 工程维护与验证](docs/maintenance/2026-09-21/README.md)
+
+[2026-09-22 implementation and verification](docs/maintenance/2026-09-22/README.md)
+
+[2026-09-22 detail review and regression fixes](docs/maintenance/2026-09-22-detail/README.md)
+
+Further review: [2026-09-22 evidence and export hardening](docs/maintenance/2026-09-22-readiness/README.md).
+
+2026-09-22 deeper evaluation: [盲审与错误分析](docs/BLIND_REVIEW.md).

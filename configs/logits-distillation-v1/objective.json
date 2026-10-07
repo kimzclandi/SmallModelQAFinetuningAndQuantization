@@ -1,0 +1,7 @@
+{
+  "temperature": 2.0,
+  "hard_ce_weight": 0.5,
+  "soft_kl_weight": 0.5,
+  "max_tokens": 2048,
+  "scope": "Full-vocabulary teacher distribution at response-token positions only. Hard CE uses the audited teacher response target; soft KL uses the same causal positions."
+}

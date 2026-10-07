@@ -36,8 +36,10 @@ def main():
                HF_HUB_DISABLE_IMPLICIT_TOKEN='1', HF_HUB_DISABLE_TELEMETRY='1')
     checks = [('tests', ['-m', 'pytest', '-q'])]
     checks += [(name, [f'scripts/verify_{name}.py']) for name in
-               ('artifacts', 'closure', 'teacher_study', 'coverage', 'quantization', 'chinese')]
+               ('artifacts', 'closure', 'teacher_study', 'coverage', 'quantization', 'chinese',
+                'logits_distillation', 'logits_distillation_v2')]
     checks += [('quality_release', ['scripts/verify_quality_release.py']),
+               ('synthetic_qc', ['scripts/verify_synthetic_qc.py']),
                ('retraining', ['scripts/verify_retraining.py']),
                ('external_drcd', ['scripts/verify_external_drcd.py'])]
     checks += [('gold_pilot', ['scripts/compare_gold_pilot.py', '--output', str(output/'gold.json')]),

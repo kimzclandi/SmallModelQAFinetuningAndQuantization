@@ -1,4 +1,4 @@
-# Domain QA Lab
+# SmallModelQAFinetuningAndQuantization
 
 [简体中文](README.md) | **English**
 
@@ -7,6 +7,10 @@ Auditable small-model extractive QA: data isolation → original baseline → go
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **Across the five historical rounds, no trained candidate passed the adoption gates. Q8 passed English development compression screening and a 96-question Chinese new-source quality-preservation check; business deployment remains unverified.** All quality figures derive from saved per-example predictions, retaining abstention baselines, failures and regressions. Actual distillation used a local Qwen teacher. Manually prepared GPT candidates were audited but never used for training.
+
+## Current logits distillation result and evidence
+
+On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.81%** EM on 74 reused dev questions, below the matched gold-only control (**64.86% ± 1.35%**). The objective is `0.5 CE + 0.5 T² KL`, T=2; the full-vocabulary float16 cache is 374.69 MiB. The 24-row v1 failure remains archived. Coverage, steps and target policy changed between v1 and v2, so the difference is not an isolated data-size effect. No external confirmation or post-result tuning was performed. [Evidence map](docs/EVIDENCE_MAP.md) · [v2 records](reports/logits-distillation-v2/RESULTS.md).
 
 ## Project history (added 2026-09-20)
 
@@ -19,6 +23,17 @@ Nine LoRA runs totaling 576 steps were completed. The untrained baseline and all
 **External check: on 96 DRCD questions, random_gold and random_teacher both achieved mean EM of 57.29%; the 95% difference interval was [-5.21,+4.86] points. The positive primary comparison on CMRC did not replicate.** [External evaluation and scope](docs/EXTERNAL_DRCD.md)
 
 [Results, failures and limits](reports/quality-study-20260920/RESULTS.md) · [Offline checks / two-question inference / retraining](docs/QUALITY_STUDY_RELEASE.md) · [Full training-entry rerun](docs/ENTRYPOINT_RETRAIN.md)
+
+## Traceable candidate QC (2026-09-22)
+
+A new offline entry point records accept/reject/review decisions, reference permissions, provenance and rule versions. On 240 saved real teacher candidates, train-reference mode yields 8/11/5 for 24 original English responses, 8/12/4 for 24 revised-prompt responses, and 59/40/93 for 192 Chinese responses (accept/reject/review). Without reference permission, valid spans remain under review. Format compliance is not semantic correctness; near duplicates trigger review rather than automatic deletion.
+
+```bash
+python scripts/synthetic_qc.py --preset chinese --label-permission train_reference --output work/qc-01
+python scripts/verify_synthetic_qc.py
+```
+
+The 59 accepted Chinese inputs and targets exactly match the historical reference-selected training group. Its existing experiments can be reused with their original limitations; no new training or semantic accuracy measurement was performed. Answerable examples make up 62.5% of accepted original English responses but only 25% under the revised prompt. Original candidates and frozen evidence remain unchanged. See the [QC protocol, records and limitations](docs/SYNTHETIC_QC.md) (Chinese).
 
 ## Five historical rounds and evidence
 

@@ -1,0 +1,22 @@
+{
+  "schema": "blind-review-analysis-v1",
+  "status": "pending",
+  "reviewers": [
+    {
+      "reviewer_alias": "reviewer-a",
+      "origin": "pending_human",
+      "completed_n": 0,
+      "total_n": 37,
+      "strata": null
+    }
+  ],
+  "agreement": null,
+  "adjudication_queue": [],
+  "limitations": [
+    "Human origin is self-declared, not independently verified.",
+    "Fractions describe each sampled stratum; do not pool unequal sampling rates.",
+    "Uncertain judgments remain in denominators; no adjudicated ground truth is inferred.",
+    "Candidate responses may share questions/families; no independent-sample confidence interval.",
+    "No training or causal model-quality claim."
+  ]
+}

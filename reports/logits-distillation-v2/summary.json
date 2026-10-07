@@ -1,0 +1,347 @@
+{
+  "status": "complete_development_result",
+  "training_rows": 242,
+  "seeds": [
+    20260918,
+    20260919,
+    20260920
+  ],
+  "steps_per_seed": 242,
+  "cache": {
+    "bytes": 392885958,
+    "elapsed_seconds": 70.13893129200005,
+    "records": 242,
+    "dtype": "float16 log probabilities; training converts to float32"
+  },
+  "runs": {
+    "20260918": {
+      "metrics": {
+        "overall": {
+          "n": 74,
+          "em": 0.581081081081081,
+          "f1": 0.6147546147546148,
+          "format_valid_rate": 0.9864864864864865
+        },
+        "answerable": {
+          "n": 33,
+          "em": 0.42424242424242425,
+          "f1": 0.4997527724800452,
+          "format_valid_rate": 0.9696969696969697
+        },
+        "unanswerable": {
+          "n": 41,
+          "em": 0.7073170731707317,
+          "f1": 0.7073170731707317,
+          "format_valid_rate": 1.0
+        },
+        "unsupported_answer_rate": 0.2926829268292683,
+        "over_abstention_rate": 0.36363636363636365,
+        "categories": {
+          "correct": 43,
+          "over_abstention": 12,
+          "wrong_or_partial_span": 6,
+          "format_or_nonextractive": 1,
+          "unsupported_answer": 12
+        },
+        "family_macro_em": 0.555379188712522,
+        "always_abstain_em": 0.5540540540540541,
+        "performance": {
+          "n": 74,
+          "mean_ttft_seconds": 0.12677460421626754,
+          "median_ttft_seconds": 0.10911245900024369,
+          "mean_generation_seconds": 0.19717596618937858,
+          "decode_tokens_per_second": 51.442493726255705,
+          "total_generated_tokens": 342,
+          "capped_outputs": 0
+        }
+      },
+      "training": {
+        "steps": 242,
+        "total_supervised_tokens": 1289,
+        "elapsed_seconds": 77.90849974999946
+      }
+    },
+    "20260919": {
+      "metrics": {
+        "overall": {
+          "n": 74,
+          "em": 0.5945945945945946,
+          "f1": 0.6323631323631324,
+          "format_valid_rate": 0.972972972972973
+        },
+        "answerable": {
+          "n": 33,
+          "em": 0.48484848484848486,
+          "f1": 0.5695415695415695,
+          "format_valid_rate": 0.9696969696969697
+        },
+        "unanswerable": {
+          "n": 41,
+          "em": 0.6829268292682927,
+          "f1": 0.6829268292682927,
+          "format_valid_rate": 0.975609756097561
+        },
+        "unsupported_answer_rate": 0.3170731707317073,
+        "over_abstention_rate": 0.2727272727272727,
+        "categories": {
+          "correct": 44,
+          "over_abstention": 9,
+          "wrong_or_partial_span": 7,
+          "format_or_nonextractive": 2,
+          "unsupported_answer": 12
+        },
+        "family_macro_em": 0.5728395061728395,
+        "always_abstain_em": 0.5540540540540541,
+        "performance": {
+          "n": 74,
+          "mean_ttft_seconds": 0.12696175112162295,
+          "median_ttft_seconds": 0.10908883350202814,
+          "mean_generation_seconds": 0.1927392922029744,
+          "decode_tokens_per_second": 51.36066692125376,
+          "total_generated_tokens": 324,
+          "capped_outputs": 0
+        }
+      },
+      "training": {
+        "steps": 242,
+        "total_supervised_tokens": 1289,
+        "elapsed_seconds": 76.76378095899781
+      }
+    },
+    "20260920": {
+      "metrics": {
+        "overall": {
+          "n": 74,
+          "em": 0.6351351351351351,
+          "f1": 0.6638946638946639,
+          "format_valid_rate": 0.972972972972973
+        },
+        "answerable": {
+          "n": 33,
+          "em": 0.48484848484848486,
+          "f1": 0.5493395493395493,
+          "format_valid_rate": 0.9696969696969697
+        },
+        "unanswerable": {
+          "n": 41,
+          "em": 0.7560975609756098,
+          "f1": 0.7560975609756098,
+          "format_valid_rate": 0.975609756097561
+        },
+        "unsupported_answer_rate": 0.24390243902439024,
+        "over_abstention_rate": 0.30303030303030304,
+        "categories": {
+          "correct": 47,
+          "over_abstention": 10,
+          "wrong_or_partial_span": 6,
+          "format_or_nonextractive": 2,
+          "unsupported_answer": 9
+        },
+        "family_macro_em": 0.607363315696649,
+        "always_abstain_em": 0.5540540540540541,
+        "performance": {
+          "n": 74,
+          "mean_ttft_seconds": 0.12690768752725343,
+          "median_ttft_seconds": 0.1089845834994776,
+          "mean_generation_seconds": 0.18862679568952148,
+          "decode_tokens_per_second": 51.23473517874562,
+          "total_generated_tokens": 308,
+          "capped_outputs": 0
+        }
+      },
+      "training": {
+        "steps": 242,
+        "total_supervised_tokens": 1289,
+        "elapsed_seconds": 78.85389233300157
+      }
+    }
+  },
+  "aggregate": {
+    "overall": {
+      "em": {
+        "mean": 0.6036036036036035,
+        "sample_std": 0.028130621614407186,
+        "minimum": 0.581081081081081,
+        "maximum": 0.6351351351351351
+      },
+      "f1": {
+        "mean": 0.637004137004137,
+        "sample_std": 0.02489659214490972,
+        "minimum": 0.6147546147546148,
+        "maximum": 0.6638946638946639
+      }
+    },
+    "answerable": {
+      "em": {
+        "mean": 0.46464646464646464,
+        "sample_std": 0.03499092540543187,
+        "minimum": 0.42424242424242425,
+        "maximum": 0.48484848484848486
+      },
+      "f1": {
+        "mean": 0.5395446304537214,
+        "sample_std": 0.03591064432460966,
+        "minimum": 0.4997527724800452,
+        "maximum": 0.5695415695415695
+      }
+    },
+    "unanswerable": {
+      "em": {
+        "mean": 0.7154471544715447,
+        "sample_std": 0.03725671296712064,
+        "minimum": 0.6829268292682927,
+        "maximum": 0.7560975609756098
+      },
+      "f1": {
+        "mean": 0.7154471544715447,
+        "sample_std": 0.03725671296712064,
+        "minimum": 0.6829268292682927,
+        "maximum": 0.7560975609756098
+      }
+    }
+  },
+  "matched_gold242_control": {
+    "overall": {
+      "n": 3,
+      "mean": 0.6486486486486487,
+      "sample_std": 0.013513513513513542,
+      "minimum": 0.6351351351351351,
+      "maximum": 0.6621621621621622
+    },
+    "answerable": {
+      "n": 3,
+      "mean": 0.41414141414141414,
+      "sample_std": 0.08747731351357965,
+      "minimum": 0.36363636363636365,
+      "maximum": 0.5151515151515151
+    },
+    "unanswerable": {
+      "n": 3,
+      "mean": 0.8373983739837398,
+      "sample_std": 0.050772341450393464,
+      "minimum": 0.7804878048780488,
+      "maximum": 0.8780487804878049
+    }
+  },
+  "v1_logits_context": {
+    "overall_em": {
+      "n": 3,
+      "mean": 0.46396396396396394,
+      "sample_std": 0.07442662901737973,
+      "minimum": 0.3783783783783784,
+      "maximum": 0.5135135135135135
+    },
+    "overall_f1": {
+      "n": 3,
+      "mean": 0.5047932547932549,
+      "sample_std": 0.07099481217857877,
+      "minimum": 0.4229036729036729,
+      "maximum": 0.5490297990297991
+    },
+    "answerable_em": {
+      "n": 3,
+      "mean": 0.42424242424242425,
+      "sample_std": 0.0,
+      "minimum": 0.42424242424242425,
+      "maximum": 0.42424242424242425
+    },
+    "answerable_f1": {
+      "n": 3,
+      "mean": 0.5157990157990159,
+      "sample_std": 0.010577869907620913,
+      "minimum": 0.5038850038850039,
+      "maximum": 0.5240870240870241
+    },
+    "unanswerable_em": {
+      "n": 3,
+      "mean": 0.49593495934959353,
+      "sample_std": 0.1343309889581976,
+      "minimum": 0.34146341463414637,
+      "maximum": 0.5853658536585366
+    },
+    "unanswerable_f1": {
+      "n": 3,
+      "mean": 0.49593495934959353,
+      "sample_std": 0.1343309889581976,
+      "minimum": 0.34146341463414637,
+      "maximum": 0.5853658536585366
+    }
+  },
+  "paired_vs_gold242": {
+    "20260918": {
+      "fixes": [
+        "56e17a7ccd28a01900c679a5",
+        "56e1b754cd28a01900c67abe",
+        "56e1fc57e3433e140042322c",
+        "56e2042ecd28a01900c67c1f",
+        "56e2042ecd28a01900c67c20",
+        "5ad56e5c5b96ef001a10ae9f"
+      ],
+      "regressions": [
+        "56e1ded7cd28a01900c67bd5",
+        "56e1ec83cd28a01900c67c0e",
+        "56e2042ecd28a01900c67c1e",
+        "5ad5364c5b96ef001a10ab91",
+        "5ad53f815b96ef001a10abe6",
+        "5ad56aea5b96ef001a10ae48",
+        "5ad56aea5b96ef001a10ae4c",
+        "5ad56e5c5b96ef001a10ae9e",
+        "5ad56e5c5b96ef001a10aea0",
+        "5ad5719f5b96ef001a10aeee"
+      ],
+      "unchanged": 58
+    },
+    "20260919": {
+      "fixes": [
+        "56e17a7ccd28a01900c679a1",
+        "56e17a7ccd28a01900c679a5",
+        "56e1b754cd28a01900c67abd",
+        "56e1cbe2cd28a01900c67bae",
+        "56e1ded7cd28a01900c67bd4",
+        "56e1fc57e3433e140042322c",
+        "5ad5364c5b96ef001a10ab92"
+      ],
+      "regressions": [
+        "56e1b754cd28a01900c67abc",
+        "56e1ec83cd28a01900c67c0e",
+        "5ad5364c5b96ef001a10ab91",
+        "5ad5648b5b96ef001a10ad98",
+        "5ad568d35b96ef001a10ae1c",
+        "5ad568d35b96ef001a10ae1d",
+        "5ad56aea5b96ef001a10ae48",
+        "5ad56aea5b96ef001a10ae4c",
+        "5ad56e5c5b96ef001a10ae9e",
+        "5ad5719f5b96ef001a10aeed",
+        "5ad5719f5b96ef001a10aeef"
+      ],
+      "unchanged": 56
+    },
+    "20260920": {
+      "fixes": [
+        "56e17a7ccd28a01900c679a5",
+        "56e1ded7cd28a01900c67bd4",
+        "5ad5364c5b96ef001a10ab92",
+        "5ad56e5c5b96ef001a10ae9f",
+        "5ad56e5c5b96ef001a10aea0",
+        "5ad56e5c5b96ef001a10aea1"
+      ],
+      "regressions": [
+        "56e17a7ccd28a01900c679a2",
+        "56e1ded7cd28a01900c67bd5",
+        "56e1ec83cd28a01900c67c0e",
+        "5ad5364c5b96ef001a10ab91",
+        "5ad53f815b96ef001a10abe6",
+        "5ad56aea5b96ef001a10ae48",
+        "5ad56aea5b96ef001a10ae4c",
+        "5ad5719f5b96ef001a10aeef"
+      ],
+      "unchanged": 60
+    }
+  },
+  "decision": "More data improved the logits arm relative to v1, but the matched hard-CE-only gold242 control remained better on mean dev EM. No external confirmation was run.",
+  "limitations": [
+    "The 74-row dev has been reused and is not an independent confirmation set.",
+    "Three seeds measure training variation, not three independent datasets.",
+    "No post-result temperature, loss-weight, step, or seed selection was performed."
+  ]
+}

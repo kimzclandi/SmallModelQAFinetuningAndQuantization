@@ -1,0 +1,14 @@
+{
+  "experiment": "logits-distillation-v1",
+  "status": "implementation_ready_not_executed",
+  "student": "Qwen/Qwen2.5-0.5B-Instruct@7ae557604adf67be50417f59c2c2f167def9a775",
+  "teacher": "Qwen/Qwen2.5-1.5B-Instruct@989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "training_ids": 24,
+  "seeds": [20260918, 20260919, 20260920],
+  "steps_per_seed": 48,
+  "arms_for_comparison": ["gold_sft", "response_distillation", "logits_distillation"],
+  "primary_metrics": ["overall_em", "answerable_em", "unanswerable_em", "token_f1"],
+  "budget_note": "Steps and IDs are paired. Report actual supervised tokens; target lengths are not forced equal across historical arms.",
+  "decision_boundary": "No quality or adoption claim until all three logits runs and frozen evaluation finish. Historical dev is not an independent confirmation set.",
+  "test_policy": "Do not run the historical test split for method selection."
+}

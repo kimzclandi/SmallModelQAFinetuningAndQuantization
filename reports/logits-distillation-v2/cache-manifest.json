@@ -1,0 +1,2017 @@
+{
+  "format": "answer-token-full-logprobs-v1",
+  "status": "complete",
+  "created_utc": "2026-10-07T11:44:08.115193+00:00",
+  "scope": "TRAIN targets only; full-vocabulary teacher distributions at answer-token positions",
+  "artifact_method": "gold_sft",
+  "hard_target_source": "gold_reference",
+  "temperature": 2.0,
+  "cache_dtype": "float16 log probabilities; training converts to float32",
+  "causal_alignment": "logits[:, :-1] against labels[:, 1:]; prompt labels are -100",
+  "student_prompt_config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "system_prompt": "Answer the question using only the supplied passage. If the passage contains the answer, output only the shortest exact span from the passage that answers the question. If the passage does not contain the answer, output exactly NO_ANSWER. Do not explain your answer.",
+    "prompt_version": "extract-or-abstain-v1"
+  },
+  "student_model_config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 20260918,
+    "device": "mps",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "extract-or-abstain-v1",
+    "system_prompt": "Answer the question using only the supplied passage. If the passage contains the answer, output only the shortest exact span from the passage that answers the question. If the passage does not contain the answer, output exactly NO_ANSWER. Do not explain your answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "teacher_model_config": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "seed": 20260918,
+    "device": "cpu",
+    "dtype": "float32",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "batch_size": 1,
+    "attention_implementation": "eager",
+    "prompt_version": "evidence-check-four-synthetic-examples-v2",
+    "system_prompt": "Answer using ONLY the supplied passage. Output the shortest exact contiguous span that answers the complete question, or exactly NO_ANSWER. Do not explain.\nBefore answering, check that the passage supports the requested entity, relation, quantity and polarity. A related phrase is not enough. Do not silently repair the question or import outside knowledge. If a required fact is missing, or the question has a false premise, output NO_ANSWER. When supported, copy the answer exactly; do not paraphrase or change singular/plural.\nThe following examples are fictional instructions, not facts about the actual passage:\nExample 1. Passage: The Luma procedure requires seven passes. Question: How many passes does the Luma procedure require? Answer: seven\nExample 2. Passage: The Luma procedure requires seven passes. Question: Who invented the Luma procedure? Answer: NO_ANSWER\nExample 3. Passage: The Rivo machine stores its state on magnetic ribbons. Question: Where does the Rivo machine store its state? Answer: magnetic ribbons\nExample 4. Passage: The only two modes are amber and violet. Question: What are the three modes? Answer: NO_ANSWER\nApply these rules to the user's passage and question. Return only the answer.",
+    "warmup": "synthetic passage and question, 2 generations, excluded from measurements"
+  },
+  "student_tokenizer_sha256": "f28ae93d3b31cb2158f0b014af4585af5e483b5719fd05cb214f8475c46fb562",
+  "teacher_tokenizer_sha256": "f28ae93d3b31cb2158f0b014af4585af5e483b5719fd05cb214f8475c46fb562",
+  "artifact_manifest_sha256": "a789319989bbf17fdf370864cc7a37de1e5fd0ce2a74d77ea374825644333c6c",
+  "artifact_path": "/Users/yukaiyan/Documents/Codex/2026-09-22/github-readme-id-a194498-1-2/work/SmallModelQAFinetuningAndQuantization/data/coverage-v3-gold242",
+  "train_source_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "elapsed_seconds": 70.13893129200005,
+  "hardware": "unknown (hardware query denied)",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.56.2"
+  },
+  "source_sha256": {
+    "qa_lab/__init__.py": "4c8e3ec040581f28a80d4fda912052ec8c4139b910e034d4e6a4e7ee52761b23",
+    "qa_lab/blind_review.py": "d57799ba722a46d207e675860c6e8d8e5c0f97270501e1edabe626b3ce6bc521",
+    "qa_lab/chinese.py": "3d20544a81c9ba2737cf40710fba852d9298d9afda9d8a064af6f620753bc740",
+    "qa_lab/closure_data.py": "3227bb8d82dcbd64c91138015e712c31f63738058307ba4df03da348d089a509",
+    "qa_lab/common.py": "1b2bb44e1a59fd07b7b53d6a4581b86ee61ffd297a711843dfd0fbe328d92418",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/inference.py": "76e37317e1cfd83f146c55211d4e23c66919c450b46b02cb37e1711e512b24da",
+    "qa_lab/logits_distillation.py": "db827eea000cc1e01957d35850fca167f8abab9174e2787dd5739843c3d4ca19",
+    "qa_lab/metrics.py": "65e3c472761fda70a0e90b9f929a5c85508242eec6fe1259464d05738404c005",
+    "qa_lab/mlx_experiment.py": "bb517924e87fe9da2eccd351dac6f6324f913d4a4d2faa85541a1aabbae2586a",
+    "qa_lab/quality_control.py": "5b6abe542ace67e0641f4a058fe064a55c108d767854000dde222869272b2ca7",
+    "qa_lab/selection_profile.py": "fe1b27e4cb47e74c2595055cccbae9a12bce303699a6bed86caf0ba41e11f26c",
+    "qa_lab/teacher_audit.py": "c904edf1ab54cc4473babc9779407340edea3567019bd186451de37529ad7e90",
+    "qa_lab/teacher_io.py": "9a0a001d235ad0e4eb71b7186db5547153d4f2b22a38096a63f6aed7ad378323",
+    "qa_lab/train.py": "cb3bb3f15451f087697b9ff5b2c8ae065a8d9ed6f8ee2e3ea519857c4bccdc8f",
+    "qa_lab/train_artifact.py": "073ea8dccdd1282470e1297df72a3c9c155746fd462cebec9fa12b31ac523eb8"
+  },
+  "records": [
+    {
+      "id": "56e17644e3433e1400422f40",
+      "path": "records/dffbe2019fca54d8307e57a00808feeab2308e13c73932db070a3a85d631fb20.pt",
+      "sha256": "d4dc2c895f101282e3576d64b8d1e92f752cac4c8ed8770b66b0dc3a49acee95",
+      "sequence_tokens": 221,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e17644e3433e1400422f41",
+      "path": "records/f5576150f887ee953aeeb3f4d4788dce859065c3b2063f49ceccd8d898d1d68a.pt",
+      "sha256": "7176aecaa634e45bec16f240ddc1e6f293b3b1ac3bffc34ebae30b5ed91d13a7",
+      "sequence_tokens": 225,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e17644e3433e1400422f42",
+      "path": "records/ee767cf643101506b28226ac3a832119189b47d60cd7400d314f454221b37e66.pt",
+      "sha256": "177dbc596633a0c763ea06369eafe48e1e5d984528af1241e74ae7af755cec9f",
+      "sequence_tokens": 230,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e17644e3433e1400422f43",
+      "path": "records/d8bd3ebbf79ee8032c216423bbf02a0f4221f5a98410aa699db7d19ea4a91dd2.pt",
+      "sha256": "ff8b6bb82dca9f5ce9554b7b52c1004c66cb0f5b0dde0d7ac5b54af7e3c93061",
+      "sequence_tokens": 229,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e17e6ee3433e1400422f7f",
+      "path": "records/66415f87d2cb4ab08ef7a17f7b42140503d9645a64da37c2a754ac412a652ce7.pt",
+      "sha256": "3047a40865e74a9f52ab3f72a2bc68728648498078d370affcd62c31206493d8",
+      "sequence_tokens": 208,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e17e6ee3433e1400422f80",
+      "path": "records/982c8db27b91ce0d3170eddfc06566b3b900316dd927561d8a4221925030aaa2.pt",
+      "sha256": "2487e8dca74c0bae63b2c5aab17a640f2be839db3939d95f5e7cd670d8165b05",
+      "sequence_tokens": 207,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e17e6ee3433e1400422f81",
+      "path": "records/ff68f30fb28a22541f3bc4a5deb7720a02b56e97f60a38efa0c7d5c5b9abf658.pt",
+      "sha256": "2e906ce738420a79e79dffc8e3abdce312b2ef925c5895298b48258df2800443",
+      "sequence_tokens": 195,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e181d9e3433e1400422fa0",
+      "path": "records/b99c04af5523a2a94f324f081b644c3f3bafea99c2113d3d017550a815a6ef5e.pt",
+      "sha256": "0041b703bc40dab17d686418ecbd6d4692ebc1ba122f0505a14f63ce7b06f0f1",
+      "sequence_tokens": 184,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e181d9e3433e1400422fa1",
+      "path": "records/f9fd55652069056603ff1fb55572cae53bf9711dbdf507bddf183f3d72a3fa8f.pt",
+      "sha256": "0975f0fd56e0e54e0f62be7bd145588902e810db8e6c61b139c0a154c10a82aa",
+      "sequence_tokens": 184,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e181d9e3433e1400422fa2",
+      "path": "records/b5b6e6b3cf79e0c9b33cb7e40dc60ec233e3545e06f7a8f60774acfe33cab845.pt",
+      "sha256": "3ba5f3433042e5bf5e620da9b553c7f2c6599b7b11f948c912f330385ea41a9c",
+      "sequence_tokens": 180,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e181d9e3433e1400422fa3",
+      "path": "records/e579b38383040ac146fd27a51c00ec3da75c705d1f7488e8fce8d50907a31f4a.pt",
+      "sha256": "c0e352cb5eb1803f16fb38a23e544121f8d0210201426de789cff83a02f2c296",
+      "sequence_tokens": 186,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e181d9e3433e1400422fa4",
+      "path": "records/45237d4993d4a38458b0234b3a4e3c536b740a6b6e35b00ad6ce738609ac3de4.pt",
+      "sha256": "3d5984ef91290db0b67d6c1897e2e1f506daf0bf5d177fd3761424afca8d4b81",
+      "sequence_tokens": 181,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e190bce3433e1400422fc8",
+      "path": "records/94a54cfbc5fd45496ae87e5db276dbc49eeeff94b768e6f19adc6e199bd5f526.pt",
+      "sha256": "367f5bf700ba29d862448280fbbbabc12a649cf7930122be2e8013692a463886",
+      "sequence_tokens": 226,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e190bce3433e1400422fc9",
+      "path": "records/bf0c38faba1384157b3c8493cd37caeb104dfc98ee185ff013d071760203576b.pt",
+      "sha256": "b7073622bc9813be02998b251f5c0aebbf6d1d8497f5a35b238668d53ea85e30",
+      "sequence_tokens": 223,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e190bce3433e1400422fca",
+      "path": "records/316b2ae4a293918ee70febdb41069e83fbe58d2e23675927b73e37175cafa250.pt",
+      "sha256": "8c583c08c4b703907c6b647bcb52eee0739d9c9b16c7f8af32bc6cd79c9132bb",
+      "sequence_tokens": 223,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e190bce3433e1400422fcb",
+      "path": "records/9d9f4a2330c45cea71688a9a553f95bda5bd42621ea50adc7848466d09ce2f0b.pt",
+      "sha256": "9b3b9facc2602f3997dbf4282320b77856e645d3f7992cc3ec8eca93bc443631",
+      "sequence_tokens": 225,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e190bce3433e1400422fcc",
+      "path": "records/e10245d29d705065bd7f52c72017b8b923bc97a6b9d9a3d39daedeafc793efe7.pt",
+      "sha256": "5ed702bb72c71a5499fb1cfdd793efade65655ce449fcf6638156a325e8f5be9",
+      "sequence_tokens": 221,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e19557e3433e1400422fee",
+      "path": "records/90b41109ec130e9976e24ef1cebb91a8989d5043d6851ca54e8b1cd4e1291cca.pt",
+      "sha256": "535247f37ff9a5177974e8c10eed40bc683a7447c56cd81bb4d5b95dfd68ec4a",
+      "sequence_tokens": 163,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e19557e3433e1400422ff0",
+      "path": "records/d5829d19ccb49ed45eef5e4f3a3f40f90e7a2e0fa199ae51c0d760dcd095d17a.pt",
+      "sha256": "98999843d0e32f9032249bfd7443cfa3058599c41c000da1979bf40566958eb0",
+      "sequence_tokens": 164,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e19557e3433e1400422ff1",
+      "path": "records/a6768ccf4e9186174b1af91ec5262ed65386083dea385668f46cfb62a5434125.pt",
+      "sha256": "ab94b491b3509ba0ec6a33f46959d52968c102012684ef8f1534f708d727bd56",
+      "sequence_tokens": 170,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1a564cd28a01900c67a48",
+      "path": "records/2e8198f4f91cf963fcf27258080b2582bcca1e0fa830a42eca2df82c89d2a4e0.pt",
+      "sha256": "48f98c7bef3634d8958f9aa2f966bc4e061bf294f6f2cd050f60d85bb348f85d",
+      "sequence_tokens": 205,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1a564cd28a01900c67a49",
+      "path": "records/944d2a1e7fd91907913e3fea43e712b37d49832a9c54b9e058e337582a4861c8.pt",
+      "sha256": "734b6bc8fb8d69d4801462af8bc931c15631d95438a0e061e75e23cd161e0d62",
+      "sequence_tokens": 198,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1a564cd28a01900c67a4a",
+      "path": "records/cd2643c83467b7aa4e558cea2876bb5bf7a8c3b2038860474dde658a75031861.pt",
+      "sha256": "45aebcec18f1387948444481dbac07db244e9dcfdac2499cf01dc8ab8812e78a",
+      "sequence_tokens": 196,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1a564cd28a01900c67a4b",
+      "path": "records/8d54ea13312e4c747683430fcf2e8a60e31d0d221e48709d227477f8447bdfc5.pt",
+      "sha256": "4e5818753f6d2863c70b000b4cb73018584bac92996cf56f1e35135f95497480",
+      "sequence_tokens": 189,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1a564cd28a01900c67a4c",
+      "path": "records/5e89a1d9b12ef25c9ae91c9a1e38b72c4a76589f996258f4abcba6ed09d86415.pt",
+      "sha256": "d8a60c23ee28b2604726dbe2da8b0cc7d3886bda5522cc6e284a6b8c4be86631",
+      "sequence_tokens": 199,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aba0e3433e1400423094",
+      "path": "records/d162924e25b3188657dce315a0495b87ca336fb81122d89a4ceb0d9268ea7f48.pt",
+      "sha256": "8888afd618137dd0dcf6940061183b686953572b6487b51a46adbea3191aa537",
+      "sequence_tokens": 281,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aba0e3433e1400423095",
+      "path": "records/53e73abe34314b124d2ba7e60c2d82572a9d6d72d74040868be9604dbe425741.pt",
+      "sha256": "49dbabaf3ce58eb33a1371d9b2ce0df83c02b7051701d35c912c6fcff80b9c64",
+      "sequence_tokens": 283,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aba0e3433e1400423097",
+      "path": "records/19f2ae066a7526e01f51b8dbbffe5060f7de05c6a795e0236111eb21ca4a294e.pt",
+      "sha256": "1560809b0fcd7268b290e5ba4d7c9ec80da2cfc98c417b82d3b4615278e59cf8",
+      "sequence_tokens": 276,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aba0e3433e1400423098",
+      "path": "records/7ecfda2b686e786fe3e68c4ab710fbec766f651ed2118e538bfba31207d194e9.pt",
+      "sha256": "7ae55f2098df81fed0e37562a5803417ac6ac3be2e2b44844c706a75f380536b",
+      "sequence_tokens": 275,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aff7cd28a01900c67a68",
+      "path": "records/a48470758968fb9ffee43828a9e915fbd493b86d65e3c321cfc68d374518a61a.pt",
+      "sha256": "83b96e61e0389078781be29074ffc7cc688a7e724cfdb3b816a4c08dc3035119",
+      "sequence_tokens": 281,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aff7cd28a01900c67a69",
+      "path": "records/b25e4f35b1bc72f24c582596e1e50c76884d3b5e9b846427d7c1cb0f33fe0e46.pt",
+      "sha256": "e4952de444481fbb9f9a468106c88e360b46ea17401aeec8c5df99a01a4018d0",
+      "sequence_tokens": 276,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aff7cd28a01900c67a6a",
+      "path": "records/24f2c3269ac3f8fd19f7ee18cdd497f07b9b1a07fd9078b8d8f9467d703880d0.pt",
+      "sha256": "21eebbfa17f76276e96aac871ac7c00c589a2e422afe070c82e3f29935a8b225",
+      "sequence_tokens": 284,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aff7cd28a01900c67a6b",
+      "path": "records/e2dd29f39b93d799c5937a2888198ec3ba2ea1d43bea48999d365a9236851dd4.pt",
+      "sha256": "6d0e37353e318d2a5cb5e59b62d91990c4bebdd38443d260b09bfc3e483ac2c8",
+      "sequence_tokens": 288,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1aff7cd28a01900c67a6c",
+      "path": "records/3f9fb0c39c4608757638d54286c96e547b10e9df0b31bfd4590abbeb8420c639.pt",
+      "sha256": "8e3f4c3050c6d38e9f5464831a5ea06c8bc54d6f9efecb72207c1a183c9ddfc0",
+      "sequence_tokens": 277,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b00ce3433e140042309e",
+      "path": "records/797fda235218cea8e887ffb3b3ba763c7326b7d2ae0c0bdef51b4b8fe8befb8e.pt",
+      "sha256": "250abdb815b2cc754a74d95d92d4f7f4b2c7b775382f4883c322bc2f086b14ad",
+      "sequence_tokens": 157,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b00ce3433e140042309f",
+      "path": "records/923c66da366c36f027e7321e441f0f18dc23b610580534590842f402f2edfbfa.pt",
+      "sha256": "b3392afe6e23c4d5d54e79647fcce504f90d2c48938bf53803ef3fcfe7256943",
+      "sequence_tokens": 165,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b00ce3433e14004230a1",
+      "path": "records/678b1ffe0b774356430f4dd9a64e9da7b63bfac302666cdd44098f8c8f16bcae.pt",
+      "sha256": "500e318d43b5d39bf4d9ff45d1f67240f8023da1ed553bd7066d225355647b71",
+      "sequence_tokens": 173,
+      "supervised_tokens": 14,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b169cd28a01900c67a72",
+      "path": "records/d1b3042a30dae6f5b59ff04aad98c7e0d88551b5f8a3d83136c5a16d4430d950.pt",
+      "sha256": "07c1ff25ce247e551d4f208d2ac2d99e2a4f6789011a0e482a8c23ef2ea891a5",
+      "sequence_tokens": 166,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b169cd28a01900c67a73",
+      "path": "records/558130e625daf5c455a25302b4fbdf0db162a44ea2c20701e905d6d23feae176.pt",
+      "sha256": "a80aae0003d10496c2af50a75b5673e98fedef4a81ab3098da1e294570717ead",
+      "sequence_tokens": 164,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b169cd28a01900c67a74",
+      "path": "records/7f1951eb82316517e710573583e77644f5f6608c93c2f5081c67532a4700172f.pt",
+      "sha256": "c796f53fa7b18b73ccb430a46b35752712d757d9f2cb84110d0df1060980b6a0",
+      "sequence_tokens": 159,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b169cd28a01900c67a75",
+      "path": "records/02b8eaa4912816b23e88c06cce5c1983b374ecaf9ab4e99359ae1e30e8e9a991.pt",
+      "sha256": "7e0732001d16f900421c3fc6d7940f10335ea2654ccd9ba0104af28d5c5a7e87",
+      "sequence_tokens": 166,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b355e3433e14004230b0",
+      "path": "records/5f25ab94f5b7c7d85572b03eb37e3bd97efdaeee8202dd6201869d42a638c816.pt",
+      "sha256": "0eaae1adda3bcd33dd385a4011794a98207c0763a5faaba2b046a3c381242109",
+      "sequence_tokens": 189,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b355e3433e14004230b1",
+      "path": "records/09b3f58e69fe76105fd591a2a171d05833ed12dd65e4b129697d218ac5c609d7.pt",
+      "sha256": "0c4a1c40767c9fffd907fdb5ad20a2acaac067bf07a247133263102917f66d39",
+      "sequence_tokens": 183,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b355e3433e14004230b2",
+      "path": "records/afa1cffdd7b4231625cea05744153b6a70902280c5ec91c8f48478563d70bb6d.pt",
+      "sha256": "0084aec5679ec58e0a0f64d9c42f111b5b8cd83e4051e7f7d53e205b08152551",
+      "sequence_tokens": 190,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b355e3433e14004230b3",
+      "path": "records/b83a47bda8d1ba10f7124eef666fd0dd731a0b8feb9a667539c2bec3fc360447.pt",
+      "sha256": "7127f5338d4b3577f198aa694f787f87adde752f1c1abb5d8c355da7cc8d67f5",
+      "sequence_tokens": 190,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b62ecd28a01900c67aa3",
+      "path": "records/5b8dc3cd1819056ae565818657b50daa6bf6472ffb004d1544786b5bbc6b7e8a.pt",
+      "sha256": "f376480dbaf43986032714865fc9bef115d66f67bb2890e3c55daf2f4d9e8a76",
+      "sequence_tokens": 278,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b62ecd28a01900c67aa4",
+      "path": "records/63cceab0268317003bf07732e5db9380c548b6d9a1c2b247c3952658dd2ba663.pt",
+      "sha256": "814d4563f7e9197ccbbb5550340b29a9d0421f10af86c5e059c7bc5d5a480bf6",
+      "sequence_tokens": 271,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b62ecd28a01900c67aa5",
+      "path": "records/11caae7343b37a1856e346c8b03fa189a4d0450e27c3c1053791fed3ecd6bc60.pt",
+      "sha256": "64d57abb7dd9ed17524a65741942bbf6bed9305190354c75983a7b1fd9556728",
+      "sequence_tokens": 288,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b62ecd28a01900c67aa6",
+      "path": "records/875c38e75d5e035b813c4988dd8297ec5eee8110c74fb3ed9c0d6c8f68569847.pt",
+      "sha256": "6c484706fa2f5099027e22e7458a862abfb4cf68c975ce2009f0c8d9135fb2f7",
+      "sequence_tokens": 286,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b8f3e3433e14004230e6",
+      "path": "records/4c47d665e33c1e0f5df3a94c14070eabb764c200ca997bddc5df06267feb6d78.pt",
+      "sha256": "e1baeb5600aabc262979e08c6491cb9ddf523dc0199c1dcf458972b3fbc84076",
+      "sequence_tokens": 141,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b8f3e3433e14004230e7",
+      "path": "records/a74da00b525bbbad165b41943a750ead14047761f655834197988a5b328c7b68.pt",
+      "sha256": "e30b4012841c0f524c74aa77b9470fc0702f763341bfaf67ba00eba214999d7d",
+      "sequence_tokens": 140,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b8f3e3433e14004230e8",
+      "path": "records/568cf09ec74ebba1fef0b0f15b7be34fcf1d467c650ae2e32fb3f17efa0e6b3e.pt",
+      "sha256": "6e692e6b31696e8e2fb74ffaa35db45295d93f960a1db80f1e8128e54fd47027",
+      "sequence_tokens": 136,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1b8f3e3433e14004230e9",
+      "path": "records/a21b82f2f2694a6a9944c7792ee095f462f7cd308f1c94c6494d6ab0c6851ffa.pt",
+      "sha256": "c440857168f71c5b0a6be649140ebe96d12507dda5fab7f6d264a71fc4e125a1",
+      "sequence_tokens": 142,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1bd4acd28a01900c67afc",
+      "path": "records/c5d692a4b6c8ef501509fb84e57c9fff39758a9c4c1f89f1a000d6c7639bef58.pt",
+      "sha256": "0313c08bf2fc66f90a8d5f1ec71e7e3c584c63fe6c46943deb8ca29c6f31caf9",
+      "sequence_tokens": 159,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1bd4acd28a01900c67afd",
+      "path": "records/7949dda89b9fdfdf28d0443199df2f465f417605cdab51c90cf7c118aaab3ec2.pt",
+      "sha256": "8fdd1625418780c784cb22e6fdcdc363e00643204357d9784d1d214b178bbc19",
+      "sequence_tokens": 157,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1bd4acd28a01900c67afe",
+      "path": "records/d611504918e44e259a8193cfa363a07e57d5d30c77698507e5152f8438078101.pt",
+      "sha256": "6dcfeeb49186a560274381b1fbf8d4ab73132b6ec731cb7278146f318673d442",
+      "sequence_tokens": 179,
+      "supervised_tokens": 10,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1bd4acd28a01900c67aff",
+      "path": "records/678657e5ad79bc00c6f845681cefedf9d2ca30d88800433998c42db72bbb4b16.pt",
+      "sha256": "25f06b44555c2b32c86dbfae341fd5593c0644b03b211f708abd2859002d94ce",
+      "sequence_tokens": 163,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c2eee3433e1400423134",
+      "path": "records/ce621ab61bff4f35660a475e8721db72da1d98d29800ced876dc24217ef35123.pt",
+      "sha256": "93006dc1603ceacb85865eae6f5405eda8d5660bb38079eaeb6362b0ef1c4b8f",
+      "sequence_tokens": 242,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c2eee3433e1400423135",
+      "path": "records/1758510cb570778ab66e25dd98c855bae43b2012bf67cc542ff7b473a2fcf65a.pt",
+      "sha256": "1519519716e8cfe517ce09df66f03e6ad3494567a5d6bedf907a854ea98a07a0",
+      "sequence_tokens": 243,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c2eee3433e1400423136",
+      "path": "records/4b458970faab4882d687efb797a7144ae067495d7d661eb73a150563d395ca15.pt",
+      "sha256": "91e956e40a9db192e157a3e94d9565d1c33c3a1e018d683505f02383e63eb6be",
+      "sequence_tokens": 247,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c2eee3433e1400423137",
+      "path": "records/301a14e247967efca68be73da145f55a1b1f97ae71591d05d7c9bea152ec8cfa.pt",
+      "sha256": "77bc1ebbb5bc6ff075126779c20caedbec6410976c4b806219fba440e6c1b951",
+      "sequence_tokens": 250,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c2eee3433e1400423138",
+      "path": "records/3ffe1ef4520f83f161bf0be9b064ac77766f175b4047b8cf6b61066d23818d6d.pt",
+      "sha256": "007b6f69de8994171badcc7908def79bda8d1cd0bae9b9b5617871114d1d9f91",
+      "sequence_tokens": 252,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c3e1e3433e1400423148",
+      "path": "records/582d81c9f6d63f2585a2bc517983d990b28716bb18c6e93abda7131ea3e92094.pt",
+      "sha256": "00f852a24e8e207f827d41c8e910bbec311c96c8a4d8f7e253ad11c42dfec229",
+      "sequence_tokens": 122,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c3e1e3433e1400423149",
+      "path": "records/e7a947ea2a452d91d0a2024208a6055510f7f5a646ec51cf0161a7b52f6e1592.pt",
+      "sha256": "a092e22914b50a7de4f38ecf1289e34008c3878784a6dadc9ae91d39cd8ecf5f",
+      "sequence_tokens": 119,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c3e1e3433e140042314a",
+      "path": "records/5fce8fc503ea1ab9c79f05ec1d3aa776eac6da415139688b9fde854fe440d86c.pt",
+      "sha256": "cb2196a0b5cd328e75dd976ee6051abc9ede6038eb4f4215068786740e12786d",
+      "sequence_tokens": 125,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c4fce3433e140042314e",
+      "path": "records/7dc82e01203f773a4b2c31670d39fff66b5fa1c3dd2ab3b4087a86368475ca16.pt",
+      "sha256": "86f10e30ddf8b5b1413c91fb869b3d48cd34e90faf83e9465dd626f9f2544d7b",
+      "sequence_tokens": 179,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c4fce3433e140042314f",
+      "path": "records/c33d6ed4a8e6b42832c4b87d56beed73926777fc7a067c37e78890c5375bf8bb.pt",
+      "sha256": "88cf58af660a660675a0f141b8a4074d18fd1417d2345f6727f68e7e96840164",
+      "sequence_tokens": 170,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c4fce3433e1400423150",
+      "path": "records/facfd1db4f30b1e583f03ec484c3bf39a50688e32e7368b6326ec3cd061318ca.pt",
+      "sha256": "a16b1da3014064a3d44428ac2f7db57bfc404aa31fb227b2f09a447d746f946c",
+      "sequence_tokens": 177,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c4fce3433e1400423151",
+      "path": "records/8f6710c5794562806bbc23c431ad530435dc952eed247eaefed9bc66401fcd20.pt",
+      "sha256": "98b86fdff42553e75e96011b8eba208ec39824ab4476024927d97ce98077b8c9",
+      "sequence_tokens": 171,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c4fce3433e1400423152",
+      "path": "records/09cd009a47bd8cad8dc55b324e78348be133fe9eb309d8e2677da8d6e62c3f3e.pt",
+      "sha256": "be9aab78689da8beff825c6367c144e516e374d41c51ddcd9e12187452a2e7de",
+      "sequence_tokens": 170,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c720e3433e140042316a",
+      "path": "records/d5e679e0b6a0d212054f676305e577f191eff8e1a9045069c2f425508b85d2c4.pt",
+      "sha256": "b027dbc0c364510b80e33e8256b510b836557d6c328d4f50c433e1816dd3799d",
+      "sequence_tokens": 263,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c720e3433e140042316b",
+      "path": "records/8ff3f66311cf98b8529b435b8c783c53c7c61478669643c87ae914896d15b564.pt",
+      "sha256": "1e1557ed273d91e6f528ae5168c5a670e19fc8322fff4ccd95e032051dab7e40",
+      "sequence_tokens": 252,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c720e3433e140042316c",
+      "path": "records/aaeb96e04a747d7f70dd620467472f65748cc41aec1945c152b2a3c9d4f94b10.pt",
+      "sha256": "b3e33d944776e671d4b24d33b0167038fab9071776c2ff679db0aabeb25591f4",
+      "sequence_tokens": 257,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c720e3433e140042316d",
+      "path": "records/d2473f94ff92794172f8b35ef9b54e80f519fa17b1aeaa09b38b3ae857641983.pt",
+      "sha256": "32d3d56ecc02899f471a34960968a6488fbe9af34633dc7b288d8767406d1534",
+      "sequence_tokens": 254,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c720e3433e140042316e",
+      "path": "records/e913b9aced13f0cb26a52ca3d68108f984731c830f985d59b3091cb6de2a8281.pt",
+      "sha256": "1061d356abcb3da3565e48064f954109c9b6280429cbda81a3460e0ab1384f7e",
+      "sequence_tokens": 264,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c7e2cd28a01900c67b74",
+      "path": "records/564bfe12e6a230fc8e7c61370b38263df2085343aa602b22dcdebe2c5fbb6e35.pt",
+      "sha256": "dcd6877ba867be0238530cce646c8161baa36ec4d66fa439c222fd8504d0152c",
+      "sequence_tokens": 143,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c7e2cd28a01900c67b75",
+      "path": "records/066d2e4b68dca8cb56b56a1b4732454c1006c778c9a8b9d2d0d326bccfacf9e7.pt",
+      "sha256": "c857e613505f8de45678b3874c0abca73b4512e2dd9d4d6b42c9f2500aecb815",
+      "sequence_tokens": 142,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c7e2cd28a01900c67b76",
+      "path": "records/78705194bed645cdfa03907a96e1112843bbbd262a0e3996fa06e80c66434592.pt",
+      "sha256": "3360360cc9a0e005b6731dd2fb507f4512295c57ce7e97480c18ca461067c874",
+      "sequence_tokens": 140,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c9bfe3433e1400423192",
+      "path": "records/3fc6e1c03dfb474f94005dfb954819412b50c1d942218797b74ff239cec4261c.pt",
+      "sha256": "85ee339edb162804453820a09a5528bee9bb03bc6372d4579957d69e1082db14",
+      "sequence_tokens": 203,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c9bfe3433e1400423193",
+      "path": "records/ec532e3c2ea9a623d181d7fecbdb9f3c472823f0840908f93c8a839747234836.pt",
+      "sha256": "d8cacea594c2eabb5727dfc18a59cf885951dedb9ff069dadf11dc49ce8a45ff",
+      "sequence_tokens": 203,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c9bfe3433e1400423194",
+      "path": "records/59ed9f9dafbede1061d3a54443320950aba7e1e49fe0d8d1df0542e4be4b32f6.pt",
+      "sha256": "ec477252686ddf565d9c2ef99f3bbb4a1677a4ab29c86502501bc9975a88f021",
+      "sequence_tokens": 219,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c9bfe3433e1400423195",
+      "path": "records/21ba04bf078edff7a37e421f03bb2dad8d959b6d43c4a2a5edb1ece7b1265320.pt",
+      "sha256": "fa6ac0eaa45282e060a7823a2034796d6304f503a8106698333fa14d2971b051",
+      "sequence_tokens": 207,
+      "supervised_tokens": 8,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1c9bfe3433e1400423196",
+      "path": "records/2fc7d4846794010385c8c86d9dffc4297ca955a83d6d1bbd1d6452b6d18fdcdc.pt",
+      "sha256": "9de8afb8f3d87e3540730b3de706e47f4cb64f1c9c08c8f654543ee6b122d1ae",
+      "sequence_tokens": 207,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1ce08e3433e14004231a4",
+      "path": "records/391494c04dcb31263fe4768b9da52ca370bba9e3c2158076a35cc00ca70f7610.pt",
+      "sha256": "be8c2fc84842332f0a3a1954ea37417a86c16c2944f7ee93b279cfa2c96d8198",
+      "sequence_tokens": 198,
+      "supervised_tokens": 8,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1ce08e3433e14004231a5",
+      "path": "records/ff6db8ce7a5b207119fd9cbf764ea18fa99ae0e2b87828b7df72de99e27818d1.pt",
+      "sha256": "774fe29f3f8d51a13720f435c169963232cd22b3ceba2dbc987105c1ed68e769",
+      "sequence_tokens": 212,
+      "supervised_tokens": 12,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1ce08e3433e14004231a6",
+      "path": "records/c7fafcf7cf83d72724661cda7d5302676453d50f6a512c35d820ffd381bbf5dd.pt",
+      "sha256": "8670b136120b4b98e5eaecad92bcbf7afe246b42f7b71a7af10f4646b9b40cb5",
+      "sequence_tokens": 202,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1ce08e3433e14004231a8",
+      "path": "records/7f311166c82fb5f23cc5b199ce88b55403a214740d20a3b1e0a3eac261eebdad.pt",
+      "sha256": "868943d03ca3ee4171a05fe0c4bd411a66c1a760686c40fd3031d715af6afdea",
+      "sequence_tokens": 202,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1d9fee3433e14004231cb",
+      "path": "records/e5ddbc3384ea3cd3e4f30e5aeefb45ce3eacfa79cc231f05041e42e585cac6a1.pt",
+      "sha256": "38fff9693e11425e8100a1ab89a8bac206a302a2776e7423555da15ac22a0432",
+      "sequence_tokens": 277,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1d9fee3433e14004231cc",
+      "path": "records/5b915cbecc23425fb8606d48bb001445987d10a1c0241c8777923bdd7394f3ba.pt",
+      "sha256": "b8c0b9040a2cec8bc6e50742a658693163f659c16bf461c7a6527645d887771f",
+      "sequence_tokens": 275,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1d9fee3433e14004231cd",
+      "path": "records/40133e65c1a1977a7ade4007f2adab017ceb98461774dcf7785052bf461f35f0.pt",
+      "sha256": "57909b718d3eb2a752f310c8290dd4a6cc1a15e4c11c5620e9cc05d335c45802",
+      "sequence_tokens": 306,
+      "supervised_tokens": 9,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1d9fee3433e14004231ce",
+      "path": "records/42f73ff6040b8f2d61e93e48a623a29a7a1b9f379214770fd8e413210e7a29a7.pt",
+      "sha256": "b128c3d7eb88e2b53f3246405d8f0fc3413d206a28f1a57df3e8df448c094523",
+      "sequence_tokens": 281,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1e9dfe3433e14004231fc",
+      "path": "records/d73b1c202f5415ac1fb32cd874e2974fd19a816f4402b450d954ac80caac252d.pt",
+      "sha256": "303d8d3bc174caaeba43c964c670fae27caa6ee59438c29bd8463315aaeb90f0",
+      "sequence_tokens": 246,
+      "supervised_tokens": 8,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1e9dfe3433e14004231fd",
+      "path": "records/bac825eb801b7311945608d42ed3f4b857dcdcfe98e95e2e80054698c915a967.pt",
+      "sha256": "b98e91b4c3f58991e19159ca6d48020876bf8d2be145afd1dcc021ff091b055e",
+      "sequence_tokens": 248,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1e9dfe3433e14004231fe",
+      "path": "records/6ceb335073f36064231d65badf21a507c8e240ba0210defc5b95d7979f79e5eb.pt",
+      "sha256": "0f031844ed5350c439153d7265aaf3d95f85c79446f4899f4b11ab833c61d184",
+      "sequence_tokens": 245,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1e9dfe3433e14004231ff",
+      "path": "records/72556e806f929d8bea15d065775f465c57bbbed2adab5437a26ffe0b721d7c71.pt",
+      "sha256": "678c8ee7a53203825dd4a1cb4a6785822a33cb3f2c46b414767552fa4af8514e",
+      "sequence_tokens": 245,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1e9dfe3433e1400423200",
+      "path": "records/ca770550fb6ccd494e28530cb1feb0bf96c26f149484a40b91c927da70a3db86.pt",
+      "sha256": "10e5aae3e8442a8593f1ecb3ce91599c7c24d0558dd687bbfa3037305eb3e434",
+      "sequence_tokens": 258,
+      "supervised_tokens": 11,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1efa0e3433e140042321a",
+      "path": "records/2d9b56b1bef9fd7ecab82aba481d0023408b168d1a112582fbe2f0df92edf538.pt",
+      "sha256": "61dc1d7e97dbe25ba5122f5d6eb8353bfa7f36245ca21788e087f1da87d70cd1",
+      "sequence_tokens": 160,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1efa0e3433e140042321b",
+      "path": "records/5d5afcc846c029fdaf30aad3e50be7e5bb62bfc138640fd1657ff49fd47419eb.pt",
+      "sha256": "739f2a9197a1a288c3f090c60e96897a53f2036d2daf5859db442fe40e85ac1f",
+      "sequence_tokens": 161,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1efa0e3433e140042321c",
+      "path": "records/95696992685cb97eab1d4ad3a76a8e1110826fec14189356d64395afc60dc0b5.pt",
+      "sha256": "766f03501882bdebee6b863406201856b62fe16d8574a7ca6d933bd0fd451536",
+      "sequence_tokens": 162,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1efa0e3433e140042321d",
+      "path": "records/4bd1a5d40dda7ae80b3205d79ab254c63e764dea877ab1b791d8ccfd9a16e789.pt",
+      "sha256": "7755cb624b22b324dbe01b48e64b801268b59cf7366668e7bc67596c1323ea74",
+      "sequence_tokens": 172,
+      "supervised_tokens": 8,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1febfe3433e1400423236",
+      "path": "records/0d2403d4dcdfe4aff2f4c0030a178db54fa5b6415727ffb5504261a554f7fdb3.pt",
+      "sha256": "3e2a2ddd6b72511535bccd0842afb4f7e263605b043f99bc58fd883e3d6ad186",
+      "sequence_tokens": 205,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1febfe3433e1400423237",
+      "path": "records/a7efae8e1166b5c6502c6edd343915e199e814cab97cf3f15fd4e1015c45d7a6.pt",
+      "sha256": "85c8cb56ba276d31a121a6b2e15533cdc3a57819bdee6f8d4e599b5e4aa9e1fa",
+      "sequence_tokens": 218,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1febfe3433e1400423238",
+      "path": "records/f8d3308a1e7137065e588d4409c6d05a7350b406c7d5db9777a7bfe804a21941.pt",
+      "sha256": "31e410dfd989ec9fb031fecf5c0344a30d09874c3a5ce6c967389f826ba14eb3",
+      "sequence_tokens": 221,
+      "supervised_tokens": 8,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1febfe3433e1400423239",
+      "path": "records/a15b883a2947dcfa78a5b1c7ff3d0c5de490c944b33a08275cd1ce3c02a8eaf2.pt",
+      "sha256": "73ac404258bbfe465c546540bf55ae8576511e788bcbe95a26f682ccdba58731",
+      "sequence_tokens": 205,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e1febfe3433e140042323a",
+      "path": "records/8cb4d30b42584f55fb999a33fcde42c6f10b5adc8906d14344d55c67c9e003a3.pt",
+      "sha256": "d7541502ca1c0b1fd5087bb72fcfbd4f174fbd8e961c62de65992470c4eece8c",
+      "sequence_tokens": 214,
+      "supervised_tokens": 8,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e200e4cd28a01900c67c14",
+      "path": "records/632b0366beb085495a345b66567a6ab8d37cbbdda1ffa8ffcfe205b485f73ce7.pt",
+      "sha256": "4058e84bb6a36ddbcb66c3ae8f40d840ffc3b8d573f8a8b83f9256daebdeb3df",
+      "sequence_tokens": 157,
+      "supervised_tokens": 7,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e200e4cd28a01900c67c15",
+      "path": "records/fda5adb965144155b34767d2b493c7b1067059b4b9a84ea0d2b94f13a7ff2495.pt",
+      "sha256": "a04164f4badd4175f55b277b6d92f988870207b8b8a3e5a8c89a5b4a82855e25",
+      "sequence_tokens": 157,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e200e4cd28a01900c67c16",
+      "path": "records/cc104af1017d91b8035a1661e6d41939c250986c5f78066eea2b4207eaf45cd4.pt",
+      "sha256": "2c998d2a72ac5ac697cbf9d43bb37d4c537f064dc8521c782fac25597056f4de",
+      "sequence_tokens": 144,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e200e4cd28a01900c67c17",
+      "path": "records/4f00fdc3e5c8fd4e630689a51ff75b175c45014f83bfd09d0e40a2b6b2e17802.pt",
+      "sha256": "c05cca9f6b09559059035dc432a378ea3cafaccd4e0ec41920b7408f6ecd2e9e",
+      "sequence_tokens": 153,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e200e4cd28a01900c67c18",
+      "path": "records/99abc13b0a846274ce208226ed5627c901259939376a8dddc2c7cfb220a96f58.pt",
+      "sha256": "f870c00fb0f2685b01330209931026a9d3a0b63387cc3753b8f560a733d51be7",
+      "sequence_tokens": 146,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e20a27cd28a01900c67c24",
+      "path": "records/30cd6bb6c9096a961e326ae4d2df4cd90e6cee23009bb8e76152ca6e8c228d78.pt",
+      "sha256": "5c23a89428be47006b25af6392ed288f0c3603e629ca965b75185e0bb3093eab",
+      "sequence_tokens": 145,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e20a27cd28a01900c67c25",
+      "path": "records/1ec1d89bd58360f56ae1734f0fb9ba77da16a4ebf0725fc476f491b10614c201.pt",
+      "sha256": "615e765f69749475283b115775eceda1c198722d40cd2417d1f698ffb13b586d",
+      "sequence_tokens": 144,
+      "supervised_tokens": 3,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e20a3ae3433e140042324a",
+      "path": "records/2ea88fbbc0dc843fee8c9abce5942b3f233bf8bd320cf8824479fb73c4e31c13.pt",
+      "sha256": "d7b989357130695b67a87e812655c2b1ac13f882dc7887918e859c43ab9e87b0",
+      "sequence_tokens": 223,
+      "supervised_tokens": 6,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e20a3ae3433e140042324b",
+      "path": "records/eef715adc7c819067fa7594ecb59e39bbe178452f0b245bd49be71bff5c79bc8.pt",
+      "sha256": "9cb147197d77847a3d72a872d83c945d33f10ac287997d7bafa16052c356f818",
+      "sequence_tokens": 224,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e20a3ae3433e140042324d",
+      "path": "records/8ad6400901501377c84366c0d5bf8612621a2305331d142a10df9431012c1405.pt",
+      "sha256": "81772c8dcce668d23f3dd337b5e5e39a80a487320b610ae5ca30481feca5f984",
+      "sequence_tokens": 251,
+      "supervised_tokens": 11,
+      "vocabulary": 151936
+    },
+    {
+      "id": "56e20a3ae3433e140042324e",
+      "path": "records/0e17b51f4632941304e3f8c712fbe850abb5ece45539824bdfe77ea0b2a7ecc0.pt",
+      "sha256": "9f0e1add285de61284ed00130a17eca8762b692088c82f28752ef86468365512",
+      "sequence_tokens": 237,
+      "supervised_tokens": 4,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5344b5b96ef001a10ab86",
+      "path": "records/4538ffa9e8f5794083967c41f133abcf141db288b0d942fb90f33d55c0b4545a.pt",
+      "sha256": "fb646fca14985a251c4040bc1002f555934d45c863ac9855e89f6205904d4b36",
+      "sequence_tokens": 219,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5344b5b96ef001a10ab87",
+      "path": "records/59acc6fb50d141545a37d21c0dad9751bbd2977068f9109fe017782e13ed1ab1.pt",
+      "sha256": "d627dcdb353257733fe9f54104bc8de451b6cc2652392ea9e4759ee09a9d16cb",
+      "sequence_tokens": 219,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5344b5b96ef001a10ab88",
+      "path": "records/e291689c8ba4f2bb4a6451d509b9e90d5de04a55576746508dc00d2ead2f4a89.pt",
+      "sha256": "ac47b44f54bcff042d2d1e442dcf9cd66e06520faca67d6a3c32126e05993ffc",
+      "sequence_tokens": 224,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5344b5b96ef001a10ab89",
+      "path": "records/f22a45175d6bc955747f65951d2d860fe24757bd8f0ee20eded9cb67dd4cc8f2.pt",
+      "sha256": "2ab29c02f3e7919390fcdbf96c3259d2f6103f82deffdb53d0a47dd3adbf51e4",
+      "sequence_tokens": 229,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5344b5b96ef001a10ab8a",
+      "path": "records/47ee1bf4cd0e9826e4929a16ddcc80428f17832e3aa9b564626b455747bbfdc3.pt",
+      "sha256": "8975783077d402fc927653a887ad7f03d89c8b2b674e0ff22a4fed1665901ea2",
+      "sequence_tokens": 220,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad537a15b96ef001a10ab9a",
+      "path": "records/ca02672cf7615971b740b85f9ea0bc00e0b3a8f66722d34a28d163191883a71a.pt",
+      "sha256": "aa236dc2040f60401879151d146e0f187079c60d6ab716f034952307dda44601",
+      "sequence_tokens": 206,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad537a15b96ef001a10ab9b",
+      "path": "records/8fba70a3afe605bc89eab36a46af312eeacb3bc96b4b3d95a633ac3fafd886d8.pt",
+      "sha256": "712296be2e4cfe4fddcc1e0a0158957dc4a4c2b65c1051aa3f6fc00d88de2827",
+      "sequence_tokens": 194,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad537a15b96ef001a10ab9c",
+      "path": "records/b8489361f82d3ffc016ceba702a83efd46ca7a6cf782dbbf7d8b4fedc548b3ec.pt",
+      "sha256": "40cd94522a905654c12fa27c7020e4a34c1288365683ca4b406cda8b75cae96b",
+      "sequence_tokens": 202,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad537a15b96ef001a10ab9d",
+      "path": "records/28e4f5cd49aa7912885528c5204d9e5b0ef8e4deef974847637f5881e146097e.pt",
+      "sha256": "40f80f989bae4ceafadcfc9d7579bb99c4cc9188ece9a43910e06b962ea25b21",
+      "sequence_tokens": 194,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5391e5b96ef001a10aba2",
+      "path": "records/ee466987a751ef6ee1f8f61ec388a19288f80fa0fa9f73124e6ebf987255e4aa.pt",
+      "sha256": "f52347dcc733c3109faa0566dde0e74f37e709f02f6225b611197ce29efb85e2",
+      "sequence_tokens": 183,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5391e5b96ef001a10aba3",
+      "path": "records/c4dcea3a0ffa35b5a31f71c5aaee0819b0d952efcf5d162050c3076b503a9294.pt",
+      "sha256": "77bd1cfc8564276639af3925fac273ee6c0280c910b9628e92ba5fe9afbb8255",
+      "sequence_tokens": 185,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5391e5b96ef001a10aba4",
+      "path": "records/ee0a07e579226f95d0823e32fb901fb7cfb720c79e789301eac0af40ee78b16e.pt",
+      "sha256": "759e51ceb708cffe4b06792c0c2d389a3a1ef3f97f935d316b5c8599f35e663c",
+      "sequence_tokens": 182,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5391e5b96ef001a10aba5",
+      "path": "records/ea6e5d44f94a7390da2008d198306575622eec0e840724434c6cd60946503733.pt",
+      "sha256": "b17cf6037e14b758715d878ab6c98f4d77d0eeffe4349e90e50e143452006dff",
+      "sequence_tokens": 183,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5391e5b96ef001a10aba6",
+      "path": "records/7675f721ab84728f55c6b855ba8752e5df1cde6b5dd05495222838f0c26036de.pt",
+      "sha256": "8cb68579357fe92d9b97f37bab27fdaccd1ed332f2bd16178ac46857cb1fe951",
+      "sequence_tokens": 176,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53ac65b96ef001a10abac",
+      "path": "records/d5b1f800668e92d1f1df146ad7bd2e19f4805745acb3fd07cf7a411f7d6ba31a.pt",
+      "sha256": "56020c15b7b4fbcb82d41cb701f7ffa57fba45e3e3f922e48ce02c912301e0b4",
+      "sequence_tokens": 145,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53ac65b96ef001a10abad",
+      "path": "records/c6540486ef9d04695c023d3280007689e0e498737969fd4e464639622a4dae06.pt",
+      "sha256": "a968b9dd0cbfd86e229cb3db6fd4426f22d25e4aaf78a6d84507e3f778f7dff7",
+      "sequence_tokens": 146,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53ac65b96ef001a10abae",
+      "path": "records/48a7ba324483042b6ad090ebfb55fdd1ea23c49c02f5d8d58c1aae46ddbb22fc.pt",
+      "sha256": "65ff62f43f820b67124e6606e22aa1e2f79f5bfd4eacc4707aa946472907d4b0",
+      "sequence_tokens": 141,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53ac65b96ef001a10abaf",
+      "path": "records/3fe43e2aabd8249aced10f487daf3c4312f38e624a7b445946a50e60ddfeb7e7.pt",
+      "sha256": "a61fa0864d1a48fce2c7483d7b15cc4fbe1b4ac59ef9c160eb0e8e6e8f92102c",
+      "sequence_tokens": 145,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53b9d5b96ef001a10abc8",
+      "path": "records/4775a7a816c557367e2bc1bf8f045479f856a12ab4c38e412c51d838fc5a28a2.pt",
+      "sha256": "21c3313fb657bb1ded28f00df6074885a283edff28698ee9d0601436623cca0a",
+      "sequence_tokens": 228,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53b9d5b96ef001a10abc9",
+      "path": "records/5a9ef331b706ef7716ea4e09667312f466165f951ba168d9a2c45eb582e72576.pt",
+      "sha256": "12794d37b6b71697da3098c1f3e12a6750d932348abf8990031788a82a34a710",
+      "sequence_tokens": 227,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53b9d5b96ef001a10abca",
+      "path": "records/ad46160b710120395ead5c2e1acd43405487dba7251167fcf206666d162d785e.pt",
+      "sha256": "725e6c5e771153f9780daad750f6fae8bd7b394c129eb86c3ac76f55b9d573ed",
+      "sequence_tokens": 228,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53b9d5b96ef001a10abcb",
+      "path": "records/8b09f4b5eb427142fbebb17540786d0dd9a98dc3e78281c2a8e1370665c74e00.pt",
+      "sha256": "5df4c28c71b23c01e8336d1a310add859ffa62bf2674caff157e35438088dc97",
+      "sequence_tokens": 222,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53b9d5b96ef001a10abcc",
+      "path": "records/eca71cce13245ad3e0401140beb3f1fccba6b14770ad7e8adca1e346e34567c7.pt",
+      "sha256": "a4166ca6d7c810125612d9036e6ce7602c35ae0f25c37d66eb7de5ebdee7d565",
+      "sequence_tokens": 223,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53d705b96ef001a10abd2",
+      "path": "records/1405a9883372fc1ce2eea01f4279b33889b005c1552a8785e3658e7adf5129f4.pt",
+      "sha256": "8c3c0e8a49b5019c7550da1de8dc03e6573d5cd39301e767e59d4f9ec4240860",
+      "sequence_tokens": 163,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53d705b96ef001a10abd3",
+      "path": "records/aa415553ed02a26fa31d05bc4c7b184be534cd0ae2ece13b7a2d9298a8530d39.pt",
+      "sha256": "7f0fce766fb2bff97644fecfe2eecfd4178687171062003dc2501a6ef53fd7bb",
+      "sequence_tokens": 165,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53d705b96ef001a10abd4",
+      "path": "records/dab6121536ad21811793bee9c8d59efd75b6eef46641140804c39177b3bb0e0b.pt",
+      "sha256": "0c8e727796f2b867f9ac1029b2ea3ed4f5edac8eeac78eb402fabb312837b248",
+      "sequence_tokens": 167,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad53d705b96ef001a10abd5",
+      "path": "records/36223a426b96cbb4783828fae020108fbe3a52a538e48875b10a9505e0a50b0f.pt",
+      "sha256": "446363bdcee4229a781ed3da56a67bb53869900f50b364a1c8b2e1acd4fd9a02",
+      "sequence_tokens": 158,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad542db5b96ef001a10abf4",
+      "path": "records/fda914a0f5c8944345a4457a00cb55b918cdf9482851dedcd5ce1ef08eab8b6a.pt",
+      "sha256": "706460a28a0370f99aefa7a35f430ec5c30f09444411ae91e7bbb03d2e1a9857",
+      "sequence_tokens": 189,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad542db5b96ef001a10abf5",
+      "path": "records/3a63475fb2a8a3f9e678168cebbe0f89c3bb937b85702e67f574aea9d1949a74.pt",
+      "sha256": "25e05617be1f41337b2e88cd2a9b225b785a73ea595c4f1024880b264d756e78",
+      "sequence_tokens": 204,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad542db5b96ef001a10abf6",
+      "path": "records/0f7170ae15f5bf0b64201a5e56792a8b4515d91ae72f72cbdf985e0a3568cd67.pt",
+      "sha256": "5d6c2ce92da52b5cb5fcb289f7b5a7a90a0ff1f81ef479cfb5cfa394b4c1536b",
+      "sequence_tokens": 194,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad542db5b96ef001a10abf7",
+      "path": "records/ca11671a9bd7076ea284ccd77547a5a0def95c64c80538adeceb79b116527009.pt",
+      "sha256": "d03b34565a3926a457ed11397ffae314f2151f9770a0e7a6c038f8625fced5ab",
+      "sequence_tokens": 189,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad542db5b96ef001a10abf8",
+      "path": "records/a9899936cc14c3b8322699fcb0f87274bc741dd5ab7007caede3b984da51325b.pt",
+      "sha256": "550f06451829a504f9ebe36a9f68e563f4c56c1aae43cdbcc3f5477ed136862e",
+      "sequence_tokens": 199,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad543c05b96ef001a10abfe",
+      "path": "records/495a64b894014c14dbd5182d89e56ef1b45335ba00c44ab0cbe32ff5f02c7b93.pt",
+      "sha256": "d693799c6e238ec91374b5a3b5699c8632f3db4c303490655e284304d0da9b66",
+      "sequence_tokens": 275,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad543c05b96ef001a10abff",
+      "path": "records/3619465fa637247400434062021aa01f202c738d5f551b908b3b5ab15612b4ea.pt",
+      "sha256": "153a5ba4c587708687a5b8b4f80b412348437e8bc07b20da84428963412ab5a7",
+      "sequence_tokens": 281,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad543c05b96ef001a10ac00",
+      "path": "records/a7eb6ebf333b61a24efed76e7c52f966927f80efb490cab2090c01bbac763cff.pt",
+      "sha256": "00075090e84bfd45650dc658cd5890d6e4a58ea3a8b72d689a50f40ad9a21965",
+      "sequence_tokens": 274,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad543c05b96ef001a10ac01",
+      "path": "records/ab13aa1f7ea349a0f0e8dc37f7ac4f2267b60c445d58a97516ae9067a1fb6f9d.pt",
+      "sha256": "de51a55fdd712304e0dc4a20956d5211a1a45a54d5bde89ac3a262e66b5dfce5",
+      "sequence_tokens": 278,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad545545b96ef001a10ac06",
+      "path": "records/e7711db263fd5ead09d9e46213eed4e5d669f65c2d1afd628123f93500e142c7.pt",
+      "sha256": "6afbd7cdb3687f6ea827b2a31273bcd530f2ccfa33a8fdf77316e855ecc42a9e",
+      "sequence_tokens": 158,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad545545b96ef001a10ac07",
+      "path": "records/0327f06dde7b8b24dcfa71b92419986fc6c762ff3d3ed43bad0c96516254b366.pt",
+      "sha256": "391f82b7bfff63bb33eb83b06bbb4e2f8cff595da5c0bced1bb7f460f11c4c49",
+      "sequence_tokens": 165,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad545545b96ef001a10ac08",
+      "path": "records/109512e3d5b9ef0db0be34bcd1c74704886b5a072412d9359c56569611e79220.pt",
+      "sha256": "81d93466040dc51e7c7b621738830be48514a0ddbd80dd387aaf916fe505f3ee",
+      "sequence_tokens": 156,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad545545b96ef001a10ac09",
+      "path": "records/6167fd2025dab99ecb14b059e22eaa995ec7873e81e49eee329e81556628198d.pt",
+      "sha256": "d3e5f4b16e302bd53f673be7932c6883244b0acb0bd87ab3021d119c76f600e0",
+      "sequence_tokens": 165,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad546c75b96ef001a10ac0e",
+      "path": "records/211b675033985eedae733d8c0a084183469aea960c790e2f60d097279d1109c4.pt",
+      "sha256": "4d11638869ffc3b6384c160ff8f4b44696acc84ad2210abc0e1bf4c3696e2b51",
+      "sequence_tokens": 278,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad546c75b96ef001a10ac0f",
+      "path": "records/6f9c5ab9d3c21b963ca5c98ff51476e6e5d505c29d9955ef2b1d04f07a04a649.pt",
+      "sha256": "ad140b84fad7bf9b69be2aabb2c06b3dc8d8993f80f926ec284e92a2970b8b31",
+      "sequence_tokens": 280,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad546c75b96ef001a10ac10",
+      "path": "records/39edc608b71228eb26bd06cc144f96d59cf444d6c7f532879256fdf36f33b706.pt",
+      "sha256": "efc5cef3c470970d872791f98c63f0afde087533890279072e276323da1274e9",
+      "sequence_tokens": 276,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad546c75b96ef001a10ac11",
+      "path": "records/58975975d5563d283dea4610e0a8d314f3e8453c5ee140f7ff04fe921eb16472.pt",
+      "sha256": "e8fd45564440e77ebd1ed6d3f265e2f62a7fd75ed61dacb0e646b9ada355b5ff",
+      "sequence_tokens": 281,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad546c75b96ef001a10ac12",
+      "path": "records/e52aeb5ee22253902375cc4586d00c07c99fa06a624536289249ac03c11749eb.pt",
+      "sha256": "c1e5e8edb06cbdd0718f1bbe04070e1b1f31002d23d69a6b88b3345f7dd01a38",
+      "sequence_tokens": 279,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad547945b96ef001a10ac18",
+      "path": "records/cf936b8c673979eb77df3341f45cd2dddc173da2706bffbe04fe1fb1e0e94a02.pt",
+      "sha256": "6c75a444a27ae15061ffe7fc5bb882c6ac4245c7cf5b693360f382a6e28cb475",
+      "sequence_tokens": 167,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad547945b96ef001a10ac19",
+      "path": "records/fbb9017da840391016282a09738c10f23080d5f34c8d609c55f0ed923e676881.pt",
+      "sha256": "7352507c7a31b94993176bca11e19ebc2442446c8c6de5390621e72c50aac318",
+      "sequence_tokens": 155,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad547945b96ef001a10ac1a",
+      "path": "records/a4e01c92c8ea3d5919a4b9d90f78ae563bcfbba39e69456fba1e1011f4ae8bbd.pt",
+      "sha256": "45fcafc7296638f339ae4d318a2be52e04089375bdc213b21fbbd8dd990b7c7b",
+      "sequence_tokens": 162,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad547945b96ef001a10ac1b",
+      "path": "records/09af4d85436f1bde5ddca6e791de8921ca673c484bb97401e1ba179ff74bd55f.pt",
+      "sha256": "67f79c88e2ddf33e7001a6a53616a612af21f7dd17fdd27f304d0b0dfc1a68e4",
+      "sequence_tokens": 155,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5489b5b96ef001a10ac2a",
+      "path": "records/6ae4bd9323189414778fe5e87dba03ca46d58da17916f4783a68b0fcc94e68a1.pt",
+      "sha256": "d75a1dfdcabda40e78089e497d63a9101663f5e0ee4205c0d9480f46546c07f0",
+      "sequence_tokens": 183,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5489b5b96ef001a10ac2b",
+      "path": "records/c5e01c1efb7e9c2e77f00277773612c468c5b6a2652f7231dfd3bdf131166558.pt",
+      "sha256": "0e66b3f50bb27c3841ee56764f796b5597816a07aeb332532d3b8e3845e88440",
+      "sequence_tokens": 194,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5489b5b96ef001a10ac2c",
+      "path": "records/ac56d61de67887d3db26a448a62222d4da8e88124cba6a0d55fefe7a757b1bf0.pt",
+      "sha256": "be7dedd226eba640919e8b40ecaaad53ea051b567d62b50523a69a33dd723d88",
+      "sequence_tokens": 186,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5489b5b96ef001a10ac2d",
+      "path": "records/3d89516abaf9fe803c04ced15b0858a44ca49b0d169b89223c637cf4661c1259.pt",
+      "sha256": "4c16fa7b8f550df8ebbacc58d7cac0ae720d7ae0f4b584750068c044f8c89655",
+      "sequence_tokens": 189,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5489b5b96ef001a10ac2e",
+      "path": "records/055205322e7e036259df62cceec83b65f073cfdb22e8063d59c4c301689f277c.pt",
+      "sha256": "82f551489f9fc34e3ef55e7d5055c5f07e74a444d7f2410790721ddd5bd16ef9",
+      "sequence_tokens": 192,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54a375b96ef001a10ac48",
+      "path": "records/b9037c5009052e6c088f74f35f0ade9b64b4e282a5c1214e270737bcd2567063.pt",
+      "sha256": "a228f5b01794a625863cacaf0231b155b401c5124721923c441c902bd2dc7aa3",
+      "sequence_tokens": 287,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54a375b96ef001a10ac49",
+      "path": "records/fa0a00471f99f2adb36e27e105f9cad45785021c91143c52e00268d38425c8ef.pt",
+      "sha256": "b0a18bd765346dc360311f302f94a9769fa86f6224ebcecd109b44ba13c5f78b",
+      "sequence_tokens": 272,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54a375b96ef001a10ac4a",
+      "path": "records/5c76cb72612245896f24cdde57c9b3dced859e7189078ca94265445bfedbb229.pt",
+      "sha256": "c6143f2248fae3be4196afe50ed073b2ee138acf434b06e8cf4ff54235cda69e",
+      "sequence_tokens": 286,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54a375b96ef001a10ac4b",
+      "path": "records/5d2f8903c713cc8b419c80f019573554fbb941cd2ac887a290c8495d959980c2.pt",
+      "sha256": "20e515bbd6b02d02e42ede23798b1ad8bda9f8bc04170d28a1bba2dfe42acc45",
+      "sequence_tokens": 287,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54a375b96ef001a10ac4c",
+      "path": "records/ca8d38a6da9e4d1de8abbb23a7acfd4c661c4a304e834e318e8937b6c19db1bf.pt",
+      "sha256": "82a85f1a7f59f09582d03f924d844f1ac0def54bd169d278a5f2b1252d14e848",
+      "sequence_tokens": 274,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54c2f5b96ef001a10ac5c",
+      "path": "records/d8e9ab6526ac1c5fa14c1e72ba58a57f1523c5fc2c42c0a55e328dc52d26489a.pt",
+      "sha256": "286ee5651cae9fb957f06a811b86f5b2f84eb2144d96c1e1853dd986698f42c2",
+      "sequence_tokens": 140,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54c2f5b96ef001a10ac5d",
+      "path": "records/27864fc0af51b19f44ff347c57aa2a46f097780698e9b5c64b30f08d7d2fc981.pt",
+      "sha256": "24ea971f32b90de20f300db7b22bb12ee04135b9b7cf33912a74041d5e5b663f",
+      "sequence_tokens": 138,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54c2f5b96ef001a10ac5e",
+      "path": "records/39a059138726a576327778ba6b6e40a38788abe725fe2b4866ecb031ec8c8c57.pt",
+      "sha256": "534a5439c81dc42b1d2949408d1123d5afc875ce2fff8ba0db07c1a055f0ef64",
+      "sequence_tokens": 139,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54c2f5b96ef001a10ac5f",
+      "path": "records/f463f02f62a542f260aa89dfdeb8e2d1998703a02ade9efe3f56204986829517.pt",
+      "sha256": "d1d9efde34c1f8e9bd8caf5b08c29e886c3a5dd42e307dd7e4c79ea43a46c048",
+      "sequence_tokens": 144,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54f775b96ef001a10ac88",
+      "path": "records/c80487423ebe8d2cda5b9702a29fa67df61005e828842ff213aaf80bf8f63392.pt",
+      "sha256": "ff08efde7a57aed580b05c5b432b2cb4293455799f3ada33cd5c528d8fc5a419",
+      "sequence_tokens": 158,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54f775b96ef001a10ac89",
+      "path": "records/4a71ef3b14d76189aed78d5ea8a1aff4e8abb4427f9ec3d9b995886e119abaa0.pt",
+      "sha256": "669035219285d9713a11ea8fd2f9456d99236ec43d0b32cdb6f5b3862916cdff",
+      "sequence_tokens": 157,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54f775b96ef001a10ac8a",
+      "path": "records/57091dc0dd74fd107596ad8281f408d60297e4e2e56b76f21d0f2dca9073121e.pt",
+      "sha256": "94071edadbb1930979efe41622faf52668c70ff9c3242390f5ffa98d11b4a595",
+      "sequence_tokens": 161,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad54f775b96ef001a10ac8b",
+      "path": "records/ca1e06e6d4a1f7dff3507ce68628297ad42b42d5c32052f6f78bb28790b3e4b2.pt",
+      "sha256": "0064893f6d5c56e3849f05f5ffc390003beff49f478dcb74d7cf2bc683f8f7a8",
+      "sequence_tokens": 174,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55ee35b96ef001a10ace4",
+      "path": "records/dc44ff6ec69ef10d9c5df15faf5ef798a35d4976c66f5674a167d2420294b8bb.pt",
+      "sha256": "1bcdd0f5fb30fef8852835939d53a01f1820602ead64eb1299100a535c3316d5",
+      "sequence_tokens": 244,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55ee35b96ef001a10ace5",
+      "path": "records/dd696c44eed96dfffc17f8df4d12ea1bd10c9f4e04d0276d6be3bff7356bc8ee.pt",
+      "sha256": "be4804a6e2dae3419617a69756db93ee4d45851b66bc288144d6464f84a99645",
+      "sequence_tokens": 244,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55ee35b96ef001a10ace6",
+      "path": "records/daa98ac6c0263759bf79ddb6ab0cdaec7b6f6187d8e4fdd6f18f743007458290.pt",
+      "sha256": "ffd73b6795b4ddca33336fd191c8b4d14147aa8fbd6ee82d1762ab6bfd656561",
+      "sequence_tokens": 244,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55ee35b96ef001a10ace7",
+      "path": "records/154f5e94a0282473b6cbd75eb0e0da0219f1cb920e86ddf3566dc4c2c2be39b2.pt",
+      "sha256": "87f1d64e24d88eca0f3859b6ef7019b0e71eb366a002f73e7efdd0db8f7c6677",
+      "sequence_tokens": 236,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55ee35b96ef001a10ace8",
+      "path": "records/85323ee4391205bfb0bf7f6029d353ea71a616a0dbbe80df2efc5567346f074d.pt",
+      "sha256": "9f13bb768e483aad5d509c0e1fb0c9b2b652c876982898ca71dc39b7216ff00d",
+      "sequence_tokens": 247,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55fe75b96ef001a10ad0c",
+      "path": "records/7c0302ab41a4bdcef95b096a30bc59d759c0ea788a07f22b25536503a931c59b.pt",
+      "sha256": "d185a0303fa5322442ce7bc156a2ed56c4e647bd27cc7df41f0cdb60105ee9fd",
+      "sequence_tokens": 122,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55fe75b96ef001a10ad0d",
+      "path": "records/8b3cc8cd49800b6c02d035d5cfa560ed141a4f10148530aea3f898463c4eda82.pt",
+      "sha256": "df90519ba253ae1d9ff9024a0a40f25639ac83eb4fab9eafe3c1e1cefec6213e",
+      "sequence_tokens": 123,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55fe75b96ef001a10ad0e",
+      "path": "records/ff4040409db393f835bd96456e38c3d11736fd992f638993d8c90eec5a4be793.pt",
+      "sha256": "df23f48ff24db55aac8db7cef97271f1f56523c1c88974972d9c3244408faf40",
+      "sequence_tokens": 121,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad55fe75b96ef001a10ad0f",
+      "path": "records/f11b04f4a06dd358ffd61c1e8ee6fcb3a6c484337d0b0d6ba86506476849ad81.pt",
+      "sha256": "7eb024c32c18ec4357c637ae126884c80a644763dadfd8e47379dce3bb0587f0",
+      "sequence_tokens": 122,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad560b85b96ef001a10ad1e",
+      "path": "records/98c411834227723bd82d62f02cceed503ee0f878257af32dfca654c5403a37bd.pt",
+      "sha256": "26a1b479d8a7d0efd030dd93172e3b3de73bce9dd441d26cae9388f491c3a123",
+      "sequence_tokens": 167,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad560b85b96ef001a10ad1f",
+      "path": "records/d33835d09fe1e79eeba41ff661ccd1fc70506bbd38bb09a8dd1c3104a227b6a9.pt",
+      "sha256": "cabea36f7eb85b00f9de2a71f6eb7694bd9ddf6162aa9e9d14a3b4e00cacf64a",
+      "sequence_tokens": 172,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad560b85b96ef001a10ad20",
+      "path": "records/4081fa0baf4a9f874db10b88674c8ce5dffd9975597ebe68334ecdddedf89d22.pt",
+      "sha256": "22ff3da628573a3630f4bbca6e4b72973f921e995efcb5272531065fbd10ab7a",
+      "sequence_tokens": 169,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad560b85b96ef001a10ad21",
+      "path": "records/a814243fd6f1690c1e0a1f4c9639fd638b27e8219ce5e4583186f73384272eb9.pt",
+      "sha256": "f0042cbb60ec788967471526db5ba4894628a87514c47a20e7f365d202d91fd2",
+      "sequence_tokens": 168,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad560b85b96ef001a10ad22",
+      "path": "records/8805d9fd3081abf3881fc5d36e19bc3fbbf6230e8658d33bf460e7e7dd3bd7e9.pt",
+      "sha256": "de7f0bd38a24a717168b578266875fdc67d6aa7536d0efd47da5077859029cc9",
+      "sequence_tokens": 169,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad561c85b96ef001a10ad3c",
+      "path": "records/8618685a9fe1ea2bf4769bf5fc054cd6fdac371eed0bab65f5d09b7672e129a7.pt",
+      "sha256": "0de64e3ff9d0558f4ad1f8f53bf625069f4c101579bf9d48f172b4f24bfdee82",
+      "sequence_tokens": 264,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad561c85b96ef001a10ad3d",
+      "path": "records/03d000eb2e849dc498729d9b49d0bd199f84f04664711ce7c64c048a8f195b64.pt",
+      "sha256": "b5992dd14f8b2e063a952a8df6225a778cac3b515d186d56d1c17fe327b37170",
+      "sequence_tokens": 248,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad561c85b96ef001a10ad3e",
+      "path": "records/2e5693eb46c2e616281eca8c582db3c4f33bcfcc986e8f8936dc2f1e5df8d1f9.pt",
+      "sha256": "b4dffa21d1f01ea3812cebd1db8164ad90222133aca8349863c9d1bd6b48fec3",
+      "sequence_tokens": 248,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad561c85b96ef001a10ad3f",
+      "path": "records/8f863ceb4355ef44b26193b39057354e4248408b0e2a2cce8eeda73cf54a3d21.pt",
+      "sha256": "52b764811e5fc7b516668747e8a4d5a102e6793c36eb4aba8803c99780c11875",
+      "sequence_tokens": 256,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad561c85b96ef001a10ad40",
+      "path": "records/dac1dceb997bbff9f0f7e0dcc4069ea6c1f81674b25360ed4f5abf6af436ea44.pt",
+      "sha256": "1553f6cc414b8832b7efd0d488b71d9981a5759adbc78449fb10067c0c5e8b42",
+      "sequence_tokens": 265,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad562525b96ef001a10ad50",
+      "path": "records/f60e1eb9f74586c8fa3916e6849c3867f1d47bb5547554a4490a9f9dab53f26f.pt",
+      "sha256": "a9e1439c9bee7939cd08a7391e653edad09aa11e514bd72ad40c3199cda76031",
+      "sequence_tokens": 142,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad562525b96ef001a10ad51",
+      "path": "records/92e4aea5a7b41a2742a0f66785abcd01cfc4c1cdfc25b68f3c461f31891a05ac.pt",
+      "sha256": "e26075502a6df0151796de227db1410225cf4105b83e8a567dd0b3d8e0acd44a",
+      "sequence_tokens": 144,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad562525b96ef001a10ad52",
+      "path": "records/f068551d930cef1b773119a0aa1d09b657a06354232ddd4cd610596e3fdec1ed.pt",
+      "sha256": "b1880c048a5612ec0b86d4f09de5b3c6f8a8d5895fbb2dbaed14316c9617430d",
+      "sequence_tokens": 138,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad562525b96ef001a10ad53",
+      "path": "records/ba66835eb2c218291af2523b96dab0d36889b9a1f202cfad0c499e6b21984870.pt",
+      "sha256": "909c3a31cee974f2e621f156ce75a0781edde274d772877cf918941d0a51dcec",
+      "sequence_tokens": 137,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5632f5b96ef001a10ad6c",
+      "path": "records/0f6e87845a7eaa3dabca0481e18f566e96964527b0b90e05cf35ecf1e8d684db.pt",
+      "sha256": "09cd010f65b18a10aa5bfc2f1680e7746f2eec9b6d95ac3b302abdb4b1f9c705",
+      "sequence_tokens": 203,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5632f5b96ef001a10ad6d",
+      "path": "records/ac4b231077f68a9860d726670b5acf7600124d7ed8a16c7f1c5bdba8cc85a04d.pt",
+      "sha256": "d37eea3ef96490d468cdc61a2b34143be9a27630749f07e7ef84fabc3986dfc5",
+      "sequence_tokens": 204,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5632f5b96ef001a10ad6e",
+      "path": "records/5d6baba5a358b45735bf084299bab924d9ce6902700f7af0033cc79469c1c698.pt",
+      "sha256": "92e1b2fdcece4f69d0749fda6002037a830c582b2cee7220d84ab7f0409ded63",
+      "sequence_tokens": 206,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5632f5b96ef001a10ad6f",
+      "path": "records/cd299ca37825e158bb473f703b5f49cb78bc892ff97618ab659829242b1dcbb0.pt",
+      "sha256": "0400807c6f19da1ebd7c9d3d57e40f60d8a9f13a2ebc43e8ba6e0095321e480b",
+      "sequence_tokens": 211,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad5632f5b96ef001a10ad70",
+      "path": "records/dc84dcc60117483c497e5443812139eaca921baa30572ea1bcbe7bef6285f4f0.pt",
+      "sha256": "e6c2145d2511b5f1eddd0931d1b5d886c8bd28d175edd86583838f46ebb8b63e",
+      "sequence_tokens": 202,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad565575b96ef001a10adb2",
+      "path": "records/02021bcbc027a5c1c767658490e2327b2c725ec1848658df66bc8dfa70f24c48.pt",
+      "sha256": "a766440765092ee46be59300129a30bea137ad3536d820544d3eb5035a543c53",
+      "sequence_tokens": 197,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad565575b96ef001a10adb3",
+      "path": "records/0aefccc53f81f70f3954674704c873aefbf8edabec6e1bece2e660a1f3879303.pt",
+      "sha256": "e66fafd5114034b399020d2368447ef70269d0702fee5d5368936399b4e8cee3",
+      "sequence_tokens": 205,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad565575b96ef001a10adb4",
+      "path": "records/7c37ab946751683696280f2b446f12bac13acc722e75e54f83ed8c2a81efc2f2.pt",
+      "sha256": "dfdf99f6716e0143994556be7c7815260f684b715dfb262e98883d2c07b294ec",
+      "sequence_tokens": 195,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad565575b96ef001a10adb5",
+      "path": "records/9d3c67aa74ae87f6a346338ed7611f12ecc8b17837f70dddbfa54947500f87a3.pt",
+      "sha256": "1bc58eeee4f71a460c1735103426ad77da1a1ad8ff408ca2ebd4ba2e428a3be2",
+      "sequence_tokens": 201,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad566375b96ef001a10adce",
+      "path": "records/e3d3af76ebf58eb7001605367f8fa207f4be0a30e253ce781b65db42729a7241.pt",
+      "sha256": "30399e6c61fc98295a10079bb1f575d5226f9d942c9e96ff11155669b1b81d16",
+      "sequence_tokens": 277,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad566375b96ef001a10adcf",
+      "path": "records/b748813b52c0c76e48f54d7ec7ef96f834edab1a9c90520af0852cfadbd40e5e.pt",
+      "sha256": "93b4eae5e4cca5cfefb19bd581491e2116a063763253cc9390ffe33c2c8712a2",
+      "sequence_tokens": 271,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad566375b96ef001a10add0",
+      "path": "records/fdab81da66788c5de3664aed182ea6c43046fbbd83729069257a19bf38e07512.pt",
+      "sha256": "d069edbd7967e27bed8e63037c313fdf63d38449af60d599caf958445b65ed67",
+      "sequence_tokens": 274,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad566375b96ef001a10add1",
+      "path": "records/65620a54ce8965676242c82ef416177a085e7e0172596231880a26438af4b7bd.pt",
+      "sha256": "f48c7d711c8861b94687d4126232e0d037f687dec3ea20a905298a1e4cd982ba",
+      "sequence_tokens": 278,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad569c05b96ef001a10ae36",
+      "path": "records/a08a5cd8ec3b98b2915f1acbf3a4cfdba1f435733edd9bd45eca4be07dea71e0.pt",
+      "sha256": "e0ad30949d970cd619827a2d9bbc2563f714d21f86998afc921c3bc9dc07e055",
+      "sequence_tokens": 236,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad569c05b96ef001a10ae37",
+      "path": "records/065c45a6714907416af43d1e61db140b5f7e0949bbb7e9f92ccee9175f3461c6.pt",
+      "sha256": "8bbe737641ef7c472df73644b911b709d54ca726db6e2ec79831db6cc758bf59",
+      "sequence_tokens": 243,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad569c05b96ef001a10ae38",
+      "path": "records/5281044678ebdc9f4050b4f153a9654d588e57a79a6d69bc0da651787bcd26c3.pt",
+      "sha256": "ffa34f791fdf6fbbb56b20369c20d06fc11b965cbcfd9d2d80d0ead891be422a",
+      "sequence_tokens": 238,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad569c05b96ef001a10ae39",
+      "path": "records/25dc3eb9c50f523775d21184f736dd42ad17fb65d413b4ea7929c7c502fb6cc3.pt",
+      "sha256": "365800269a11d5ac4c868db1450bd567c49a069bfff3da57e9fb019c00be1871",
+      "sequence_tokens": 244,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad569c05b96ef001a10ae3a",
+      "path": "records/71320fae574c1ef7caab228af9cee1d2b8e50984f8cf2e76c0bab462e6e42642.pt",
+      "sha256": "f6a9fc6517eb153135a1f1ae710cae29bb7d964b9e66509d1010e5a662d74d5c",
+      "sequence_tokens": 244,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56c6b5b96ef001a10ae6c",
+      "path": "records/1ac5fb38eaf0d204c3a7347b56eb2d837db0fe7f975f4f2801728b36b8106630.pt",
+      "sha256": "fe2ce782f65c4b06e261fee78cabc1f593b450bfc18f8e6aa8616d841d2ea7a7",
+      "sequence_tokens": 159,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56c6b5b96ef001a10ae6d",
+      "path": "records/400e606da149ac65fe9c9dcc0700a834bb5c9f9537d027449f581d8380cae695.pt",
+      "sha256": "412dbcb94b41575a79aa4c4517c8f290e0cfdda02bd0e20b03f2aa95d5b4364b",
+      "sequence_tokens": 163,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56c6b5b96ef001a10ae6e",
+      "path": "records/45fe8ebd3dc202a0388df09b109464bb807f0288f622ab468a50a81a98d23bbc.pt",
+      "sha256": "875e6c49cc5f328c22f07c46dbfda93c4f775407063e4eba473f12b303908382",
+      "sequence_tokens": 165,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56c6b5b96ef001a10ae6f",
+      "path": "records/d225db541ab3e89f1c37f53370e75021158171eb09392c0e5f59f19c2bad13c9.pt",
+      "sha256": "f3c73930f13ea257cb21283507f56508ddabed3fa6e63040ab1ca86064297d2e",
+      "sequence_tokens": 170,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56ef05b96ef001a10aea8",
+      "path": "records/06a02dc829ce0180d94dc7d90c5dea7309731837806dcc741b30031ed52d8a26.pt",
+      "sha256": "533626a25a066f8dfb32c2806be1133c181e16a840ac84c4d4a14a62510d8dba",
+      "sequence_tokens": 203,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56ef05b96ef001a10aea9",
+      "path": "records/153b2b326b827f0ace1c502664fd769089bbceefbfdcef76317dbcf821fbcfac.pt",
+      "sha256": "ffd8bf19a80c78b1517b9fb3afa19e20b513a1520c0e2c206f7cd587bf107c58",
+      "sequence_tokens": 203,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56ef05b96ef001a10aeaa",
+      "path": "records/b15c145a5b635cacebb1c028cf407d4649f2a0171fc3f455f569cb74d2a188fa.pt",
+      "sha256": "bd69aa1fe8b643115e32ec819c55eff24f0aad53c18f788ae2dee953d421f4fe",
+      "sequence_tokens": 212,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56ef05b96ef001a10aeab",
+      "path": "records/485ea732244cc95cc3c213d99745090fc8cc278eb877bad972a7477842b06bdf.pt",
+      "sha256": "edcbb7646b2000c6bfe4e11ebb564c8c72e375d17a69a2b81ff203418a7e557d",
+      "sequence_tokens": 200,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56fe65b96ef001a10aec2",
+      "path": "records/f4deab1f19d1043f47dd3368ae9bb682497cb27fcd66475a16c759d3e944f289.pt",
+      "sha256": "38cbb6670acd96160f0d7054c1c34c40849f4e80966d32bb31dc5afe399ae158",
+      "sequence_tokens": 143,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56fe65b96ef001a10aec3",
+      "path": "records/3a97b2bf4f70284e7ac50b6da9f8aca067f2f32293797a696e07a5f010136a37.pt",
+      "sha256": "4b4448749eda6aebf6e59c0722695fa7da9e39198b0fa746a3d889587f2ab2b3",
+      "sequence_tokens": 155,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56fe65b96ef001a10aec4",
+      "path": "records/975c53c5d078fe5c05e0a734a4fe9a2f308f81bcebcaee47bd5360593488debf.pt",
+      "sha256": "b0fd9dee96da0f90a49bec4e9a3d55196010b0f877ad2aebf26194199c00db44",
+      "sequence_tokens": 151,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56fe65b96ef001a10aec5",
+      "path": "records/373a40fe3a3abb62d1a937679e801c00993a147c2934ebf03469ecd4d5581592.pt",
+      "sha256": "3ffbcbc483cfbcde35f3e3b18db53312c6b12535072b3c5e403c16716582e90d",
+      "sequence_tokens": 148,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad56fe65b96ef001a10aec6",
+      "path": "records/cdbce00c43b7d6a7be124f1e3e9015d8225b6469fec57fd3e07448ad02f08d7e.pt",
+      "sha256": "c90f708e00889803a382a6c5b9547b317d01b7216f52a3195ec4113cfbacba55",
+      "sequence_tokens": 148,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad572b15b96ef001a10af06",
+      "path": "records/21df880dd95814c220650d73eda4fd5d31b32d7206e4d0966ddf1f430db4f6c6.pt",
+      "sha256": "15831a1a834fc91026b2486977020cc1e86217db78e6f48196df04668e0690b1",
+      "sequence_tokens": 232,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad572b15b96ef001a10af07",
+      "path": "records/25447fde7802e7cb20456f94620146eda16ee6843e56bd44b1b13eac48f2d2dc.pt",
+      "sha256": "2865c00a46cb3b4573416ccf2265f86e11fc195166155afa41b5771a800e2804",
+      "sequence_tokens": 230,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad572b15b96ef001a10af08",
+      "path": "records/0a08cefd7af2b07dca219d7868b2f34676c2658b1f72c62890e977056f52b038.pt",
+      "sha256": "b4065e6a3c02a3ab0336ad8b8afbd79b4df5a32f38a853bbfeb0f7965d38d813",
+      "sequence_tokens": 231,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad572b15b96ef001a10af09",
+      "path": "records/afef63b223ec160a041ac59e41ef46c325deea2424c525626afa4939d93a554e.pt",
+      "sha256": "66b5eece0396d18be6713d7d5b54292fec4e3723e67a9aaee66a18bfe846fa64",
+      "sequence_tokens": 233,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    },
+    {
+      "id": "5ad572b15b96ef001a10af0a",
+      "path": "records/ca7950184441a3b33268f5e09ba0b429fc8d810093a49acf6456266cf161679e.pt",
+      "sha256": "e70ebe5c322302cc0cdee1fed86108db25c3452d43f05508149a6693980ceba5",
+      "sequence_tokens": 236,
+      "supervised_tokens": 5,
+      "vocabulary": 151936
+    }
+  ],
+  "artifact_row_count": 242,
+  "cached_row_count": 242,
+  "smoke_limit": null
+}

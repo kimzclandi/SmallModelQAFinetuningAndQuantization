@@ -1,0 +1,234 @@
+{
+  "status": "pass",
+  "runs": {
+    "chinese-none": {
+      "rule_version": "extractive-qc-v1",
+      "n": 192,
+      "decisions": {
+        "review": 174,
+        "reject": 18
+      },
+      "slices": {
+        "answerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unanswerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unknown": {
+          "n": 192,
+          "decisions": {
+            "review": 174,
+            "reject": 18
+          }
+        }
+      },
+      "reasons": {
+        "no_reference_permission": 192,
+        "generation_not_completed": 7,
+        "not_exact_span_or_sentinel": 11
+      },
+      "missing_candidate_ids": [],
+      "cross_split_pairs": 0,
+      "format_valid_n": 181,
+      "format_assessed_n": 192,
+      "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+      "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+    },
+    "chinese-train_reference": {
+      "rule_version": "extractive-qc-v1",
+      "n": 192,
+      "decisions": {
+        "review": 93,
+        "accept": 59,
+        "reject": 40
+      },
+      "slices": {
+        "answerable": {
+          "n": 192,
+          "decisions": {
+            "review": 93,
+            "accept": 59,
+            "reject": 40
+          }
+        },
+        "unanswerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unknown": {
+          "n": 0,
+          "decisions": {}
+        }
+      },
+      "reasons": {
+        "reference_mismatch_not_semantic_proof": 111,
+        "abstention_reference_contradiction": 22,
+        "generation_not_completed": 7,
+        "not_exact_span_or_sentinel": 11
+      },
+      "missing_candidate_ids": [],
+      "cross_split_pairs": 0,
+      "format_valid_n": 181,
+      "format_assessed_n": 192,
+      "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+      "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+    },
+    "english-original-none": {
+      "rule_version": "extractive-qc-v1",
+      "n": 24,
+      "decisions": {
+        "review": 22,
+        "reject": 2
+      },
+      "slices": {
+        "answerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unanswerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unknown": {
+          "n": 24,
+          "decisions": {
+            "review": 22,
+            "reject": 2
+          }
+        }
+      },
+      "reasons": {
+        "no_reference_permission": 24,
+        "not_exact_span_or_sentinel": 2
+      },
+      "missing_candidate_ids": [],
+      "cross_split_pairs": 0,
+      "format_valid_n": 22,
+      "format_assessed_n": 24,
+      "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+      "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+    },
+    "english-original-train_reference": {
+      "rule_version": "extractive-qc-v1",
+      "n": 24,
+      "decisions": {
+        "review": 5,
+        "accept": 8,
+        "reject": 11
+      },
+      "slices": {
+        "answerable": {
+          "n": 12,
+          "decisions": {
+            "review": 5,
+            "accept": 5,
+            "reject": 2
+          }
+        },
+        "unanswerable": {
+          "n": 12,
+          "decisions": {
+            "reject": 9,
+            "accept": 3
+          }
+        },
+        "unknown": {
+          "n": 0,
+          "decisions": {}
+        }
+      },
+      "reasons": {
+        "reference_mismatch_not_semantic_proof": 5,
+        "not_exact_span_or_sentinel": 2,
+        "abstention_reference_contradiction": 11
+      },
+      "missing_candidate_ids": [],
+      "cross_split_pairs": 0,
+      "format_valid_n": 22,
+      "format_assessed_n": 24,
+      "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+      "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+    },
+    "english-prompted-none": {
+      "rule_version": "extractive-qc-v1",
+      "n": 24,
+      "decisions": {
+        "review": 20,
+        "reject": 4
+      },
+      "slices": {
+        "answerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unanswerable": {
+          "n": 0,
+          "decisions": {}
+        },
+        "unknown": {
+          "n": 24,
+          "decisions": {
+            "review": 20,
+            "reject": 4
+          }
+        }
+      },
+      "reasons": {
+        "no_reference_permission": 24,
+        "not_exact_span_or_sentinel": 4
+      },
+      "missing_candidate_ids": [],
+      "cross_split_pairs": 0,
+      "format_valid_n": 20,
+      "format_assessed_n": 24,
+      "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+      "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+    },
+    "english-prompted-train_reference": {
+      "rule_version": "extractive-qc-v1",
+      "n": 24,
+      "decisions": {
+        "reject": 12,
+        "accept": 8,
+        "review": 4
+      },
+      "slices": {
+        "answerable": {
+          "n": 12,
+          "decisions": {
+            "reject": 6,
+            "accept": 2,
+            "review": 4
+          }
+        },
+        "unanswerable": {
+          "n": 12,
+          "decisions": {
+            "accept": 6,
+            "reject": 6
+          }
+        },
+        "unknown": {
+          "n": 0,
+          "decisions": {}
+        }
+      },
+      "reasons": {
+        "abstention_reference_contradiction": 10,
+        "not_exact_span_or_sentinel": 4,
+        "reference_mismatch_not_semantic_proof": 6
+      },
+      "missing_candidate_ids": [],
+      "cross_split_pairs": 0,
+      "format_valid_n": 20,
+      "format_assessed_n": 24,
+      "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+      "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+    }
+  },
+  "historical_chinese_targets_equal": true,
+  "note": "Saved-record replay, not new generation, training or semantic accuracy."
+}

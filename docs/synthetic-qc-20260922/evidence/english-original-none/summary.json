@@ -1,0 +1,35 @@
+{
+  "rule_version": "extractive-qc-v1",
+  "n": 24,
+  "decisions": {
+    "review": 22,
+    "reject": 2
+  },
+  "slices": {
+    "answerable": {
+      "n": 0,
+      "decisions": {}
+    },
+    "unanswerable": {
+      "n": 0,
+      "decisions": {}
+    },
+    "unknown": {
+      "n": 24,
+      "decisions": {
+        "review": 22,
+        "reject": 2
+      }
+    }
+  },
+  "reasons": {
+    "no_reference_permission": 24,
+    "not_exact_span_or_sentinel": 2
+  },
+  "missing_candidate_ids": [],
+  "cross_split_pairs": 0,
+  "format_valid_n": 22,
+  "format_assessed_n": 24,
+  "semantic_review": "Not performed; no measured semantic false acceptance/rejection rate.",
+  "accept_meaning": "Exact reference agreement plus structural gates; not independently verified semantics."
+}
