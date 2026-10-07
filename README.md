@@ -8,11 +8,11 @@
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
-## 新增：完整词表 logits 蒸馏路径（尚未运行）
+## 新增：完整词表 logits 蒸馏负结果
 
 新增答案 token 位置上的 `hard-label CE + T²·KL` 训练入口，教师完整词表 log-probability 先写入哈希绑定缓存，三个学生 seed 可复用而无需教师、学生同时驻留设备。实现显式校验 tokenizer 映射、causal shift、prompt mask、temperature、artifact 来源和逐文件哈希。
 
-这只是已测试的实验实现，不是性能结果；尚未运行三 seed 训练或质量评估，不能声称 logits 蒸馏改善 EM/F1。协议、公式、命令与验收边界见[Logits distillation v1](docs/LOGITS_DISTILLATION_V1.md)。
+固定 `T=2`、CE/KL各0.5，在CPU完成3个seed、每组48步及74题dev评测：整体EM为50.00% / 51.35% / 37.84%，均值46.40%；有答案EM均为42.42%。没有超过历史gold-SFT与response-distillation均值，且未通过历史有答案继续门槛，因此未运行外部集，也未看结果后调参。[完整负结果](reports/logits-distillation-v1/RESULTS.md) · [方法与命令](docs/LOGITS_DISTILLATION_V1.md)
 
 ## 项目沿革（2026-09-20 补记）
 

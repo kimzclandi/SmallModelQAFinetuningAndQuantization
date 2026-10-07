@@ -1,6 +1,6 @@
 import pytest
 
-from qa_lab.logits_distillation import validate_objective
+from qa_lab.logits_distillation import sequence_config, validate_objective
 
 
 @pytest.mark.parametrize("objective", [
@@ -11,6 +11,15 @@ from qa_lab.logits_distillation import validate_objective
 def test_invalid_objective_rejected(objective):
     with pytest.raises(ValueError):
         validate_objective(objective)
+
+
+def test_sequence_binding_excludes_runtime_device_but_not_prompt():
+    base = {"model_id": "student", "revision": "abc", "system_prompt": "answer", "prompt_version": "v1",
+            "device": "mps", "dtype": "float32"}
+    cpu = dict(base, device="cpu")
+    changed = dict(base, system_prompt="different")
+    assert sequence_config(base) == sequence_config(cpu)
+    assert sequence_config(base) != sequence_config(changed)
 
 
 def test_identical_teacher_student_distribution_has_zero_kl():

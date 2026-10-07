@@ -1,4 +1,4 @@
-# Logits distillation v1（实现完成，实验未运行）
+# Logits distillation v1
 
 ## 目标与边界
 
@@ -8,7 +8,7 @@
 
 KL 使用每个受监督位置上的完整词表分布。因果对齐为 `logits[:, :-1]` 对 `labels[:, 1:]`；prompt token 的 label 为 `-100`，不参与 CE 或 KL。教师 log-probability 以 float16 缓存，训练时转回 float32，因此属于完整词表但有限精度的分布蒸馏。
 
-当前只完成代码、配置和单元测试，没有运行三 seed 训练，也没有质量结果。不得据此声称 logits 蒸馏提升了 EM/F1。
+固定实验已在CPU完成三seed训练和dev评测；结果没有通过继续门槛，详见[完整负结果](../reports/logits-distillation-v1/RESULTS.md)。不得声称 logits 蒸馏提升了 EM/F1。
 
 ## 为什么先缓存教师分布
 
@@ -22,6 +22,26 @@ KL 使用每个受监督位置上的完整词表分布。因果对齐为 `logits
 ## 运行
 
 先按 README 准备 PyTorch 环境和两套本地模型。新输出只能写入新的 `work/` 目录。
+
+先运行受保护的单题、单步 smoke。缓存和训练记录都会标记为 `smoke_complete`，完整训练入口会拒绝读取该缓存：
+
+```bash
+HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.logits_distillation cache \
+  --artifact data/teacher-study-v2-prompted \
+  --teacher-config configs/teacher-study-v2/teacher.json \
+  --teacher-device cpu \
+  --objective configs/logits-distillation-v1/objective.json \
+  --limit 1 --output work/logits-distillation-v1-smoke-cache
+
+HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.logits_distillation train \
+  --cache work/logits-distillation-v1-smoke-cache \
+  --student-device cpu \
+  --train-config configs/logits-distillation-v1/train-smoke.json \
+  --objective configs/logits-distillation-v1/objective.json \
+  --smoke --output work/logits-distillation-v1-smoke-train
+```
+
+smoke 通过后才生成完整缓存并运行固定实验：
 
 ```bash
 HF_HUB_OFFLINE=1 .venv/bin/python -m qa_lab.logits_distillation cache \

@@ -47,6 +47,11 @@ def tokenizer_fingerprint(tokenizer):
     return digest(json.dumps(payload, ensure_ascii=False, sort_keys=True))
 
 
+def sequence_config(config):
+    """Fields that determine token IDs; runtime device/dtype are intentionally excluded."""
+    return {key: config[key] for key in ["model_id", "revision", "system_prompt", "prompt_version"]}
+
+
 def supervised_prediction_mask(labels):
     """Return mask over logits[:, :-1] that predict labels[:, 1:]."""
     if labels.ndim != 2 or labels.shape[1] < 2:
@@ -118,9 +123,16 @@ def cache_teacher(args):
     temperature, _, _ = validate_objective(objective)
     student_config = json.loads(args.student_config.read_text())
     teacher_config = json.loads(args.teacher_config.read_text())
+    if args.teacher_device:
+        teacher_config["device"] = args.teacher_device
     rows, artifact_manifest = verified_rows(args.artifact, args.data_dir)
     if artifact_manifest["method"] != "response_distillation":
         raise ValueError("teacher logits cache requires an audited response_distillation artifact")
+    full_row_count = len(rows)
+    if args.limit is not None:
+        if args.limit < 1 or args.limit >= full_row_count:
+            raise ValueError("--limit must be positive and smaller than the full artifact")
+        rows = rows[:args.limit]
     args.output.mkdir(parents=True, exist_ok=False)
     (args.output / "records").mkdir()
     student_tokenizer = AutoTokenizer.from_pretrained(
@@ -162,13 +174,14 @@ def cache_teacher(args):
         print(f"teacher logits {index + 1}/{len(rows)}", flush=True)
     manifest = {
         "format": CACHE_FORMAT,
-        "status": "complete",
+        "status": "smoke_complete" if args.limit is not None else "complete",
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "scope": "TRAIN response-distillation targets only; full-vocabulary distributions at answer-token positions",
         "temperature": temperature,
         "cache_dtype": "float16 log probabilities; training converts to float32",
         "causal_alignment": "logits[:, :-1] against labels[:, 1:]; prompt labels are -100",
-        "student_prompt_config": student_config,
+        "student_prompt_config": sequence_config(student_config),
+        "student_model_config": student_config,
         "teacher_model_config": teacher_config,
         "student_tokenizer_sha256": student_fp,
         "teacher_tokenizer_sha256": teacher_fp,
@@ -180,6 +193,9 @@ def cache_teacher(args):
         "packages": {name: importlib.metadata.version(name) for name in ["torch", "transformers"]},
         "source_sha256": source_hashes(),
         "records": records,
+        "artifact_row_count": full_row_count,
+        "cached_row_count": len(records),
+        "smoke_limit": args.limit,
     }
     write_json(args.output / "manifest.json", manifest)
 
@@ -192,11 +208,16 @@ def train_student(args):
     temperature, _, _ = validate_objective(objective)
     train_config = json.loads(args.train_config.read_text())
     student_config = json.loads(args.student_config.read_text())
+    if args.student_device:
+        student_config["device"] = args.student_device
     cache = _load_cache_manifest(args.cache)
+    expected_status = "smoke_complete" if args.smoke else "complete"
+    if cache.get("status") != expected_status:
+        raise ValueError(f"cache status {cache.get('status')!r} is invalid for this training mode")
     if cache["temperature"] != temperature:
         raise ValueError("cache and training temperatures differ")
-    if cache["student_prompt_config"] != student_config:
-        raise ValueError("student prompt/model config differs from logits cache")
+    if cache["student_prompt_config"] != sequence_config(student_config):
+        raise ValueError("student model revision or prompt differs from logits cache")
     if cache["artifact_manifest_sha256"] != sha(Path(cache["artifact_path"]) / "manifest.json"):
         raise ValueError("source response artifact changed after caching")
     args.output.mkdir(parents=True, exist_ok=False)
@@ -244,7 +265,8 @@ def train_student(args):
         print(log[-1], flush=True)
     model.save_pretrained(args.output)
     write_json(args.output / "training.json", {
-        "status": "complete", "method": "full_vocabulary_logits_distillation",
+        "status": "smoke_complete" if args.smoke else "complete",
+        "method": "full_vocabulary_logits_distillation",
         "seed": train_config["seed"], "steps": len(log), "objective": objective,
         "train_config": train_config, "student_config": student_config,
         "cache_manifest_sha256": sha(args.cache / "manifest.json"),
@@ -267,14 +289,22 @@ def main():
     cache.add_argument("--data-dir", type=Path, default=Path("data/complexity-v1"))
     cache.add_argument("--student-config", type=Path, default=Path("configs/baseline.json"))
     cache.add_argument("--teacher-config", type=Path, required=True)
+    cache.add_argument("--teacher-device", choices=["cpu", "mps"],
+                       help="Explicit runtime override; never falls back silently")
     cache.add_argument("--objective", type=Path, required=True)
     cache.add_argument("--output", type=Path, required=True)
+    cache.add_argument("--limit", type=int,
+                       help="Smoke only: cache the first N rows and mark the manifest smoke_complete")
     train = sub.add_parser("train")
     train.add_argument("--cache", type=Path, required=True)
     train.add_argument("--student-config", type=Path, default=Path("configs/baseline.json"))
+    train.add_argument("--student-device", choices=["cpu", "mps"],
+                       help="Explicit runtime override; never falls back silently")
     train.add_argument("--train-config", type=Path, required=True)
     train.add_argument("--objective", type=Path, required=True)
     train.add_argument("--output", type=Path, required=True)
+    train.add_argument("--smoke", action="store_true",
+                       help="Require a smoke_complete cache; output is never a full experiment")
     args = parser.parse_args()
     cache_teacher(args) if args.command == "cache" else train_student(args)
 
