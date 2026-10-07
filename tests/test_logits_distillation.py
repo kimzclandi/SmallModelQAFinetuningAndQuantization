@@ -1,6 +1,6 @@
 import pytest
 
-from qa_lab.logits_distillation import sequence_config, validate_objective
+from qa_lab.logits_distillation import sequence_config, validate_objective, validate_target_method
 
 
 @pytest.mark.parametrize("objective", [
@@ -20,6 +20,13 @@ def test_sequence_binding_excludes_runtime_device_but_not_prompt():
     changed = dict(base, system_prompt="different")
     assert sequence_config(base) == sequence_config(cpu)
     assert sequence_config(base) != sequence_config(changed)
+
+
+def test_target_method_distinguishes_teacher_response_and_gold_reference():
+    assert validate_target_method("response_distillation") == "teacher_response"
+    assert validate_target_method("gold_sft") == "gold_reference"
+    with pytest.raises(ValueError, match="requires one of"):
+        validate_target_method("gold_data_repair")
 
 
 def test_identical_teacher_student_distribution_has_zero_kl():

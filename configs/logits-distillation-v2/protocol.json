@@ -1,0 +1,17 @@
+{
+  "experiment": "logits-distillation-v2-gold242",
+  "status": "preregistered_before_execution",
+  "student": "Qwen/Qwen2.5-0.5B-Instruct@7ae557604adf67be50417f59c2c2f167def9a775",
+  "teacher": "Qwen/Qwen2.5-1.5B-Instruct@989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "training_artifact": "data/coverage-v3-gold242",
+  "training_ids": 242,
+  "target_policy": "Hard CE uses each frozen TRAIN gold target. Teacher soft distributions are cached only at those answer-token positions; no dev/test labels enter training.",
+  "seeds": [20260918, 20260919, 20260920],
+  "steps_per_seed": 242,
+  "matched_control": "reports/coverage-v3/gold242-*; same TRAIN IDs, seeds, optimizer steps, LoRA rank/modules and learning rate, but historical control uses hard CE only.",
+  "primary_metrics": ["overall_em", "answerable_em", "unanswerable_em", "token_f1"],
+  "development_comparison": "Report all three seeds and paired changes against the matching historical gold242 seed. Do not select a seed.",
+  "decision_boundary": "The 74-row dev has been reused and is development evidence only. Do not claim independent confirmation or deployment quality from this run.",
+  "external_policy": "No external inference is authorized by this protocol; define a new untouched evaluation before any confirmation claim.",
+  "budget_note": "One pass over 242 TRAIN rows per seed. Report supervised tokens and cache bytes; complete-vocabulary float16 cache cost is part of the result."
+}

@@ -20,6 +20,7 @@ from .train_artifact import target_tokens, verified_rows
 
 
 CACHE_FORMAT = "answer-token-full-logprobs-v1"
+SUPPORTED_TARGET_METHODS = {"response_distillation", "gold_sft"}
 
 
 def validate_objective(config):
@@ -50,6 +51,15 @@ def tokenizer_fingerprint(tokenizer):
 def sequence_config(config):
     """Fields that determine token IDs; runtime device/dtype are intentionally excluded."""
     return {key: config[key] for key in ["model_id", "revision", "system_prompt", "prompt_version"]}
+
+
+def validate_target_method(method):
+    """Return a precise target-source label for supported audited artifacts."""
+    if method not in SUPPORTED_TARGET_METHODS:
+        raise ValueError(
+            f"teacher logits cache requires one of {sorted(SUPPORTED_TARGET_METHODS)}; got {method!r}"
+        )
+    return "teacher_response" if method == "response_distillation" else "gold_reference"
 
 
 def supervised_prediction_mask(labels):
@@ -126,8 +136,7 @@ def cache_teacher(args):
     if args.teacher_device:
         teacher_config["device"] = args.teacher_device
     rows, artifact_manifest = verified_rows(args.artifact, args.data_dir)
-    if artifact_manifest["method"] != "response_distillation":
-        raise ValueError("teacher logits cache requires an audited response_distillation artifact")
+    target_source = validate_target_method(artifact_manifest["method"])
     full_row_count = len(rows)
     if args.limit is not None:
         if args.limit < 1 or args.limit >= full_row_count:
@@ -176,7 +185,9 @@ def cache_teacher(args):
         "format": CACHE_FORMAT,
         "status": "smoke_complete" if args.limit is not None else "complete",
         "created_utc": datetime.now(timezone.utc).isoformat(),
-        "scope": "TRAIN response-distillation targets only; full-vocabulary distributions at answer-token positions",
+        "scope": "TRAIN targets only; full-vocabulary teacher distributions at answer-token positions",
+        "artifact_method": artifact_manifest["method"],
+        "hard_target_source": target_source,
         "temperature": temperature,
         "cache_dtype": "float16 log probabilities; training converts to float32",
         "causal_alignment": "logits[:, :-1] against labels[:, 1:]; prompt labels are -100",
