@@ -1,0 +1,194 @@
+{
+  "teacher": {
+    "training_rows": 242,
+    "supervised_tokens": 1289,
+    "top1_gold_agreement": 0.8851823118696664,
+    "mean_gold_probability": 0.6265633241501763,
+    "mean_entropy_nats": 3.4770314280674146,
+    "maximum_probability_mass_error": 0.0003990099614563647,
+    "normalization": "Diagnostic statistics renormalize float16 cache in float64; training remains unchanged.",
+    "interpretation": "TRAIN gold-forced tokens at T=2, not free-generation quality or proof of why KD lost."
+  },
+  "seeds": {
+    "20260918": {
+      "paired": {
+        "n": 74,
+        "fixes": [
+          "56e17a7ccd28a01900c679a5",
+          "56e1b754cd28a01900c67abe",
+          "56e1fc57e3433e140042322c",
+          "56e2042ecd28a01900c67c1f",
+          "56e2042ecd28a01900c67c20",
+          "5ad56e5c5b96ef001a10ae9f"
+        ],
+        "regressions": [
+          "56e1ded7cd28a01900c67bd5",
+          "56e1ec83cd28a01900c67c0e",
+          "56e2042ecd28a01900c67c1e",
+          "5ad5364c5b96ef001a10ab91",
+          "5ad53f815b96ef001a10abe6",
+          "5ad56aea5b96ef001a10ae48",
+          "5ad56aea5b96ef001a10ae4c",
+          "5ad56e5c5b96ef001a10ae9e",
+          "5ad56e5c5b96ef001a10aea0",
+          "5ad5719f5b96ef001a10aeee"
+        ],
+        "groups": {
+          "answerable": {
+            "n": 33,
+            "candidate_correct": 14,
+            "control_correct": 12
+          },
+          "unanswerable": {
+            "n": 41,
+            "candidate_correct": 29,
+            "control_correct": 35
+          }
+        },
+        "transitions": {
+          "correct -> correct": 37,
+          "correct -> over_abstention": 1,
+          "correct -> unsupported_answer": 7,
+          "correct -> wrong_or_partial_span": 2,
+          "format_or_nonextractive -> over_abstention": 1,
+          "over_abstention -> correct": 4,
+          "over_abstention -> over_abstention": 8,
+          "unsupported_answer -> correct": 1,
+          "unsupported_answer -> unsupported_answer": 5,
+          "wrong_or_partial_span -> correct": 1,
+          "wrong_or_partial_span -> format_or_nonextractive": 1,
+          "wrong_or_partial_span -> over_abstention": 2,
+          "wrong_or_partial_span -> wrong_or_partial_span": 4
+        }
+      },
+      "losses": {
+        "mean_weighted_ce": 0.31704942716048906,
+        "mean_weighted_kl": 1.0342559350177276,
+        "max_loss_reconstruction_error": 2.384185791015625e-07,
+        "kl_share_of_summed_scalar_loss": 0.7653754391609711,
+        "not_gradient_contribution": true
+      }
+    },
+    "20260919": {
+      "paired": {
+        "n": 74,
+        "fixes": [
+          "56e17a7ccd28a01900c679a1",
+          "56e17a7ccd28a01900c679a5",
+          "56e1b754cd28a01900c67abd",
+          "56e1cbe2cd28a01900c67bae",
+          "56e1ded7cd28a01900c67bd4",
+          "56e1fc57e3433e140042322c",
+          "5ad5364c5b96ef001a10ab92"
+        ],
+        "regressions": [
+          "56e1b754cd28a01900c67abc",
+          "56e1ec83cd28a01900c67c0e",
+          "5ad5364c5b96ef001a10ab91",
+          "5ad5648b5b96ef001a10ad98",
+          "5ad568d35b96ef001a10ae1c",
+          "5ad568d35b96ef001a10ae1d",
+          "5ad56aea5b96ef001a10ae48",
+          "5ad56aea5b96ef001a10ae4c",
+          "5ad56e5c5b96ef001a10ae9e",
+          "5ad5719f5b96ef001a10aeed",
+          "5ad5719f5b96ef001a10aeef"
+        ],
+        "groups": {
+          "answerable": {
+            "n": 33,
+            "candidate_correct": 16,
+            "control_correct": 12
+          },
+          "unanswerable": {
+            "n": 41,
+            "candidate_correct": 28,
+            "control_correct": 36
+          }
+        },
+        "transitions": {
+          "correct -> correct": 37,
+          "correct -> format_or_nonextractive": 1,
+          "correct -> unsupported_answer": 8,
+          "correct -> wrong_or_partial_span": 2,
+          "format_or_nonextractive -> format_or_nonextractive": 1,
+          "format_or_nonextractive -> over_abstention": 1,
+          "format_or_nonextractive -> wrong_or_partial_span": 1,
+          "over_abstention -> correct": 6,
+          "over_abstention -> over_abstention": 6,
+          "unsupported_answer -> correct": 1,
+          "unsupported_answer -> unsupported_answer": 4,
+          "wrong_or_partial_span -> over_abstention": 2,
+          "wrong_or_partial_span -> wrong_or_partial_span": 4
+        }
+      },
+      "losses": {
+        "mean_weighted_ce": 0.34388476183006833,
+        "mean_weighted_kl": 1.0175301722012275,
+        "max_loss_reconstruction_error": 1.1920928955078125e-07,
+        "kl_share_of_summed_scalar_loss": 0.7474063540556378,
+        "not_gradient_contribution": true
+      }
+    },
+    "20260920": {
+      "paired": {
+        "n": 74,
+        "fixes": [
+          "56e17a7ccd28a01900c679a5",
+          "56e1ded7cd28a01900c67bd4",
+          "5ad5364c5b96ef001a10ab92",
+          "5ad56e5c5b96ef001a10ae9f",
+          "5ad56e5c5b96ef001a10aea0",
+          "5ad56e5c5b96ef001a10aea1"
+        ],
+        "regressions": [
+          "56e17a7ccd28a01900c679a2",
+          "56e1ded7cd28a01900c67bd5",
+          "56e1ec83cd28a01900c67c0e",
+          "5ad5364c5b96ef001a10ab91",
+          "5ad53f815b96ef001a10abe6",
+          "5ad56aea5b96ef001a10ae48",
+          "5ad56aea5b96ef001a10ae4c",
+          "5ad5719f5b96ef001a10aeef"
+        ],
+        "groups": {
+          "answerable": {
+            "n": 33,
+            "candidate_correct": 16,
+            "control_correct": 17
+          },
+          "unanswerable": {
+            "n": 41,
+            "candidate_correct": 31,
+            "control_correct": 32
+          }
+        },
+        "transitions": {
+          "correct -> correct": 41,
+          "correct -> over_abstention": 2,
+          "correct -> unsupported_answer": 5,
+          "correct -> wrong_or_partial_span": 1,
+          "format_or_nonextractive -> correct": 1,
+          "format_or_nonextractive -> format_or_nonextractive": 1,
+          "format_or_nonextractive -> wrong_or_partial_span": 1,
+          "over_abstention -> correct": 2,
+          "over_abstention -> over_abstention": 6,
+          "unsupported_answer -> correct": 3,
+          "unsupported_answer -> format_or_nonextractive": 1,
+          "unsupported_answer -> unsupported_answer": 4,
+          "wrong_or_partial_span -> over_abstention": 2,
+          "wrong_or_partial_span -> wrong_or_partial_span": 4
+        }
+      },
+      "losses": {
+        "mean_weighted_ce": 0.3394601783248084,
+        "mean_weighted_kl": 1.0158117845777637,
+        "max_loss_reconstruction_error": 2.384185791015625e-07,
+        "kl_share_of_summed_scalar_loss": 0.7495261559179679,
+        "not_gradient_contribution": true
+      }
+    }
+  },
+  "scope": "Post-hoc TRAIN/cache and reused dev diagnosis; no external confirmation or tuning.",
+  "causal_warning": "v1 to v2 changes data, steps and teacher-forced target policy; no data-only causal estimate."
+}

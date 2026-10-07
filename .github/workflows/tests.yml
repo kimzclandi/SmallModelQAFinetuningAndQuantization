@@ -12,3 +12,4 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements-ci.lock.txt
       - run: python scripts/acceptance.py --output work/ci-acceptance
+      - run: python scripts/diagnose_logits_v2.py verify --output reports/logits-diagnostics-v1

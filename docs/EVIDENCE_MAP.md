@@ -23,3 +23,5 @@ git diff --check
 ```
 
 统一入口运行完整pytest与冻结证据核验，输出到新的work目录并检查冻结树未变；不训练、不推理、不改实验门槛。[CI定义](../.github/workflows/tests.yml)。CI通过只证明这些检查通过，不证明模型质量或部署就绪。
+
+[新增冻结蒸馏诊断](LOGITS_DIAGNOSTICS_V1.md)。与旧冻结实验分开保存，不替换历史结果。
