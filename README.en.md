@@ -1,4 +1,4 @@
-# Domain QA Lab
+# SmallModelQAFinetuningAndQuantization
 
 [简体中文](README.md) | **English**
 
@@ -7,6 +7,10 @@ Auditable small-model extractive QA: data isolation → original baseline → go
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **Across the five historical rounds, no trained candidate passed the adoption gates. Q8 passed English development compression screening and a 96-question Chinese new-source quality-preservation check; business deployment remains unverified.** All quality figures derive from saved per-example predictions, retaining abstention baselines, failures and regressions. Actual distillation used a local Qwen teacher. Manually prepared GPT candidates were audited but never used for training.
+
+## Current logits distillation result and evidence
+
+On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.81%** EM on 74 reused dev questions, below the matched gold-only control (**64.86% ± 1.35%**). The objective is `0.5 CE + 0.5 T² KL`, T=2; the full-vocabulary float16 cache is 374.69 MiB. The 24-row v1 failure remains archived. Coverage, steps and target policy changed between v1 and v2, so the difference is not an isolated data-size effect. No external confirmation or post-result tuning was performed. [Evidence map](docs/EVIDENCE_MAP.md) · [v2 records](reports/logits-distillation-v2/RESULTS.md).
 
 ## Project history (added 2026-09-20)
 

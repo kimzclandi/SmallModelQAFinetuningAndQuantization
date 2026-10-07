@@ -1,18 +1,22 @@
-# Domain QA Lab
+# 小模型问答蒸馏、微调与量化
 
 **简体中文** | [English](README.en.md)
 
 可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
 
-[![offline-integrity](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/domain-qa-lab/actions/workflows/tests.yml)
+[![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
-## 新增：242条完整词表 logits 蒸馏对照
+## 242条完整词表 logits 蒸馏对照
 
 在保留24条v1负结果的基础上，使用全部242条冻结TRAIN数据完成新一轮gold teacher-forcing蒸馏。三个固定seed各训练242步；训练ID、seed、步数、LoRA配置和学习率与历史gold242 hard-CE-only控制组匹配。
 
-扩大数据后，74题dev整体EM由v1的46.40%±7.44%提高到**60.36%±2.81%**，但仍低于匹配gold242控制组的64.86%±1.35%。完整词表float16缓存为374.69 MiB。因此当前证据支持“增加训练覆盖改善了logits方案”，不支持“soft targets优于同数据gold SFT”。dev已复用，本轮未运行外部集，也未结果后调参。[完整结果](reports/logits-distillation-v2/RESULTS.md) · [协议与命令](docs/LOGITS_DISTILLATION_V2.md)
+扩大数据后，74题dev整体EM由v1的46.40%±7.44%提高到**60.36%±2.81%**，但仍低于匹配gold242控制组的64.86%±1.35%。完整词表float16缓存为374.69 MiB。扩大覆盖后的结果改善，但v1→v2同时改变训练步数与目标来源，不能单独归因于样本数量；soft targets仍未超过匹配gold SFT。dev已复用，本轮未运行外部集，也未结果后调参。[完整结果](reports/logits-distillation-v2/RESULTS.md) · [协议与命令](docs/LOGITS_DISTILLATION_V2.md)
+
+## 核心表述与证据入口
+
+[代码、逐题记录、固定协议与核验命令](docs/EVIDENCE_MAP.md)。其中242条v2是当前开发结果；24条v1及其他历史负结果完整保留。CI验证工程契约与保存证据，不代表独立模型质量确认或生产部署。
 
 ## 24条完整词表 logits 蒸馏负结果
 
