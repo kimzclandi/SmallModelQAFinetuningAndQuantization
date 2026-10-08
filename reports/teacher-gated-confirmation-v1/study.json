@@ -1,0 +1,177 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-08T19:16:28.906390+00:00",
+  "protocol_sha256": "d1673cf172d18cefc1f94cdc920c86af77d0ff789c0ace56ba77ca688cc8c508",
+  "protocol_commit": "d2f0af8a5087b1b1d0874dd2f1a1f4c8665614a1",
+  "cohort_manifest_sha256": "abd7bc3e4fcb06540b5c9a3163c572606793edae8e65f782a8e7014810d5a45a",
+  "inputs_sha256": "6251b57d6eb94e4419fc79042ec5160d3d1fc7c27e637c491db70c1be0bb7e3d",
+  "labels_sha256": "f63fb6b9e3bf0bc892ea25c58e044fc59648904b2cc95af6247f172f57dbb8d1",
+  "frozen_files": {
+    "configs/confirmation-exclusions-v1.json": "953a2e5e25075c3dc17e7dac0b3c4c724f93d45ec59b25b08af8c0608973c86b",
+    "configs/teacher-gated-confirmation-v1/execution-02.json": "8ef7ecdf43003059a906b031822fec793ea19bf96b39b21fb355fac443f314f9",
+    "configs/teacher-gated-confirmation-v1/protocol.json": "d1673cf172d18cefc1f94cdc920c86af77d0ff789c0ace56ba77ca688cc8c508",
+    "configs/teacher-gated-confirmation-v1/student.json": "c5f564cd0726921e046a5de8dd53c950c1a3a9bfa0dd656f7c37b7a5da5184c3",
+    "configs/teacher-gated-confirmation-v1/teacher.json": "ed3db4c9d60ba92add8f3e4bbcc89d96cb46d488f30cbb86cf82c0638aa4b045",
+    "qa_lab/__init__.py": "4c8e3ec040581f28a80d4fda912052ec8c4139b910e034d4e6a4e7ee52761b23",
+    "qa_lab/blind_review.py": "d57799ba722a46d207e675860c6e8d8e5c0f97270501e1edabe626b3ce6bc521",
+    "qa_lab/chinese.py": "3d20544a81c9ba2737cf40710fba852d9298d9afda9d8a064af6f620753bc740",
+    "qa_lab/closure_data.py": "3227bb8d82dcbd64c91138015e712c31f63738058307ba4df03da348d089a509",
+    "qa_lab/common.py": "1b2bb44e1a59fd07b7b53d6a4581b86ee61ffd297a711843dfd0fbe328d92418",
+    "qa_lab/confirmation_scoring.py": "62a1137691230033394e580062616d9876afe64a285f632ef2e6130ff0a7d00d",
+    "qa_lab/confirmation_study.py": "7cbec7762ef696721aac45955e554d8f2c18013ce18160c7f333814ca681ced1",
+    "qa_lab/confirmation_training.py": "9274eb1238ee6284aa79f00bcf3aad17c4e3471e4f0032abb2bfe6e45a001127",
+    "qa_lab/data.py": "f81c2ff8889faa6e412e3e3eb9a69f49c5bdf7284308e2a27ee49cc3629c790b",
+    "qa_lab/inference.py": "76e37317e1cfd83f146c55211d4e23c66919c450b46b02cb37e1711e512b24da",
+    "qa_lab/logits_distillation.py": "fbd0d6a1c29f7ab9e250c5860b44a36cb4db1a885a26770c205d40ba2c73ffc4",
+    "qa_lab/metrics.py": "65e3c472761fda70a0e90b9f929a5c85508242eec6fe1259464d05738404c005",
+    "qa_lab/mlx_experiment.py": "bb517924e87fe9da2eccd351dac6f6324f913d4a4d2faa85541a1aabbae2586a",
+    "qa_lab/model_identity.py": "6f2721210bf6ffa9c1d394ede3b7be9b8afadad24917fdf51db9bdac6ba3d315",
+    "qa_lab/quality_control.py": "5b6abe542ace67e0641f4a058fe064a55c108d767854000dde222869272b2ca7",
+    "qa_lab/selection_profile.py": "fe1b27e4cb47e74c2595055cccbae9a12bce303699a6bed86caf0ba41e11f26c",
+    "qa_lab/teacher_audit.py": "c904edf1ab54cc4473babc9779407340edea3567019bd186451de37529ad7e90",
+    "qa_lab/teacher_io.py": "9a0a001d235ad0e4eb71b7186db5547153d4f2b22a38096a63f6aed7ad378323",
+    "qa_lab/train.py": "cb3bb3f15451f087697b9ff5b2c8ae065a8d9ed6f8ee2e3ea519857c4bccdc8f",
+    "qa_lab/train_artifact.py": "073ea8dccdd1282470e1297df72a3c9c155746fd462cebec9fa12b31ac523eb8",
+    "scripts/prepare_confirmation_data.py": "e214f32c6bc84a222cf5f043aab6b53ac3e75473e7c86b711a30169b22f05bdf"
+  },
+  "stages": [
+    {
+      "name": "teacher-cache",
+      "wall_seconds": 74.61143054199783,
+      "rss_peak_sampled_bytes": 8466399232,
+      "log_sha256": "e7cc31019d8117dbdfc0cc0cea2e699c32e81332e49cf8dee2b8043767cd72db",
+      "returncode": 0
+    },
+    {
+      "name": "train-gold-20261009",
+      "wall_seconds": 85.11607016700145,
+      "rss_peak_sampled_bytes": 4513824768,
+      "log_sha256": "9204d883df6382659662143f79cf65f2adfb8a183dfea6328737236a37e18b94",
+      "returncode": 0
+    },
+    {
+      "name": "train-full_kd-20261009",
+      "wall_seconds": 84.14122225000028,
+      "rss_peak_sampled_bytes": 4514578432,
+      "log_sha256": "ea9a1e9395c4ee493f1bddfcfcf3aab9688432f4b7f0c8fac0c3712646a6616b",
+      "returncode": 0
+    },
+    {
+      "name": "train-gated_kd-20261009",
+      "wall_seconds": 84.2026546249981,
+      "rss_peak_sampled_bytes": 4413636608,
+      "log_sha256": "d638d597842b4b5367b1fc73cbe28b78dc7a3411fec5e90d67e13fad1eeb7494",
+      "returncode": 0
+    },
+    {
+      "name": "train-full_kd-20261010",
+      "wall_seconds": 84.67838591700274,
+      "rss_peak_sampled_bytes": 4447289344,
+      "log_sha256": "00204d3ac57f366fa810abc7f4aa48d9c32da31797384ad49ffad422a7db03dd",
+      "returncode": 0
+    },
+    {
+      "name": "train-gated_kd-20261010",
+      "wall_seconds": 84.19389970899647,
+      "rss_peak_sampled_bytes": 4604542976,
+      "log_sha256": "24a6bcc7c9b799f4f6a93cc6bcded52b924823045d29cf414ee9420517ce9e29",
+      "returncode": 0
+    },
+    {
+      "name": "train-gold-20261010",
+      "wall_seconds": 86.2472594169958,
+      "rss_peak_sampled_bytes": 4596301824,
+      "log_sha256": "95cc1f868096ae4fe101631f9e5f6ebf3e4385d98a3e57c1fa216fa40e84040d",
+      "returncode": 0
+    },
+    {
+      "name": "train-gated_kd-20261011",
+      "wall_seconds": 88.88204141599999,
+      "rss_peak_sampled_bytes": 4437819392,
+      "log_sha256": "d5dbf5de56b84589cd9e862091743b24bce1e7ae5519cd8a0d034b99705d4006",
+      "returncode": 0
+    },
+    {
+      "name": "train-gold-20261011",
+      "wall_seconds": 84.27656833299989,
+      "rss_peak_sampled_bytes": 4415143936,
+      "log_sha256": "26afa01df471027d201dcb8c5bd49823f54c8478b667ca8e5c3a686224e5bcc5",
+      "returncode": 0
+    },
+    {
+      "name": "train-full_kd-20261011",
+      "wall_seconds": 85.2778350410008,
+      "rss_peak_sampled_bytes": 4409458688,
+      "log_sha256": "f07cb16bee7661451fb873f3c70ea93ffa71676b70a997cdc05e814dedb79ff6",
+      "returncode": 0
+    },
+    {
+      "name": "predict-gold-20261009",
+      "wall_seconds": 61.42732258299657,
+      "rss_peak_sampled_bytes": 4972363776,
+      "log_sha256": "67c5e65f790cbc6c31f10f1342b51879ad9566b7ceae5d066aee475bbc13caac",
+      "returncode": 0
+    },
+    {
+      "name": "predict-full_kd-20261009",
+      "wall_seconds": 63.96680775000277,
+      "rss_peak_sampled_bytes": 4244127744,
+      "log_sha256": "af38ded35d94300faca2af041b12c9a1b64592c3980014eeab8b602c553e689e",
+      "returncode": 0
+    },
+    {
+      "name": "predict-gated_kd-20261009",
+      "wall_seconds": 62.95596591600042,
+      "rss_peak_sampled_bytes": 4763090944,
+      "log_sha256": "4fe8f974af4c5d7ecdfac6b227ae267d79df2874cc2bcff20a7db6d63d1f1279",
+      "returncode": 0
+    },
+    {
+      "name": "predict-full_kd-20261010",
+      "wall_seconds": 65.01423562499986,
+      "rss_peak_sampled_bytes": 4245651456,
+      "log_sha256": "3249ca95a5759c6ac08b20a067b10315d9fd44a05022d5ef1ea8157c7e2bc43a",
+      "returncode": 0
+    },
+    {
+      "name": "predict-gated_kd-20261010",
+      "wall_seconds": 62.35520504199667,
+      "rss_peak_sampled_bytes": 4246011904,
+      "log_sha256": "f9ee78f554357e8241fa20609686d953038d8997224a2f5122623f6fe2da521f",
+      "returncode": 0
+    },
+    {
+      "name": "predict-gold-20261010",
+      "wall_seconds": 64.0337185419994,
+      "rss_peak_sampled_bytes": 4997660672,
+      "log_sha256": "58972118eb857a46e58ba62a7dbc30372525ca2c00f29609068b8d050c48b1a0",
+      "returncode": 0
+    },
+    {
+      "name": "predict-gated_kd-20261011",
+      "wall_seconds": 65.04133004100004,
+      "rss_peak_sampled_bytes": 4242669568,
+      "log_sha256": "e331fcf6f8f12d531cea8e57e12ed1bcb0c842f2ac9c8c3f8c5017fb625b3975",
+      "returncode": 0
+    },
+    {
+      "name": "predict-gold-20261011",
+      "wall_seconds": 63.48856133400113,
+      "rss_peak_sampled_bytes": 4244094976,
+      "log_sha256": "2704c73183255248fef2c662acdb978bd191541971377795d708ca00b6700007",
+      "returncode": 0
+    },
+    {
+      "name": "predict-full_kd-20261011",
+      "wall_seconds": 66.14013812500343,
+      "rss_peak_sampled_bytes": 4834869248,
+      "log_sha256": "5c2e553580fa2770dc38350b7cc7298db0bad3a32db2254b1d1964d7971e399f",
+      "returncode": 0
+    }
+  ],
+  "active_stage": "predict-full_kd-20261011",
+  "scores_sha256": "22e62e43bc9d46a680c7636c0a1ee830cbfbf88a5daea0426e3aaa685d723b60",
+  "prediction_lock_sha256": "effcb1c556a2eb2fd64d71ee3c7b41ce013341551c3954c447fb69efe857542f",
+  "finished_utc": "2026-10-08T19:40:05.164736+00:00",
+  "wall_seconds": 1416.2538062910025
+}

@@ -1,0 +1,8 @@
+{
+  "method": "gold_sft",
+  "source_sha256": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+  "policy": "All 242 original frozen TRAIN rows; no additions from dev/test or external articles.",
+  "n": 242,
+  "train_sha256": "38e4dba72b8c3160cfd40ceb7fd749b2012b7303549c2f5dec1bfcaa11926543",
+  "created_utc": "2026-09-18T11:52:21.718587+00:00"
+}

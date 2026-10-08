@@ -39,6 +39,7 @@ def main():
                ('artifacts', 'closure', 'teacher_study', 'coverage', 'quantization', 'chinese',
                 'logits_distillation', 'logits_distillation_v2')]
     checks += [('quality_release', ['scripts/verify_quality_release.py']),
+               ('teacher_gated_confirmation', ['scripts/verify_confirmation.py']),
                ('synthetic_qc', ['scripts/verify_synthetic_qc.py']),
                ('retraining', ['scripts/verify_retraining.py']),
                ('external_drcd', ['scripts/verify_external_drcd.py'])]

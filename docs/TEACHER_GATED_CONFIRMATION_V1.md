@@ -2,7 +2,7 @@
 
 本研究只检验一个新假设：在 TRAIN 中，教师 top-1 token 与 gold 一致的位置才施加 KL，能否让学生在新的项目留出文段上超过同条件 gold-SFT。方法由已观察的 TRAIN 统计及历史 dev 负结果提出，不能把它称为全新原创算法，也不能把本研究的结果用于追认历史 dev 的独立性。
 
-运行前冻结的完整约束见 [protocol.json](../configs/teacher-gated-confirmation-v1/protocol.json)。本页在执行前建立；结果将在新的报告目录中保存，历史 v1、v2、失败记录和模型保持原样。
+运行前冻结的完整约束见 [protocol.json](../configs/teacher-gated-confirmation-v1/protocol.json)。本页在执行前建立；执行后的[完整结果](TEACHER_GATED_CONFIRMATION_RESULTS.md)为主差 0.00 个百分点、95% 区间 [-2.82,+2.64]，未通过采用门槛。历史 v1、v2、失败记录和模型保持原样。新数据的[来源与许可说明](CONFIRMATION_DATA_ATTRIBUTION.md)独立保留。
 
 ## 为什么需要重跑控制组
 

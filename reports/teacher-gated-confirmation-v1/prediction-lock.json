@@ -1,0 +1,44 @@
+{
+  "status": "all_predictions_locked_before_scoring",
+  "created_utc": "2026-10-08T19:40:05.055096+00:00",
+  "execution_lock_sha256": "d9e1accb55303db925aa9a5ac2dd90a4a21df7e5ad1f731ff9face101e160bd3",
+  "labels_sha256": "f63fb6b9e3bf0bc892ea25c58e044fc59648904b2cc95af6247f172f57dbb8d1",
+  "files": {
+    "gold:20261009": {
+      "predictions_sha256": "f5e0b59e61e6f55041cade2ab52ac451b69bb17bcac912e27e16340736e78c3b",
+      "run_sha256": "a34dabc99b9fcd2e8214c122a4901b7286727464681a9623ff8b29f932130e17"
+    },
+    "full_kd:20261009": {
+      "predictions_sha256": "1cceaddfdb82b523b4dcfabd54fdf216b515f634808d353491f038283ed55102",
+      "run_sha256": "00056bd508ce8675d014184c79f41724812699abed8446f95db0ab8cfe9bc084"
+    },
+    "gated_kd:20261009": {
+      "predictions_sha256": "03bc149af21f88c03e5835441d16c53e327aa0cdab79f362b5636ae6ad1ec4b9",
+      "run_sha256": "b38d0c008d9ea9d0f863e1ec42a9707aa7de9320ac1dd07c1e202a95ee86f676"
+    },
+    "full_kd:20261010": {
+      "predictions_sha256": "844280dc7d6bbbeab8814ddc5931d5013c0b9981eadb311a95c7416575f889e6",
+      "run_sha256": "748ac8458142cad31bd8fb30f54912c0cab740fca96a34aa5fa5cf82b0a588b6"
+    },
+    "gated_kd:20261010": {
+      "predictions_sha256": "0b0a42dd16f3345d0b8218083c3c240848f8ccaef1796d53d334b22eafc2010b",
+      "run_sha256": "ec29f30c1bac080861bbf437f2bb38cb214ab0c42905045bf289326ac5cb2a3e"
+    },
+    "gold:20261010": {
+      "predictions_sha256": "f3ffa8a4695b451f86d9d080ae4ab2584a5312e10ac056d2980f8dd92c26bc60",
+      "run_sha256": "dfb347e7b0e53a6ddb4ec4e84339ff2bcb74c8e6fbf6d419db900f6e29a85d78"
+    },
+    "gated_kd:20261011": {
+      "predictions_sha256": "1de6afd5553bfdcd7f938ad6825421a7b1adff69f29e9ddacca79be87126c76a",
+      "run_sha256": "a7dd53246a0745089461510d7d80a6753a06c3e8ca486c1a906a3616eebca4ec"
+    },
+    "gold:20261011": {
+      "predictions_sha256": "c8ae2b26f1a05116389da87d512248872cfd45892a6d95e9daaa715b4b252e9c",
+      "run_sha256": "6f91ac137396593f6041be192a4edb6becfff80f3041976582c5d651185495fe"
+    },
+    "full_kd:20261011": {
+      "predictions_sha256": "5d2fb287e6e13ec7367600f73cedcbf5694326e5b9038e983f67723ef156df5d",
+      "run_sha256": "68c9e0deb8b6d95cd670e5f83b580a36c7476a34797e6801c8d8fe550b0d6eba"
+    }
+  }
+}

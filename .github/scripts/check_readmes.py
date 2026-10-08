@@ -12,7 +12,8 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 DOCS = ["README.md", "README.en.md"]
-OPTIONAL_DOCS = []
+OPTIONAL_DOCS = ["docs/EVIDENCE_MAP.md", "docs/TEACHER_GATED_CONFIRMATION_V1.md",
+                 "docs/TEACHER_GATED_CONFIRMATION_RESULTS.md", "docs/CONFIRMATION_DATA_ATTRIBUTION.md"]
 
 
 def without_fences(content):

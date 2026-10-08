@@ -8,6 +8,12 @@ Auditable small-model extractive QA: data isolation → original baseline → go
 
 **Across the five historical rounds, no trained candidate passed the adoption gates. Q8 passed English development compression screening and a 96-question Chinese new-source quality-preservation check; business deployment remains unverified.** All quality figures derive from saved per-example predictions, retaining abstention baselines, failures and regressions. Actual distillation used a local Qwen teacher. Manually prepared GPT candidates were audited but never used for training.
 
+## Matched three-arm study on newly held-out contexts
+
+Three fixed seeds per arm were retrained in the same CPU/FP32 loop on 242 TRAIN rows. After locking all nine models, 2,304 predictions were generated for 256 questions from 128 contexts excluded from recorded project inputs; scoring followed the complete prediction lock. Mean normalized EM (sample SD across seeds): **gold-SFT 51.82%±4.53%, full KL 44.79%±1.26%, teacher-gold agreement gated KL 51.82%±2.88%**.
+
+The preregistered gated-versus-gold difference is **0.00 percentage points**, with a paired article-cluster 95% interval **[-2.82,+2.64]**. The candidate failed adoption gates; format validity was 91.41% versus gold's 95.18%, and only one seed improved EM. Always-abstain EM is 50%. All 25 articles have prior project exposure: this is a context holdout, not unseen-article or pretraining-clean validation. No post-result tuning or speedup claim. [Results and failures](docs/TEACHER_GATED_CONFIRMATION_RESULTS.md) · [Frozen protocol](docs/TEACHER_GATED_CONFIRMATION_V1.md) · [Records](reports/teacher-gated-confirmation-v1/) · [Offline replay](scripts/verify_confirmation.py).
+
 ## Frozen distillation diagnostics
 
 Additive teacher-cache, loss-arithmetic and paired-error analysis, without retraining or tuning. All three seeds lose unanswerable correct answers versus gold-SFT; weighted KL contributes about 75–77% of scalar loss, not gradient attribution or causal proof. [Evidence and limits](docs/LOGITS_DIAGNOSTICS_V1.md).
@@ -16,7 +22,7 @@ Additive teacher-cache, loss-arithmetic and paired-error analysis, without retra
 
 The logits cache/train entry points also perform [checkpoint file identity preflight](docs/MODEL_IDENTITY.md): registered model/revision pairs bind local weights, configuration and tokenizer bytes before loading that exact verified directory. New training with legacy caches requires explicit acknowledgement of unbound teacher bytes; historical runs are not rewritten or retroactively certified.
 
-## Current logits distillation result and evidence
+## Historical v2 logits distillation result and evidence
 
 On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.81%** EM on 74 reused dev questions, below the matched gold-only control (**64.86% ± 1.35%**). The objective is `0.5 CE + 0.5 T² KL`, T=2; the full-vocabulary float16 cache is 374.69 MiB. The 24-row v1 failure remains archived. Coverage, steps and target policy changed between v1 and v2, so the difference is not an isolated data-size effect. No external confirmation or post-result tuning was performed. [Evidence map](docs/EVIDENCE_MAP.md) · [v2 records](reports/logits-distillation-v2/RESULTS.md).
 
