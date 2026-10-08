@@ -1,6 +1,6 @@
 # 核心表述与可核验证据
 
-所有链接相对当前分支；合并后可从默认仓库首页进入。历史报告、失败记录、协议与原始预测保持原样。
+所有链接相对当前分支。2026-10-08 核验：242 条 v2 与历史量化证据已在默认 `main`；新增蒸馏诊断与缓存预检仍由 [PR #13](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/13) 提供，合并前应通过 PR 核验。历史报告、失败记录、协议与原始预测保持原样。
 
 | 表述 | 实现／协议 | 报告／原始记录 |
 |---|---|---|
@@ -25,3 +25,5 @@ git diff --check
 统一入口运行完整pytest与冻结证据核验，输出到新的work目录并检查冻结树未变；不训练、不推理、不改实验门槛。[CI定义](../.github/workflows/tests.yml)。CI通过只证明这些检查通过，不证明模型质量或部署就绪。
 
 [新增冻结蒸馏诊断](LOGITS_DIAGNOSTICS_V1.md)。与旧冻结实验分开保存，不替换历史结果。
+
+[缓存训练前身份校验与搬迁入口](LOGITS_CACHE_INTEGRITY.md)：修复源内容与缓存 ID/token/mask 核对缺口，不重新训练、不改变历史指标。

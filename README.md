@@ -12,6 +12,8 @@
 
 对现有教师缓存、训练日志和逐题对照新增诊断，无重新训练或调参。无答案题三组均低于 gold-SFT；KL 约占标量总损失的75%–77%，但不是梯度占比或因果结论。[分析与可重算记录](docs/LOGITS_DIAGNOSTICS_V1.md)。
 
+训练入口另增加[缓存血缘与 token/mask 预检](docs/LOGITS_CACHE_INTEGRITY.md)：重新绑定冻结 TRAIN 内容、完整 ID 和 tokenizer 身份，支持同内容 artifact 搬迁；属于工程完整性修复，不产生新质量结果。
+
 ## 242条完整词表 logits 蒸馏对照
 
 在保留24条v1负结果的基础上，使用全部242条冻结TRAIN数据完成新一轮gold teacher-forcing蒸馏。三个固定seed各训练242步；训练ID、seed、步数、LoRA配置和学习率与历史gold242 hard-CE-only控制组匹配。
