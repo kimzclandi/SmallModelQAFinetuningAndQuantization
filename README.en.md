@@ -1,4 +1,4 @@
-# SmallModelQAFinetuningAndQuantization
+# Small-Model Distillation and Quantization Evaluation
 
 [简体中文](README.md) | **English**
 
@@ -7,6 +7,15 @@ Auditable small-model extractive QA: data isolation → original baseline → go
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **Across the five historical rounds, no trained candidate passed the adoption gates. Q8 passed English development compression screening and a 96-question Chinese new-source quality-preservation check; business deployment remains unverified.** All quality figures derive from saved per-example predictions, retaining abstention baselines, failures and regressions. Actual distillation used a local Qwen teacher. Manually prepared GPT candidates were audited but never used for training.
+
+## From implementation to results
+
+| Capability | Code | Frozen configuration | Report and records |
+|---|---|---|---|
+| Full-vocabulary logits distillation with a gold-SFT control | [Training and cache](qa_lab/logits_distillation.py) | [v2 protocol](configs/logits-distillation-v2/protocol.json), [objective](configs/logits-distillation-v2/objective.json) | [v2 results, below matched gold-SFT](reports/logits-distillation-v2/RESULTS.md) |
+| FP16/Q4/Q8 within the same MLX framework | [Quantization and evaluation](qa_lab/mlx_experiment.py) | [Fixed configuration](configs/quantization-v4.json) | [Quality, decoding and Q4 failure](reports/quantization-v4/RESULTS.md) |
+
+[Full evidence map and verification commands](docs/EVIDENCE_MAP.md) · [Project contributions and AI assistance](CONTRIBUTIONS.md). Implementation, execution and documentation were AI-assisted; upstream models and frameworks are not claimed as original contributions.
 
 ## Matched three-arm study on newly held-out contexts
 
@@ -71,15 +80,17 @@ In round one, 4-bit quantization within MLX reduced test EM from 24.51% to 14.71
 
 ## Quick start: offline evidence acceptance
 
-Run from the repository root with Python 3.12. No model, GPU or API key is needed. Initial dependency installation requires network; subsequent acceptance runs offline.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and use Python 3.12. For an existing checkout, start at `uv venv` from its root. No model, GPU or API key is needed. Initial dependency installation requires network; subsequent acceptance runs offline.
 
 ```bash
+git clone https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization.git
+cd SmallModelQAFinetuningAndQuantization
 uv venv .venv-ci --python 3.12
 uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
-The entry point runs tests, six offline verification suites, gold controls and teacher auditing. Logs go only to a new `work/` subdirectory; `reports/data/configs` are checked before and after. Missing frozen summaries fail rather than being regenerated. Do not use `python -O`. Linux CI uses the same entry point: **no model downloads, training or fresh inference**. Historical engineering acceptance included 51 tests; Actions records determine the latest executed count.
+The entry point runs tests, saved-evidence verification suites, gold controls and teacher auditing. Logs go only to a new `work/` subdirectory; `reports/data/configs` are checked before and after. Missing frozen summaries fail rather than being regenerated. Do not use `python -O`. Linux CI uses the same entry point: **no model downloads, training or fresh inference**. Historical engineering acceptance included 51 tests; Actions records determine the latest executed count.
 
 ## Actual model inference and training reproduction
 

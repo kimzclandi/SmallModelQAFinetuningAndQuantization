@@ -1,6 +1,8 @@
 # 核心表述与可核验证据
 
-所有链接相对当前分支。2026-10-09 核验：[PR #13](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/13) 已合并，v2、诊断、缓存和 checkpoint 身份预检均已进入默认 `main`。本轮同 CPU 三臂与新文段留出评估由 [PR #14](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/14) 提供，合并前需通过该 PR 核验。历史报告、失败记录、协议与原始预测保持原样。
+所有链接相对当前分支。2026-10-09 核验：[PR #13](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/13) 已合并；242 条 v2、历史量化与蒸馏诊断、缓存及 checkpoint 文件身份预检均可从默认 `main` 核验。本页的同 CPU 三臂新文段留出评估和 TRAIN-only 梯度失败诊断仍由 [PR #14](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/14) 提供，合并前需通过该 PR 核验，不能算作默认分支已发布成果。
+
+本分支已同步 [展示 PR #15](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/15) 的标题、证据导航和离线运行入口；分支同步不代表 PR 已合并。历史报告、失败记录、协议与原始预测保持原样。
 
 | 表述 | 实现／协议 | 报告／原始记录 |
 |---|---|---|
