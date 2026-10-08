@@ -101,7 +101,9 @@ def frozen_binding(args):
             or legacy["seeds"][0] != protocol["probe"]["seed"]
             or any(legacy["correctness"][key] != value for key, value in protocol["correctness"].items())):
         raise ValueError("Capture differs from original first probe or numerical gate")
-    sources = sorted((ROOT / "qa_lab").glob("*.py")) + [source_protocol, args.protocol.resolve()]
+    sources = sorted((ROOT / "qa_lab").glob("*.py")) + [source_protocol,
+        ROOT / "configs/ce-kl-gradient-capture-v1.json", args.protocol.resolve()]
+    sources = list(dict.fromkeys(sources))
     sources += [ROOT / name for name in protocol["replay_sources"]]
     source_sha = {}
     for path in sources:
@@ -117,6 +119,7 @@ def frozen_binding(args):
         if diagnostic.sha(ROOT / name) != digest:
             raise ValueError("Preserved v1 failure changed")
     return protocol, legacy, {"protocol_sha256": diagnostic.sha(args.protocol),
+        "protocol_path": args.protocol.resolve().relative_to(ROOT).as_posix(),
         "protocol_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         "protocol_committed_utc": subprocess.check_output(["git", "show", "-s", "--format=%cI", "HEAD"], cwd=ROOT, text=True).strip(),
         "source_sha256": source_sha}

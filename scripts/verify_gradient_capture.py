@@ -151,7 +151,10 @@ def check_provenance(root, run, files, repository=None):
     for name, sha in sources.items():
         receipt._relative(name)
         need(files["source/" + name] == receipt._sha(sha), "Frozen source hash differs")
-    path = root / "source/configs/ce-kl-gradient-capture-v1.json"
+    protocol_path = run.get("protocol_path", "configs/ce-kl-gradient-capture-v1.json")
+    receipt._relative(protocol_path)
+    need(protocol_path in sources and protocol_path.startswith("configs/"), "Unbound execution protocol")
+    path = root / "source" / protocol_path
     need(digest(path) == run["protocol_sha256"], "Capture protocol digest differs")
     protocol = read(path)
     need(protocol == run["protocol"] and protocol["study"] == STUDY and protocol["status"] == "frozen_before_execution", "Capture protocol identity differs")
@@ -215,6 +218,28 @@ def check_inputs(root, run, legacy, probe, state):
         "inputs/endpoint-" + key.replace(":", "-") + ".json" for key in endpoints}
 
 
+def check_private_metadata(private, probe):
+    need(set(private) == {"sha256", "bytes", "arrays"} and set(private["arrays"]) == PRIVATE_KEYS, "Private receipt coverage differs or exposes path")
+    receipt._sha(private["sha256"])
+    need(type(private["bytes"]) is int and private["bytes"] > 0, "Invalid private byte count")
+    for value in private["arrays"].values():
+        need(set(value) == {"dtype", "shape", "numel", "sha256", "finite"} and value["finite"] is True, "Invalid private metadata")
+        receipt._sha(value["sha256"])
+        need(isinstance(value["shape"], list) and all(type(n) is int and n > 0 for n in value["shape"])
+             and type(value["numel"]) is int and value["numel"] == math.prod(value["shape"]), "Private shape differs")
+    expected_private = {
+        "selected_logits": ("float32", [probe["supervised_tokens"], 151936]),
+        "teacher_log_probs": ("float16", [probe["supervised_tokens"], 151936]),
+        "targets": ("int64", [probe["supervised_tokens"]]),
+        "input_ids": ("int64", [1, probe["input_tokens"]]),
+        "labels": ("int64", [1, probe["input_tokens"]]),
+        "supervised_positions": ("int64", [probe["supervised_tokens"], 2]),
+    }
+    for name, (dtype, shape) in expected_private.items():
+        need(private["arrays"][name]["dtype"] == dtype and private["arrays"][name]["shape"] == shape,
+             "Private input dtype/shape contract differs: " + name)
+
+
 def verify(root, repository=None):
     root = Path(root)
     need(not root.is_symlink(), "Archive root symlink forbidden")
@@ -246,25 +271,7 @@ def verify(root, repository=None):
     need(set(files) == expected, "Unexpected archive file")
     need(run["captured_objectives"] == list(VECTORS) and capture["last_stage"] == VECTORS[-1], "Objective order differs")
     private = capture["private_inputs"]
-    need(set(private) == {"sha256", "bytes", "arrays"} and set(private["arrays"]) == PRIVATE_KEYS, "Private receipt coverage differs or exposes path")
-    receipt._sha(private["sha256"])
-    need(type(private["bytes"]) is int and private["bytes"] > 0, "Invalid private byte count")
-    for value in private["arrays"].values():
-        need(set(value) == {"dtype", "shape", "numel", "sha256", "finite"} and value["finite"] is True, "Invalid private metadata")
-        receipt._sha(value["sha256"])
-        need(isinstance(value["shape"], list) and all(type(n) is int and n > 0 for n in value["shape"])
-             and type(value["numel"]) is int and value["numel"] == math.prod(value["shape"]), "Private shape differs")
-    expected_private = {
-        "selected_logits": ("float32", [probe["supervised_tokens"], 151936]),
-        "teacher_log_probs": ("float16", [probe["supervised_tokens"], 151936]),
-        "targets": ("int64", [probe["supervised_tokens"]]),
-        "input_ids": ("int64", [1, probe["input_tokens"]]),
-        "labels": ("int64", [1, probe["input_tokens"]]),
-        "supervised_positions": ("int64", [probe["supervised_tokens"], 2]),
-    }
-    for name, (dtype, shape) in expected_private.items():
-        need(private["arrays"][name]["dtype"] == dtype and private["arrays"][name]["shape"] == shape,
-             "Private input dtype/shape contract differs: " + name)
+    check_private_metadata(private, probe)
     for p in probe["parameters"]:
         shape = [8, 896] if p["matrix"] == "A" else ([896, 8] if p["module"] == "q_proj" else [128, 8])
         need(p["shape"] == shape, "Real Qwen LoRA shape differs")

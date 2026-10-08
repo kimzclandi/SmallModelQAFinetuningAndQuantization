@@ -213,3 +213,31 @@ def test_file_inventory_rejects_missing_hash_extra_file_and_nested_symlink(tmp_p
     (tmp_path / "extra.json").unlink()
     (tmp_path / "shortcut").symlink_to(tmp_path / "data.json")
     with pytest.raises(ValueError, match="symlinks"): verify.check_files(tmp_path, run)
+
+
+def private_metadata_fixture():
+    dimensions = {"selected_logits": ("float32", [3, 151936]),
+                  "teacher_log_probs": ("float16", [3, 151936]),
+                  "targets": ("int64", [3]), "input_ids": ("int64", [1, 225]),
+                  "labels": ("int64", [1, 225]), "supervised_positions": ("int64", [3, 2])}
+    return {"sha256": "1" * 64, "bytes": 12345, "arrays": {
+        name: {"dtype": dtype, "shape": shape, "numel": int(np.prod(shape)),
+               "sha256": "2" * 64, "finite": True} for name, (dtype, shape) in dimensions.items()}}
+
+
+def test_private_receipt_requires_exact_token_logit_contract():
+    verify.check_private_metadata(private_metadata_fixture(), {"supervised_tokens": 3, "input_tokens": 225})
+
+
+@pytest.mark.parametrize("key,field,value", [
+    ("selected_logits", "dtype", "float64"), ("teacher_log_probs", "dtype", "float32"),
+    ("targets", "dtype", "float32"), ("input_ids", "shape", [225]),
+    ("labels", "shape", [1, 224]), ("supervised_positions", "shape", [3, 1]),
+    ("selected_logits", "shape", [3, 151935]), ("targets", "shape", [4]),
+])
+def test_private_receipt_corruption_with_consistent_numel_rejected(key, field, value):
+    meta = private_metadata_fixture()
+    meta["arrays"][key][field] = value
+    if field == "shape": meta["arrays"][key]["numel"] = int(np.prod(value))
+    with pytest.raises(ValueError, match="contract"):
+        verify.check_private_metadata(meta, {"supervised_tokens": 3, "input_tokens": 225})
