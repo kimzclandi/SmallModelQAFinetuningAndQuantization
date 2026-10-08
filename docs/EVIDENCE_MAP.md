@@ -27,3 +27,5 @@ git diff --check
 [新增冻结蒸馏诊断](LOGITS_DIAGNOSTICS_V1.md)。与旧冻结实验分开保存，不替换历史结果。
 
 [缓存训练前身份校验与搬迁入口](LOGITS_CACHE_INTEGRITY.md)：修复源内容与缓存 ID/token/mask 核对缺口，不重新训练、不改变历史指标。
+
+[Checkpoint 文件身份预检](MODEL_IDENTITY.md)：新 logits 缓存/训练核验本地模型实际文件，并绑定同一加载目录；历史 teacher 身份缺口显式保留，不追认旧实验。

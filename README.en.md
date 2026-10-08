@@ -14,6 +14,8 @@ Additive teacher-cache, loss-arithmetic and paired-error analysis, without retra
 
 [Cache lineage and token/mask preflight](docs/LOGITS_CACHE_INTEGRITY.md) now bind training to frozen TRAIN content, complete ordered IDs and tokenizer identity, while supporting an identical relocated artifact. This is an integrity fix, with no new quality result.
 
+The logits cache/train entry points also perform [checkpoint file identity preflight](docs/MODEL_IDENTITY.md): registered model/revision pairs bind local weights, configuration and tokenizer bytes before loading that exact verified directory. New training with legacy caches requires explicit acknowledgement of unbound teacher bytes; historical runs are not rewritten or retroactively certified.
+
 ## Current logits distillation result and evidence
 
 On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.81%** EM on 74 reused dev questions, below the matched gold-only control (**64.86% ± 1.35%**). The objective is `0.5 CE + 0.5 T² KL`, T=2; the full-vocabulary float16 cache is 374.69 MiB. The 24-row v1 failure remains archived. Coverage, steps and target policy changed between v1 and v2, so the difference is not an isolated data-size effect. No external confirmation or post-result tuning was performed. [Evidence map](docs/EVIDENCE_MAP.md) · [v2 records](reports/logits-distillation-v2/RESULTS.md).

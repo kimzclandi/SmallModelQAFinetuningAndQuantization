@@ -14,6 +14,8 @@
 
 训练入口另增加[缓存血缘与 token/mask 预检](docs/LOGITS_CACHE_INTEGRITY.md)：重新绑定冻结 TRAIN 内容、完整 ID 和 tokenizer 身份，支持同内容 artifact 搬迁；属于工程完整性修复，不产生新质量结果。
 
+logits 缓存/训练入口增加[checkpoint 文件身份预检](docs/MODEL_IDENTITY.md)：按已登记模型与 revision 流式核验本地权重、配置和 tokenizer，并加载同一个已验证目录。旧缓存的新训练需显式承认教师字节身份未绑定；不修改或追认历史实验。
+
 ## 242条完整词表 logits 蒸馏对照
 
 在保留24条v1负结果的基础上，使用全部242条冻结TRAIN数据完成新一轮gold teacher-forcing蒸馏。三个固定seed各训练242步；训练ID、seed、步数、LoRA配置和学习率与历史gold242 hard-CE-only控制组匹配。
