@@ -86,7 +86,9 @@ python -m pytest -q \
   tests/test_verify_confirmation.py
 ```
 
-测试依赖沿用仓库锁定文件；训练张量测试需要 CPU PyTorch 2.8.0，未安装时会显式跳过，不能将这种跳过写成训练契约已通过。CI 的 `cache-contract` job 安装该版本并强制执行训练张量测试。
+测试依赖沿用仓库锁定文件；训练张量测试需要 CPU PyTorch 2.8.0 和 NumPy 2.5.3，未安装 PyTorch 时会显式跳过，不能将这种跳过写成训练契约已通过。CI 的 `cache-contract` job 安装这些版本并强制执行训练张量测试。
+
+归档提交 `e9955f7` 的首轮 CI 暴露了依赖遗漏：CPU job 仅安装 PyTorch，没有安装本地环境已有的 NumPy，导致 17 项新训练测试中的两项在初始参数字节摘要处报 `RuntimeError: Numpy is not available`。修复只向该 job 补充仓库现有锁定版本的 NumPy；冻结源码、协议、训练和评分记录均未修改，也未重跑模型实验。[保留的失败运行](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/runs/37834840844)
 
 下面记录实际使用的完整执行路径；`/local/path` 是执行者已有文件的位置，不是下载入口。代码和协议先提交后才执行，完整运行会真实训练／推理并消耗预算；已有输出目录拒绝覆盖，不能用重跑选择更好的结果。
 
