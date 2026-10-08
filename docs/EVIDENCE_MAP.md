@@ -4,6 +4,7 @@
 
 | 表述 | 实现／协议 | 报告／原始记录 |
 |---|---|---|
+| TRAIN-only 梯度诊断首 probe 数值门槛失败，0 通过 / 1 失败；无质量结论 | [实现](../qa_lab/gradient_diagnostics.py)、[冻结协议](../configs/ce-kl-gradient-v1.json) | [结果与缺口](CE_KL_GRADIENT_DIAGNOSTICS.md)、[原始失败](../reports/ce-kl-gradient-v1/)、[失败回执核验](../scripts/verify_gradient_failure.py) |
 | answer-only LoRA、响应监督 | [训练](../qa_lab/train.py)、[目标数据](../qa_lab/closure_data.py) | [首轮含失败结果](../reports/closure-v1/RESULTS.md) |
 | 同 CPU 三臂×三 seed，256题新文段留出；门控与gold均51.82%，主差0.00pp，未通过采用门槛 | [统一训练](../qa_lab/confirmation_training.py)、[冻结协议](../configs/teacher-gated-confirmation-v1/protocol.json)、[数据排除](../scripts/prepare_confirmation_data.py)、[预测锁定](../qa_lab/confirmation_study.py) | [结果与边界](TEACHER_GATED_CONFIRMATION_RESULTS.md)、[全部记录](../reports/teacher-gated-confirmation-v1/)、[离线重算](../scripts/verify_confirmation.py) |
 | 242条完整词表soft-target蒸馏，固定T=2、CE/KL各0.5 | [实现](../qa_lab/logits_distillation.py)、[固定协议](../configs/logits-distillation-v2/protocol.json)、[目标函数](../configs/logits-distillation-v2/objective.json) | [v2报告](../reports/logits-distillation-v2/RESULTS.md)、[汇总](../reports/logits-distillation-v2/summary.json)、[缓存清单](../reports/logits-distillation-v2/cache-manifest.json)、[逐seed记录](../reports/logits-distillation-v2/) |

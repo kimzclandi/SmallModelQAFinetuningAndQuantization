@@ -24,6 +24,8 @@
 
 ## 蒸馏失败诊断
 
+新增 [TRAIN-only CE/KL 参数梯度诊断](docs/CE_KL_GRADIENT_DIAGNOSTICS.md)：代码和协议先提交，再实际执行。首个 probe 的 logit 解析参考及两个 LoRA 参数块重建超差，程序早停并保存失败；实际 0 个通过、1 个失败，未完成原计划 192 个。未放宽门槛、重跑训练或读取留出集，不形成梯度机制、质量或性能结论。[原始失败归档](reports/ce-kl-gradient-v1/) · [失败回执核验](scripts/verify_gradient_failure.py)。
+
 对现有教师缓存、训练日志和逐题对照新增诊断，无重新训练或调参。无答案题三组均低于 gold-SFT；KL 约占标量总损失的75%–77%，但不是梯度占比或因果结论。[分析与可重算记录](docs/LOGITS_DIAGNOSTICS_V1.md)。
 
 训练入口另增加[缓存血缘与 token/mask 预检](docs/LOGITS_CACHE_INTEGRITY.md)：重新绑定冻结 TRAIN 内容、完整 ID 和 tokenizer 身份，支持同内容 artifact 搬迁；属于工程完整性修复，不产生新质量结果。

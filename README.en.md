@@ -114,3 +114,7 @@ A fresh-environment CPU smoke run was performed on the same machine. Independent
 Linked technical documents retain their original language. `reports/` preserves each round's original report and status. Statements such as “not yet public” or “no online CI” are pre-publication snapshots. Current code, permitted data and records are public; see the CI badge for current status. Model weights, caches and environments are not distributed with the repository.
 
 [2026-09-19 maintenance](docs/maintenance/2026-09-19/README.md) · [2026-09-21 maintenance](docs/maintenance/2026-09-21/README.md)
+
+## TRAIN-only CE/KL gradient diagnostic
+
+The [frozen diagnostic](docs/CE_KL_GRADIENT_DIAGNOSTICS.md) computes five autograd gradients at identical model parameters, with independent logit references and per-parameter reconstruction gates. The first real probe failed the original FP32 numerical contract and stopped: 0 passed, 1 failed, not 192 completed. [Original receipts](reports/ce-kl-gradient-v1/) are preserved. No threshold changes, training updates, or held-out predictions followed. The public raw q_proj block passed; failed v_proj/logit arrays were not archived, so offline verification cannot independently replay the failed coordinates or establish a root cause. This does not establish distillation quality or compression benefits.

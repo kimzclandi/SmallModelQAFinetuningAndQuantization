@@ -41,6 +41,7 @@ def main():
                 'logits_distillation', 'logits_distillation_v2')]
     checks += [('quality_release', ['scripts/verify_quality_release.py']),
                ('teacher_gated_confirmation', ['scripts/verify_confirmation.py']),
+               ('ce_kl_gradient_failure', ['scripts/verify_gradient_failure.py']),
                ('synthetic_qc', ['scripts/verify_synthetic_qc.py']),
                ('retraining', ['scripts/verify_retraining.py']),
                ('external_drcd', ['scripts/verify_external_drcd.py'])]
