@@ -26,3 +26,5 @@ jobs:
       - run: python -m pytest -q tests/test_logits_cache_lineage.py tests/test_logits_distillation.py
       - name: Required offline checkpoint identity and load-path contracts
         run: python -m pytest -q tests/test_model_identity.py
+      - name: Required matched-control and gated-KL tensor contracts
+        run: python -m pytest -q tests/test_confirmation_training.py
