@@ -13,6 +13,14 @@ from qa_lab import model_identity as identity
 from qa_lab import logits_distillation as logits
 
 
+def test_registered_manifests_remain_available_without_local_weights():
+    # Fixture tests replace the registry; also exercise the actual public
+    # bindings so a stale manifest digest/path cannot silently reach users.
+    for model_id, revision in identity.MODEL_IDENTITIES:
+        receipt = identity.expected_identity({"model_id": model_id, "revision": revision})
+        assert receipt["model_id"] == model_id and receipt["revision"] == revision
+
+
 @pytest.fixture
 def snapshots(tmp_path, monkeypatch):
     repository = tmp_path / "repo"

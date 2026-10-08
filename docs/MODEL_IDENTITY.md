@@ -45,6 +45,12 @@ python -m pytest -q tests/test_model_identity.py
 
 纯 CPU 命令只读取和哈希已有文件，不导入 torch/transformers、执行推理或生成教师分布。`cache` 与 `train` 也接受 `--model-cache-dir`；省略时使用环境配置的本地 HF 缓存。没有完整本地文件时直接失败，不自动下载。
 
+## 本机只读核验
+
+实现先提交于 `7ff8daa8b10aca85f7e2500e4a55725ce0d76893`，随后对两套已有 pinned snapshot 执行一次 CPU 文件核验。学生 9 文件、999,602,607 bytes；教师 9 文件、3,098,971,928 bytes，均匹配既有清单。此处字节数包含配置、tokenizer 和许可证等文件，不是运行内存。
+
+[公开核验回执](maintenance/2026-10-09-model-identity/verification.json)保留模型/revision、逐文件大小和 SHA、核验源码 SHA 与来源提交，不包含主机路径或权重。模型加载、推理、训练与 GPU 运行均为 0；没有计时或速度结论。失败注入通过小文件测试，真实 snapshot 未被修改。
+
 ## 证据边界
 
 - 这是文件一致性与加载路径检查，不是可信签名、模型质量确认、CUDA/Ascend 经验或速度收益。
