@@ -1,4 +1,4 @@
-# 小模型问答蒸馏、微调与量化
+# 小模型蒸馏与量化评测
 
 **简体中文** | [English](README.en.md)
 
@@ -7,6 +7,15 @@
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
+
+## 从实现到结果
+
+| 能力 | 代码 | 冻结配置 | 报告与原始记录 |
+|---|---|---|---|
+| 完整词表 logits 蒸馏与 gold-SFT 对照 | [训练与缓存](qa_lab/logits_distillation.py) | [v2 协议](configs/logits-distillation-v2/protocol.json)、[目标函数](configs/logits-distillation-v2/objective.json) | [v2 结果及未超过 gold 的边界](reports/logits-distillation-v2/RESULTS.md) |
+| 同 MLX 框架 FP16/Q4/Q8 比较 | [量化与评测](qa_lab/mlx_experiment.py) | [固定配置](configs/quantization-v4.json) | [质量、解码与 Q4 失败记录](reports/quantization-v4/RESULTS.md) |
+
+[完整证据索引与核验命令](docs/EVIDENCE_MAP.md) · [个人项目贡献与 AI 辅助边界](CONTRIBUTIONS.md)。代码与实验采用 AI 辅助实现、执行和整理，上游模型与框架不计为原创贡献。
 
 ## 蒸馏失败诊断
 

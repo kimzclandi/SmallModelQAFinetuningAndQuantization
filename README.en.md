@@ -1,4 +1,4 @@
-# SmallModelQAFinetuningAndQuantization
+# Small-Model Distillation and Quantization Evaluation
 
 [简体中文](README.md) | **English**
 
@@ -7,6 +7,15 @@ Auditable small-model extractive QA: data isolation → original baseline → go
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **Across the five historical rounds, no trained candidate passed the adoption gates. Q8 passed English development compression screening and a 96-question Chinese new-source quality-preservation check; business deployment remains unverified.** All quality figures derive from saved per-example predictions, retaining abstention baselines, failures and regressions. Actual distillation used a local Qwen teacher. Manually prepared GPT candidates were audited but never used for training.
+
+## From implementation to results
+
+| Capability | Code | Frozen configuration | Report and records |
+|---|---|---|---|
+| Full-vocabulary logits distillation with a gold-SFT control | [Training and cache](qa_lab/logits_distillation.py) | [v2 protocol](configs/logits-distillation-v2/protocol.json), [objective](configs/logits-distillation-v2/objective.json) | [v2 results, below matched gold-SFT](reports/logits-distillation-v2/RESULTS.md) |
+| FP16/Q4/Q8 within the same MLX framework | [Quantization and evaluation](qa_lab/mlx_experiment.py) | [Fixed configuration](configs/quantization-v4.json) | [Quality, decoding and Q4 failure](reports/quantization-v4/RESULTS.md) |
+
+[Full evidence map and verification commands](docs/EVIDENCE_MAP.md) · [Project contributions and AI assistance](CONTRIBUTIONS.md). Implementation, execution and documentation were AI-assisted; upstream models and frameworks are not claimed as original contributions.
 
 ## Frozen distillation diagnostics
 
