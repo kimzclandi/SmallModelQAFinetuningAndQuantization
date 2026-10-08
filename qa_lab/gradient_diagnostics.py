@@ -178,17 +178,21 @@ def analytic_logit_gradients(selected_logits, targets, teacher_log_probs):
             "combined_full": ce + full, "combined_gated": ce + gated}
 
 
-def inspect_probe(model, ids, labels, teacher, tolerance, public_block=False):
+def inspect_probe(model, ids, labels, teacher, tolerance, public_block=False, observer=None):
     """Five autograd VJPs at one theta; never populate .grad or step optimizer."""
     import torch
     parameters = sorted((name, p) for name, p in model.named_parameters() if p.requires_grad)
     metadata = [parameter_metadata(name, p) for name, p in parameters]
     logits = model(input_ids=ids, attention_mask=torch.ones_like(ids), use_cache=False).logits
-    if not torch.isfinite(logits).all():
-        raise ValueError("Nonfinite model logits")
     mask = labels[:, 1:] != -100
     selected = logits[:, :-1, :][mask]
     targets = labels[:, 1:][mask]
+    if observer is not None:
+        observer("inputs", {"selected_logits": selected, "targets": targets,
+                 "teacher_log_probs": teacher, "input_ids": ids, "labels": labels,
+                 "supervised_positions": torch.nonzero(mask)}, metadata)
+    if not torch.isfinite(logits).all():
+        raise ValueError("Nonfinite model logits")
     losses, gate = weighted_objectives(selected, targets, teacher)
     legacy_full = confirmation_losses(logits, labels, teacher, "full_kd")
     legacy_gate = confirmation_losses(logits, labels, teacher, "gated_kd")
@@ -200,6 +204,9 @@ def inspect_probe(model, ids, labels, teacher, tolerance, public_block=False):
     for index, key in enumerate(VECTORS):
         values = torch.autograd.grad(losses[key], (selected, *[p for _, p in parameters]),
                                      retain_graph=index < len(VECTORS) - 1, allow_unused=False)
+        if observer is not None:
+            observer(key, {"logit_actual": values[0], "logit_reference": analytic[key],
+                     **{f"parameter_{i:03d}": value for i, value in enumerate(values[1:])}}, metadata)
         logit_checks[key] = gradient_check(values[0], analytic[key], **tolerance)
         gradients[key] = [value.detach() for value in values[1:]]
     rows, raw, raw_parameter = [], {}, None
