@@ -15,12 +15,17 @@ import random
 import time
 
 from .common import digest, sha, source_hashes, write_json
-from .inference import hardware_chip, load, sync
+from .inference import hardware_chip, sync
+from .model_identity import (load_verified_model, load_verified_tokenizer,
+                             validate_cache_identities, verify_local_model)
 from .train_artifact import target_tokens, verified_rows
 
 
 CACHE_FORMAT = "answer-token-full-logprobs-v1"
 SUPPORTED_TARGET_METHODS = {"response_distillation", "gold_sft"}
+# Stored float16 log probabilities need not sum to exactly one after exp.
+# This is a cache-format tolerance, not a model-quality acceptance threshold.
+CACHE_PROBABILITY_MASS_ATOL = 0.005
 
 
 def validate_objective(config):
@@ -118,16 +123,77 @@ def _load_cache_manifest(folder):
     manifest = json.loads((folder / "manifest.json").read_text())
     if manifest.get("format") != CACHE_FORMAT:
         raise ValueError("unsupported logits cache format")
-    for record in manifest.get("records", []):
+    records = manifest.get("records")
+    if not isinstance(records, list) or not records:
+        raise ValueError("logits cache must contain records")
+    ids = [record["id"] for record in records]
+    if len(set(ids)) != len(ids):
+        raise ValueError("duplicate logits cache IDs")
+    for record in records:
         path = folder / record["path"]
+        if record["path"] != str(_record_path(Path(), record["id"])) or not path.resolve().is_relative_to(folder.resolve()):
+            raise ValueError("logits cache record path is not canonical or escapes cache")
         if sha(path) != record["sha256"]:
             raise ValueError(f"logits cache record changed: {record['id']}")
     return manifest
 
 
+def validate_cache_lineage(cache, artifact, source):
+    """Recheck TRAIN content and cache coverage without loading models/tensors.
+
+    An explicit artifact path permits relocation, but never relaxes the frozen
+    manifest/content hashes. Hash consistency is not an authenticity signature.
+    """
+    if cache["artifact_manifest_sha256"] != sha(artifact / "manifest.json"):
+        raise ValueError("source artifact manifest changed after caching")
+    rows, manifest = verified_rows(artifact, source)
+    if cache["train_source_sha256"] != sha(source / "train.jsonl"):
+        raise ValueError("cache TRAIN source differs from verified source")
+    target_source = validate_target_method(manifest["method"])
+    if cache["artifact_method"] != manifest["method"] or cache["hard_target_source"] != target_source:
+        raise ValueError("cache target policy differs from source artifact")
+    if cache["student_tokenizer_sha256"] != cache["teacher_tokenizer_sha256"]:
+        raise ValueError("cache teacher/student tokenizer identities differ")
+    if cache["artifact_row_count"] != len(rows):
+        raise ValueError("cache artifact row count differs from verified TRAIN rows")
+    expected = rows
+    if cache["status"] == "smoke_complete":
+        limit = cache["smoke_limit"]
+        if type(limit) is not int or not 0 < limit < len(rows):
+            raise ValueError("invalid smoke cache limit")
+        expected = rows[:limit]
+    elif cache["status"] != "complete" or cache.get("smoke_limit") is not None:
+        raise ValueError("invalid complete cache status/limit")
+    ids = [record["id"] for record in cache["records"]]
+    if (not ids or len(set(ids)) != len(ids) or cache["cached_row_count"] != len(ids)
+            or ids != [row["id"] for row in expected]):
+        raise ValueError("cache IDs/order/count do not match verified TRAIN coverage")
+    return {row["id"]: row for row in expected}
+
+
+def validate_cached_record(saved, meta, row, tokenizer, student_config, max_tokens, vocabulary):
+    """Bind cached inputs/masks to regenerated TRAIN tokens before any updates."""
+    import torch
+
+    ids, labels = target_tokens(row, tokenizer, student_config, max_tokens)
+    for key, expected in (("input_ids", ids), ("labels", labels)):
+        actual = saved[key]
+        if (actual.dtype not in (torch.int32, torch.int64) or actual.ndim != 1
+                or actual.tolist() != expected):
+            raise ValueError(f"cached {key} differs from verified TRAIN tokens: {meta['id']}")
+    supervised = sum(label != -100 for label in labels[1:])
+    distribution = saved["teacher_log_probs"]
+    if (meta["sequence_tokens"] != len(ids) or meta["supervised_tokens"] != supervised
+            or meta["vocabulary"] != vocabulary or distribution.shape != (supervised, vocabulary)
+            or distribution.dtype != torch.float16 or not torch.isfinite(distribution).all()):
+        raise ValueError(f"cached distribution metadata/shape/dtype invalid: {meta['id']}")
+    mass_error = torch.expm1(torch.logsumexp(distribution.double(), dim=-1)).abs()
+    if torch.any(mass_error > CACHE_PROBABILITY_MASS_ATOL):
+        raise ValueError(f"cached log probabilities are not normalized: {meta['id']}")
+
+
 def cache_teacher(args):
     import torch
-    from transformers import AutoTokenizer
 
     objective = json.loads(args.objective.read_text())
     temperature, _, _ = validate_objective(objective)
@@ -142,11 +208,12 @@ def cache_teacher(args):
         if args.limit < 1 or args.limit >= full_row_count:
             raise ValueError("--limit must be positive and smaller than the full artifact")
         rows = rows[:args.limit]
+    student_identity = verify_local_model(student_config, args.model_cache_dir)
+    teacher_identity = verify_local_model(teacher_config, args.model_cache_dir)
     args.output.mkdir(parents=True, exist_ok=False)
     (args.output / "records").mkdir()
-    student_tokenizer = AutoTokenizer.from_pretrained(
-        student_config["model_id"], revision=student_config["revision"], local_files_only=True)
-    teacher_tokenizer, teacher = load(teacher_config)
+    student_tokenizer = load_verified_tokenizer(student_identity)
+    teacher_tokenizer, teacher = load_verified_model(teacher_config, teacher_identity)
     student_fp = tokenizer_fingerprint(student_tokenizer)
     teacher_fp = tokenizer_fingerprint(teacher_tokenizer)
     if student_fp != teacher_fp:
@@ -194,6 +261,7 @@ def cache_teacher(args):
         "student_prompt_config": sequence_config(student_config),
         "student_model_config": student_config,
         "teacher_model_config": teacher_config,
+        "model_identities": {"student": student_identity.receipt, "teacher": teacher_identity.receipt},
         "student_tokenizer_sha256": student_fp,
         "teacher_tokenizer_sha256": teacher_fp,
         "artifact_manifest_sha256": sha(args.artifact / "manifest.json"),
@@ -229,16 +297,23 @@ def train_student(args):
         raise ValueError("cache and training temperatures differ")
     if cache["student_prompt_config"] != sequence_config(student_config):
         raise ValueError("student model revision or prompt differs from logits cache")
-    if cache["artifact_manifest_sha256"] != sha(Path(cache["artifact_path"]) / "manifest.json"):
-        raise ValueError("source response artifact changed after caching")
+    artifact = args.artifact or Path(cache["artifact_path"])
+    rows = validate_cache_lineage(cache, artifact, args.data_dir)
+    teacher_binding = validate_cache_identities(cache, args.allow_legacy_unbound_cache)
+    student_identity = verify_local_model(student_config, args.model_cache_dir)
     args.output.mkdir(parents=True, exist_ok=False)
     random.seed(train_config["seed"])
     torch.manual_seed(train_config["seed"])
     torch.set_num_threads(8)
-    tokenizer, model = load(student_config)
+    tokenizer, model = load_verified_model(student_config, student_identity)
     if tokenizer_fingerprint(tokenizer) != cache["student_tokenizer_sha256"]:
         raise ValueError("student tokenizer differs from logits cache")
+    for meta in cache["records"]:
+        validate_cached_record(_torch_load(args.cache / meta["path"]), meta, rows[meta["id"]],
+                               tokenizer, student_config, objective["max_tokens"],
+                               model.get_output_embeddings().weight.shape[0])
     model = get_peft_model(model, LoraConfig(
+        revision=student_config["revision"],
         r=train_config["lora_r"], lora_alpha=train_config["lora_alpha"],
         lora_dropout=train_config["lora_dropout"], target_modules=train_config["target_modules"],
         task_type="CAUSAL_LM"))
@@ -280,7 +355,13 @@ def train_student(args):
         "method": "full_vocabulary_logits_distillation",
         "seed": train_config["seed"], "steps": len(log), "objective": objective,
         "train_config": train_config, "student_config": student_config,
+        "model_identities": {"student": student_identity.receipt},
+        "teacher_identity_binding": teacher_binding,
+        "legacy_teacher_unbound": teacher_binding == "legacy_unbound",
         "cache_manifest_sha256": sha(args.cache / "manifest.json"),
+        "verified_artifact_manifest_sha256": sha(artifact / "manifest.json"),
+        "verified_train_source_sha256": sha(args.data_dir / "train.jsonl"),
+        "cache_preflight": "TRAIN content, ordered IDs, tokenizer identities and all cached token/mask tensors verified before optimizer creation",
         "elapsed_seconds": time.perf_counter() - started,
         "total_input_tokens": sum(row["input_tokens"] for row in log),
         "total_supervised_tokens": sum(row["supervised_tokens"] for row in log),
@@ -299,6 +380,7 @@ def main():
     cache.add_argument("--artifact", type=Path, required=True)
     cache.add_argument("--data-dir", type=Path, default=Path("data/complexity-v1"))
     cache.add_argument("--student-config", type=Path, default=Path("configs/baseline.json"))
+    cache.add_argument("--model-cache-dir", type=Path, help="Existing Hugging Face hub cache; never downloads")
     cache.add_argument("--teacher-config", type=Path, required=True)
     cache.add_argument("--teacher-device", choices=["cpu", "mps"],
                        help="Explicit runtime override; never falls back silently")
@@ -308,7 +390,13 @@ def main():
                        help="Smoke only: cache the first N rows and mark the manifest smoke_complete")
     train = sub.add_parser("train")
     train.add_argument("--cache", type=Path, required=True)
+    train.add_argument("--artifact", type=Path,
+                       help="Relocated source artifact; must match frozen cache manifest hash")
+    train.add_argument("--data-dir", type=Path, default=Path("data/complexity-v1"))
     train.add_argument("--student-config", type=Path, default=Path("configs/baseline.json"))
+    train.add_argument("--model-cache-dir", type=Path, help="Existing Hugging Face hub cache; never downloads")
+    train.add_argument("--allow-legacy-unbound-cache", action="store_true",
+                       help="Explicitly allow historical cache without teacher byte identity; output remains marked unbound")
     train.add_argument("--student-device", choices=["cpu", "mps"],
                        help="Explicit runtime override; never falls back silently")
     train.add_argument("--train-config", type=Path, required=True)

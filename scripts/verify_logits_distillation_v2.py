@@ -5,6 +5,7 @@ import statistics
 
 from qa_lab.common import read_jsonl, sha
 from qa_lab.metrics import evaluate
+from qa_lab.logits_distillation import validate_cache_lineage
 
 
 ROOT = Path("reports/logits-distillation-v2")
@@ -22,6 +23,12 @@ def main():
         raise ValueError("stored status changed")
     if cache["cached_row_count"] != 242 or cache["artifact_method"] != "gold_sft":
         raise ValueError("cache provenance changed")
+    validate_cache_lineage(cache, Path("data/coverage-v3-gold242"), Path("data/complexity-v1"))
+    protocol = json.loads(Path("configs/logits-distillation-v2/protocol.json").read_text())
+    for role in ("student", "teacher"):
+        config = cache[f"{role}_model_config"]
+        if f"{config['model_id']}@{config['revision']}" != protocol[role]:
+            raise ValueError(f"cache {role} identity differs from frozen protocol")
     dev_rows = read_jsonl("data/complexity-v1/dev.jsonl")
     em = []
     for seed in SEEDS:

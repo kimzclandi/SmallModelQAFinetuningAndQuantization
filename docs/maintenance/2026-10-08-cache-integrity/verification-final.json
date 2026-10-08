@@ -1,0 +1,98 @@
+{
+  "checked_on": "2026-10-08",
+  "supersedes": "verification.json (retained initial validation before cross-review fixes)",
+  "implementation_sha256": "1cb63cf9f39e7781415b50ac7d578f26e763808378827ef4ab402e4bcb130d8a",
+  "full_tests": {
+    "passed": 190,
+    "skipped": 0,
+    "framework": "pytest8.4.2 / torch2.8.0"
+  },
+  "offline_acceptance": {
+    "checks": [
+      {
+        "name": "tests",
+        "returncode": 0
+      },
+      {
+        "name": "artifacts",
+        "returncode": 0
+      },
+      {
+        "name": "closure",
+        "returncode": 0
+      },
+      {
+        "name": "teacher_study",
+        "returncode": 0
+      },
+      {
+        "name": "coverage",
+        "returncode": 0
+      },
+      {
+        "name": "quantization",
+        "returncode": 0
+      },
+      {
+        "name": "chinese",
+        "returncode": 0
+      },
+      {
+        "name": "logits_distillation",
+        "returncode": 0
+      },
+      {
+        "name": "logits_distillation_v2",
+        "returncode": 0
+      },
+      {
+        "name": "quality_release",
+        "returncode": 0
+      },
+      {
+        "name": "synthetic_qc",
+        "returncode": 0
+      },
+      {
+        "name": "retraining",
+        "returncode": 0
+      },
+      {
+        "name": "external_drcd",
+        "returncode": 0
+      },
+      {
+        "name": "gold_pilot",
+        "returncode": 0
+      },
+      {
+        "name": "teacher_audit",
+        "returncode": 0
+      }
+    ],
+    "passed": true,
+    "frozen_unchanged": true
+  },
+  "existing_cache_preflight": {
+    "status": "passed",
+    "scope": "Read-only existing v2 cache hash, TRAIN lineage and token/mask preflight; no model loaded, no inference, no training",
+    "records": 242,
+    "supervised_tokens": 1289,
+    "cache_manifest_sha256": "3be524b9ac27366bda7e2fab80e27f97ebe7123804c04a27249ba4ac97c3c72a",
+    "implementation_sha256": "1cb63cf9f39e7781415b50ac7d578f26e763808378827ef4ab402e4bcb130d8a",
+    "tokenizer_sha256": "f28ae93d3b31cb2158f0b014af4585af5e483b5719fd05cb214f8475c46fb562",
+    "vocabulary": 151936,
+    "probability_mass_atol": 0.005,
+    "torch": "2.8.0",
+    "full_tensors_published": false
+  },
+  "cross_review_fixes": [
+    "Reject unnormalized float16 teacher log probabilities with fixed probability-mass tolerance 0.005",
+    "Bind all cache distributions to actual student output-embedding vocabulary before optimizer creation"
+  ],
+  "limitations": [
+    "No new model training, inference or quality experiment",
+    "Full teacher tensors stay local; public CI runs synthetic tensor regressions and frozen manifest lineage checks",
+    "Historical training did not run this new preflight; frozen evidence remains unchanged"
+  ]
+}

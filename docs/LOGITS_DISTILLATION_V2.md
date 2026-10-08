@@ -22,6 +22,8 @@
 
 ## 固定入口
 
+以下保留历史执行命令。当前代码另加[模型文件身份预检](MODEL_IDENTITY.md)：`cache/train` 可用 `--model-cache-dir` 指向已有 HF hub；若新训练复用缺少身份回执的旧缓存，须显式传入 `--allow-legacy-unbound-cache`，并保留教师字节身份未绑定的标记。历史离线验收不要求新字段，也不因此获得追溯认证。任何新的训练仍需新协议和输出目录。
+
 ```bash
 HF_HUB_OFFLINE=1 .venv-ci/bin/python -m qa_lab.logits_distillation cache \
   --artifact data/coverage-v3-gold242 \

@@ -8,6 +8,14 @@
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
 
+## 蒸馏失败诊断
+
+对现有教师缓存、训练日志和逐题对照新增诊断，无重新训练或调参。无答案题三组均低于 gold-SFT；KL 约占标量总损失的75%–77%，但不是梯度占比或因果结论。[分析与可重算记录](docs/LOGITS_DIAGNOSTICS_V1.md)。
+
+训练入口另增加[缓存血缘与 token/mask 预检](docs/LOGITS_CACHE_INTEGRITY.md)：重新绑定冻结 TRAIN 内容、完整 ID 和 tokenizer 身份，支持同内容 artifact 搬迁；属于工程完整性修复，不产生新质量结果。
+
+logits 缓存/训练入口增加[checkpoint 文件身份预检](docs/MODEL_IDENTITY.md)：按已登记模型与 revision 流式核验本地权重、配置和 tokenizer，并加载同一个已验证目录。旧缓存的新训练需显式承认教师字节身份未绑定；不修改或追认历史实验。
+
 ## 242条完整词表 logits 蒸馏对照
 
 在保留24条v1负结果的基础上，使用全部242条冻结TRAIN数据完成新一轮gold teacher-forcing蒸馏。三个固定seed各训练242步；训练ID、seed、步数、LoRA配置和学习率与历史gold242 hard-CE-only控制组匹配。
