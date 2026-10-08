@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "real_tensor_values_included": false,
+  "ci_replays_real_tensor_values": false,
+  "scope": "Reviewed scalar receipts only. Full real derivative and input arrays remain local; CI validates receipt consistency and synthetic contracts, not those unseen arrays.",
+  "files": {
+    "execution-01-rejected.json": "c1beeb9cdce575d8fcf05b156bb6bdc36a840a27e70f20b3e4b5fd05e803ca6e",
+    "execution-02-summary.json": "3d66171e51d988feff3a0a5315bd3d01ce6a040563aa3efc731b6a2697745a4b",
+    "local-artifact-manifest.json": "e08aa11d886afde5ed73aa89dd43d09c975aa9489bcb48124c8f33be9573a860",
+    "numpy-replay-summary.json": "ba0eab0adb14f488af7d33409cd84e3acd1bf3e9ea3b5aa1514037dd27fc945a",
+    "same-input-replay-summary.json": "b0d3a4f88d939333ccb521bbd9d21ef25f6d9b39c911aa165dac0fe68aabcebe"
+  }
+}

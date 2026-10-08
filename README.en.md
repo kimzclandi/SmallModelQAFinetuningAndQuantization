@@ -25,6 +25,8 @@ The preregistered gated-versus-gold difference is **0.00 percentage points**, wi
 
 ## Frozen distillation diagnostics
 
+[Atomic failure capture and same-input replay](docs/GRADIENT_CAPTURE.md) now preserve all five objectives and 96 LoRA gradient blocks locally for one separately frozen first TRAIN probe. The original logit/v_proj failures recur; same-input FP64 arithmetic narrows numerical investigation without relaxing the original gate, retraining, or claiming quality/speed gains. Real arrays stay local; public CI checks synthetic contracts and reviewed scalar receipts only.
+
 Additive teacher-cache, loss-arithmetic and paired-error analysis, without retraining or tuning. All three seeds lose unanswerable correct answers versus gold-SFT; weighted KL contributes about 75–77% of scalar loss, not gradient attribution or causal proof. [Evidence and limits](docs/LOGITS_DIAGNOSTICS_V1.md).
 
 [Cache lineage and token/mask preflight](docs/LOGITS_CACHE_INTEGRITY.md) now bind training to frozen TRAIN content, complete ordered IDs and tokenizer identity, while supporting an identical relocated artifact. This is an integrity fix, with no new quality result.
