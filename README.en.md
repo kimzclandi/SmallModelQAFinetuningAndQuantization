@@ -74,15 +74,17 @@ In round one, 4-bit quantization within MLX reduced test EM from 24.51% to 14.71
 
 ## Quick start: offline evidence acceptance
 
-Run from the repository root with Python 3.12. No model, GPU or API key is needed. Initial dependency installation requires network; subsequent acceptance runs offline.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and use Python 3.12. For an existing checkout, start at `uv venv` from its root. No model, GPU or API key is needed. Initial dependency installation requires network; subsequent acceptance runs offline.
 
 ```bash
+git clone https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization.git
+cd SmallModelQAFinetuningAndQuantization
 uv venv .venv-ci --python 3.12
 uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
 ```
 
-The entry point runs tests, six offline verification suites, gold controls and teacher auditing. Logs go only to a new `work/` subdirectory; `reports/data/configs` are checked before and after. Missing frozen summaries fail rather than being regenerated. Do not use `python -O`. Linux CI uses the same entry point: **no model downloads, training or fresh inference**. Historical engineering acceptance included 51 tests; Actions records determine the latest executed count.
+The entry point runs tests, saved-evidence verification suites, gold controls and teacher auditing. Logs go only to a new `work/` subdirectory; `reports/data/configs` are checked before and after. Missing frozen summaries fail rather than being regenerated. Do not use `python -O`. Linux CI uses the same entry point: **no model downloads, training or fresh inference**. Historical engineering acceptance included 51 tests; Actions records determine the latest executed count.
 
 ## Actual model inference and training reproduction
 

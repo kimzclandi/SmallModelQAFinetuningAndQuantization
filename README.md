@@ -86,9 +86,11 @@ python scripts/verify_synthetic_qc.py
 
 ## 快速开始：离线证据验收
 
-从仓库根目录运行，Python3.12。此入口无需模型、GPU或API key；首次安装依赖需要网络，之后验收离线运行。
+需先安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)，使用 Python3.12；已有副本从仓库根目录的 `uv venv` 步骤开始。此入口无需模型、GPU或API key；首次安装依赖需要网络，之后验收离线运行。
 
 ```bash
+git clone https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization.git
+cd SmallModelQAFinetuningAndQuantization
 uv venv .venv-ci --python 3.12
 uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
