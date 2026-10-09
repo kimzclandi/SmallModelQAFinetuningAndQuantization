@@ -1,12 +1,28 @@
-# 小模型问答蒸馏、微调与量化
+# 小模型蒸馏与量化评测
 
 **简体中文** | [English](README.en.md)
 
-可审计的小模型抽取式问答实验：数据隔离 → 原始基线 → gold-SFT与响应蒸馏 → 数据覆盖对照 → 同框架量化 → 冻结候选的新来源验证。输入是文段和问题，输出最短原文答案或严格 `NO_ANSWER`；不包含检索或闭卷知识问答。
+这是在 NUS 实验室期间持续迭代的个人研究项目，研究小模型文段问答的质量与运行成本。给定文段和问题，模型需要输出最短原文答案；没有依据时输出严格 `NO_ANSWER`。任务范围是文段内作答与拒答，不包含检索或闭卷知识问答。
+
+项目围绕两个独立问题展开：教师指导能否比直接学习正确答案更有效；低比特量化能否在减小权重文件、提高解码速度的同时控制答案退化。先建立基线和数据隔离，再固定训练或量化协议，用逐题结果与成本记录判断是否采用。
 
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **历史五轮结论：训练候选均未通过采用门槛；Q8通过英文dev压缩筛选及96题中文新来源的质量保持检查，尚未获得业务部署验证。** 所有质量数字来自保存的逐条预测，保留拒答基线、失败样例和回归。实际蒸馏使用本地Qwen教师；手工GPT候选仅作审计，未进入训练。
+
+## 两条独立实验线
+
+- **蒸馏与直接微调的比较。** 使用已有的 `Qwen2.5-1.5B-Instruct` 教师指导已有的 `Qwen2.5-0.5B-Instruct` 学生，以同数据、步数与 LoRA 配置的 gold-SFT 为对照。`Qwen2.5` 是系列名，`1.5B` 与 `0.5B` 是参数规模；学生并非由本项目裁剪教师得到。242 条 TRAIN 的完整词表蒸馏未超过匹配的 gold-SFT，因此不声称教师指导已带来质量优势。
+- **原始学生的独立量化评测。** 另对未接受本项目训练的 0.5B 学生，在同 MLX 框架中比较 FP16、Q4 和 Q8，分别检查答案、权重体积与固定负载解码速度。Q8 通过限定的压缩筛选，Q4 未通过质量门槛；这些结果不属于蒸馏后模型，不能拼成“先蒸馏成功、再量化加速”的连续成果。
+
+## 从实现到结果
+
+| 能力 | 代码 | 冻结配置 | 报告与原始记录 |
+|---|---|---|---|
+| 完整词表 logits 蒸馏与 gold-SFT 对照 | [训练与缓存](qa_lab/logits_distillation.py) | [v2 协议](configs/logits-distillation-v2/protocol.json)、[目标函数](configs/logits-distillation-v2/objective.json) | [v2 结果及未超过 gold 的边界](reports/logits-distillation-v2/RESULTS.md) |
+| 同 MLX 框架 FP16/Q4/Q8 比较 | [量化与评测](qa_lab/mlx_experiment.py) | [固定配置](configs/quantization-v4.json) | [质量、解码与 Q4 失败记录](reports/quantization-v4/RESULTS.md) |
+
+[完整证据索引与核验命令](docs/EVIDENCE_MAP.md) · [个人项目贡献与 AI 辅助边界](CONTRIBUTIONS.md)。代码与实验采用 AI 辅助实现、执行和整理，上游模型与框架不计为原创贡献。
 
 ## 蒸馏失败诊断
 
@@ -34,7 +50,7 @@ logits 缓存/训练入口增加[checkpoint 文件身份预检](docs/MODEL_IDENT
 
 ## 项目沿革（2026-09-20 补记）
 
-根据维护者对本地开发过程的说明，相关早期工作约于 2026 年 6 月开始在本地开展，之后集中整理并上传 GitHub。该月份是早期工作的近似起点，不表示当前全部功能和实验在当时已完成。后续实现、实验与维护保留各自的实际版本及运行日期。
+根据维护者对本地开发过程的说明，相关早期工作约于 2026 年 6 月开始在本地开展，之后集中整理并上传 GitHub。该月份是早期工作的近似起点，不表示当前全部功能和实验在当时已完成。后续实现、实验与维护保留各自的实际版本及运行日期。维护者于 2026-10-09 确认，项目在 NUS 实验室期间由个人开展或继续迭代；该背景不改变早期探索的起点，也不把全部工作追溯为同一时期完成。
 
 ## 新增：中文数据质量对照（2026-09-20）
 
@@ -77,9 +93,11 @@ python scripts/verify_synthetic_qc.py
 
 ## 快速开始：离线证据验收
 
-从仓库根目录运行，Python3.12。此入口无需模型、GPU或API key；首次安装依赖需要网络，之后验收离线运行。
+需先安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)，使用 Python3.12；已有副本从仓库根目录的 `uv venv` 步骤开始。此入口无需模型、GPU或API key；首次安装依赖需要网络，之后验收离线运行。
 
 ```bash
+git clone https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization.git
+cd SmallModelQAFinetuningAndQuantization
 uv venv .venv-ci --python 3.12
 uv pip install --python .venv-ci/bin/python -r requirements-ci.lock.txt
 .venv-ci/bin/python scripts/acceptance.py --output work/acceptance-01
