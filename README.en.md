@@ -2,11 +2,18 @@
 
 [简体中文](README.md) | **English**
 
-Auditable small-model extractive QA: data isolation → original baseline → gold-SFT and response distillation → coverage controls → same-framework quantization → new-source evaluation of a frozen candidate. Input is a passage and question; output is the shortest verbatim answer or strict `NO_ANSWER`. This is neither retrieval nor closed-book QA.
+This personal research project was developed and iterated during the maintainer’s time in a NUS lab. It studies quality and runtime cost in small-model passage QA: given a passage and question, return the shortest verbatim answer, or strict `NO_ANSWER` when the passage provides no answer. Retrieval and closed-book QA are outside this task.
+
+The project asks two independent questions: does teacher guidance help more than learning from correct answers directly, and can low-bit quantization reduce weight-file size and improve decoding speed while limiting answer regressions? Baselines and data isolation precede fixed protocols; per-example predictions and cost records determine whether a candidate meets its adoption gates.
 
 [![offline-integrity](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml/badge.svg)](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/workflows/tests.yml)
 
 **Across the five historical rounds, no trained candidate passed the adoption gates. Q8 passed English development compression screening and a 96-question Chinese new-source quality-preservation check; business deployment remains unverified.** All quality figures derive from saved per-example predictions, retaining abstention baselines, failures and regressions. Actual distillation used a local Qwen teacher. Manually prepared GPT candidates were audited but never used for training.
+
+## Two independent experiment tracks
+
+- **Distillation versus direct fine-tuning.** An existing `Qwen2.5-1.5B-Instruct` teacher guides an existing `Qwen2.5-0.5B-Instruct` student, compared with gold-SFT using matched data, steps and LoRA settings. `Qwen2.5` names the series; `1.5B` and `0.5B` denote parameter scales. This project did not prune the teacher into the student. Full-vocabulary distillation on 242 TRAIN rows remained below the matched gold-SFT control, so no quality advantage is claimed.
+- **Separate quantization of the original student.** The 0.5B student without project-specific training is compared in FP16, Q4 and Q8 within MLX, checking answers, weight-file size and fixed-workload decoding separately. Q8 passed bounded compression screening; Q4 failed the quality gate. These are not results from a distilled checkpoint and cannot be presented as a successful distillation-then-quantization pipeline.
 
 ## From implementation to results
 
@@ -31,7 +38,7 @@ On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.
 
 ## Project history (added 2026-09-20)
 
-According to the maintainer, related early work began locally around June 2026 before consolidation and upload to GitHub. This approximate starting point does not date all current features or experiments. Later implementations, experiments and maintenance retain their actual version and run dates.
+According to the maintainer, related early work began locally around June 2026 before consolidation and upload to GitHub. This approximate starting point does not date all current features or experiments. Later implementations, experiments and maintenance retain their actual version and run dates. On 2026-10-09, the maintainer confirmed that the project was personally developed or continued during their time in a NUS lab; this context does not change the early starting point or backdate all later work.
 
 ## Chinese data-quality comparison (2026-09-20)
 
