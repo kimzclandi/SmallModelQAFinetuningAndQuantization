@@ -1,0 +1,119 @@
+{
+  "study": "ce-kl-gradient-capture-v1",
+  "status": "frozen_before_execution",
+  "question": "Can one fixed first TRAIN probe preserve every derivative before the original numerical gate, so its observed discrepancy can be replayed without loading model weights?",
+  "hypothesis": "Capture and identity audits complete independently of whether the unchanged original FP32 numerical gate passes. No candidate precision change or quality adoption is tested.",
+  "probe": {
+    "state": "initial",
+    "seed": 20261009,
+    "train_id": "56e190bce3433e1400422fcb",
+    "count": 1
+  },
+  "source_protocol": "configs/ce-kl-gradient-v1.json",
+  "source_protocol_sha256": "4786724fcc338a44269c9f7db628d8a4a57ea6944a040a2647860bd747eaaae0",
+  "preserved_failure_sha256": {
+    "reports/ce-kl-gradient-v1/run.json": "d639f1c0560da95b02a36ba6ebadc09414ea62b9dc66aeee0ab3648678993065",
+    "reports/ce-kl-gradient-v1/probes/000.json": "ce56882a0dea21064ce147c5fa3ca26e162528747aa7cbe2333d793123c6956d",
+    "reports/ce-kl-gradient-v1/source/qa_lab/gradient_diagnostics.py": "1f5ad2ca406c5a3ec6b3b501b552c0c9e7d53fcb11ba7ef9d87ecfc72e2d7b5a"
+  },
+  "runtime": {
+    "device": "cpu",
+    "dtype": "float32",
+    "attention_implementation": "eager",
+    "cpu_threads": 8
+  },
+  "correctness": {
+    "gradient_atol": 1e-05,
+    "gradient_rtol": 0.0001
+  },
+  "budget": {
+    "wall_seconds": 120,
+    "max_rss_bytes": 17179869184,
+    "max_output_bytes": 134217728,
+    "paid_resources": false
+  },
+  "budget_scope": "Total derivative plus input archive capture bytes; wall/RSS/disk checked at stage boundaries and after finalization. No hard interrupt of a blocking library call. Replay is separate and uses existing saved arrays only.",
+  "scope": {
+    "optimizer_steps": 0,
+    "free_generation": 0,
+    "heldout_predictions": 0,
+    "quality_or_performance_claims": false,
+    "full_192_probe_study": false
+  },
+  "identity": "Reuse frozen ce-kl-gradient-v1 TRAIN/cache/student configuration and all nine endpoint identity receipts. Load only the initial model at the first seed. Validate exact initial adapter digest and all original final source/input/model/adapter identities even when the gate fails.",
+  "weights": "Unchanged 0.5 CE + 2 KL with T=2, teacher FP16 cached log-probability mass retained, gated denominator all supervised tokens.",
+  "private_capture": {
+    "required": true,
+    "location_policy": "Both raw output directories are independent fresh locations strictly below repository ignored work/. Token/logit inputs are separate from derivatives, not a privacy guarantee; no raw array is published.",
+    "file": "inputs.npz",
+    "keys": [
+      "selected_logits",
+      "targets",
+      "teacher_log_probs",
+      "input_ids",
+      "labels",
+      "supervised_positions"
+    ],
+    "dtypes": [
+      "float32",
+      "int64",
+      "float16",
+      "int64",
+      "int64",
+      "int64"
+    ],
+    "timing": "Atomically save selected logits/targets/cache/input IDs/labels/positions before model-logit finite checks or objectives. Derivative receipt records only hashes/dtypes/shapes/numel/finite flags."
+  },
+  "replay_sources": [
+    "scripts/verify_gradient_capture.py",
+    "scripts/replay_private_gradient_capture.py",
+    "scripts/verify_gradient_diagnostics.py"
+  ],
+  "predeclared_replay": {
+    "count": 1,
+    "private": "One same-input CPU calculation from saved selected logits: original FP32 autograd; FP64 objective/autograd versus independent analytic formula; teacher exp32-only and log_softmax forward/backward decomposition. Keep source tensors private; only manually reviewed aggregate discrepancy and mass summaries may be published.",
+    "tolerance": "Original atol=1e-5 and rtol=1e-4 remain authoritative for original derivatives. Numerical stage decomposition is descriptive, not an adopted repair or a mechanism-to-quality claim.",
+    "no_model_reload": true,
+    "archive": "NumPy-only full logit gradient comparisons at the unchanged gate and all 96 blocks of five gradients. Recompute original FP32 vector addition plus a separate FP64-add decomposition; the FP64 decomposition does not replace the old gate."
+  },
+  "failure_policy": "Own two new local work output directories before work. Preserve completed atomic stage arrays and receipts on nonfinite data, numerical mismatch, exceptions, identity or budget failures. Do not overwrite or repeat. A fully captured numerical failure has run.status=complete with numerical_gate_passed=false, capture_complete=true, diagnostic_complete=false. Other errors have status=failed with partial artifacts. Runtime repair requires a new version/protocol before another model run.",
+  "interpretation": [
+    "Derivative capture completes a missing evidence boundary; it does not repair v1 or establish a training/quality defect.",
+    "Same-input local numerical decomposition can constrain explanations for this probe only; no heldout-quality cause, broader 192-probe mechanism, speed, GPU or production claim.",
+    "Original v1 sources, protocol, partial arrays, failure receipts and prior results remain unchanged.",
+    "Five objectives evaluate the same parameters; zero optimizer steps and zero parameter grad-buffer accumulation."
+  ],
+  "local_capture": {
+    "objectives": [
+      "ce",
+      "full_kl",
+      "gated_kl",
+      "combined_full",
+      "combined_gated"
+    ],
+    "parameter_blocks": 96,
+    "trainable_parameters": 540672,
+    "array_schema": "One NPZ per objective: logit_actual float32, logit_reference float64, parameter_000 through parameter_095 float32 in sorted parameter-name order. Raw values captured immediately after each autograd call, before any numerical comparison.",
+    "metadata": "Names/shapes/dtypes/numel/finite flags/byte hashes, exact archive hashes, per-parameter Gram, zero status and original gate statistics. Derivative archive excludes raw model/adapter weights and teacher logits but can encode sensitive input or teacher information; all real arrays stay local."
+  },
+  "disclosure": {
+    "raw_arrays": "local_only",
+    "raw_archive_manifest": "local_only",
+    "public_allowed": "Code, protocol, synthetic tests, and manually reviewed aggregate summary/receipt only. No original TRAIN tensors, gradients, logits, cached teacher values or token IDs uploaded in this iteration.",
+    "limitation": "CE derivatives can reveal targets; KL derivatives carry teacher distribution information. Directory separation is not anonymization.",
+    "capture_scope": "Selected logits/targets/cache input and five full derivative objectives only. An exception before gradients may leave partial artifacts; unselected full model logits are not archived."
+  },
+  "planned_execution": {
+    "capture_output": "work/ce-kl-gradient-capture-v1-exec1",
+    "private_output": "work/ce-kl-gradient-capture-v1-inputs-exec1",
+    "numpy_replay_output": "work/ce-kl-gradient-capture-v1-numpy-replay-exec1.json",
+    "private_replay_output": "work/ce-kl-gradient-capture-v1-private-replay-exec1.json",
+    "offline_environment": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1"
+    },
+    "model_reloads": 1,
+    "retry_policy": "No automatic model retry; any repair requires a separately frozen version."
+  }
+}

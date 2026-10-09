@@ -1,16 +1,21 @@
 # 核心表述与可核验证据
 
-所有链接相对当前分支。2026-10-09 核验：本页列出的 242 条 v2、历史量化、蒸馏诊断、缓存及模型文件身份预检均可从默认 `main` 核验。其他未合并实验须通过对应 PR 单独核验，不纳入本页默认分支结果。历史报告、失败记录、协议与原始预测保持原样。
+所有链接相对当前分支。2026-10-09 核验：[PR #13](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/13) 已合并；242 条 v2、历史量化与蒸馏诊断、缓存及 checkpoint 文件身份预检均可从默认 `main` 核验。本页的同 CPU 三臂新文段留出评估和 TRAIN-only 梯度失败诊断仍由 [PR #14](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/14) 提供，合并前需通过该 PR 核验，不能算作默认分支已发布成果。
+
+本分支已同步 [展示 PR #15](https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/pull/15) 的标题、证据导航和离线运行入口；分支同步不代表 PR 已合并。历史报告、失败记录、协议与原始预测保持原样。
 
 | 表述 | 实现／协议 | 报告／原始记录 |
 |---|---|---|
+| TRAIN-only 梯度诊断首 probe 数值门槛失败，0 通过 / 1 失败；无质量结论 | [实现](../qa_lab/gradient_diagnostics.py)、[冻结协议](../configs/ce-kl-gradient-v1.json) | [结果与缺口](CE_KL_GRADIENT_DIAGNOSTICS.md)、[原始失败](../reports/ce-kl-gradient-v1/)、[失败回执核验](../scripts/verify_gradient_failure.py) |
+| 单 probe 完整梯度本地留证与离线重放；原门槛仍失败 | [捕获](../qa_lab/gradient_capture.py)、[执行前协议](../configs/ce-kl-gradient-capture-v1-exec2.json)、[NumPy 重放](../scripts/verify_gradient_capture.py) | [结果与公开边界](GRADIENT_CAPTURE.md)、[审查后的标量摘要](../reports/ce-kl-gradient-capture-v1/)、[公开摘要核验](../scripts/verify_gradient_capture_summary.py)；真实张量未公开，CI 不重放真实数组 |
 | answer-only LoRA、响应监督 | [训练](../qa_lab/train.py)、[目标数据](../qa_lab/closure_data.py) | [首轮含失败结果](../reports/closure-v1/RESULTS.md) |
+| 同 CPU 三臂×三 seed，256题新文段留出；门控与gold均51.82%，主差0.00pp，未通过采用门槛 | [统一训练](../qa_lab/confirmation_training.py)、[冻结协议](../configs/teacher-gated-confirmation-v1/protocol.json)、[数据排除](../scripts/prepare_confirmation_data.py)、[预测锁定](../qa_lab/confirmation_study.py) | [结果与边界](TEACHER_GATED_CONFIRMATION_RESULTS.md)、[全部记录](../reports/teacher-gated-confirmation-v1/)、[离线重算](../scripts/verify_confirmation.py) |
 | 242条完整词表soft-target蒸馏，固定T=2、CE/KL各0.5 | [实现](../qa_lab/logits_distillation.py)、[固定协议](../configs/logits-distillation-v2/protocol.json)、[目标函数](../configs/logits-distillation-v2/objective.json) | [v2报告](../reports/logits-distillation-v2/RESULTS.md)、[汇总](../reports/logits-distillation-v2/summary.json)、[缓存清单](../reports/logits-distillation-v2/cache-manifest.json)、[逐seed记录](../reports/logits-distillation-v2/) |
 | v2 dev EM 60.36%±2.81%，低于匹配gold 64.86%±1.35% | [v2离线核验](../scripts/verify_logits_distillation_v2.py)、[gold控制](../reports/coverage-v3/RESULTS.md) | [gold原始记录](../reports/coverage-v3/)、[v1负结果](../reports/logits-distillation-v1/RESULTS.md) |
 | Q8 988.10→525.05 MB；decode 266.21→313.86 tokens/s；dev少对1/74 | [MLX实现](../qa_lab/mlx_experiment.py)、[协议](QUANTIZATION_V4.md) | [报告及Q4失败](../reports/quantization-v4/RESULTS.md)、[原始记录](../reports/quantization-v4/) |
 | 240候选、75接收、37盲审样本 | [selection profile](../qa_lab/selection_profile.py)、[盲审](../qa_lab/blind_review.py) | [QC规则与证据](SYNTHETIC_QC.md)、[盲审协议](BLIND_REVIEW.md)、[未填写的审阅包](maintenance/2026-09-22-depth/evidence/review-bundle/reviewer/) |
 
-±为三个seed的样本标准差，不是置信区间。v2在gold答案前缀上teacher forcing；v1使用教师生成目标，且步数不同。因此扩大覆盖后观察到更高dev EM，但不能将全部差异归因于数据量，更不能推出soft targets胜过匹配gold-SFT。74题dev已经复用，未做外部确认，也没有结果后调参。完整缓存权重不随仓库分发，缓存清单记录来源、规模与哈希。
+±为三个seed的样本标准差，不是置信区间。v2在gold答案前缀上teacher forcing；v1使用教师生成目标，且步数不同。因此扩大覆盖后观察到更高dev EM，但不能将全部差异归因于数据量，更不能推出soft targets胜过匹配gold-SFT。74题dev已经复用，未做外部确认，也没有结果后调参。完整 logits 缓存与模型权重不随仓库分发，缓存清单记录来源、规模与哈希。
 
 无参考权限时保持review；无独立人工标注时语义结论保持unknown。盲审样本生成不是完成人工盲审。个人项目采用AI辅助实现与执行，归属见[贡献说明](../CONTRIBUTIONS.md)。
 
@@ -19,6 +24,7 @@
 ```sh
 python scripts/acceptance.py --output work/new-evidence-acceptance
 python .github/scripts/check_readmes.py
+python scripts/verify_confirmation.py
 git diff --check
 ```
 

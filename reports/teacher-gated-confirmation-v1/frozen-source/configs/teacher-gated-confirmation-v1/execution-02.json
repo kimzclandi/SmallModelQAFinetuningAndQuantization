@@ -1,0 +1,18 @@
+{
+  "execution_version": 2,
+  "protocol_version": "teacher-gated-confirmation-v1",
+  "protocol_sha256": "d1673cf172d18cefc1f94cdc920c86af77d0ff789c0ace56ba77ca688cc8c508",
+  "previous_execution": {
+    "directory": "teacher-gated-confirmation-v1",
+    "study_sha256": "10744ec06e256772e628c40020f6e2aebd4f7aff7cc567b0d47db39fe2c094a7",
+    "status": "failed",
+    "error_type": "PermissionError",
+    "phase": "teacher-cache",
+    "wall_seconds": 0.015635083000233863,
+    "completed_stages": 0,
+    "teacher_cache_created": false,
+    "predictions_or_scores_created": false
+  },
+  "reason": "The sandbox denied process.children system process enumeration used by RSS budget monitoring before cache creation. Retry uses the same committed code and protocol with host execution permission, in a new directory. No hypothesis, inputs, thresholds, seeds or budgets changed. First failed attempt remains preserved.",
+  "output_directory": "work/teacher-gated-confirmation-v1-exec2"
+}

@@ -1,0 +1,33 @@
+{
+  "status": "failed",
+  "state": "initial",
+  "seed": 20261009,
+  "probes_completed": 0,
+  "started_utc": "2026-10-08T20:28:07.634085+00:00",
+  "initial_trainable_state_sha256": "75be59bc82760498f394f20995ec037ee677edd1e40e8f0a3c693895b70b18a6",
+  "parameters_before": {
+    "base": {
+      "sha256": "4778c93dcd1c90dd897eea3784296f21f8c2a733ecf17f8e017cc88d79fbe092",
+      "numel": 494032768
+    },
+    "adapter": {
+      "sha256": "75be59bc82760498f394f20995ec037ee677edd1e40e8f0a3c693895b70b18a6",
+      "numel": 540672
+    }
+  },
+  "trainable_parameters": 540672,
+  "parameter_blocks": 96,
+  "parameters_after": {
+    "base": {
+      "sha256": "4778c93dcd1c90dd897eea3784296f21f8c2a733ecf17f8e017cc88d79fbe092",
+      "numel": 494032768
+    },
+    "adapter": {
+      "sha256": "75be59bc82760498f394f20995ec037ee677edd1e40e8f0a3c693895b70b18a6",
+      "numel": 540672
+    }
+  },
+  "parameters_unchanged": true,
+  "error_type": "ValueError",
+  "finished_utc": "2026-10-08T20:28:10.252610+00:00"
+}

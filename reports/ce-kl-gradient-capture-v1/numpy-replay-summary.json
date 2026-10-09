@@ -1,0 +1,169 @@
+{
+  "status": "verified",
+  "study": "ce-kl-gradient-capture-v1",
+  "capture_complete": true,
+  "diagnostic_complete": false,
+  "protocol_commit": "d925dcc3e55c55b939e101dde0fd83c3de0b3171",
+  "protocol_sha256": "45d43a1b96b63feb1741e496037d436ff3445f2d41f5e643968fcace15f625f9",
+  "git_source_provenance_checked": true,
+  "numerical_gate_passed": false,
+  "parameter_blocks_replayed": 96,
+  "parameter_gradient_values_replayed": 2703360,
+  "legacy_scalar_loss_checks_replayed": false,
+  "logit_gradient_values_replayed": 2279040,
+  "logit_failures": [
+    {
+      "objective": "full_kl",
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.513262546589376e-05,
+      "l2_error": 5.513963214862043e-05,
+      "relative_l2_error": 0.0003303489466996085,
+      "reference_norm": 0.1669132978915164,
+      "reconstructed_norm": 0.16692723651393868,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "first_failure_coordinate": [
+        2,
+        198
+      ]
+    },
+    {
+      "objective": "gated_kl",
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.513262546589376e-05,
+      "l2_error": 5.513963214862043e-05,
+      "relative_l2_error": 0.0003303489466996085,
+      "reference_norm": 0.1669132978915164,
+      "reconstructed_norm": 0.16692723651393868,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "first_failure_coordinate": [
+        2,
+        198
+      ]
+    },
+    {
+      "objective": "combined_full",
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.507967305484751e-05,
+      "l2_error": 5.5185243706289206e-05,
+      "relative_l2_error": 0.0003068448387551305,
+      "reference_norm": 0.17984739104680963,
+      "reconstructed_norm": 0.17985753067922036,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "first_failure_coordinate": [
+        2,
+        198
+      ]
+    },
+    {
+      "objective": "combined_gated",
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.507967305484751e-05,
+      "l2_error": 5.5185243706289206e-05,
+      "relative_l2_error": 0.0003068448387551305,
+      "reference_norm": 0.17984739104680963,
+      "reconstructed_norm": 0.17985753067922036,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "first_failure_coordinate": [
+        2,
+        198
+      ]
+    }
+  ],
+  "parameter_failures": [
+    {
+      "parameter": "base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "component": "full",
+      "allclose": false,
+      "failed_elements": 6,
+      "first_failure_flat": 72,
+      "max_abs_error": 3.1828880310058594e-05,
+      "l2_error": 0.00021514511881482717,
+      "relative_l2_error": 1.2494887383387423e-05,
+      "reference_norm": 17.218652094525748,
+      "reconstructed_norm": 17.218667715850668,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "float64_add_failed_elements": 6
+    },
+    {
+      "parameter": "base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "component": "gated",
+      "allclose": false,
+      "failed_elements": 6,
+      "first_failure_flat": 72,
+      "max_abs_error": 3.1828880310058594e-05,
+      "l2_error": 0.00021514511881482717,
+      "relative_l2_error": 1.2494887383387423e-05,
+      "reference_norm": 17.218652094525748,
+      "reconstructed_norm": 17.218667715850668,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "float64_add_failed_elements": 6
+    },
+    {
+      "parameter": "base_model.model.model.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "component": "full",
+      "allclose": false,
+      "failed_elements": 2,
+      "first_failure_flat": 508,
+      "max_abs_error": 1.6864389181137085e-05,
+      "l2_error": 0.0001280390848859478,
+      "relative_l2_error": 8.575468950744285e-06,
+      "reference_norm": 14.930855166216302,
+      "reconstructed_norm": 14.930864660457518,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "float64_add_failed_elements": 2
+    },
+    {
+      "parameter": "base_model.model.model.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "component": "gated",
+      "allclose": false,
+      "failed_elements": 2,
+      "first_failure_flat": 508,
+      "max_abs_error": 1.6864389181137085e-05,
+      "l2_error": 0.0001280390848859478,
+      "relative_l2_error": 8.575468950744285e-06,
+      "reference_norm": 14.930855166216302,
+      "reconstructed_norm": 14.930864660457518,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "comparison": "abs(actual-reference)<=atol+rtol*abs(reference), evaluated in float64",
+      "float64_add_failed_elements": 2
+    }
+  ],
+  "optimizer_steps": 0,
+  "free_generation": 0,
+  "heldout_predictions": 0,
+  "quality_or_performance_conclusion": false,
+  "limits": [
+    "Replays locally saved derivatives, not autograd or private-input formulas; real arrays are not public CI assets.",
+    "Float64-add diagnostics isolate final addition rounding only and never replace the original float32-add gate.",
+    "Hashes/timestamps are receipts, not authenticity proof; optional repository checking compares pre-execution Git objects.",
+    "Model/cache bytes, parameter immutability and legacy scalar loss checks remain receipts in this replay.",
+    "One TRAIN probe does not complete the 192-probe study or prove historical root cause, quality or speed gains."
+  ],
+  "real_tensor_values_included": false,
+  "ci_replays_real_tensor_values": false,
+  "scope": "Reviewed scalar receipts only. Full real derivative and input arrays remain local; CI validates receipt consistency and synthetic contracts, not those unseen arrays.",
+  "full_local_replay_sha256": "0662ded6b3001cea6e8762fe30fa8fd3c8a479d38065d7a34dde85eefd7dfd07"
+}

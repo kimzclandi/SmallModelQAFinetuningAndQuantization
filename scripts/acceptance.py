@@ -1,6 +1,7 @@
 """One offline acceptance entry point shared by local checks and CI.
 
-Requires Python 3.12 and pytest only; never loads models or downloads data.
+Requires Python 3.12 and the pinned pytest/NumPy CI dependencies;
+never loads models or downloads data.
 New outputs must live below work/. Frozen trees are fingerprinted before/after.
 """
 import argparse
@@ -39,6 +40,9 @@ def main():
                ('artifacts', 'closure', 'teacher_study', 'coverage', 'quantization', 'chinese',
                 'logits_distillation', 'logits_distillation_v2')]
     checks += [('quality_release', ['scripts/verify_quality_release.py']),
+               ('teacher_gated_confirmation', ['scripts/verify_confirmation.py']),
+               ('ce_kl_gradient_failure', ['scripts/verify_gradient_failure.py']),
+               ('ce_kl_capture_scalar_receipt', ['scripts/verify_gradient_capture_summary.py']),
                ('synthetic_qc', ['scripts/verify_synthetic_qc.py']),
                ('retraining', ['scripts/verify_retraining.py']),
                ('external_drcd', ['scripts/verify_external_drcd.py'])]

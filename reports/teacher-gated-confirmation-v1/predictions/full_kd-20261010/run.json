@@ -1,0 +1,76 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-08T19:33:40.236590+00:00",
+  "key": "full_kd:20261010",
+  "execution_lock_sha256": "d9e1accb55303db925aa9a5ac2dd90a4a21df7e5ad1f731ff9face101e160bd3",
+  "inputs_sha256": "6251b57d6eb94e4419fc79042ec5160d3d1fc7c27e637c491db70c1be0bb7e3d",
+  "adapter_files": {
+    "adapter_config.json": "12c3c7cf609834f9263ed2d68d9d4a50f5e96f1c5d1636681da72a11d9ff6a48",
+    "adapter_model.safetensors": "0da6ac39dde739bb588bb58b2d5d847ab37b83db2da7185b578173c09ba74995"
+  },
+  "scope": "Serial offline quality evaluation; costs are not a speed benchmark",
+  "hardware": "Apple M4 Max",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.56.2",
+    "peft": "0.17.1"
+  },
+  "model_identity": {
+    "schema": 1,
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "manifest": "reports/model-artifacts.json",
+    "manifest_sha256": "014e6a0442569325a977740ec247dd6438fc2b1f89e53c156d6c6ef023429d27",
+    "files": {
+      "model.safetensors": {
+        "bytes": 988097824,
+        "sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
+      },
+      "LICENSE": {
+        "bytes": 11343,
+        "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+      },
+      "tokenizer_config.json": {
+        "bytes": 7305,
+        "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+      },
+      "config.json": {
+        "bytes": 659,
+        "sha256": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45"
+      },
+      "tokenizer.json": {
+        "bytes": 7031645,
+        "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+      },
+      "generation_config.json": {
+        "bytes": 242,
+        "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6"
+      },
+      "README.md": {
+        "bytes": 4917,
+        "sha256": "b19c806a904db6dc878a0462e70b551f6b7ac78dfbb88c2eb966ca2b9109ae15"
+      },
+      "merges.txt": {
+        "bytes": 1671839,
+        "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+      },
+      "vocab.json": {
+        "bytes": 2776833,
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    }
+  },
+  "parameter_count": 494573440,
+  "parameter_bytes": 1978293760,
+  "max_input_tokens_observed": 883,
+  "n": 256,
+  "predictions_sha256": "844280dc7d6bbbeab8814ddc5931d5013c0b9981eadb311a95c7416575f889e6",
+  "finished_utc": "2026-10-08T19:34:43.759973+00:00",
+  "wall_seconds": 63.50959295799839,
+  "memory": {
+    "rss_peak_sampled_bytes": 4245651456,
+    "mps_alloc_peak_sampled_bytes": 0,
+    "mps_driver_peak_sampled_bytes": 0,
+    "note": "Process RSS and MPS memory overlap in unified memory; DO NOT add them. Sampled maxima, not exact hardware peaks."
+  }
+}

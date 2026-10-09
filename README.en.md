@@ -24,7 +24,15 @@ The project asks two independent questions: does teacher guidance help more than
 
 [Full evidence map and verification commands](docs/EVIDENCE_MAP.md) · [Project contributions and AI assistance](CONTRIBUTIONS.md). Implementation, execution and documentation were AI-assisted; upstream models and frameworks are not claimed as original contributions.
 
+## Matched three-arm study on newly held-out contexts
+
+Three fixed seeds per arm were retrained in the same CPU/FP32 loop on 242 TRAIN rows. After locking all nine models, 2,304 predictions were generated for 256 questions from 128 contexts excluded from recorded project inputs; scoring followed the complete prediction lock. Mean normalized EM (sample SD across seeds): **gold-SFT 51.82%±4.53%, full KL 44.79%±1.26%, teacher-gold agreement gated KL 51.82%±2.88%**.
+
+The preregistered gated-versus-gold difference is **0.00 percentage points**, with a paired article-cluster 95% interval **[-2.82,+2.64]**. The candidate failed adoption gates; format validity was 91.41% versus gold's 95.18%, and only one seed improved EM. Always-abstain EM is 50%. All 25 articles have prior project exposure: this is a context holdout, not unseen-article or pretraining-clean validation. No post-result tuning or speedup claim. [Results and failures](docs/TEACHER_GATED_CONFIRMATION_RESULTS.md) · [Frozen protocol](docs/TEACHER_GATED_CONFIRMATION_V1.md) · [Records](reports/teacher-gated-confirmation-v1/) · [Offline replay](scripts/verify_confirmation.py).
+
 ## Frozen distillation diagnostics
+
+[Atomic failure capture and same-input replay](docs/GRADIENT_CAPTURE.md) now preserve all five objectives and 96 LoRA gradient blocks locally for one separately frozen first TRAIN probe. The original logit/v_proj failures recur; same-input FP64 arithmetic narrows numerical investigation without relaxing the original gate, retraining, or claiming quality/speed gains. Real arrays stay local; public CI checks synthetic contracts and reviewed scalar receipts only.
 
 Additive teacher-cache, loss-arithmetic and paired-error analysis, without retraining or tuning. All three seeds lose unanswerable correct answers versus gold-SFT; weighted KL contributes about 75–77% of scalar loss, not gradient attribution or causal proof. [Evidence and limits](docs/LOGITS_DIAGNOSTICS_V1.md).
 
@@ -32,7 +40,7 @@ Additive teacher-cache, loss-arithmetic and paired-error analysis, without retra
 
 The logits cache/train entry points also perform [checkpoint file identity preflight](docs/MODEL_IDENTITY.md): registered model/revision pairs bind local weights, configuration and tokenizer bytes before loading that exact verified directory. New training with legacy caches requires explicit acknowledgement of unbound teacher bytes; historical runs are not rewritten or retroactively certified.
 
-## Current logits distillation result and evidence
+## Historical v2 logits distillation result and evidence
 
 On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.81%** EM on 74 reused dev questions, below the matched gold-only control (**64.86% ± 1.35%**). The objective is `0.5 CE + 0.5 T² KL`, T=2; the full-vocabulary float16 cache is 374.69 MiB. The 24-row v1 failure remains archived. Coverage, steps and target policy changed between v1 and v2, so the difference is not an isolated data-size effect. No external confirmation or post-result tuning was performed. [Evidence map](docs/EVIDENCE_MAP.md) · [v2 records](reports/logits-distillation-v2/RESULTS.md).
 
@@ -126,3 +134,7 @@ A fresh-environment CPU smoke run was performed on the same machine. Independent
 Linked technical documents retain their original language. `reports/` preserves each round's original report and status. Statements such as “not yet public” or “no online CI” are pre-publication snapshots. Current code, permitted data and records are public; see the CI badge for current status. Model weights, caches and environments are not distributed with the repository.
 
 [2026-09-19 maintenance](docs/maintenance/2026-09-19/README.md) · [2026-09-21 maintenance](docs/maintenance/2026-09-21/README.md)
+
+## TRAIN-only CE/KL gradient diagnostic
+
+The [frozen diagnostic](docs/CE_KL_GRADIENT_DIAGNOSTICS.md) computes five autograd gradients at identical model parameters, with independent logit references and per-parameter reconstruction gates. The first real probe failed the original FP32 numerical contract and stopped: 0 passed, 1 failed, not 192 completed. [Original receipts](reports/ce-kl-gradient-v1/) are preserved. No threshold changes, training updates, or held-out predictions followed. The public raw q_proj block passed; failed v_proj/logit arrays were not archived, so offline verification cannot independently replay the failed coordinates or establish a root cause. This does not establish distillation quality or compression benefits.

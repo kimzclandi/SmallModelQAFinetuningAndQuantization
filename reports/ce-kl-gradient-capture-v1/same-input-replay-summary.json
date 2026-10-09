@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "scope": "Reviewed scalar receipts only. Full real derivative and input arrays remain local; CI validates receipt consistency and synthetic contracts, not those unseen arrays.",
+  "tolerance": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "shape": [
+    3,
+    151936
+  ],
+  "threads": 8,
+  "fp32_replay_bitwise_matches_capture": {
+    "ce": true,
+    "full_kl": true,
+    "gated_kl": true,
+    "combined_full": true,
+    "combined_gated": true
+  },
+  "fp64_formula_bitwise_matches_capture": {
+    "ce": true,
+    "full_kl": true,
+    "gated_kl": true,
+    "combined_full": true,
+    "combined_gated": true
+  },
+  "fp32_autograd_vs_formula": {
+    "ce": {
+      "allclose": true,
+      "failed_elements": 0,
+      "first_failure_flat": null,
+      "max_abs_error": 3.723396815646929e-06,
+      "row_max_abs_error": [
+        3.723396815646929e-06,
+        3.2892586062098668e-09,
+        5.295241104856052e-08
+      ]
+    },
+    "full_kl": {
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.513262546589376e-05,
+      "row_max_abs_error": [
+        4.0146276797381475e-07,
+        7.612220794955826e-07,
+        5.513262546589376e-05
+      ]
+    },
+    "gated_kl": {
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.513262546589376e-05,
+      "row_max_abs_error": [
+        4.0146276797381475e-07,
+        7.612220794955826e-07,
+        5.513262546589376e-05
+      ]
+    },
+    "combined_full": {
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.507967305484751e-05,
+      "row_max_abs_error": [
+        3.321934047673114e-06,
+        7.645113380971846e-07,
+        5.507967305484751e-05
+      ]
+    },
+    "combined_gated": {
+      "allclose": false,
+      "failed_elements": 1,
+      "first_failure_flat": 304070,
+      "max_abs_error": 5.507967305484751e-05,
+      "row_max_abs_error": [
+        3.321934047673114e-06,
+        7.645113380971846e-07,
+        5.507967305484751e-05
+      ]
+    }
+  },
+  "fp64_autograd_vs_formula": {
+    "ce": {
+      "allclose": true,
+      "failed_elements": 0,
+      "first_failure_flat": null,
+      "max_abs_error": 9.269928574751063e-18,
+      "row_max_abs_error": [
+        8.673617379884035e-19,
+        9.269928574751063e-18,
+        9.251823245503502e-18
+      ]
+    },
+    "full_kl": {
+      "allclose": true,
+      "failed_elements": 0,
+      "first_failure_flat": null,
+      "max_abs_error": 1.617456169000775e-14,
+      "row_max_abs_error": [
+        2.7755575615628914e-15,
+        1.9290125052862095e-15,
+        1.617456169000775e-14
+      ]
+    },
+    "gated_kl": {
+      "allclose": true,
+      "failed_elements": 0,
+      "first_failure_flat": null,
+      "max_abs_error": 1.617456169000775e-14,
+      "row_max_abs_error": [
+        2.7755575615628914e-15,
+        1.9290125052862095e-15,
+        1.617456169000775e-14
+      ]
+    },
+    "combined_full": {
+      "allclose": true,
+      "failed_elements": 0,
+      "first_failure_flat": null,
+      "max_abs_error": 1.6181500583911657e-14,
+      "row_max_abs_error": [
+        2.7755575615628914e-15,
+        1.915134717478395e-15,
+        1.6181500583911657e-14
+      ]
+    },
+    "combined_gated": {
+      "allclose": true,
+      "failed_elements": 0,
+      "first_failure_flat": null,
+      "max_abs_error": 1.6181500583911657e-14,
+      "row_max_abs_error": [
+        2.7755575615628914e-15,
+        1.915134717478395e-15,
+        1.6181500583911657e-14
+      ]
+    }
+  },
+  "teacher_exp32_only_vs_formula": {
+    "allclose": true,
+    "failed_elements": 0,
+    "first_failure_flat": null,
+    "max_abs_error": 3.126073344628111e-09,
+    "row_max_abs_error": [
+      3.0084808116948025e-09,
+      3.126073344628111e-09,
+      9.289268243506399e-10
+    ]
+  },
+  "teacher_and_forward32_vs_formula": {
+    "allclose": true,
+    "failed_elements": 0,
+    "first_failure_flat": null,
+    "max_abs_error": 7.991134426774127e-06,
+    "row_max_abs_error": [
+      1.5197231202634942e-07,
+      5.68806463652205e-07,
+      7.991134426774127e-06
+    ]
+  },
+  "actual_fp32_vs_teacher_and_forward32": {
+    "allclose": false,
+    "failed_elements": 1,
+    "first_failure_flat": 304070,
+    "max_abs_error": 6.312375989266789e-05,
+    "row_max_abs_error": [
+      5.534350800001642e-07,
+      1.9241561584337763e-07,
+      6.312375989266789e-05
+    ]
+  },
+  "actual_fp32_vs_observed_upstream_hybrid64": {
+    "allclose": false,
+    "failed_elements": 1,
+    "first_failure_flat": 304070,
+    "max_abs_error": 6.312390382867683e-05,
+    "row_max_abs_error": [
+      5.500075172387708e-07,
+      1.9968365624900564e-07,
+      6.312390382867683e-05
+    ]
+  },
+  "log_softmax32_exp_mass": [
+    1.0000027789631338,
+    1.0000092505545937,
+    1.0000281654166978
+  ],
+  "teacher_half_mass": [
+    0.9999210684211869,
+    0.9998894744606925,
+    1.0003139359896094
+  ],
+  "teacher_exp32_mass": [
+    0.999921057797288,
+    0.9998894869822861,
+    1.0003139169856832
+  ],
+  "environment": {
+    "python": "3.12.13",
+    "torch": "2.8.0"
+  },
+  "limits": [
+    "FP64 is a local diagnostic on identical captured logits, not a new model/gradient study or changed v1 tolerance.",
+    "Hybrid formulas describe arithmetic stages, not a proof of a specific upstream kernel bug.",
+    "No parameter VJP is recomputed; no claim about training quality or acceleration."
+  ],
+  "capture_run_sha256": "18aa168793ccee822cc4f731b97b2fcc28f5389793f60b3430fa6f6e61ee73c0",
+  "private_input_sha256": "015d6e97c87bd1228205004060bdc31d2447cf2a2d63fecc3324ff5a4039c45e",
+  "script_sha256": "fc57d35f15dea9a2aa54d8f0354d2d9f5168caaa9aeb52019b0db9da57b6ded0",
+  "protocol_commit": "d925dcc3e55c55b939e101dde0fd83c3de0b3171",
+  "real_tensor_values_included": false,
+  "ci_replays_real_tensor_values": false,
+  "full_local_replay_sha256": "76f3fe1d86176701f9b3ec2c0741546a1c90158b97233f1937e13e84066e183d"
+}

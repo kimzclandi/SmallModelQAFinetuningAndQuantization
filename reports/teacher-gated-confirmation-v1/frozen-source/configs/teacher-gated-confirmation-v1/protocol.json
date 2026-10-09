@@ -1,0 +1,141 @@
+{
+  "study": "teacher-gated-confirmation-v1",
+  "status": "frozen_before_execution",
+  "question": "Does TRAIN teacher-gold top1 agreement gated KL improve a 0.5B student over identically trained gold-SFT on a new project-context holdout?",
+  "hypothesis_basis": "Observed TRAIN agreement 1141/1289 supervised positions; historical reused dev full-KD underperformed gold-SFT. No new cohort prediction or score used to select this single candidate.",
+  "arms": [
+    "gold",
+    "full_kd",
+    "gated_kd"
+  ],
+  "seeds": [
+    20261009,
+    20261010,
+    20261011
+  ],
+  "training": {
+    "artifact": "data/coverage-v3-gold242",
+    "source": "data/complexity-v1",
+    "rows": 242,
+    "steps": 242,
+    "learning_rate": 0.0001,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "temperature": 2.0,
+    "hard_ce_weight": 0.5,
+    "soft_kl_weight": 0.5,
+    "max_tokens": 2048,
+    "cpu_threads": 8,
+    "gradient_clip_norm": 1.0,
+    "weight_decay": 0.01,
+    "device": "cpu",
+    "dtype": "float32",
+    "attention_implementation": "eager",
+    "optimizer": "AdamW default betas and eps; weight_decay=0.01",
+    "batch_size": 1,
+    "gold_objective": "1.0 * answer-token CE",
+    "full_kd_objective": "0.5*CE + 0.5*T^2*sum(token KL)/N",
+    "gated_kd_objective": "0.5*CE + 0.5*T^2*sum(teacher argmax == gold ? token KL : 0)/N; N is ALL supervised positions",
+    "teacher_cache": "Regenerate once from strict verified local teacher/student bytes; complete-vocabulary fp16 log probabilities; no legacy cache. Gold arm validates same cache but does not optimize KL."
+  },
+  "data": {
+    "source": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json",
+    "license": "CC BY-SA 4.0",
+    "sampler": "scripts/prepare_confirmation_data.py",
+    "exclusions": "configs/confirmation-exclusions-v1.json",
+    "seed": 20261009,
+    "contexts": 128,
+    "questions": 256,
+    "per_context": {
+      "answerable": 1,
+      "unanswerable": 1
+    },
+    "selection": "Frozen hash order with round-robin articles, after historical exact-context/question and near-question exclusions; fail if insufficient. No model outcome filtering.",
+    "input_label_separation": "inputs.jsonl has no answers/is_impossible; labels file is not read by prediction process; all nine predictions must be completed and hash-locked before scoring. This is an auditable process boundary, not cryptographic blinding.",
+    "independence": "New to audited project model evaluation at context level, not unseen articles, hidden official SQuAD test, random production traffic, or known pretraining-clean data. Five accidentally displayed articles are excluded in full.",
+    "source_sha256": "80a5225e94905956a6446d296ca1093975c4d3b3260f1d6c8f68bc2ab77182d8"
+  },
+  "scoring": {
+    "seeds": [
+      20261009,
+      20261010,
+      20261011
+    ],
+    "arms": [
+      "gold",
+      "full_kd",
+      "gated_kd"
+    ],
+    "expected_contexts": 128,
+    "expected_questions": 256,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20261009,
+    "min_em_gain": 0.03,
+    "min_positive_seeds": 2,
+    "max_subgroup_drop": 0.02,
+    "min_format_valid_rate": 0.99,
+    "metric": "qa_lab.metrics SQuAD-style normalized EM/token F1, exact NO_ANSWER; format validity reported separately. Not official SQuAD script.",
+    "primary": "mean across seeds gated_kd minus gold overall EM; full_kd secondary, cannot replace primary",
+    "confidence": "95% percentile paired article-cluster bootstrap on per-question seed-mean paired differences, question-weighted across resampled articles. Captures cohort/article sampling, not full training-seed uncertainty.",
+    "acceptance": "All: gain>=0.03; bootstrap lower>0; >=2 seeds gain>0; answerable and unanswerable mean drops<=0.02; each candidate seed format_valid_rate>=0.99. No rounding before decisions."
+  },
+  "generation": {
+    "batch_size": 1,
+    "device": "cpu",
+    "dtype": "float32",
+    "attention_implementation": "eager",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 48,
+    "do_sample": false,
+    "warmup": 2,
+    "warmup_input": "Synthetic fixed queue FIFO question from existing inference code, no cohort labels",
+    "timing_scope": "Cost accounting only, not a latency/throughput benchmark; includes serial offline generation without request scheduling."
+  },
+  "order": {
+    "training": [
+      "gold:20261009",
+      "full_kd:20261009",
+      "gated_kd:20261009",
+      "full_kd:20261010",
+      "gated_kd:20261010",
+      "gold:20261010",
+      "gated_kd:20261011",
+      "gold:20261011",
+      "full_kd:20261011"
+    ],
+    "prediction": "Same nine-run order, fixed inputs file order; train and freeze all nine adapters before any heldout predictions."
+  },
+  "budget": {
+    "total_wall_seconds": 5400,
+    "training_run_seconds": 900,
+    "prediction_run_seconds": 900,
+    "max_sampled_rss_bytes": 25769803776,
+    "max_output_bytes": 8589934592,
+    "paid_resources": false,
+    "models": "Existing verified local snapshots only; no downloads, conversions, API or model uploads"
+  },
+  "failure_policy": "Stop on hash/coverage/token alignment/non-finite/timing/memory/disk failure. Preserve partial output and failure receipt. Never overwrite/rerun a completed arm, replace inputs or lower thresholds. Runtime/code failures require documented new execution version before retry; holdout scores are never used for tuning.",
+  "limitations": [
+    "Gate changes both which KL targets contribute and total KL strength; no causal isolation of teacher disagreement.",
+    "One candidate, one finite cohort, three seeds; failure or inconclusive result is retained.",
+    "All three arms are the same student size. This study tests soft-target quality benefit, not quantization success, teacher quality parity, inference speedup or production readiness.",
+    "Legacy dev and historical results remain unchanged; no external quality confirmation retroactively applied to them."
+  ],
+  "frozen_inputs": {
+    "data/coverage-v3-gold242/train.jsonl": "38e4dba72b8c3160cfd40ceb7fd749b2012b7303549c2f5dec1bfcaa11926543",
+    "data/coverage-v3-gold242/manifest.json": "a789319989bbf17fdf370864cc7a37de1e5fd0ce2a74d77ea374825644333c6c",
+    "data/complexity-v1/train.jsonl": "46cd981f842f905b197db0fda1ed3570377820b909278bc35ac859c175367274",
+    "configs/logits-distillation-v2/objective.json": "290c754957e6b0b2003a3b7f0f9bd02a6c8d91ddea22e09835958495d4c75f3e",
+    "reports/model-artifacts.json": "014e6a0442569325a977740ec247dd6438fc2b1f89e53c156d6c6ef023429d27",
+    "reports/closure-v1/teacher-model-artifacts.json": "274df82394a3b16cdbd42b8bb5bb0e000dc49e3a0cf47b9c256cb47979b68645",
+    "configs/teacher-gated-confirmation-v1/student.json": "c5f564cd0726921e046a5de8dd53c950c1a3a9bfa0dd656f7c37b7a5da5184c3",
+    "configs/teacher-gated-confirmation-v1/teacher.json": "ed3db4c9d60ba92add8f3e4bbcc89d96cb46d488f30cbb86cf82c0638aa4b045",
+    "scripts/prepare_confirmation_data.py": "e214f32c6bc84a222cf5f043aab6b53ac3e75473e7c86b711a30169b22f05bdf",
+    "configs/confirmation-exclusions-v1.json": "953a2e5e25075c3dc17e7dac0b3c4c724f93d45ec59b25b08af8c0608973c86b"
+  }
+}
