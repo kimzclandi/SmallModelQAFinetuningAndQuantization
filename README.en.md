@@ -2,7 +2,7 @@
 
 [简体中文](README.md) | **English**
 
-This personal research project was developed and iterated during the maintainer’s time in a NUS lab. It studies quality and runtime cost in small-model passage QA: given a passage and question, return the shortest verbatim answer, or strict `NO_ANSWER` when the passage provides no answer. Retrieval and closed-book QA are outside this task.
+This two-person collaborative research project ([authors](AUTHORS.md)) was developed and iterated during the maintainer’s time in a NUS lab. It studies quality and runtime cost in small-model passage QA: given a passage and question, return the shortest verbatim answer, or strict `NO_ANSWER` when the passage provides no answer. Retrieval and closed-book QA are outside this task.
 
 The project asks two independent questions: does teacher guidance help more than learning from correct answers directly, and can low-bit quantization reduce weight-file size and improve decoding speed while limiting answer regressions? Baselines and data isolation precede fixed protocols; per-example predictions and cost records determine whether a candidate meets its adoption gates.
 
@@ -46,7 +46,7 @@ On 242 frozen TRAIN rows, three fixed seeds × 242 steps achieved **60.36% ± 2.
 
 ## Project history (added 2026-09-20)
 
-According to the maintainer, related early work began locally around June 2026 before consolidation and upload to GitHub. This approximate starting point does not date all current features or experiments. Later implementations, experiments and maintenance retain their actual version and run dates. On 2026-10-09, the maintainer confirmed that the project was personally developed or continued during their time in a NUS lab; this context does not change the early starting point or backdate all later work.
+According to the maintainer, related early work began locally around June 2026 before consolidation and upload to GitHub. This approximate starting point does not date all current features or experiments. Later implementations, experiments and maintenance retain their actual version and run dates. On 2026-10-10, the maintainer clarified that the project is a two-person collaboration ([authors](AUTHORS.md)), developed or continued during their time in a NUS lab; this context does not change the early starting point or backdate all later work.
 
 ## Chinese data-quality comparison (2026-09-20)
 

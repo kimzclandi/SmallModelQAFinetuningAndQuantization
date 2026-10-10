@@ -1,5 +1,7 @@
 # 贡献与 AI 辅助开发
 
+本项目为两人合作项目，作者见 [AUTHORS](AUTHORS.md)。
+
 项目使用 Codex 辅助实验设计、代码与文档编写、命令执行、结果整理及发布维护。AI 辅助工作覆盖数据隔离、训练/评测入口、离线证据核验与复现工具；不声称独立研发基础模型、蒸馏算法或训练框架。
 
 Qwen 提供学生与本地教师模型，SQuAD/Wikipedia 和 CMRC2018 提供数据，PyTorch、Transformers、PEFT 与 MLX 提供推理、训练和量化基础设施。归属见 [THIRD_PARTY](THIRD_PARTY.md) 与 [DATA_LICENSE](DATA_LICENSE.md)。
