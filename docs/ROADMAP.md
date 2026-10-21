@@ -17,6 +17,6 @@
 
 1. **中文信息不足/拒答与业务适用性。** 需要目标业务定义、合法可用材料、可回答/不可回答标签与错误代价。随机错配文段不能自动得到可靠无答案标签：可能保留答案，也可能仅制造过于简单的负例。若后续建设数据集，先冻结来源、类别、审查规则和门槛，再对文段支持性做人工审查；标出争议题与审查一致性。规则仅能筛候选，不能替代真实业务标签。本轮不造合成分数填补缺口。
 2. **目标硬件/异机复现。** 需要另一台设备，或可用的CUDA/Ascend资源；先验收环境、算子/精度、生成一致性、训练与计时口径，再讨论性能。当前CPU smoke共用本机已有只读模型缓存，不能替代从零下载或异机复现。
-3. **GitHub发布和线上CI：已完成。** 代码、文档及许可实验记录已公开；仓库为https://github.com/kimzclandi/domain-qa-lab。提交1d86c7a的首次线上验收已通过：https://github.com/kimzclandi/domain-qa-lab/actions/runs/35352738578。仅为Linux上的离线证据检查，不是异机模型复现。
+3. **GitHub发布和线上CI：已完成。** 代码、文档及许可实验记录已公开；仓库为https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization（原名domain-qa-lab）。提交1d86c7a的首次线上验收已通过：https://github.com/kimzclandi/SmallModelQAFinetuningAndQuantization/actions/runs/35352738578。仅为Linux上的离线证据检查，不是异机模型复现。
 
 旧英文test、64题跨文章集与96题中文集均已查看。不得继续用其挑提示词/调参后再宣称独立验证。新的方法选择需要新的评测协议和独立数据。

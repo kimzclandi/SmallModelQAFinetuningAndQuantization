@@ -19,4 +19,4 @@ Expected: tests exit 0; replay and rebuild pass historical contracts. Baseline f
 
 A checksum detects changed bytes, not honest provenance. This remains local consistency verification, not a cryptographic attestation or semantic review.
 
-No new training, human semantic annotation, model-quality uplift or deployment is claimed. For resume mapping and interview questions, see the existing 2026-09-22 maintenance handoff; this addendum changes reliability evidence only.
+No new training, human semantic annotation, model-quality uplift or deployment is claimed. This addendum changes reliability evidence only.
